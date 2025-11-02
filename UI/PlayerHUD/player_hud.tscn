@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkvrnpgnp3f86"]
+
+[ext_resource type="Script" uid="uid://cixf8coa0xj00" path="res://UI/PlayerHUD/player_hud.gd" id="1_pi8qp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5o0p8"]
+font_size = 32
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.6039216)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5wk1x"]
+bg_color = Color(0.7851237, 0.036288843, 0.036288843, 1)
+
+[node name="PlayerHUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_pi8qp")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="HPHBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="HPLabel" type="Label" parent="MarginContainer/HPHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "HP:"
+label_settings = SubResource("LabelSettings_5o0p8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HPProgressBar" type="ProgressBar" parent="MarginContainer/HPHBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+theme_override_styles/fill = SubResource("StyleBoxFlat_5wk1x")
+value = 21.06
+show_percentage = false

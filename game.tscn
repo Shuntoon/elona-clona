@@ -1,6 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://c4ruds6frs58h"]
+[gd_scene load_steps=9 format=3 uid="uid://c4ruds6frs58h"]
 
 [ext_resource type="Texture2D" uid="uid://c7hoa4bjs6jxf" path="res://Art/Filler/BG/BG1.png" id="1_80nbo"]
+[ext_resource type="Script" uid="uid://cvikpqyxjqs5g" path="res://Scripts/GameManager/game_manager.gd" id="1_fc0e3"]
+[ext_resource type="PackedScene" uid="uid://ci4hdj038kg5i" path="res://Objects/MouseShooter/mouse_shooter.tscn" id="1_feb5d"]
+[ext_resource type="PackedScene" uid="uid://dkvrnpgnp3f86" path="res://UI/PlayerHUD/player_hud.tscn" id="1_ryrav"]
+[ext_resource type="Script" uid="uid://c60bxtqxj72gr" path="res://Objects/Spawner/spawner.gd" id="5_7jktm"]
+[ext_resource type="Texture2D" uid="uid://cseoedy4scsdr" path="res://icon.svg" id="5_ryrav"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_80nbo"]
 
@@ -9,7 +14,18 @@ size = Vector2(2.5714264, 8.034514)
 
 [node name="Game" type="Node"]
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PlayerHUD" parent="CanvasLayer" instance=ExtResource("1_ryrav")]
+
+[node name="GameManager" type="Node" parent="." groups=["game_manager"]]
+script = ExtResource("1_fc0e3")
+
+[node name="SpawnTimer" type="Timer" parent="GameManager"]
+
+[node name="MouseShooter" parent="." instance=ExtResource("1_feb5d")]
+
+[node name="BG" type="TextureRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -22,73 +38,126 @@ grow_vertical = 2
 texture = ExtResource("1_80nbo")
 expand_mode = 1
 
-[node name="Pillars" type="Node2D" parent="."]
+[node name="Environment" type="Node2D" parent="."]
 
-[node name="MeshInstance2D2" type="MeshInstance2D" parent="Pillars"]
+[node name="Pillars" type="Node2D" parent="Environment"]
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Environment/Pillars"]
 modulate = Color(0.37101543, 0.37101543, 0.37101543, 1)
 position = Vector2(979.00006, 613.5)
 scale = Vector2(14.00005, 28.99991)
 mesh = SubResource("QuadMesh_80nbo")
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="Pillars"]
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/Pillars"]
 modulate = Color(0.6697165, 0.6697165, 0.6697165, 1)
 position = Vector2(972, 613.5)
 scale = Vector2(17.99994, 29.000065)
 mesh = SubResource("QuadMesh_80nbo")
 
-[node name="MeshInstance2D3" type="MeshInstance2D" parent="Pillars"]
+[node name="MeshInstance2D3" type="MeshInstance2D" parent="Environment/Pillars"]
 modulate = Color(0.37101543, 0.37101543, 0.37101543, 1)
 position = Vector2(979.0001, 568.50006)
 scale = Vector2(14.00005, 28.99991)
 mesh = SubResource("QuadMesh_80nbo")
 
-[node name="MeshInstance2D4" type="MeshInstance2D" parent="Pillars"]
+[node name="MeshInstance2D4" type="MeshInstance2D" parent="Environment/Pillars"]
 modulate = Color(0.6697165, 0.6697165, 0.6697165, 1)
 position = Vector2(972.00006, 568.50006)
 scale = Vector2(17.99994, 29.000065)
 mesh = SubResource("QuadMesh_80nbo")
 
-[node name="MeshInstance2D5" type="MeshInstance2D" parent="Pillars"]
+[node name="MeshInstance2D5" type="MeshInstance2D" parent="Environment/Pillars"]
 modulate = Color(0.37101543, 0.37101543, 0.37101543, 1)
 position = Vector2(979.0001, 524.5)
 scale = Vector2(14.00005, 28.99991)
 mesh = SubResource("QuadMesh_80nbo")
 
-[node name="MeshInstance2D6" type="MeshInstance2D" parent="Pillars"]
+[node name="MeshInstance2D6" type="MeshInstance2D" parent="Environment/Pillars"]
 modulate = Color(0.6697165, 0.6697165, 0.6697165, 1)
 position = Vector2(972.00006, 524.50006)
 scale = Vector2(17.99994, 29.000065)
 mesh = SubResource("QuadMesh_80nbo")
 
-[node name="MeshInstance2D7" type="MeshInstance2D" parent="Pillars"]
+[node name="MeshInstance2D7" type="MeshInstance2D" parent="Environment/Pillars"]
 modulate = Color(0.37101543, 0.37101543, 0.37101543, 1)
 position = Vector2(979.0001, 480.49997)
 scale = Vector2(14.00005, 28.99991)
 mesh = SubResource("QuadMesh_80nbo")
 
-[node name="MeshInstance2D8" type="MeshInstance2D" parent="Pillars"]
+[node name="MeshInstance2D8" type="MeshInstance2D" parent="Environment/Pillars"]
 modulate = Color(0.6697165, 0.6697165, 0.6697165, 1)
 position = Vector2(972.00006, 480.50003)
 scale = Vector2(17.99994, 29.000065)
 mesh = SubResource("QuadMesh_80nbo")
 
-[node name="MeshInstance2D9" type="MeshInstance2D" parent="Pillars"]
+[node name="MeshInstance2D9" type="MeshInstance2D" parent="Environment/Pillars"]
 modulate = Color(0.37101543, 0.37101543, 0.37101543, 1)
 position = Vector2(979.0001, 437.49997)
 scale = Vector2(14.00005, 28.99991)
 mesh = SubResource("QuadMesh_80nbo")
 
-[node name="MeshInstance2D10" type="MeshInstance2D" parent="Pillars"]
+[node name="MeshInstance2D10" type="MeshInstance2D" parent="Environment/Pillars"]
 modulate = Color(0.6697165, 0.6697165, 0.6697165, 1)
 position = Vector2(972.00006, 437.50003)
 scale = Vector2(17.99994, 29.000065)
 mesh = SubResource("QuadMesh_80nbo")
 
-[node name="WallArea2D" type="Area2D" parent="."]
+[node name="WallArea2D" type="Area2D" parent="Environment" groups=["wall"]]
 position = Vector2(972, 566)
 scale = Vector2(14.00005, 28.99991)
+collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WallArea2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/WallArea2D"]
 position = Vector2(0.2142868, -1.4655209)
 scale = Vector2(0.9999997, 0.99999976)
 shape = SubResource("RectangleShape2D_80nbo")
+
+[node name="Entities" type="Node2D" parent="."]
+
+[node name="Enemies" type="Node2D" parent="Entities" groups=["enemies"]]
+
+[node name="Allies" type="Node2D" parent="Entities" groups=["allies"]]
+
+[node name="Player" type="Sprite2D" parent="Entities/Allies"]
+position = Vector2(1055, 508)
+scale = Vector2(0.58, 0.58)
+texture = ExtResource("5_ryrav")
+
+[node name="Neutral" type="Node2D" parent="Entities" groups=["neutral_entities"]]
+
+[node name="Spawner" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-181, 0)
+script = ExtResource("5_7jktm")
+
+[node name="Ground" type="Node2D" parent="Spawner"]
+unique_name_in_owner = true
+
+[node name="Pos1" type="Marker2D" parent="Spawner/Ground"]
+position = Vector2(0, 607)
+
+[node name="Pos2" type="Marker2D" parent="Spawner/Ground"]
+position = Vector2(0, 557)
+
+[node name="Pos3" type="Marker2D" parent="Spawner/Ground"]
+position = Vector2(0, 507)
+
+[node name="Pos4" type="Marker2D" parent="Spawner/Ground"]
+position = Vector2(0, 457)
+
+[node name="Pos5" type="Marker2D" parent="Spawner/Ground"]
+position = Vector2(0, 407)
+
+[node name="Air" type="Node2D" parent="Spawner"]
+unique_name_in_owner = true
+
+[node name="Pos1" type="Marker2D" parent="Spawner/Air"]
+position = Vector2(0, 148)
+
+[node name="Pos2" type="Marker2D" parent="Spawner/Air"]
+position = Vector2(0, 92)
+
+[node name="Pos3" type="Marker2D" parent="Spawner/Air"]
+position = Vector2(0, 30)
+
+[connection signal="timeout" from="GameManager/SpawnTimer" to="GameManager" method="_on_spawn_timer_timeout"]

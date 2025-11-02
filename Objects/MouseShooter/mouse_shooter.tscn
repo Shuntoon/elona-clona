@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ci4hdj038kg5i"]
+
+[ext_resource type="Script" uid="uid://3qbthbxq5d56" path="res://Objects/MouseShooter/mouse_shooter.gd" id="1_uyvss"]
+
+[node name="MouseShooter" type="Node2D"]
+script = ExtResource("1_uyvss")
