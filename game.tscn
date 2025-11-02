@@ -1,0 +1,94 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4ruds6frs58h"]
+
+[ext_resource type="Texture2D" uid="uid://c7hoa4bjs6jxf" path="res://Art/Filler/BG/BG1.png" id="1_80nbo"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_80nbo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_80nbo"]
+size = Vector2(2.5714264, 8.034514)
+
+[node name="Game" type="Node"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -140.44446
+offset_top = -431.0
+offset_right = 140.44446
+offset_bottom = 119.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_80nbo")
+expand_mode = 1
+
+[node name="Pillars" type="Node2D" parent="."]
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Pillars"]
+modulate = Color(0.37101543, 0.37101543, 0.37101543, 1)
+position = Vector2(979.00006, 613.5)
+scale = Vector2(14.00005, 28.99991)
+mesh = SubResource("QuadMesh_80nbo")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Pillars"]
+modulate = Color(0.6697165, 0.6697165, 0.6697165, 1)
+position = Vector2(972, 613.5)
+scale = Vector2(17.99994, 29.000065)
+mesh = SubResource("QuadMesh_80nbo")
+
+[node name="MeshInstance2D3" type="MeshInstance2D" parent="Pillars"]
+modulate = Color(0.37101543, 0.37101543, 0.37101543, 1)
+position = Vector2(979.0001, 568.50006)
+scale = Vector2(14.00005, 28.99991)
+mesh = SubResource("QuadMesh_80nbo")
+
+[node name="MeshInstance2D4" type="MeshInstance2D" parent="Pillars"]
+modulate = Color(0.6697165, 0.6697165, 0.6697165, 1)
+position = Vector2(972.00006, 568.50006)
+scale = Vector2(17.99994, 29.000065)
+mesh = SubResource("QuadMesh_80nbo")
+
+[node name="MeshInstance2D5" type="MeshInstance2D" parent="Pillars"]
+modulate = Color(0.37101543, 0.37101543, 0.37101543, 1)
+position = Vector2(979.0001, 524.5)
+scale = Vector2(14.00005, 28.99991)
+mesh = SubResource("QuadMesh_80nbo")
+
+[node name="MeshInstance2D6" type="MeshInstance2D" parent="Pillars"]
+modulate = Color(0.6697165, 0.6697165, 0.6697165, 1)
+position = Vector2(972.00006, 524.50006)
+scale = Vector2(17.99994, 29.000065)
+mesh = SubResource("QuadMesh_80nbo")
+
+[node name="MeshInstance2D7" type="MeshInstance2D" parent="Pillars"]
+modulate = Color(0.37101543, 0.37101543, 0.37101543, 1)
+position = Vector2(979.0001, 480.49997)
+scale = Vector2(14.00005, 28.99991)
+mesh = SubResource("QuadMesh_80nbo")
+
+[node name="MeshInstance2D8" type="MeshInstance2D" parent="Pillars"]
+modulate = Color(0.6697165, 0.6697165, 0.6697165, 1)
+position = Vector2(972.00006, 480.50003)
+scale = Vector2(17.99994, 29.000065)
+mesh = SubResource("QuadMesh_80nbo")
+
+[node name="MeshInstance2D9" type="MeshInstance2D" parent="Pillars"]
+modulate = Color(0.37101543, 0.37101543, 0.37101543, 1)
+position = Vector2(979.0001, 437.49997)
+scale = Vector2(14.00005, 28.99991)
+mesh = SubResource("QuadMesh_80nbo")
+
+[node name="MeshInstance2D10" type="MeshInstance2D" parent="Pillars"]
+modulate = Color(0.6697165, 0.6697165, 0.6697165, 1)
+position = Vector2(972.00006, 437.50003)
+scale = Vector2(17.99994, 29.000065)
+mesh = SubResource("QuadMesh_80nbo")
+
+[node name="WallArea2D" type="Area2D" parent="."]
+position = Vector2(972, 566)
+scale = Vector2(14.00005, 28.99991)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallArea2D"]
+position = Vector2(0.2142868, -1.4655209)
+scale = Vector2(0.9999997, 0.99999976)
+shape = SubResource("RectangleShape2D_80nbo")
