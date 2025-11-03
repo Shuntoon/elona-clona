@@ -4,6 +4,7 @@ class_name PlayerHUD
 var game_manager : GameManager
 
 @onready var hp_progress_bar: ProgressBar = %HPProgressBar
+@onready var time_left_meter: ColorRect = %TimeLeftMeter
 
 func _ready() -> void:
 	game_manager = get_tree().get_first_node_in_group("game_manager")
@@ -13,3 +14,4 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if game_manager != null:
 		hp_progress_bar.value = game_manager.current_health
+		time_left_meter.material.set_shader_parameter("value", game_manager.day_timer.time_left / (game_manager.day_time_length))

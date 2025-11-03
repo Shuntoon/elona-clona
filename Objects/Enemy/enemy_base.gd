@@ -7,12 +7,14 @@ signal died
 @export var enemy_name : String
 @export var speed : float = 2
 @export var max_health : int = 5
+@export var range : float = 30
 @export var damage : int = 1
 @export var sprite : Sprite2D
 @export var attack_speed : float = 1
 
 @onready var state_chart: StateChart = $StateChart
 @onready var attack_speed_timer: Timer = $AttackSpeedTimer
+@onready var wall_detector: Area2D = $WallDetector
 
 var game_manager : GameManager
 
@@ -24,6 +26,7 @@ var current_health : int :
 			
 
 func _ready() -> void:
+	wall_detector.position.x = range
 	game_manager = get_tree().get_first_node_in_group("game_manager")
 	
 	attack_speed_timer.wait_time = attack_speed

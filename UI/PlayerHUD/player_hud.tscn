@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dkvrnpgnp3f86"]
+[gd_scene load_steps=7 format=3 uid="uid://dkvrnpgnp3f86"]
 
 [ext_resource type="Script" uid="uid://cixf8coa0xj00" path="res://UI/PlayerHUD/player_hud.gd" id="1_pi8qp"]
+[ext_resource type="Shader" uid="uid://do6sswls8vm6l" path="res://Shaders/radial_bar.gdshader" id="2_pkcmm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5o0p8"]
 font_size = 32
@@ -9,6 +10,20 @@ shadow_color = Color(0, 0, 0, 0.6039216)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5wk1x"]
 bg_color = Color(0.7851237, 0.036288843, 0.036288843, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_pkcmm"]
+font_size = 24
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_70xbo"]
+shader = ExtResource("2_pkcmm")
+shader_parameter/primary_color = Color(0.90053093, 0.90053093, 0.90053093, 1)
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/unfilled_color = Color(0.7294118, 0.2509804, 0.47159111, 1)
+shader_parameter/value = 0.999999977648
+shader_parameter/smooth_ = 0.005
+shader_parameter/width_in = 0.0
+shader_parameter/width_out = 0.95
+shader_parameter/border_width = 0.05
 
 [node name="PlayerHUD" type="Control"]
 layout_mode = 3
@@ -55,3 +70,22 @@ size_flags_vertical = 1
 theme_override_styles/fill = SubResource("StyleBoxFlat_5wk1x")
 value = 21.06
 show_percentage = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_constants/separation = 16
+
+[node name="TimeLeftLabel" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Time Left:"
+label_settings = SubResource("LabelSettings_pkcmm")
+
+[node name="TimeLeftMeter" type="ColorRect" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_70xbo")
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
