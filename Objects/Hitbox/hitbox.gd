@@ -1,6 +1,9 @@
 extends Area2D
 class_name Hitbox
 
+@export var destroy_instantly : bool = true
+@export var piercing : bool = false
+
 var damage : int = 1
 
 func _on_area_entered(area: Area2D) -> void:
@@ -14,8 +17,12 @@ func _on_area_entered(area: Area2D) -> void:
 				enemy.current_health -= damage * 2 # temp 
 				print("Critcal Hit!")
 		
-	pass # Replace with function body.
+		# Only destroy if not piercing
+		if not piercing:
+			await get_tree().create_timer(.1).timeout #despawn after 
+			queue_free()
 
 func _ready() -> void:
-	await get_tree().create_timer(.1).timeout #despawn after 
-	queue_free()
+	if destroy_instantly:
+		await get_tree().create_timer(.1).timeout #despawn after 
+		queue_free()
