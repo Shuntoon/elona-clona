@@ -4,7 +4,7 @@ class_name Hitbox
 @export var destroy_instantly : bool = true
 @export var piercing : bool = false
 
-var damage : int = 1
+@export var damage : int = 1
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.owner.is_in_group("enemy"):

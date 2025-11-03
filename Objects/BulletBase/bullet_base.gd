@@ -10,6 +10,7 @@ var direction : Vector2
 func _ready() -> void:
 	# Calculate direction once and keep flying in that direction
 	direction = global_position.direction_to(target)
+	rotation = direction.angle()
 	
 	# Pass piercing value to the hitbox child
 	var hitbox = get_node_or_null("Hitbox")

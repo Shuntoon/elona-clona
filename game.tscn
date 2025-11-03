@@ -35,6 +35,8 @@ autostart = true
 
 [node name="MouseShooter" parent="." instance=ExtResource("1_feb5d")]
 accuracy = 0.798
+bullet_type = 0
+fire_mode = 1
 
 [node name="BG" type="TextureRect" parent="."]
 anchors_preset = 15
