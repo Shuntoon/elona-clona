@@ -14,6 +14,25 @@ bg_color = Color(0.7851237, 0.036288843, 0.036288843, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_pkcmm"]
 font_size = 24
 
+[sub_resource type="LabelSettings" id="LabelSettings_ability"]
+font_size = 16
+shadow_size = 1
+shadow_color = Color(0, 0, 0, 0.6)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ability_bg"]
+bg_color = Color(0.15, 0.15, 0.15, 0.8)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ability_fill"]
+bg_color = Color(0.3, 1.0, 0.3, 1.0)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_70xbo"]
 shader = ExtResource("2_pkcmm")
 shader_parameter/primary_color = Color(0.90053093, 0.90053093, 0.90053093, 1)
@@ -87,6 +106,78 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 max_value = 100.0
+show_percentage = false
+
+[node name="AbilitiesHBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 12
+
+[node name="Ability1VBox" type="VBoxContainer" parent="MarginContainer/AbilitiesHBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Ability1Label" type="Label" parent="MarginContainer/AbilitiesHBoxContainer/Ability1VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Ability 1"
+label_settings = SubResource("LabelSettings_ability")
+horizontal_alignment = 1
+
+[node name="Ability1Bar" type="ProgressBar" parent="MarginContainer/AbilitiesHBoxContainer/Ability1VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(140, 18)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_ability_bg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ability_fill")
+max_value = 100.0
+value = 100.0
+show_percentage = false
+
+[node name="Ability2VBox" type="VBoxContainer" parent="MarginContainer/AbilitiesHBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Ability2Label" type="Label" parent="MarginContainer/AbilitiesHBoxContainer/Ability2VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Ability 2"
+label_settings = SubResource("LabelSettings_ability")
+horizontal_alignment = 1
+
+[node name="Ability2Bar" type="ProgressBar" parent="MarginContainer/AbilitiesHBoxContainer/Ability2VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(140, 18)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_ability_bg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ability_fill")
+max_value = 100.0
+value = 100.0
+show_percentage = false
+
+[node name="Ability3VBox" type="VBoxContainer" parent="MarginContainer/AbilitiesHBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Ability3Label" type="Label" parent="MarginContainer/AbilitiesHBoxContainer/Ability3VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Ability 3"
+label_settings = SubResource("LabelSettings_ability")
+horizontal_alignment = 1
+
+[node name="Ability3Bar" type="ProgressBar" parent="MarginContainer/AbilitiesHBoxContainer/Ability3VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(140, 18)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_ability_bg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ability_fill")
+max_value = 100.0
+value = 100.0
 show_percentage = false
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]

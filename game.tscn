@@ -1,12 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://c4ruds6frs58h"]
+[gd_scene load_steps=13 format=3 uid="uid://c4ruds6frs58h"]
 
 [ext_resource type="Texture2D" uid="uid://c7hoa4bjs6jxf" path="res://Art/Filler/BG/BG1.png" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://cvikpqyxjqs5g" path="res://Scripts/GameManager/game_manager.gd" id="1_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://ci4hdj038kg5i" path="res://Objects/MouseShooter/mouse_shooter.tscn" id="1_feb5d"]
 [ext_resource type="PackedScene" uid="uid://dkvrnpgnp3f86" path="res://UI/PlayerHUD/player_hud.tscn" id="1_ryrav"]
 [ext_resource type="PackedScene" uid="uid://d225nmsfm10mv" path="res://UI/Shop/shop.tscn" id="2_eow3j"]
+[ext_resource type="Script" uid="uid://cfhy465135m07" path="res://Scripts/Abilities/ability_manager.gd" id="4_vef74"]
 [ext_resource type="Script" uid="uid://c60bxtqxj72gr" path="res://Objects/Spawner/spawner.gd" id="5_7jktm"]
+[ext_resource type="Script" uid="uid://c60utqbyl6xt7" path="res://Scripts/Abilities/fire_rate_boost_ability.gd" id="5_hve3p"]
 [ext_resource type="Texture2D" uid="uid://cseoedy4scsdr" path="res://icon.svg" id="5_ryrav"]
+[ext_resource type="Script" uid="uid://bf28q005qtvbc" path="res://Scripts/Abilities/power_shot_ability.gd" id="6_hve3p"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_80nbo"]
 
@@ -33,8 +36,23 @@ wait_time = 10.0
 one_shot = true
 autostart = true
 
+[node name="AbilityManager" type="Node" parent="." node_paths=PackedStringArray("abilities") groups=["ability_manager"]]
+script = ExtResource("4_vef74")
+abilities = [NodePath("FireRateBoostAbility"), NodePath("PowerShotAbility")]
+metadata/_custom_type_script = "uid://cfhy465135m07"
+
+[node name="FireRateBoostAbility" type="Node" parent="AbilityManager"]
+script = ExtResource("5_hve3p")
+metadata/_custom_type_script = "uid://c60utqbyl6xt7"
+
+[node name="PowerShotAbility" type="Node" parent="AbilityManager"]
+script = ExtResource("6_hve3p")
+metadata/_custom_type_script = "uid://bf28q005qtvbc"
+
 [node name="MouseShooter" parent="." instance=ExtResource("1_feb5d")]
 accuracy = 0.798
+fire_mode = 2
+fire_rate = 200.0
 
 [node name="BG" type="TextureRect" parent="."]
 anchors_preset = 15
