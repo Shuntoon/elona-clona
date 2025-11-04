@@ -1,0 +1,53 @@
+[gd_scene load_steps=11 format=3 uid="uid://doaytv1th1j3v"]
+
+[ext_resource type="Script" uid="uid://1y772f2tiyqy" path="res://Scripts/HitFX/hit_vfx.gd" id="1_136hd"]
+[ext_resource type="Texture2D" uid="uid://babj03gn3ytjt" path="res://Art/VFX/Hit-I/hit-i1.png" id="2_a0dft"]
+[ext_resource type="Texture2D" uid="uid://bg03lc3obfacl" path="res://Art/VFX/Hit-I/hit-i2.png" id="3_g5o88"]
+[ext_resource type="Texture2D" uid="uid://b0c5uqsvbunxw" path="res://Art/VFX/Hit-I/hit-i3.png" id="4_4m1ff"]
+[ext_resource type="Texture2D" uid="uid://cirsj6ra0ocrk" path="res://Art/VFX/Hit-I/hit-i4.png" id="5_k4b1c"]
+[ext_resource type="Texture2D" uid="uid://beuifd8ke8j44" path="res://Art/VFX/Hit-I/hit-i5.png" id="6_q3upa"]
+[ext_resource type="Texture2D" uid="uid://cbuav2qj6mebl" path="res://Art/VFX/Hit-I/hit-i6.png" id="7_8bec1"]
+[ext_resource type="Texture2D" uid="uid://cv84mibvo3x2s" path="res://Art/VFX/Hit-I/hit-i7.png" id="8_5fi41"]
+[ext_resource type="Texture2D" uid="uid://cs682nkuw0g1u" path="res://Art/VFX/Hit-I/hit-i8.png" id="9_mc3q7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qyly6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_a0dft")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_g5o88")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4m1ff")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_k4b1c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_q3upa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_8bec1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_5fi41")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_mc3q7")
+}],
+"loop": false,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="HitGroundVFX" type="Node2D"]
+script = ExtResource("1_136hd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_qyly6")
+autoplay = "default"
+frame = 7
+frame_progress = 1.0

@@ -3,6 +3,9 @@ class_name MouseShooter
 
 const HITBOX = preload("uid://bg6uxodad3g5f")
 const BULLET_BASE = preload("uid://bljxubxu5eg3j")
+const HIT_ENEMY_VFX = preload("uid://cubkpuvcxnh63")
+const HIT_GROUND_VFX = preload("uid://doaytv1th1j3v")
+
 
 # Add to group so HUD can find it
 func _enter_tree() -> void:
@@ -135,6 +138,8 @@ func _fire_bullet() -> void:
 	if bullet_type == BULLET_TYPE.HITSCAN:
 		var hitbox_inst : Hitbox = HITBOX.instantiate()
 		hitbox_inst.destroy_instantly = true
+		hitbox_inst.hit_enemy_vfx = HIT_ENEMY_VFX
+		hitbox_inst.hit_ground_vfx = HIT_GROUND_VFX
 		hitbox_inst.global_position = get_global_mouse_position() + _calculate_accuracy_offset()
 		if neutral_entities != null:
 			neutral_entities.add_child(hitbox_inst)
@@ -146,6 +151,8 @@ func _fire_bullet() -> void:
 		bullet_base_inst.global_position = bullet_spawn_point
 		bullet_base_inst.target = get_global_mouse_position() + _calculate_accuracy_offset()
 		bullet_base_inst.piercing = projectile_piercing  # Set piercing based on export variable
+		bullet_base_inst.hit_enemy_vfx = HIT_ENEMY_VFX
+		bullet_base_inst.hit_ground_vfx = HIT_GROUND_VFX
 		if neutral_entities != null:
 			neutral_entities.add_child(bullet_base_inst)
 		else:

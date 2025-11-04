@@ -1,0 +1,43 @@
+[gd_scene load_steps=9 format=3 uid="uid://cubkpuvcxnh63"]
+
+[ext_resource type="Script" uid="uid://1y772f2tiyqy" path="res://Scripts/HitFX/hit_vfx.gd" id="1_f27ir"]
+[ext_resource type="Texture2D" uid="uid://bj1ihfpiwo645" path="res://Art/VFX/Hit-a/hit-a1.png" id="2_5so8u"]
+[ext_resource type="Texture2D" uid="uid://dcrssieshal5j" path="res://Art/VFX/Hit-a/hit-a2.png" id="3_gwkkj"]
+[ext_resource type="Texture2D" uid="uid://mup5biv34ge3" path="res://Art/VFX/Hit-a/hit-a3.png" id="4_o671t"]
+[ext_resource type="Texture2D" uid="uid://cncaeenubiptf" path="res://Art/VFX/Hit-a/hit-a4.png" id="5_27ht7"]
+[ext_resource type="Texture2D" uid="uid://cc7n7kgugy8lq" path="res://Art/VFX/Hit-a/hit-a5.png" id="6_xhwhh"]
+[ext_resource type="Texture2D" uid="uid://b47h2u3qvrp2u" path="res://Art/VFX/Hit-a/hit-a6.png" id="7_ceubg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p5bni"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_5so8u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_gwkkj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_o671t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_27ht7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_xhwhh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ceubg")
+}],
+"loop": false,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="HitEnemyVFX" type="Node2D"]
+script = ExtResource("1_f27ir")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 0.69474375, 0.23036289, 1)
+sprite_frames = SubResource("SpriteFrames_p5bni")
+autoplay = "default"

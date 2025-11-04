@@ -16,10 +16,11 @@ size = Vector2(6, 6)
 size = Vector2(44, 47)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mvwl2"]
-size = Vector2(22, 23)
+size = Vector2(14, 13)
 
 [node name="EnemyBase" type="Node2D" groups=["enemy"]]
 script = ExtResource("1_8e4qo")
+speed = 3.0
 
 [node name="StateChartDebugger" parent="." instance=ExtResource("6_0a3m8")]
 visible = false
@@ -102,7 +103,7 @@ shape = SubResource("RectangleShape2D_ptc2t")
 hurtbox_type = 1
 
 [node name="CollisionShape2D" parent="HurtboxHead" index="0"]
-position = Vector2(0, -23.5)
+position = Vector2(0, -18)
 shape = SubResource("RectangleShape2D_mvwl2")
 debug_color = Color(0, 0.20228878, 0.70196074, 0.41960785)
 
