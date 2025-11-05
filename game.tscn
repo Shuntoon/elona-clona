@@ -28,6 +28,7 @@ visible = false
 
 [node name="GameManager" type="Node" parent="." groups=["game_manager"]]
 script = ExtResource("1_fc0e3")
+day_time_length = 30.0
 
 [node name="SpawnTimer" type="Timer" parent="GameManager"]
 
@@ -51,8 +52,11 @@ metadata/_custom_type_script = "uid://bf28q005qtvbc"
 
 [node name="MouseShooter" parent="." instance=ExtResource("1_feb5d")]
 accuracy = 0.798
+bullet_type = 1
 fire_mode = 2
-fire_rate = 200.0
+fire_rate = 300.0
+magazine_size = 1000
+explosion_damage = 0
 
 [node name="BG" type="TextureRect" parent="."]
 anchors_preset = 15

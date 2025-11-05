@@ -5,6 +5,7 @@ const HITBOX = preload("uid://bg6uxodad3g5f")
 const BULLET_BASE = preload("uid://bljxubxu5eg3j")
 const HIT_ENEMY_VFX = preload("uid://cubkpuvcxnh63")
 const HIT_GROUND_VFX = preload("uid://doaytv1th1j3v")
+const EXPLOSION = preload("uid://cp6c33t2cjpx5")
 
 
 # Add to group so HUD can find it
@@ -28,6 +29,14 @@ func _enter_tree() -> void:
 @export var reload_time: float = 2.0
 ## Enable piercing for projectile bullets
 @export var projectile_piercing: bool = false
+## Enable explosive rockets (only works with projectiles)
+@export var explosive_rockets: bool = false
+## Bullet/hitbox damage
+@export var bullet_damage: int = 1
+## Explosion damage
+@export var explosion_damage: int = 10
+## Explosion radius
+@export var explosion_radius: float = 100.0
 
 var bullet_spawn_point : Vector2 = Vector2(1035, 508)
 
@@ -138,6 +147,7 @@ func _fire_bullet() -> void:
 	if bullet_type == BULLET_TYPE.HITSCAN:
 		var hitbox_inst : Hitbox = HITBOX.instantiate()
 		hitbox_inst.destroy_instantly = true
+		hitbox_inst.damage = bullet_damage
 		hitbox_inst.hit_enemy_vfx = HIT_ENEMY_VFX
 		hitbox_inst.hit_ground_vfx = HIT_GROUND_VFX
 		hitbox_inst.global_position = get_global_mouse_position() + _calculate_accuracy_offset()
@@ -151,8 +161,17 @@ func _fire_bullet() -> void:
 		bullet_base_inst.global_position = bullet_spawn_point
 		bullet_base_inst.target = get_global_mouse_position() + _calculate_accuracy_offset()
 		bullet_base_inst.piercing = projectile_piercing  # Set piercing based on export variable
+		bullet_base_inst.explosive = explosive_rockets
+		bullet_base_inst.explosion_damage = explosion_damage
+		bullet_base_inst.explosion_radius = explosion_radius
+		bullet_base_inst.explosion_scene = EXPLOSION
 		bullet_base_inst.hit_enemy_vfx = HIT_ENEMY_VFX
 		bullet_base_inst.hit_ground_vfx = HIT_GROUND_VFX
+		
+		# Set bullet damage via hitbox
+		var hitbox = bullet_base_inst.get_node_or_null("Hitbox")
+		if hitbox:
+			hitbox.damage = bullet_damage
 		if neutral_entities != null:
 			neutral_entities.add_child(bullet_base_inst)
 		else:
