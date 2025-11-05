@@ -1,7 +1,23 @@
-[gd_scene load_steps=7 format=3 uid="uid://dkvrnpgnp3f86"]
+[gd_scene load_steps=12 format=3 uid="uid://dkvrnpgnp3f86"]
 
 [ext_resource type="Script" uid="uid://cixf8coa0xj00" path="res://UI/PlayerHUD/player_hud.gd" id="1_pi8qp"]
 [ext_resource type="Shader" uid="uid://do6sswls8vm6l" path="res://Shaders/radial_bar.gdshader" id="2_pkcmm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ally_panel"]
+bg_color = Color(0.1, 0.1, 0.1, 0.7)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.4, 0.7, 0.4, 0.5)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="LabelSettings" id="LabelSettings_ally"]
+font_size = 18
+shadow_color = Color(0, 0, 0, 0.6)
 
 [sub_resource type="LabelSettings" id="LabelSettings_5o0p8"]
 font_size = 32
@@ -11,12 +27,7 @@ shadow_color = Color(0, 0, 0, 0.6039216)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5wk1x"]
 bg_color = Color(0.7851237, 0.036288843, 0.036288843, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_pkcmm"]
-font_size = 24
-
 [sub_resource type="LabelSettings" id="LabelSettings_ability"]
-font_size = 16
-shadow_size = 1
 shadow_color = Color(0, 0, 0, 0.6)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ability_bg"]
@@ -27,11 +38,14 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ability_fill"]
-bg_color = Color(0.3, 1.0, 0.3, 1.0)
+bg_color = Color(0.3, 1, 0.3, 1)
 corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_pkcmm"]
+font_size = 24
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_70xbo"]
 shader = ExtResource("2_pkcmm")
@@ -53,6 +67,26 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_pi8qp")
+
+[node name="AllyControlsPanel" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 106.0
+offset_right = 184.0
+offset_bottom = 136.0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_ally_panel")
+
+[node name="AllyControlsContainer" type="VBoxContainer" parent="AllyControlsPanel"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="AllyControlsLabel" type="Label" parent="AllyControlsPanel/AllyControlsContainer"]
+layout_mode = 2
+text = "🎯 Ally Targeting"
+label_settings = SubResource("LabelSettings_ally")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -105,7 +139,6 @@ label_settings = SubResource("LabelSettings_5o0p8")
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-max_value = 100.0
 show_percentage = false
 
 [node name="AbilitiesHBoxContainer" type="HBoxContainer" parent="MarginContainer"]
@@ -132,7 +165,6 @@ custom_minimum_size = Vector2(140, 18)
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_ability_bg")
 theme_override_styles/fill = SubResource("StyleBoxFlat_ability_fill")
-max_value = 100.0
 value = 100.0
 show_percentage = false
 
@@ -154,7 +186,6 @@ custom_minimum_size = Vector2(140, 18)
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_ability_bg")
 theme_override_styles/fill = SubResource("StyleBoxFlat_ability_fill")
-max_value = 100.0
 value = 100.0
 show_percentage = false
 
@@ -176,22 +207,21 @@ custom_minimum_size = Vector2(140, 18)
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_ability_bg")
 theme_override_styles/fill = SubResource("StyleBoxFlat_ability_fill")
-max_value = 100.0
 value = 100.0
 show_percentage = false
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+[node name="TimeLeftHBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 theme_override_constants/separation = 16
 
-[node name="TimeLeftLabel" type="Label" parent="MarginContainer/HBoxContainer"]
+[node name="TimeLeftLabel" type="Label" parent="MarginContainer/TimeLeftHBoxContainer"]
 layout_mode = 2
 text = "Time Left:"
 label_settings = SubResource("LabelSettings_pkcmm")
 
-[node name="TimeLeftMeter" type="ColorRect" parent="MarginContainer/HBoxContainer"]
+[node name="TimeLeftMeter" type="ColorRect" parent="MarginContainer/TimeLeftHBoxContainer"]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_70xbo")
 custom_minimum_size = Vector2(64, 64)

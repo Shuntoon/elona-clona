@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://drq2yxhgx7hpu"]
+
+[ext_resource type="Script" uid="uid://ccwwlnnv3wvov" path="res://Objects/Ally/ally_base.gd" id="1_support"]
+[ext_resource type="Texture2D" uid="uid://cseoedy4scsdr" path="res://icon.svg" id="2_support"]
+
+[node name="Support" type="Node2D"]
+script = ExtResource("1_support")
+ally_type = 2
+ally_name = "Support"
+heal_amount = 1
+heal_interval = 2.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0.6, 1, 1)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("2_support")

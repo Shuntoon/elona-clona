@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5ym3qr8xn7b8"]
+
+[ext_resource type="Script" uid="uid://ccwwlnnv3wvov" path="res://Objects/Ally/ally_base.gd" id="1_rocketeer"]
+[ext_resource type="Texture2D" uid="uid://cseoedy4scsdr" path="res://icon.svg" id="2_rocketeer"]
+
+[node name="Rocketeer" type="Node2D"]
+script = ExtResource("1_rocketeer")
+ally_type = 1
+ally_name = "Rocketeer"
+targeting_mode = 2
+detection_range = 600.0
+fire_rate = 60.0
+bullet_damage = 5
+accuracy = 0.7
+max_spread = 40.0
+explosion_damage = 15
+explosion_radius = 120.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0.5, 0, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_rocketeer")

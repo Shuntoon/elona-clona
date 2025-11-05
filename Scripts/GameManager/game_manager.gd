@@ -23,7 +23,7 @@ var current_health : int :
 @onready var shop: Control = %Shop
 
 func _ready() -> void:
-	current_health = max_health
+	current_health = max_health - 25
 	spawn_timer.start()
 
 func _on_spawn_timer_timeout() -> void:

@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwq7xm5vjnr2k"]
+
+[ext_resource type="Script" uid="uid://ccwwlnnv3wvov" path="res://Objects/Ally/ally_base.gd" id="1_rifleman"]
+[ext_resource type="Texture2D" uid="uid://cseoedy4scsdr" path="res://icon.svg" id="2_rifleman"]
+
+[node name="Rifleman" type="Node2D"]
+script = ExtResource("1_rifleman")
+ally_type = 0
+ally_name = "Rifleman"
+targeting_mode = 0
+detection_range = 500.0
+fire_rate = 300.0
+bullet_damage = 2
+accuracy = 0.85
+max_spread = 25.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0.8, 0, 1)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_rifleman")
