@@ -56,6 +56,10 @@ var neutral_entities : Node2D
 var game_manager: GameManager
 var current_weapon_slot: int = 1  # 1 or 2
 
+# Saved ammo for each weapon slot
+var weapon_1_ammo: int = -1  # -1 means not yet initialized
+var weapon_2_ammo: int = -1
+
 func _ready() -> void:
 	game_manager = get_tree().get_first_node_in_group("game_manager")
 	
@@ -81,8 +85,12 @@ func _process(_delta: float) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	# Weapon switching
 	if event.is_action_pressed("weapon_1"):
+		if is_reloading:
+			is_reloading = false
 		_equip_weapon(1)
 	elif event.is_action_pressed("weapon_2"):
+		if is_reloading:
+			is_reloading = false
 		_equip_weapon(2)
 	
 	# Manual reload
@@ -117,6 +125,12 @@ func _unhandled_input(event: InputEvent) -> void:
 		is_shooting = false
 
 func _equip_weapon(slot: int) -> void:
+	# Save current ammo before switching (skip if that weapon is in reset state)
+	if current_weapon_slot == 1 and weapon_1_ammo >= 0:
+		weapon_1_ammo = current_ammo
+	elif current_weapon_slot == 2 and weapon_2_ammo >= 0:
+		weapon_2_ammo = current_ammo
+	
 	var weapon_to_equip: WeaponData = null
 	
 	if slot == 1:
@@ -153,15 +167,27 @@ func _equip_weapon(slot: int) -> void:
 	
 	# Update internal state
 	time_between_shots = 60.0 / fire_rate
-	current_ammo = magazine_size
+	
+	# Restore saved ammo for this weapon, or set to full magazine if first time
+	if slot == 1:
+		current_ammo = weapon_1_ammo if weapon_1_ammo >= 0 else magazine_size
+		weapon_1_ammo = current_ammo  # Update in case it was -1
+	elif slot == 2:
+		current_ammo = weapon_2_ammo if weapon_2_ammo >= 0 else magazine_size
+		weapon_2_ammo = current_ammo  # Update in case it was -1
+	
 	current_weapon_slot = slot
 	
-	print("Equipped weapon: ", weapon_to_equip.weapon_name, " (Slot ", slot, ")")
+	print("Equipped weapon: ", weapon_to_equip.weapon_name, " (Slot ", slot, ") - Ammo: ", current_ammo, "/", magazine_size)
 
 func _on_start_new_day() -> void:
+	# Reset ammo for both weapons when a new day starts
+	weapon_1_ammo = -1
+	weapon_2_ammo = -1
+	
 	# Re-equip the current weapon to refresh stats from PlayerData
 	_equip_weapon(current_weapon_slot)
-	print("Re-equipped weapon for new day")
+	print("Re-equipped weapon for new day with full ammo")
 
 func _set_shooter_properties() -> void:
 	pass
@@ -189,13 +215,16 @@ func _start_reload() -> void:
 	reload_progress = 0.0
 	
 	var elapsed = 0.0
-	while elapsed < reload_time:
+	while elapsed < reload_time and is_reloading:  # Check is_reloading in loop condition
 		await get_tree().process_frame
 		var delta = get_process_delta_time()
 		elapsed += delta
 		reload_progress = elapsed / reload_time
 	
-	current_ammo = magazine_size
+	# Only complete reload if we weren't interrupted
+	if is_reloading:
+		current_ammo = magazine_size
+	
 	is_reloading = false
 	reload_progress = 0.0
 
