@@ -1,0 +1,178 @@
+[gd_scene load_steps=9 format=3 uid="uid://b23ol6kgi5880"]
+
+[ext_resource type="Texture2D" uid="uid://d3rcf2brjy7c0" path="res://Art/Filler/Guns/1.png" id="1_6jg88"]
+[ext_resource type="Script" uid="uid://bpvuk7tgadej" path="res://UI/UpgradeScreen/armory_page/armory_weapon_slot.gd" id="1_38ril"]
+[ext_resource type="Resource" uid="uid://bbpxothv2p26g" path="res://Data/WeaponData/WeaponDatas/Test/test_pistol.tres" id="2_hufj0"]
+[ext_resource type="Texture2D" uid="uid://cseoedy4scsdr" path="res://icon.svg" id="4_y5e3k"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hufj0"]
+font_size = 24
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvr1a"]
+atlas = ExtResource("1_6jg88")
+region = Rect2(96, 118, 16, 10)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4t1su"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_p53s0"]
+font_size = 24
+
+[node name="ArmoryWeaponSlot" type="Panel"]
+custom_minimum_size = Vector2(321, 77)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_38ril")
+weapon_data = ExtResource("2_hufj0")
+
+[node name="WeaponNameLabel" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -148.5
+offset_top = -20.0
+offset_right = 8.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Revolver"
+label_settings = SubResource("LabelSettings_hufj0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WeaponIcon" type="TextureRect" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 38.5
+offset_top = -28.5
+offset_right = 127.5
+offset_bottom = 28.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_mvr1a")
+expand_mode = 1
+
+[node name="LockedWeaponPanel" type="Panel" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LockedWeaponHBoxContainer" type="HBoxContainer" parent="LockedWeaponPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+
+[node name="NamePanel" type="Panel" parent="LockedWeaponPanel/LockedWeaponHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_4t1su")
+
+[node name="NameLabel" type="Label" parent="LockedWeaponPanel/LockedWeaponHBoxContainer/NamePanel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -95.0
+offset_top = -17.0
+offset_right = 12.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Revolver"
+label_settings = SubResource("LabelSettings_p53s0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PriceLabel" type="Label" parent="LockedWeaponPanel/LockedWeaponHBoxContainer/NamePanel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 65.0
+offset_top = -16.5
+offset_right = 106.0
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "$69"
+label_settings = SubResource("LabelSettings_p53s0")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="BuyButton" type="Button" parent="LockedWeaponPanel/LockedWeaponHBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BuyLabel" type="Label" parent="LockedWeaponPanel/LockedWeaponHBoxContainer/BuyButton"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Buy"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LockTextureRect" type="TextureRect" parent="LockedWeaponPanel/LockedWeaponHBoxContainer/BuyButton"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_y5e3k")
+expand_mode = 1
+
+[connection signal="pressed" from="LockedWeaponPanel/LockedWeaponHBoxContainer/BuyButton" to="." method="_on_buy_button_pressed"]

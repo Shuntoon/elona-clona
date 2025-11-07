@@ -21,6 +21,7 @@ var allies_node: Node2D
 @onready var ability_2_vbox: VBoxContainer = %Ability2VBox
 @onready var ability_3_vbox: VBoxContainer = %Ability3VBox
 @onready var ally_controls_container: VBoxContainer = %AllyControlsContainer
+@onready var weapon_label: Label = %WeaponLabel
 
 func _ready() -> void:
 	game_manager = get_tree().get_first_node_in_group("game_manager")
@@ -55,6 +56,12 @@ func _process(_delta: float) -> void:
 	if mouse_shooter != null:
 		# Update ammo display
 		ammo_label.text = str(mouse_shooter.current_ammo) + " / " + str(mouse_shooter.magazine_size)
+		
+		# Update weapon display
+		if mouse_shooter.weapon_data:
+			weapon_label.text = mouse_shooter.weapon_data.weapon_name
+		else:
+			weapon_label.text = "No Weapon"
 		
 		# Show/hide reload bar and update progress
 		if mouse_shooter.is_reloading:

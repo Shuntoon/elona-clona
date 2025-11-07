@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=4 format=3 uid="uid://p8xctms6g3sr"]
+
+[ext_resource type="Texture2D" uid="uid://d3rcf2brjy7c0" path="res://Art/Filler/Guns/1.png" id="1_5mdsv"]
+[ext_resource type="Script" uid="uid://rimwdfuvv8ao" path="res://Data/WeaponData/weapon_data.gd" id="2_2n5w8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pxwm6"]
+atlas = ExtResource("1_5mdsv")
+region = Rect2(32, 101, 21, 11)
+
+[resource]
+script = ExtResource("2_2n5w8")
+weapon_name = "smg"
+icon = SubResource("AtlasTexture_pxwm6")
+fire_mode = 2
+accuracy = 0.76
+fire_rate = 400.0
+crit_chance = 0.85
+metadata/_custom_type_script = "uid://rimwdfuvv8ao"

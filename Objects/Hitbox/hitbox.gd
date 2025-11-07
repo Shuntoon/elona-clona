@@ -4,6 +4,8 @@ class_name Hitbox
 @export var destroy_instantly : bool = true
 @export var piercing : bool = false
 @export var damage : int = 1
+@export var crit_chance: float = 0.0
+@export var crit_multiplier: float = 2.0
 
 # VFX scenes to spawn
 var hit_enemy_vfx: PackedScene
@@ -18,13 +20,25 @@ func _on_area_entered(area: Area2D) -> void:
 		var hurtbox : Hurtbox = area
 		var enemy : Enemy = area.owner
 		var is_critical = false
+		var final_damage = damage
 		
-		match hurtbox.hurtbox_type:
-			Hurtbox.HURTBOX_TYPE.BODY:
-				enemy.current_health -= damage
-			Hurtbox.HURTBOX_TYPE.HEAD:
-				enemy.current_health -= damage * 2 # temp 
+		# Check if it's a headshot
+		if hurtbox.hurtbox_type == Hurtbox.HURTBOX_TYPE.HEAD:
+			# Headshot: check for crit chance
+			if randf() < crit_chance:
+				final_damage = int(damage * crit_multiplier)
 				is_critical = true
+				print("CRITICAL HEADSHOT! Damage: ", final_damage)
+			else:
+				# Headshot but no crit
+				final_damage = damage
+				print("HEADSHOT! Damage: ", final_damage)
+		else:
+			# Body shot: just base damage
+			final_damage = damage
+		
+		# Apply damage
+		enemy.current_health -= final_damage
 		
 		# Spawn enemy hit VFX (red and bigger for headshots)
 		_spawn_vfx(hit_enemy_vfx, global_position, is_critical)

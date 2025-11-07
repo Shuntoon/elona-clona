@@ -26,6 +26,7 @@ var current_health : int :
 @onready var day_timer: Timer = $DayTimer
 @onready var enemies: Node2D = $"../Entities/Enemies"
 @onready var upgrade_screen: UpgradeScreen = %UpgradeScreen
+@onready var mouse_shooter: MouseShooter = $'../MouseShooter'
 
 @onready var ally_1_spawn: Marker2D = %Ally1Spawn
 @onready var ally_2_spawn: Marker2D = %Ally2Spawn

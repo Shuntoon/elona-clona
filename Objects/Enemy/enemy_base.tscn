@@ -1,19 +1,19 @@
 [gd_scene load_steps=12 format=3 uid="uid://djs38cy8bwdv7"]
 
 [ext_resource type="Script" uid="uid://d14fdqbjlksab" path="res://Objects/Enemy/enemy_base.gd" id="1_8e4qo"]
-[ext_resource type="Texture2D" uid="uid://cseoedy4scsdr" path="res://icon.svg" id="2_ldf1s"]
 [ext_resource type="Script" uid="uid://couw105c3bde4" path="res://addons/godot_state_charts/state_chart.gd" id="2_xt13y"]
 [ext_resource type="Script" uid="uid://jk2jm1g6q853" path="res://addons/godot_state_charts/compound_state.gd" id="3_0a3m8"]
 [ext_resource type="Script" uid="uid://cytafq8i1y8qm" path="res://addons/godot_state_charts/atomic_state.gd" id="4_d1qs5"]
 [ext_resource type="PackedScene" uid="uid://bcwkugn6v3oy7" path="res://addons/godot_state_charts/utilities/state_chart_debugger.tscn" id="6_0a3m8"]
 [ext_resource type="Script" uid="uid://cf1nsco3w0mf6" path="res://addons/godot_state_charts/transition.gd" id="6_d1qs5"]
+[ext_resource type="Texture2D" uid="uid://c78tq86rp7x6x" path="res://Art/ArmyMen/Rifleman_Standing.png" id="7_ptc2t"]
 [ext_resource type="PackedScene" uid="uid://vkpjfxaspyyn" path="res://Objects/Hurtbox/hurtbox.tscn" id="8_ptc2t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0a3m8"]
 size = Vector2(6, 6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ptc2t"]
-size = Vector2(44, 47)
+size = Vector2(44, 61)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mvwl2"]
 size = Vector2(14, 13)
@@ -82,8 +82,9 @@ delay_in_seconds = "0.0"
 [node name="AttackSpeedTimer" type="Timer" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.25, 0.49999997)
-texture = ExtResource("2_ldf1s")
+position = Vector2(5.0000005, -1.999999)
+scale = Vector2(0.53763443, 0.73529387)
+texture = ExtResource("7_ptc2t")
 
 [node name="WallDetector" type="Area2D" parent="."]
 position = Vector2(25, 0)
@@ -96,14 +97,14 @@ debug_color = Color(1, 0.8115231, 0, 0.41960785)
 [node name="HurtboxBody" parent="." instance=ExtResource("8_ptc2t")]
 
 [node name="CollisionShape2D" parent="HurtboxBody" index="0"]
-position = Vector2(0, 11.5)
+position = Vector2(0, 4.5)
 shape = SubResource("RectangleShape2D_ptc2t")
 
 [node name="HurtboxHead" parent="." instance=ExtResource("8_ptc2t")]
 hurtbox_type = 1
 
 [node name="CollisionShape2D" parent="HurtboxHead" index="0"]
-position = Vector2(0, -18)
+position = Vector2(1, -33)
 shape = SubResource("RectangleShape2D_mvwl2")
 debug_color = Color(0, 0.20228878, 0.70196074, 0.41960785)
 

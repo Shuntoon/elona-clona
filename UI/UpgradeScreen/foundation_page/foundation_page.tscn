@@ -77,11 +77,12 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Upgrade Ability Slots"
 
-[node name="UpgradeShopSelectionButton" type="Button" parent="MarginContainer/GridContainer"]
+[node name="UpgradeArmorySelectionButton" type="Button" parent="MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "Upgrade Shop Selection"
+text = "Upgrade Armory Selection (1/3)"
 
 [connection signal="pressed" from="MarginContainer/GridContainer/RegainHealthButton" to="." method="_on_regain_health_button_pressed"]
 [connection signal="pressed" from="MarginContainer/GridContainer/UpgradeBaseHealthButton" to="." method="_on_upgrade_base_health_button_pressed"]
+[connection signal="pressed" from="MarginContainer/GridContainer/UpgradeArmorySelectionButton" to="." method="_on_upgrade_armory_selection_button_pressed"]

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=4 format=3 uid="uid://b6ryv1lnoqoao"]
+
+[ext_resource type="Script" uid="uid://rimwdfuvv8ao" path="res://Data/WeaponData/weapon_data.gd" id="2_12nbx"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_s8vei"]
+load_path = "res://.godot/imported/1.png-46fe780d74e08d0eb90ee5cfc393ee3e.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1n2l"]
+atlas = SubResource("CompressedTexture2D_s8vei")
+region = Rect2(96, 118, 16, 10)
+
+[resource]
+script = ExtResource("2_12nbx")
+weapon_name = "Revolver"
+icon = SubResource("AtlasTexture_h1n2l")
+bullet_type = 1
+accuracy = 0.867
+fire_rate = 300.0
+projectile_piercing = true
+crit_chance = 0.85
+metadata/_custom_type_script = "uid://rimwdfuvv8ao"

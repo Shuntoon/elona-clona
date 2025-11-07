@@ -88,7 +88,6 @@ size_flags_horizontal = 3
 
 [node name="FoundationPage" parent="BG/MarginContainer/HBoxContainer/Pages" instance=ExtResource("2_fmioe")]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
 
 [node name="AugmentsPage" parent="BG/MarginContainer/HBoxContainer/Pages" instance=ExtResource("3_jjsfe")]
@@ -113,6 +112,7 @@ anchor_bottom = 1.0
 
 [node name="AlliesPage" parent="BG/MarginContainer/HBoxContainer/Pages" instance=ExtResource("5_5xjgn")]
 unique_name_in_owner = true
+visible = false
 layout_mode = 0
 anchors_preset = 0
 anchor_left = 0.0

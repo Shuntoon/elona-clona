@@ -5,15 +5,14 @@
 [ext_resource type="PackedScene" uid="uid://bg6uxodad3g5f" path="res://Objects/Hitbox/hitbox.tscn" id="2_0rh40"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0rh40"]
-size = Vector2(8, 8)
+size = Vector2(10, 10)
 
 [node name="BulletBase" type="Node2D"]
 script = ExtResource("1_0rh40")
 speed = 2000.0
-piercing = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.0625, 0.06250001)
+scale = Vector2(0.078125, 0.07812501)
 texture = ExtResource("1_4qeoi")
 
 [node name="Hitbox" parent="." instance=ExtResource("2_0rh40")]

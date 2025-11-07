@@ -1,9 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://buj37tqnk8i22"]
+[gd_scene load_steps=6 format=3 uid="uid://buj37tqnk8i22"]
+
+[ext_resource type="Script" uid="uid://d0o2h0vu1j1k4" path="res://UI/UpgradeScreen/armory_page/armory_page.gd" id="1_xy3um"]
+[ext_resource type="PackedScene" uid="uid://b23ol6kgi5880" path="res://UI/UpgradeScreen/armory_page/armory_weapon_slot.tscn" id="2_aduju"]
+[ext_resource type="Script" uid="uid://dfruej83tgxwe" path="res://UI/UpgradeScreen/armory_page/equipped_weapon_panel.gd" id="2_mvr1a"]
+[ext_resource type="Resource" uid="uid://b6ryv1lnoqoao" path="res://Data/WeaponData/WeaponDatas/Test/test_revolver.tres" id="4_4t1su"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_umnqg"]
 font_size = 48
 
-[node name="ArmoryPage" type="Panel"]
+[node name="ArmoryPage" type="Panel" groups=["armory_page"]]
 custom_minimum_size = Vector2(1065, 564)
 anchors_preset = 8
 anchor_left = 0.5
@@ -12,6 +17,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_xy3um")
 
 [node name="ArmoryLabel" type="Label" parent="."]
 layout_mode = 1
@@ -29,13 +35,17 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Weapon1Panel" type="Panel" parent="."]
+unique_name_in_owner = true
 layout_mode = 1
 offset_left = 131.5
 offset_top = 43.0
 offset_right = 369.5
 offset_bottom = 154.59702
+script = ExtResource("2_mvr1a")
+weapon_slot = 0
 
-[node name="Label" type="Label" parent="Weapon1Panel"]
+[node name="Weapon1NameLabel" type="Label" parent="Weapon1Panel"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -52,7 +62,24 @@ text = "Weapon 1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Weapon1Image" type="TextureRect" parent="Weapon1Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.0
+offset_top = -39.0
+offset_right = 39.0
+offset_bottom = 39.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
 [node name="Weapon2Panel" type="Panel" parent="."]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -62,8 +89,11 @@ offset_top = 43.0
 offset_right = -124.5
 offset_bottom = 154.59702
 grow_horizontal = 0
+script = ExtResource("2_mvr1a")
+weapon_slot = 1
 
-[node name="Label" type="Label" parent="Weapon2Panel"]
+[node name="Weapon2NameLabel" type="Label" parent="Weapon2Panel"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -76,11 +106,28 @@ offset_right = 20.0
 offset_bottom = 33.402985
 grow_horizontal = 2
 grow_vertical = 0
-text = "Weapon 2"
+text = "Weapon 1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Weapon2Image" type="TextureRect" parent="Weapon2Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.0
+offset_top = -39.0
+offset_right = 39.0
+offset_bottom = 39.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
 [node name="GridContainer" type="GridContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -95,11 +142,9 @@ grow_horizontal = 2
 grow_vertical = 2
 columns = 3
 
-[node name="Button" type="Button" parent="GridContainer"]
+[node name="ArmoryWeaponSlot" parent="GridContainer" instance=ExtResource("2_aduju")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-text = "Weapon 1"
+weapon_data = ExtResource("4_4t1su")
 
 [node name="Button2" type="Button" parent="GridContainer"]
 layout_mode = 2
@@ -166,3 +211,70 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Weapon 1"
+
+[node name="WeaponsHbox" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 47.5
+offset_top = 204.0
+offset_right = 1017.5
+offset_bottom = 523.0
+
+[node name="WeaponsRow1" type="VBoxContainer" parent="WeaponsHbox"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ArmoryWeaponSlot" parent="WeaponsHbox/WeaponsRow1" instance=ExtResource("2_aduju")]
+layout_mode = 2
+weapon_data = ExtResource("4_4t1su")
+
+[node name="ArmoryWeaponSlot2" parent="WeaponsHbox/WeaponsRow1" instance=ExtResource("2_aduju")]
+layout_mode = 2
+weapon_data = ExtResource("4_4t1su")
+
+[node name="ArmoryWeaponSlot3" parent="WeaponsHbox/WeaponsRow1" instance=ExtResource("2_aduju")]
+layout_mode = 2
+weapon_data = ExtResource("4_4t1su")
+
+[node name="ArmoryWeaponSlot4" parent="WeaponsHbox/WeaponsRow1" instance=ExtResource("2_aduju")]
+layout_mode = 2
+weapon_data = ExtResource("4_4t1su")
+
+[node name="WeaponsRow2" type="VBoxContainer" parent="WeaponsHbox"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ArmoryWeaponSlot" parent="WeaponsHbox/WeaponsRow2" instance=ExtResource("2_aduju")]
+layout_mode = 2
+weapon_data = ExtResource("4_4t1su")
+
+[node name="ArmoryWeaponSlot2" parent="WeaponsHbox/WeaponsRow2" instance=ExtResource("2_aduju")]
+layout_mode = 2
+weapon_data = ExtResource("4_4t1su")
+
+[node name="ArmoryWeaponSlot3" parent="WeaponsHbox/WeaponsRow2" instance=ExtResource("2_aduju")]
+layout_mode = 2
+weapon_data = ExtResource("4_4t1su")
+
+[node name="ArmoryWeaponSlot4" parent="WeaponsHbox/WeaponsRow2" instance=ExtResource("2_aduju")]
+layout_mode = 2
+weapon_data = ExtResource("4_4t1su")
+
+[node name="WeaponsRow3" type="VBoxContainer" parent="WeaponsHbox"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ArmoryWeaponSlot" parent="WeaponsHbox/WeaponsRow3" instance=ExtResource("2_aduju")]
+layout_mode = 2
+weapon_data = ExtResource("4_4t1su")
+
+[node name="ArmoryWeaponSlot2" parent="WeaponsHbox/WeaponsRow3" instance=ExtResource("2_aduju")]
+layout_mode = 2
+weapon_data = ExtResource("4_4t1su")
+
+[node name="ArmoryWeaponSlot3" parent="WeaponsHbox/WeaponsRow3" instance=ExtResource("2_aduju")]
+layout_mode = 2
+weapon_data = ExtResource("4_4t1su")
+
+[node name="ArmoryWeaponSlot4" parent="WeaponsHbox/WeaponsRow3" instance=ExtResource("2_aduju")]
+layout_mode = 2
+weapon_data = ExtResource("4_4t1su")

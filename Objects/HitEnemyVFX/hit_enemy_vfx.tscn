@@ -31,7 +31,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"default",
-"speed": 15.0
+"speed": 24.0
 }]
 
 [node name="HitEnemyVFX" type="Node2D"]
@@ -41,3 +41,5 @@ script = ExtResource("1_f27ir")
 modulate = Color(1, 0.69474375, 0.23036289, 1)
 sprite_frames = SubResource("SpriteFrames_p5bni")
 autoplay = "default"
+frame = 5
+frame_progress = 1.0
