@@ -28,14 +28,12 @@ visible = false
 
 [node name="GameManager" type="Node" parent="." groups=["game_manager"]]
 script = ExtResource("1_fc0e3")
-day_time_length = 30.0
 
 [node name="SpawnTimer" type="Timer" parent="GameManager"]
 
 [node name="DayTimer" type="Timer" parent="GameManager"]
 wait_time = 10.0
 one_shot = true
-autostart = true
 
 [node name="AbilityManager" type="Node" parent="." node_paths=PackedStringArray("abilities") groups=["ability_manager"]]
 script = ExtResource("4_vef74")
@@ -182,12 +180,15 @@ scale = Vector2(0.5156255, 0.5156255)
 texture = ExtResource("5_ryrav")
 
 [node name="Ally1Spawn" type="Marker2D" parent="Entities/Allies"]
+unique_name_in_owner = true
 position = Vector2(1063, 407)
 
 [node name="Ally2Spawn" type="Marker2D" parent="Entities/Allies"]
+unique_name_in_owner = true
 position = Vector2(1063, 578)
 
 [node name="Ally3Spawn" type="Marker2D" parent="Entities/Allies"]
+unique_name_in_owner = true
 position = Vector2(1063, 660)
 
 [node name="Neutral" type="Node2D" parent="Entities" groups=["neutral_entities"]]
@@ -228,7 +229,8 @@ position = Vector2(0, 92)
 position = Vector2(0, 30)
 
 [connection signal="all_enemies_killed" from="GameManager" to="GameManager" method="_on_all_enemies_killed"]
-[connection signal="finish_day" from="GameManager" to="GameManager" method="_on_finish_day"]
+[connection signal="day_timer_finished" from="GameManager" to="GameManager" method="_on_day_timer_finished"]
+[connection signal="start_new_day" from="GameManager" to="GameManager" method="_on_start_new_day"]
 [connection signal="timeout" from="GameManager/SpawnTimer" to="GameManager" method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="GameManager/DayTimer" to="GameManager" method="_on_day_timer_timeout"]
 [connection signal="child_exiting_tree" from="Entities/Enemies" to="GameManager" method="_on_enemies_child_exiting_tree"]

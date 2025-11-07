@@ -9,11 +9,18 @@ var game_mananger : GameManager
 @onready var allies_page: Panel = %AlliesPage
 @onready var foundation_button: Button = %FoundationButton
 
+@onready var base_health_label: Label = %BaseHealthLabel
+@onready var gold_label: Label = %GoldLabel
+
 func _ready() -> void:
 	game_mananger = get_tree().get_first_node_in_group("game_manager")
 
+func _process(delta: float) -> void:
+	update_stats()
+
 func _on_next_wave_button_pressed() -> void:
 	_swipe_out()
+	game_mananger.start_new_day.emit()
 	pass # Replace with function body.
 
 func _bounce_in() -> void:
@@ -50,3 +57,7 @@ func _on_allies_button_pressed() -> void:
 	hide_pages()
 	allies_page.show()
 	pass # Replace with function body.
+
+func update_stats() -> void:
+	gold_label.text = "Gold: " + str(PlayerData.gold)
+	base_health_label.text = "Base Health: %s / %s" % [str(game_mananger.current_health), str(game_mananger.max_health)]	

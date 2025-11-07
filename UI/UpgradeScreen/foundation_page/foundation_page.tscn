@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bm5ye4du2k3ta"]
+[gd_scene load_steps=3 format=3 uid="uid://bm5ye4du2k3ta"]
+
+[ext_resource type="Script" uid="uid://coryl8brrnopj" path="res://UI/UpgradeScreen/foundation_page/foundation_page.gd" id="1_eyfy0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_in36i"]
 font_size = 32
@@ -9,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_eyfy0")
 
 [node name="TitleLabel" type="Label" parent="."]
 layout_mode = 1
@@ -79,3 +82,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Upgrade Shop Selection"
+
+[connection signal="pressed" from="MarginContainer/GridContainer/RegainHealthButton" to="." method="_on_regain_health_button_pressed"]
+[connection signal="pressed" from="MarginContainer/GridContainer/UpgradeBaseHealthButton" to="." method="_on_upgrade_base_health_button_pressed"]

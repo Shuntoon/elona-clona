@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="AllyData" load_steps=2 format=3 uid="uid://boxv5rlsd54ii"]
+
+[ext_resource type="Script" uid="uid://bhvur583pgsyf" path="res://Data/AllyData/ally_data.gd" id="1_he4qt"]
+
+[resource]
+script = ExtResource("1_he4qt")
+ally_name = "Rifleman"
+metadata/_custom_type_script = "uid://bhvur583pgsyf"

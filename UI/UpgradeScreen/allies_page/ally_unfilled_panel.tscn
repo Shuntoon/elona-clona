@@ -1,0 +1,71 @@
+[gd_scene load_steps=2 format=3 uid="uid://ufhh6su3k4gn"]
+
+[ext_resource type="Script" uid="uid://d32mkbsdnkkgx" path="res://UI/UpgradeScreen/allies_page/ally_unfilled_panel.gd" id="1_ok0by"]
+
+[node name="AllyUnfilledPanel" type="Panel"]
+size_flags_horizontal = 3
+script = ExtResource("1_ok0by")
+
+[node name="AllyNameLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -190.0
+offset_right = 38.0
+offset_bottom = -167.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Ally 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 48
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="ButtonVBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="RiflemanButton" type="Button" parent="MarginContainer/ButtonVBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Rifleman"
+
+[node name="SupportButton" type="Button" parent="MarginContainer/ButtonVBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Support"
+
+[node name="SniperButton" type="Button" parent="MarginContainer/ButtonVBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Sniper"
+
+[node name="MachineGunnerButton" type="Button" parent="MarginContainer/ButtonVBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Machine Gunner"
+
+[node name="MachineGunnerButton2" type="Button" parent="MarginContainer/ButtonVBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Rocketeer"
+
+[connection signal="pressed" from="MarginContainer/ButtonVBoxContainer/RiflemanButton" to="." method="_on_rifleman_button_pressed"]
+[connection signal="pressed" from="MarginContainer/ButtonVBoxContainer/SupportButton" to="." method="_on_support_button_pressed"]
+[connection signal="pressed" from="MarginContainer/ButtonVBoxContainer/SniperButton" to="." method="_on_sniper_button_pressed"]
+[connection signal="pressed" from="MarginContainer/ButtonVBoxContainer/MachineGunnerButton" to="." method="_on_machine_gunner_button_pressed"]
+[connection signal="pressed" from="MarginContainer/ButtonVBoxContainer/MachineGunnerButton2" to="." method="_on_machine_gunner_button_2_pressed"]

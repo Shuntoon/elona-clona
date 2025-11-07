@@ -1,0 +1,86 @@
+[gd_scene load_steps=3 format=3 uid="uid://w7gefcihbnk1"]
+
+[ext_resource type="Texture2D" uid="uid://cseoedy4scsdr" path="res://icon.svg" id="1_0fmc5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_04dfh"]
+font_size = 20
+
+[node name="AllyFilledPanel" type="Panel"]
+size_flags_horizontal = 3
+
+[node name="NameLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -190.0
+offset_right = 38.0
+offset_bottom = -167.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PortraitTexture" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -78.5
+offset_top = -143.0
+offset_right = 78.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_0fmc5")
+
+[node name="InfoLabelVBoxContainer" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -115.5
+offset_top = 34.0
+offset_right = 115.5
+offset_bottom = 177.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label3" type="Label" parent="InfoLabelVBoxContainer"]
+layout_mode = 2
+text = "Type: Rifleman"
+label_settings = SubResource("LabelSettings_04dfh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="InfoLabelVBoxContainer"]
+layout_mode = 2
+text = "Firerate: 69"
+label_settings = SubResource("LabelSettings_04dfh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="InfoLabelVBoxContainer"]
+layout_mode = 2
+text = "Damage: 12"
+label_settings = SubResource("LabelSettings_04dfh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="InfoLabelVBoxContainer"]
+layout_mode = 2
+text = "Accuarcy : 65%"
+label_settings = SubResource("LabelSettings_04dfh")
+horizontal_alignment = 1
+vertical_alignment = 1
