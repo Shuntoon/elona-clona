@@ -1,0 +1,87 @@
+[gd_scene load_steps=3 format=3 uid="uid://bm5ye4du2k3ta"]
+
+[ext_resource type="Script" uid="uid://coryl8brrnopj" path="res://UI/UpgradeScreen/foundation_page/foundation_page.gd" id="1_eyfy0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_in36i"]
+font_size = 32
+
+[node name="FoundationPage" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eyfy0")
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -96.5
+offset_top = 41.0
+offset_right = 96.5
+offset_bottom = 89.474976
+grow_horizontal = 2
+text = "Foundations"
+label_settings = SubResource("LabelSettings_in36i")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 118.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 16
+columns = 3
+
+[node name="RegainHealthButton" type="Button" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Regain 50 Health"
+
+[node name="UpgradeBaseHealthButton" type="Button" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Upgrade Base Health"
+
+[node name="UpgradeAllySlotsButton" type="Button" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Upgrade Ally Slots"
+
+[node name="UpgradeAugmentRerollsButton" type="Button" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Upgrade Augment Rerolls"
+
+[node name="UpgradeAbilitySlotsButton" type="Button" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Upgrade Ability Slots"
+
+[node name="UpgradeShopSelectionButton" type="Button" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Upgrade Shop Selection"
+
+[connection signal="pressed" from="MarginContainer/GridContainer/RegainHealthButton" to="." method="_on_regain_health_button_pressed"]
+[connection signal="pressed" from="MarginContainer/GridContainer/UpgradeBaseHealthButton" to="." method="_on_upgrade_base_health_button_pressed"]

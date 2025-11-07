@@ -11,6 +11,8 @@ enum AllyType {
 	RIFLEMAN,
 	ROCKETEER,
 	SUPPORT,
+	MACHINE_GUNNER,
+	SNIPER
 }
 
 enum TargetingMode {
@@ -19,6 +21,8 @@ enum TargetingMode {
 	STRONGEST,
 	WEAKEST,
 }
+
+@export var ally_data : AllyData
 
 @export var ally_type: AllyType = AllyType.RIFLEMAN
 @export var ally_name: String = "Ally"
@@ -56,6 +60,9 @@ func _ready() -> void:
 	enemies_node = get_tree().get_first_node_in_group("enemies")
 	game_manager = get_tree().get_first_node_in_group("game_manager")
 	
+	if ally_data:
+		init_ally_data()
+	
 	time_between_shots = 60.0 / fire_rate
 	
 	# Start type-specific behavior
@@ -69,6 +76,20 @@ func _process(_delta: float) -> void:
 	# Update target for combat allies
 	if ally_type != AllyType.SUPPORT:
 		_update_target()
+		
+func init_ally_data() -> void:
+	ally_type = ally_data.ally_type
+	ally_name = ally_data.ally_name
+	fire_rate = ally_data.fire_rate
+	bullet_damage = ally_data.bullet_damage
+	explosion_damage = ally_data.explosion_damage
+	explosion_radius  = ally_data.explosion_radius
+	max_spread = ally_data.max_spread
+	accuracy = ally_data.accuracy
+	heal_amount = ally_data.heal_amount
+	heal_interval = ally_data.heal_interval
+	detection_range = ally_data.detection_range
+	
 
 func _update_target() -> void:
 	# Clear target if it's dead or out of range
@@ -229,4 +250,3 @@ func _calculate_accuracy_offset() -> Vector2:
 
 func get_target() -> Enemy:
 	return current_target
-

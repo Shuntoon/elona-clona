@@ -4,6 +4,10 @@
 [ext_resource type="Shader" uid="uid://do6sswls8vm6l" path="res://Shaders/radial_bar.gdshader" id="2_pkcmm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ally_panel"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
 bg_color = Color(0.1, 0.1, 0.1, 0.7)
 border_width_left = 2
 border_width_top = 2
@@ -46,6 +50,8 @@ corner_radius_bottom_left = 4
 
 [sub_resource type="LabelSettings" id="LabelSettings_pkcmm"]
 font_size = 24
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.8156863)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_70xbo"]
 shader = ExtResource("2_pkcmm")
@@ -71,9 +77,9 @@ script = ExtResource("1_pi8qp")
 [node name="AllyControlsPanel" type="PanelContainer" parent="."]
 layout_mode = 0
 offset_left = 32.0
-offset_top = 106.0
-offset_right = 184.0
-offset_bottom = 136.0
+offset_top = 102.0
+offset_right = 224.53333
+offset_bottom = 140.0
 size_flags_horizontal = 8
 size_flags_vertical = 8
 theme_override_styles/panel = SubResource("StyleBoxFlat_ally_panel")
@@ -87,6 +93,8 @@ theme_override_constants/separation = 6
 layout_mode = 2
 text = "🎯 Ally Targeting"
 label_settings = SubResource("LabelSettings_ally")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

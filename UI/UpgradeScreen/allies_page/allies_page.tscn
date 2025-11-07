@@ -1,0 +1,62 @@
+[gd_scene load_steps=4 format=3 uid="uid://bfguydj53ut7e"]
+
+[ext_resource type="Script" uid="uid://ckuufc7yvhw35" path="res://UI/UpgradeScreen/allies_page/allies_page.gd" id="1_poid3"]
+[ext_resource type="PackedScene" uid="uid://w7gefcihbnk1" path="res://UI/UpgradeScreen/allies_page/ally_filled_panel.tscn" id="2_adb3k"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_17jub"]
+font_size = 48
+
+[node name="AlliesPage" type="Panel" groups=["allies_page"]]
+custom_minimum_size = Vector2(1065, 564)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -532.5
+offset_top = -282.0
+offset_right = 532.5
+offset_bottom = 282.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_poid3")
+
+[node name="AlliesLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.5
+offset_top = -250.0
+offset_right = 61.5
+offset_bottom = -183.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Allies"
+label_settings = SubResource("LabelSettings_17jub")
+
+[node name="AlliesHBoxContainer" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -485.0
+offset_top = -154.0
+offset_right = 485.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AllyFilledPanel" parent="AlliesHBoxContainer" instance=ExtResource("2_adb3k")]
+layout_mode = 2
+
+[node name="AllyFilledPanel2" parent="AlliesHBoxContainer" instance=ExtResource("2_adb3k")]
+layout_mode = 2
+
+[node name="AllyFilledPanel3" parent="AlliesHBoxContainer" instance=ExtResource("2_adb3k")]
+layout_mode = 2

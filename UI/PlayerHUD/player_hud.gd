@@ -30,6 +30,8 @@ func _ready() -> void:
 	
 	if game_manager:
 		hp_progress_bar.max_value = game_manager.max_health
+		# Connect to start_new_day signal to refresh ally controls
+		game_manager.start_new_day.connect(_on_start_new_day)
 	
 	reload_bar.visible = false
 	
@@ -104,7 +106,7 @@ func _setup_ally_controls() -> void:
 func _create_ally_control(ally: Ally) -> void:
 	# Container for this ally
 	var ally_hbox = HBoxContainer.new()
-	ally_hbox.add_theme_constant_override("separation", 12)
+	ally_hbox.add_theme_constant_override("separation", 8)
 	
 	# Ally name label
 	var name_label = Label.new()
@@ -155,3 +157,9 @@ func _update_ability(index: int, label: Label, progress_bar: ProgressBar, contai
 			progress_bar.modulate = Color(0.3, 1.0, 0.3, 1.0)  # Green when ready
 	else:
 		container.visible = false
+
+func _on_start_new_day() -> void:
+	print("HUD: Refreshing ally controls for new day")
+	# Wait a frame to ensure allies are spawned
+	await get_tree().process_frame
+	_setup_ally_controls()

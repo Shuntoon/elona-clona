@@ -1,0 +1,108 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvsbfx38vbaju"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_skbsq"]
+font_size = 48
+
+[node name="AugmentsPage" type="Panel"]
+custom_minimum_size = Vector2(1065, 564)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AugmentsLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -507.0
+offset_top = -247.0
+offset_right = -272.0
+offset_bottom = -180.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Augments"
+label_settings = SubResource("LabelSettings_skbsq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AugmentHBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -507.0
+offset_top = -110.0
+offset_right = 507.0
+offset_bottom = 237.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="Button" type="Button" parent="AugmentHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Upgrade 1
+"
+
+[node name="Button2" type="Button" parent="AugmentHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Upgrade 2
+"
+
+[node name="Button3" type="Button" parent="AugmentHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Upgrade 3
+"
+
+[node name="CurrentUpgradesPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -673.0
+offset_top = 50.0
+offset_right = -25.5
+offset_bottom = 138.0
+grow_horizontal = 0
+
+[node name="Label" type="Label" parent="CurrentUpgradesPanel"]
+layout_mode = 0
+offset_left = 0.5
+offset_top = -31.0
+offset_right = 138.5
+offset_bottom = -8.0
+text = "Current Upgrades"
+
+[node name="MarginContainer" type="MarginContainer" parent="CurrentUpgradesPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -25.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="GridContainer" type="GridContainer" parent="CurrentUpgradesPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 25.5
+offset_top = 111.0
+offset_right = 79.5
+offset_bottom = 151.88892
+text = "Reroll"

@@ -24,7 +24,6 @@ func _on_area_entered(area: Area2D) -> void:
 				enemy.current_health -= damage
 			Hurtbox.HURTBOX_TYPE.HEAD:
 				enemy.current_health -= damage * 2 # temp 
-				print("Critcal Hit!")
 				is_critical = true
 		
 		# Spawn enemy hit VFX (red and bigger for headshots)
