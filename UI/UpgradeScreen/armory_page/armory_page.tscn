@@ -1,0 +1,168 @@
+[gd_scene load_steps=2 format=3 uid="uid://buj37tqnk8i22"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_umnqg"]
+font_size = 48
+
+[node name="ArmoryPage" type="Panel"]
+custom_minimum_size = Vector2(1065, 564)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ArmoryLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -87.0
+offset_top = 58.0
+offset_right = 87.0
+offset_bottom = 125.0
+grow_horizontal = 2
+text = "Armory"
+label_settings = SubResource("LabelSettings_umnqg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Weapon1Panel" type="Panel" parent="."]
+layout_mode = 1
+offset_left = 131.5
+offset_top = 43.0
+offset_right = 369.5
+offset_bottom = 154.59702
+
+[node name="Label" type="Label" parent="Weapon1Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = 10.402985
+offset_right = 20.0
+offset_bottom = 33.402985
+grow_horizontal = 2
+grow_vertical = 0
+text = "Weapon 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Weapon2Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -362.5
+offset_top = 43.0
+offset_right = -124.5
+offset_bottom = 154.59702
+grow_horizontal = 0
+
+[node name="Label" type="Label" parent="Weapon2Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = 10.402985
+offset_right = 20.0
+offset_bottom = 33.402985
+grow_horizontal = 2
+grow_vertical = 0
+text = "Weapon 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -485.0
+offset_top = -78.0
+offset_right = 485.0
+offset_bottom = 241.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 3
+
+[node name="Button" type="Button" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Weapon 1"
+
+[node name="Button2" type="Button" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Weapon 1"
+
+[node name="Button3" type="Button" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Weapon 1"
+
+[node name="Button4" type="Button" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Weapon 1"
+
+[node name="Button5" type="Button" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Weapon 1"
+
+[node name="Button6" type="Button" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Weapon 1"
+
+[node name="Button7" type="Button" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Weapon 1"
+
+[node name="Button8" type="Button" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Weapon 1"
+
+[node name="Button9" type="Button" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Weapon 1"
+
+[node name="Button10" type="Button" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Weapon 1"
+
+[node name="Button11" type="Button" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Weapon 1"
+
+[node name="Button12" type="Button" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Weapon 1"

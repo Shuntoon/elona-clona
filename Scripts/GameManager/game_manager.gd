@@ -20,7 +20,7 @@ var current_health : int :
 @onready var spawn_timer: Timer = $SpawnTimer
 @onready var day_timer: Timer = $DayTimer
 @onready var enemies: Node2D = $"../Entities/Enemies"
-@onready var shop: Control = %Shop
+@onready var upgrade_screen: UpgradeScreen = %UpgradeScreen
 
 func _ready() -> void:
 	current_health = max_health - 25
@@ -45,5 +45,6 @@ func _on_enemies_child_exiting_tree(node: Node) -> void:
 	pass # Replace with function body.
 
 func _on_all_enemies_killed() -> void:
-	shop.visible = true
+	upgrade_screen.show()
+	upgrade_screen._bounce_in()
 	pass # Replace with function body.

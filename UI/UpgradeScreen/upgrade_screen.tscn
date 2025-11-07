@@ -1,0 +1,174 @@
+[gd_scene load_steps=8 format=3 uid="uid://d225nmsfm10mv"]
+
+[ext_resource type="Script" uid="uid://8m8ugxxbryqp" path="res://UI/UpgradeScreen/upgrade_screen.gd" id="1_kyj5a"]
+[ext_resource type="PackedScene" uid="uid://bm5ye4du2k3ta" path="res://UI/UpgradeScreen/foundation_page/foundation_page.tscn" id="2_fmioe"]
+[ext_resource type="PackedScene" uid="uid://dvsbfx38vbaju" path="res://UI/UpgradeScreen/augments_page/augments_page.tscn" id="3_jjsfe"]
+[ext_resource type="PackedScene" uid="uid://buj37tqnk8i22" path="res://UI/UpgradeScreen/armory_page/armory_page.tscn" id="4_mbga8"]
+[ext_resource type="PackedScene" uid="uid://bfguydj53ut7e" path="res://UI/UpgradeScreen/allies_page/allies_page.tscn" id="5_5xjgn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kyj5a"]
+bg_color = Color(0.25560826, 0.25560826, 0.25560826, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="LabelSettings" id="LabelSettings_0q4ua"]
+font_size = 32
+
+[node name="UpgradeScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kyj5a")
+
+[node name="BG" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.888916
+offset_top = 14.0
+offset_right = -24.888916
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kyj5a")
+
+[node name="MarginContainer" type="MarginContainer" parent="BG"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 96
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BG/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="PageButtonsVBoxContainer" type="VBoxContainer" parent="BG/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="FoundationButton" type="Button" parent="BG/MarginContainer/HBoxContainer/PageButtonsVBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+text = "Foundation
+"
+
+[node name="AugmentsButton" type="Button" parent="BG/MarginContainer/HBoxContainer/PageButtonsVBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Augments
+"
+
+[node name="ArmoryButton" type="Button" parent="BG/MarginContainer/HBoxContainer/PageButtonsVBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Armory
+"
+
+[node name="AlliesButton" type="Button" parent="BG/MarginContainer/HBoxContainer/PageButtonsVBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Allies
+"
+
+[node name="Pages" type="Control" parent="BG/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FoundationPage" parent="BG/MarginContainer/HBoxContainer/Pages" instance=ExtResource("2_fmioe")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="AugmentsPage" parent="BG/MarginContainer/HBoxContainer/Pages" instance=ExtResource("3_jjsfe")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ArmoryPage" parent="BG/MarginContainer/HBoxContainer/Pages" instance=ExtResource("4_mbga8")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="AlliesPage" parent="BG/MarginContainer/HBoxContainer/Pages" instance=ExtResource("5_5xjgn")]
+unique_name_in_owner = true
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 1065.0
+offset_bottom = 564.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="NextWaveButton" type="Button" parent="BG"]
+unique_name_in_owner = true
+z_index = 1
+layout_mode = 0
+offset_left = 999.1111
+offset_top = 18.0
+offset_right = 1198.2222
+offset_bottom = 76.0
+text = "Advance to next wave"
+
+[node name="EndOfTheDayLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -112.5
+offset_top = 36.0
+offset_right = 112.5
+offset_bottom = 81.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "End of the Day"
+label_settings = SubResource("LabelSettings_0q4ua")
+
+[node name="GoldLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -583.0
+offset_top = 36.0
+offset_right = -358.0
+offset_bottom = 81.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Gold: 42069"
+label_settings = SubResource("LabelSettings_0q4ua")
+
+[connection signal="pressed" from="BG/MarginContainer/HBoxContainer/PageButtonsVBoxContainer/FoundationButton" to="." method="_on_foundation_button_pressed"]
+[connection signal="pressed" from="BG/MarginContainer/HBoxContainer/PageButtonsVBoxContainer/AugmentsButton" to="." method="_on_augments_button_pressed"]
+[connection signal="pressed" from="BG/MarginContainer/HBoxContainer/PageButtonsVBoxContainer/ArmoryButton" to="." method="_on_armory_button_pressed"]
+[connection signal="pressed" from="BG/MarginContainer/HBoxContainer/PageButtonsVBoxContainer/AlliesButton" to="." method="_on_allies_button_pressed"]
+[connection signal="pressed" from="BG/NextWaveButton" to="." method="_on_next_wave_button_pressed"]

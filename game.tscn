@@ -1,22 +1,20 @@
-[gd_scene load_steps=15 format=3 uid="uid://c4ruds6frs58h"]
+[gd_scene load_steps=13 format=3 uid="uid://c4ruds6frs58h"]
 
 [ext_resource type="Texture2D" uid="uid://c7hoa4bjs6jxf" path="res://Art/Filler/BG/BG1.png" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://cvikpqyxjqs5g" path="res://Scripts/GameManager/game_manager.gd" id="1_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://ci4hdj038kg5i" path="res://Objects/MouseShooter/mouse_shooter.tscn" id="1_feb5d"]
 [ext_resource type="PackedScene" uid="uid://dkvrnpgnp3f86" path="res://UI/PlayerHUD/player_hud.tscn" id="1_ryrav"]
-[ext_resource type="PackedScene" uid="uid://d225nmsfm10mv" path="res://UI/Shop/shop.tscn" id="2_eow3j"]
+[ext_resource type="PackedScene" uid="uid://d225nmsfm10mv" path="res://UI/UpgradeScreen/upgrade_screen.tscn" id="2_eow3j"]
 [ext_resource type="Script" uid="uid://cfhy465135m07" path="res://Scripts/Abilities/ability_manager.gd" id="4_vef74"]
 [ext_resource type="Script" uid="uid://c60bxtqxj72gr" path="res://Objects/Spawner/spawner.gd" id="5_7jktm"]
 [ext_resource type="Script" uid="uid://c60utqbyl6xt7" path="res://Scripts/Abilities/fire_rate_boost_ability.gd" id="5_hve3p"]
 [ext_resource type="Texture2D" uid="uid://cseoedy4scsdr" path="res://icon.svg" id="5_ryrav"]
 [ext_resource type="Script" uid="uid://bf28q005qtvbc" path="res://Scripts/Abilities/power_shot_ability.gd" id="6_hve3p"]
-[ext_resource type="PackedScene" path="res://Objects/Ally/rocketeer.tscn" id="10_mfdv2"]
-[ext_resource type="PackedScene" path="res://Objects/Ally/rifleman.tscn" id="11_iotsf"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_80nbo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_80nbo"]
-size = Vector2(2.5714264, 8.034514)
+size = Vector2(2.5714264, 11.25094)
 
 [node name="Game" type="Node"]
 
@@ -24,7 +22,7 @@ size = Vector2(2.5714264, 8.034514)
 
 [node name="PlayerHUD" parent="CanvasLayer" instance=ExtResource("1_ryrav")]
 
-[node name="Shop" parent="CanvasLayer" instance=ExtResource("2_eow3j")]
+[node name="UpgradeScreen" parent="CanvasLayer" instance=ExtResource("2_eow3j")]
 unique_name_in_owner = true
 visible = false
 
@@ -65,9 +63,9 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -140.44446
-offset_top = -431.0
+offset_top = -1032.0
 offset_right = 140.44446
-offset_bottom = 119.0
+offset_bottom = 217.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_80nbo")
@@ -76,75 +74,100 @@ expand_mode = 1
 [node name="Environment" type="Node2D" parent="."]
 
 [node name="Pillars" type="Node2D" parent="Environment"]
+position = Vector2(1007, 676)
 
 [node name="MeshInstance2D2" type="MeshInstance2D" parent="Environment/Pillars"]
 modulate = Color(0.37101543, 0.37101543, 0.37101543, 1)
-position = Vector2(979.00006, 613.5)
+position = Vector2(-17.927565, -15.597492)
 scale = Vector2(14.00005, 28.99991)
 mesh = SubResource("QuadMesh_80nbo")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/Pillars"]
 modulate = Color(0.6697165, 0.6697165, 0.6697165, 1)
-position = Vector2(972, 613.5)
+position = Vector2(-12.0000305, -15.5)
 scale = Vector2(17.99994, 29.000065)
 mesh = SubResource("QuadMesh_80nbo")
 
 [node name="MeshInstance2D3" type="MeshInstance2D" parent="Environment/Pillars"]
 modulate = Color(0.37101543, 0.37101543, 0.37101543, 1)
-position = Vector2(979.0001, 568.50006)
+position = Vector2(-17.927504, -60.59743)
 scale = Vector2(14.00005, 28.99991)
 mesh = SubResource("QuadMesh_80nbo")
 
 [node name="MeshInstance2D4" type="MeshInstance2D" parent="Environment/Pillars"]
 modulate = Color(0.6697165, 0.6697165, 0.6697165, 1)
-position = Vector2(972.00006, 568.50006)
+position = Vector2(-11.9999695, -60.49994)
 scale = Vector2(17.99994, 29.000065)
 mesh = SubResource("QuadMesh_80nbo")
 
 [node name="MeshInstance2D5" type="MeshInstance2D" parent="Environment/Pillars"]
 modulate = Color(0.37101543, 0.37101543, 0.37101543, 1)
-position = Vector2(979.0001, 524.5)
+position = Vector2(-17.927504, -104.597496)
 scale = Vector2(14.00005, 28.99991)
 mesh = SubResource("QuadMesh_80nbo")
 
 [node name="MeshInstance2D6" type="MeshInstance2D" parent="Environment/Pillars"]
 modulate = Color(0.6697165, 0.6697165, 0.6697165, 1)
-position = Vector2(972.00006, 524.50006)
+position = Vector2(-11.9999695, -104.49994)
 scale = Vector2(17.99994, 29.000065)
 mesh = SubResource("QuadMesh_80nbo")
 
 [node name="MeshInstance2D7" type="MeshInstance2D" parent="Environment/Pillars"]
 modulate = Color(0.37101543, 0.37101543, 0.37101543, 1)
-position = Vector2(979.0001, 480.49997)
+position = Vector2(-17.927504, -148.59752)
 scale = Vector2(14.00005, 28.99991)
 mesh = SubResource("QuadMesh_80nbo")
 
 [node name="MeshInstance2D8" type="MeshInstance2D" parent="Environment/Pillars"]
 modulate = Color(0.6697165, 0.6697165, 0.6697165, 1)
-position = Vector2(972.00006, 480.50003)
+position = Vector2(-11.9999695, -148.49997)
 scale = Vector2(17.99994, 29.000065)
 mesh = SubResource("QuadMesh_80nbo")
 
 [node name="MeshInstance2D9" type="MeshInstance2D" parent="Environment/Pillars"]
 modulate = Color(0.37101543, 0.37101543, 0.37101543, 1)
-position = Vector2(979.0001, 437.49997)
+position = Vector2(-17.927504, -191.59752)
 scale = Vector2(14.00005, 28.99991)
 mesh = SubResource("QuadMesh_80nbo")
 
 [node name="MeshInstance2D10" type="MeshInstance2D" parent="Environment/Pillars"]
 modulate = Color(0.6697165, 0.6697165, 0.6697165, 1)
-position = Vector2(972.00006, 437.50003)
+position = Vector2(-11.9999695, -191.49997)
+scale = Vector2(17.99994, 29.000065)
+mesh = SubResource("QuadMesh_80nbo")
+
+[node name="MeshInstance2D11" type="MeshInstance2D" parent="Environment/Pillars"]
+modulate = Color(0.37101543, 0.37101543, 0.37101543, 1)
+position = Vector2(-17.857605, -236.53699)
+scale = Vector2(14.00005, 28.99991)
+mesh = SubResource("QuadMesh_80nbo")
+
+[node name="MeshInstance2D12" type="MeshInstance2D" parent="Environment/Pillars"]
+modulate = Color(0.6697165, 0.6697165, 0.6697165, 1)
+position = Vector2(-11.930071, -236.43945)
+scale = Vector2(17.99994, 29.000065)
+mesh = SubResource("QuadMesh_80nbo")
+
+[node name="MeshInstance2D13" type="MeshInstance2D" parent="Environment/Pillars"]
+modulate = Color(0.37101543, 0.37101543, 0.37101543, 1)
+position = Vector2(-17.923939, -274.11346)
+scale = Vector2(14.00005, 28.99991)
+mesh = SubResource("QuadMesh_80nbo")
+
+[node name="MeshInstance2D14" type="MeshInstance2D" parent="Environment/Pillars"]
+modulate = Color(0.6697165, 0.6697165, 0.6697165, 1)
+position = Vector2(-11.996403, -274.01596)
 scale = Vector2(17.99994, 29.000065)
 mesh = SubResource("QuadMesh_80nbo")
 
 [node name="WallArea2D" type="Area2D" parent="Environment" groups=["wall"]]
-position = Vector2(972, 566)
+position = Vector2(987.00006, 606)
 scale = Vector2(14.00005, 28.99991)
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/WallArea2D"]
-position = Vector2(0.2142868, -1.4655209)
-scale = Vector2(0.9999997, 0.99999976)
+position = Vector2(0.60705394, -2.2603426)
+scale = Vector2(0.99999964, 0.9999997)
 shape = SubResource("RectangleShape2D_80nbo")
 
 [node name="Entities" type="Node2D" parent="."]
@@ -154,18 +177,18 @@ shape = SubResource("RectangleShape2D_80nbo")
 [node name="Allies" type="Node2D" parent="Entities" groups=["allies"]]
 
 [node name="Player" type="Sprite2D" parent="Entities/Allies"]
-position = Vector2(1055, 508)
-scale = Vector2(0.58, 0.58)
+position = Vector2(1068, 499)
+scale = Vector2(0.5156255, 0.5156255)
 texture = ExtResource("5_ryrav")
 
-[node name="Rocketeer" parent="Entities/Allies" instance=ExtResource("10_mfdv2")]
-position = Vector2(1064, 392)
-detection_range = 800.0
-fire_rate = 20.0
+[node name="Ally1Spawn" type="Marker2D" parent="Entities/Allies"]
+position = Vector2(1063, 407)
 
-[node name="Rifleman" parent="Entities/Allies" instance=ExtResource("11_iotsf")]
-position = Vector2(1072, 600)
-fire_rate = 50.0
+[node name="Ally2Spawn" type="Marker2D" parent="Entities/Allies"]
+position = Vector2(1063, 578)
+
+[node name="Ally3Spawn" type="Marker2D" parent="Entities/Allies"]
+position = Vector2(1063, 660)
 
 [node name="Neutral" type="Node2D" parent="Entities" groups=["neutral_entities"]]
 

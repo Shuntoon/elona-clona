@@ -1,0 +1,105 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfguydj53ut7e"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_17jub"]
+font_size = 48
+
+[node name="AlliesPage" type="Panel"]
+custom_minimum_size = Vector2(1065, 564)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -532.5
+offset_top = -282.0
+offset_right = 532.5
+offset_bottom = 282.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AlliesLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.5
+offset_top = -250.0
+offset_right = 61.5
+offset_bottom = -183.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Allies"
+label_settings = SubResource("LabelSettings_17jub")
+
+[node name="AlliesHBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -456.0
+offset_top = -154.0
+offset_right = 456.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Ally1Panel" type="Panel" parent="AlliesHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="AlliesHBoxContainer/Ally1Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -11.5
+offset_right = 38.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Ally 1 info"
+
+[node name="Ally2Panel" type="Panel" parent="AlliesHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="AlliesHBoxContainer/Ally2Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -11.5
+offset_right = 38.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Ally 2 info"
+
+[node name="Ally3Panel" type="Panel" parent="AlliesHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="AlliesHBoxContainer/Ally3Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -11.5
+offset_right = 38.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Ally 3 info"
