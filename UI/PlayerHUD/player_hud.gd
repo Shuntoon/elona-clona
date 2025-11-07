@@ -11,17 +11,13 @@ var allies_node: Node2D
 @onready var ammo_label: Label = %AmmoLabel
 @onready var reload_bar: ProgressBar = %ReloadBar
 @onready var abilities_container: HBoxContainer = $MarginContainer/AbilitiesHBoxContainer
-@onready var ability_1_label: Label = %Ability1Label
-@onready var ability_2_label: Label = %Ability2Label
-@onready var ability_3_label: Label = %Ability3Label
-@onready var ability_1_bar: ProgressBar = %Ability1Bar
-@onready var ability_2_bar: ProgressBar = %Ability2Bar
-@onready var ability_3_bar: ProgressBar = %Ability3Bar
-@onready var ability_1_vbox: VBoxContainer = %Ability1VBox
-@onready var ability_2_vbox: VBoxContainer = %Ability2VBox
-@onready var ability_3_vbox: VBoxContainer = %Ability3VBox
 @onready var ally_controls_container: VBoxContainer = %AllyControlsContainer
 @onready var weapon_label: Label = %WeaponLabel
+
+# Dynamic ability slots
+var ability_vboxes: Array[VBoxContainer] = []
+var ability_labels: Array[Label] = []
+var ability_bars: Array[ProgressBar] = []
 
 func _ready() -> void:
 	game_manager = get_tree().get_first_node_in_group("game_manager")
@@ -36,13 +32,8 @@ func _ready() -> void:
 	
 	reload_bar.visible = false
 	
-	print("=== Ability System Debug ===")
-	print("Ability Manager found: ", ability_manager != null)
-	if ability_manager:
-		print("Number of abilities: ", ability_manager.abilities.size())
-	print("Abilities Container found: ", abilities_container != null)
-	print("Ability 1 Label found: ", ability_1_label != null)
-	print("Ability 1 VBox found: ", ability_1_vbox != null)
+	# Setup ability slots based on ability level
+	_setup_ability_slots()
 	
 	# Setup ally controls
 	_setup_ally_controls()
@@ -72,9 +63,8 @@ func _process(_delta: float) -> void:
 	
 	# Update ability cooldowns
 	if ability_manager:
-		_update_ability(0, ability_1_label, ability_1_bar, ability_1_vbox)
-		_update_ability(1, ability_2_label, ability_2_bar, ability_2_vbox)
-		_update_ability(2, ability_3_label, ability_3_bar, ability_3_vbox)
+		for i in range(ability_vboxes.size()):
+			_update_ability(i, ability_labels[i], ability_bars[i], ability_vboxes[i])
 
 func _setup_ally_controls() -> void:
 	print("=== Ally Controls Debug ===")
@@ -109,6 +99,68 @@ func _setup_ally_controls() -> void:
 				combat_allies_count += 1
 	
 	print("Created controls for ", combat_allies_count, " combat allies")
+
+func _setup_ability_slots() -> void:
+	# Clear existing ability slots
+	for child in abilities_container.get_children():
+		child.queue_free()
+	
+	ability_vboxes.clear()
+	ability_labels.clear()
+	ability_bars.clear()
+	
+	# Create ability slots based on ability_slots_level
+	var ability_slots = PlayerData.ability_slots_level
+	
+	for i in range(ability_slots):
+		# Create VBoxContainer for this ability
+		var vbox = VBoxContainer.new()
+		vbox.add_theme_constant_override("separation", 2)
+		
+		# Create label
+		var label = Label.new()
+		label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		
+		# Create StyleBox for label
+		var label_settings = LabelSettings.new()
+		label_settings.shadow_color = Color(0, 0, 0, 0.6)
+		label.label_settings = label_settings
+		
+		# Create progress bar
+		var progress_bar = ProgressBar.new()
+		progress_bar.custom_minimum_size = Vector2(140, 18)
+		progress_bar.show_percentage = false
+		
+		# Create StyleBoxes for progress bar
+		var bg_style = StyleBoxFlat.new()
+		bg_style.bg_color = Color(0.15, 0.15, 0.15, 0.8)
+		bg_style.corner_radius_top_left = 4
+		bg_style.corner_radius_top_right = 4
+		bg_style.corner_radius_bottom_right = 4
+		bg_style.corner_radius_bottom_left = 4
+		
+		var fill_style = StyleBoxFlat.new()
+		fill_style.bg_color = Color(0.3, 1, 0.3, 1)
+		fill_style.corner_radius_top_left = 4
+		fill_style.corner_radius_top_right = 4
+		fill_style.corner_radius_bottom_right = 4
+		fill_style.corner_radius_bottom_left = 4
+		
+		progress_bar.add_theme_stylebox_override("background", bg_style)
+		progress_bar.add_theme_stylebox_override("fill", fill_style)
+		progress_bar.value = 100.0
+		
+		# Add to VBox
+		vbox.add_child(label)
+		vbox.add_child(progress_bar)
+		
+		# Add to container
+		abilities_container.add_child(vbox)
+		
+		# Store references
+		ability_vboxes.append(vbox)
+		ability_labels.append(label)
+		ability_bars.append(progress_bar)
 
 func _create_ally_control(ally: Ally) -> void:
 	# Container for this ally
@@ -154,7 +206,10 @@ func _update_ability(index: int, label: Label, progress_bar: ProgressBar, contai
 	var ability = ability_manager.get_ability(index)
 	if ability:
 		container.visible = true
-		label.text = ability.ability_name + " (" + str(index + 1) + ")"
+		# Get the input key for this ability (Q=1, W=2, E=3, etc.)
+		var key_names = ["Q", "W", "E", "R", "T"]
+		var key_display = key_names[index] if index < key_names.size() else str(index + 1)
+		label.text = ability.ability_name + " (" + key_display + ")"
 		
 		if ability.is_on_cooldown:
 			progress_bar.value = ability.get_cooldown_progress() * 100.0
@@ -163,10 +218,18 @@ func _update_ability(index: int, label: Label, progress_bar: ProgressBar, contai
 			progress_bar.value = 100.0
 			progress_bar.modulate = Color(0.3, 1.0, 0.3, 1.0)  # Green when ready
 	else:
-		container.visible = false
+		# No ability assigned to this slot yet
+		container.visible = true
+		var key_names = ["Q", "W", "E", "R", "T"]
+		var key_display = key_names[index] if index < key_names.size() else str(index + 1)
+		label.text = "Empty (" + key_display + ")"
+		progress_bar.value = 0.0
+		progress_bar.modulate = Color(0.5, 0.5, 0.5, 0.5)  # Dim gray for empty
 
 func _on_start_new_day() -> void:
-	print("HUD: Refreshing ally controls for new day")
+	print("HUD: Refreshing ally controls and ability slots for new day")
+	# Refresh ability slots in case level changed
+	_setup_ability_slots()
 	# Wait a frame to ensure allies are spawned
 	await get_tree().process_frame
 	_setup_ally_controls()

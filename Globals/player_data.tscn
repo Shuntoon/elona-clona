@@ -9,4 +9,5 @@
 script = ExtResource("1_44c78")
 ally_datas = Array[ExtResource("2_m27fu")]([ExtResource("3_aknlj")])
 weapon_1_data = ExtResource("4_aknlj")
+gold = 500
 allies_level = 2

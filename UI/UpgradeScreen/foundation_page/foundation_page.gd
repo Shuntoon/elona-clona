@@ -5,6 +5,7 @@ var game_manager : GameManager
 
 @onready var upgrade_armory_selection_button: Button = %UpgradeArmorySelectionButton
 @onready var upgrade_ally_slots_button: Button = %UpgradeAllySlotsButton
+@onready var upgrade_ability_slots_button: Button = %UpgradeAbilitySlotsButton
 
 func _ready() -> void:
 	game_manager = get_tree().get_first_node_in_group("game_manager")
@@ -12,6 +13,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	update_armory_selection_button_data()
 	update_ally_slots_button_data()
+	update_ability_slots_button_data()
 		
 func update_armory_selection_button_data() -> void:
 	upgrade_armory_selection_button.text = "Uprgade Armory Selection (%s/3)" % [PlayerData.armory_level]
@@ -22,6 +24,11 @@ func update_ally_slots_button_data() -> void:
 	upgrade_ally_slots_button.text = "Upgrade Ally Slots (%s/4)" % [PlayerData.allies_level]
 	if PlayerData.allies_level >= 4:
 		upgrade_ally_slots_button.disabled = true
+
+func update_ability_slots_button_data() -> void:
+	upgrade_ability_slots_button.text = "Upgrade Ability Slots (%s/3)" % [PlayerData.ability_slots_level]
+	if PlayerData.ability_slots_level >= 3:
+		upgrade_ability_slots_button.disabled = true
 
 func _on_regain_health_button_pressed() -> void:
 	game_manager.current_health += 50
@@ -49,3 +56,8 @@ func _on_upgrade_armory_selection_button_pressed() -> void:
 
 func _on_upgrade_ally_slots_button_pressed() -> void:
 	PlayerData.allies_level += 1
+
+
+
+func _on_upgrade_ability_slots_button_pressed() -> void:
+	PlayerData.ability_slots_level += 1
