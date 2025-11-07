@@ -12,6 +12,8 @@ class_name ArmoryWeaponSlot
 @export var weapon_locked = true
 @export var weapon_bought = false
 
+@export var cost : int
+
 func _process(delta: float) -> void:
 	if weapon_locked:
 		lock_weapon()
@@ -28,9 +30,16 @@ func lock_weapon() -> void:
 		buy_button.disabled = true
 		
 func unlock_weapon() -> void:
-		buy_button.disabled = false
+		if cost > PlayerData.gold:
+			buy_button.disabled = true
+			buy_label.text = "Need $$$"
+		else:
+			buy_label.text = "Buy" 
+			buy_button.disabled = false
+
 		buy_label.show()
 		lock_texture_rect.hide()
+		
 		
 func buy_weapon() -> void:
 	locked_weapon_panel.hide()

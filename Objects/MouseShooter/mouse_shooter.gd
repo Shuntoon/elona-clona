@@ -59,6 +59,10 @@ var current_weapon_slot: int = 1  # 1 or 2
 func _ready() -> void:
 	game_manager = get_tree().get_first_node_in_group("game_manager")
 	
+	# Connect to start_new_day signal to re-equip weapons
+	if game_manager:
+		game_manager.start_new_day.connect(_on_start_new_day)
+	
 	# Load weapon 1 by default
 	_equip_weapon(1)
 
@@ -153,6 +157,11 @@ func _equip_weapon(slot: int) -> void:
 	current_weapon_slot = slot
 	
 	print("Equipped weapon: ", weapon_to_equip.weapon_name, " (Slot ", slot, ")")
+
+func _on_start_new_day() -> void:
+	# Re-equip the current weapon to refresh stats from PlayerData
+	_equip_weapon(current_weapon_slot)
+	print("Re-equipped weapon for new day")
 
 func _set_shooter_properties() -> void:
 	pass

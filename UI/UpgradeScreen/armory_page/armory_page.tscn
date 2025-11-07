@@ -226,6 +226,7 @@ layout_mode = 2
 [node name="ArmoryWeaponSlot" parent="WeaponsHbox/WeaponsRow1" instance=ExtResource("2_aduju")]
 layout_mode = 2
 weapon_data = ExtResource("4_4t1su")
+cost = 100
 
 [node name="ArmoryWeaponSlot2" parent="WeaponsHbox/WeaponsRow1" instance=ExtResource("2_aduju")]
 layout_mode = 2

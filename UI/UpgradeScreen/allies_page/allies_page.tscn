@@ -60,3 +60,6 @@ layout_mode = 2
 
 [node name="AllyFilledPanel3" parent="AlliesHBoxContainer" instance=ExtResource("2_adb3k")]
 layout_mode = 2
+
+[node name="AllyFilledPanel4" parent="AlliesHBoxContainer" instance=ExtResource("2_adb3k")]
+layout_mode = 2

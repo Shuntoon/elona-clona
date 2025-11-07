@@ -8,7 +8,16 @@ const SNIPER = preload("uid://brbmo3pqv8hne")
 
 var allies_page: AlliesPage
 
+@export var locked : bool = true
+
+@onready var locked_panel: Panel = %LockedPanel
+
 func _ready() -> void:
+	if locked:
+		locked_panel.show()
+	else:
+		locked_panel.hide()
+
 	# Get reference to the AlliesPage parent
 	allies_page = get_tree().get_first_node_in_group("allies_page") as AlliesPage
 	if allies_page == null:

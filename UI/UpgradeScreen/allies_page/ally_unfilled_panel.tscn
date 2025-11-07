@@ -1,10 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://ufhh6su3k4gn"]
+[gd_scene load_steps=3 format=3 uid="uid://ufhh6su3k4gn"]
 
 [ext_resource type="Script" uid="uid://d32mkbsdnkkgx" path="res://UI/UpgradeScreen/allies_page/ally_unfilled_panel.gd" id="1_ok0by"]
+[ext_resource type="Texture2D" uid="uid://cseoedy4scsdr" path="res://icon.svg" id="2_6una2"]
 
 [node name="AllyUnfilledPanel" type="Panel"]
+custom_minimum_size = Vector2(240, 404)
 size_flags_horizontal = 3
 script = ExtResource("1_ok0by")
+locked = false
 
 [node name="AllyNameLabel" type="Label" parent="."]
 layout_mode = 1
@@ -63,6 +66,30 @@ text = "Machine Gunner"
 layout_mode = 2
 size_flags_vertical = 3
 text = "Rocketeer"
+
+[node name="LockedPanel" type="Panel" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="LockedPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_6una2")
 
 [connection signal="pressed" from="MarginContainer/ButtonVBoxContainer/RiflemanButton" to="." method="_on_rifleman_button_pressed"]
 [connection signal="pressed" from="MarginContainer/ButtonVBoxContainer/SupportButton" to="." method="_on_support_button_pressed"]

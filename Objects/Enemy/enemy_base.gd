@@ -11,6 +11,8 @@ signal died
 @export var damage : int = 1
 @export var sprite : Sprite2D
 @export var attack_speed : float = 1
+@export var gold_reward : int = 5
+@export var gold_reward_variance : int = 2
 
 @onready var state_chart: StateChart = $StateChart
 @onready var attack_speed_timer: Timer = $AttackSpeedTimer
@@ -53,6 +55,7 @@ func _on_attack_speed_timer_timeout() -> void:
 	pass # Replace with function body.
 
 func _on_died() -> void:
+	PlayerData.gold += randi_range(gold_reward - gold_reward_variance, gold_reward + gold_reward_variance)
 	queue_free()
 	print("enemy died!")
 	pass # Replace with function body.

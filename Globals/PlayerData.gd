@@ -9,5 +9,7 @@ extends Node
 
 @export var armory_level : int = 1
 
+@export var allies_level : int = 1
+
 func add_ally_data(ally_data: AllyData) -> void:
 	ally_datas.append(ally_data)
