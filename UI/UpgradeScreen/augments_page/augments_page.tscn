@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dvsbfx38vbaju"]
+[gd_scene load_steps=10 format=3 uid="uid://dvsbfx38vbaju"]
 
 [ext_resource type="Script" uid="uid://d31madduro008" path="res://UI/UpgradeScreen/augments_page/augments_page.gd" id="1_b6eae"]
 [ext_resource type="PackedScene" uid="uid://6w660hirryy6" path="res://UI/UpgradeScreen/augments_page/augment_panel_button.tscn" id="2_c4yg0"]
@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://0sdi58td814s" path="res://Data/AugmentData/Test/damage_up.tres" id="4_kpg4h"]
 [ext_resource type="Resource" uid="uid://cnp5apbjdopuf" path="res://Data/AugmentData/Test/magazine_up.tres" id="5_fkv8u"]
 [ext_resource type="Resource" uid="uid://dagphrcf2u6ph" path="res://Data/AugmentData/Test/reload_speed_up.tres" id="6_hsc5t"]
+[ext_resource type="Resource" uid="uid://bsluif11jogmg" path="res://Data/AugmentData/Test/attack_speed_boost_ability.tres" id="7_kpg4h"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_skbsq"]
 font_size = 48
@@ -21,7 +22,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_b6eae")
-augment_selection = Array[ExtResource("2_tsv3p")]([ExtResource("3_o76bo"), ExtResource("4_kpg4h"), ExtResource("5_fkv8u"), ExtResource("6_hsc5t")])
+augment_selection = Array[ExtResource("2_tsv3p")]([ExtResource("3_o76bo"), ExtResource("4_kpg4h"), ExtResource("5_fkv8u"), ExtResource("6_hsc5t"), ExtResource("7_kpg4h")])
 augment_panel_button_scene = ExtResource("2_c4yg0")
 
 [node name="AugmentsLabel" type="Label" parent="."]

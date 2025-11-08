@@ -33,6 +33,11 @@ func populate_augment_hbox() -> void:
 	var selected_augments: Array[AugmentData] = []
 	var available_augments = augment_selection.duplicate()
 	
+	# Filter out ability augments if player already has 3
+	if not PlayerData.can_purchase_ability():
+		available_augments = available_augments.filter(func(aug): return aug.augment_type != AugmentData.AugmentType.ABILITY)
+		print("Player has max abilities - filtering ability augments from selection")
+	
 	for i in range(min(augment_selection_size, available_augments.size())):
 		if available_augments.is_empty():
 			break

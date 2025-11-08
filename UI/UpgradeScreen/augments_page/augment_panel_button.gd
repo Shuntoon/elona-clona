@@ -20,7 +20,14 @@ func init_panel(augment_data_inst: AugmentData) -> void:
 
 func _on_buy_button_pressed() -> void:
 	purchased_panel.show()
-	PlayerData.augments.append(augment_data)
+	
+	# Check if this is an ability augment
+	if augment_data.augment_type == AugmentData.AugmentType.ABILITY:
+		PlayerData.ability_augments.append(augment_data)
+		print("Purchased ability augment: ", augment_data.name)
+	else:
+		PlayerData.augments.append(augment_data)
+		print("Purchased stat augment: ", augment_data.name)
 	
 	# Apply the augment immediately
 	var augment_manager = get_tree().get_first_node_in_group("augment_manager")

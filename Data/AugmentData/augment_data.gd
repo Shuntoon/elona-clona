@@ -9,6 +9,7 @@ class_name AugmentData
 # Effect properties
 @export var augment_type: AugmentType
 @export var value: float = 0.0  # Amount to modify (can be flat value or percentage)
+@export var ability_script: Script  # For ABILITY type augments
 
 enum Rarity {
 	COMMON,
@@ -30,4 +31,5 @@ enum AugmentType {
 	ACCURACY,             # +0.1 = +10% accuracy (flat)
 	PROJECTILE_PIERCING,  # value = 1 to enable (boolean)
 	EXPLOSIVE_ROCKETS,    # value = 1 to enable (boolean)
+	ABILITY,              # Grants an ability (uses ability_scene)
 }

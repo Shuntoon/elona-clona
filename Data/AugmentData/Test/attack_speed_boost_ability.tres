@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="AugmentData" load_steps=4 format=3 uid="uid://bsluif11jogmg"]
+
+[ext_resource type="Texture2D" uid="uid://d2glsjhg3dw3p" path="res://Art/Filler/AugmentIcons/Asset 70@2x.png" id="1_j1jtc"]
+[ext_resource type="Script" uid="uid://c60utqbyl6xt7" path="res://Scripts/Abilities/fire_rate_boost_ability.gd" id="1_uw1ui"]
+[ext_resource type="Script" uid="uid://dfu50k1tlerfj" path="res://Data/AugmentData/augment_data.gd" id="2_uw1ui"]
+
+[resource]
+script = ExtResource("2_uw1ui")
+name = "Attack Speed Boost Ability"
+description = "Up attack speed"
+icon = ExtResource("1_j1jtc")
+rarity = 3
+augment_type = 11
+ability_script = ExtResource("1_uw1ui")
+metadata/_custom_type_script = "uid://dfu50k1tlerfj"

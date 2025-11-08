@@ -30,11 +30,14 @@ func apply_all_augments() -> void:
 	base_movement_speed_multiplier = 1.0
 	base_reload_speed_multiplier = 1.0
 	
-	# Apply each augment
+	# Apply each stat augment
 	for augment in PlayerData.augments:
 		apply_augment(augment)
 	
-	print("Applied ", PlayerData.augments.size(), " augments")
+	# Apply ability augments
+	_apply_ability_augments()
+	
+	print("Applied ", PlayerData.augments.size(), " stat augments and ", PlayerData.ability_augments.size(), " ability augments")
 
 ## Apply a single augment's effects
 func apply_augment(augment: AugmentData) -> void:
@@ -61,6 +64,9 @@ func apply_augment(augment: AugmentData) -> void:
 			_apply_projectile_piercing(augment.value > 0)
 		AugmentData.AugmentType.EXPLOSIVE_ROCKETS:
 			_apply_explosive_rockets(augment.value > 0)
+		AugmentData.AugmentType.ABILITY:
+			# Abilities are handled separately in _apply_ability_augments
+			pass
 	
 	print("Applied augment: ", augment.name, " (", augment.value, ")")
 
@@ -161,3 +167,39 @@ func _update_weapon_stats() -> void:
 	mouse_shooter.reload_time = mouse_shooter.weapon_data.reload_time
 	
 	print("Updated weapon stats - Reload time: ", mouse_shooter.reload_time, " (base: ", base_reload_time, ", multiplier: ", base_reload_speed_multiplier, ")")
+
+## Apply ability augments by adding them to the AbilityManager
+func _apply_ability_augments() -> void:
+	var ability_manager = get_tree().get_first_node_in_group("ability_manager")
+	if not ability_manager:
+		print("Warning: AbilityManager not found!")
+		return
+	
+	# Clear existing augment-granted abilities (keep only base abilities)
+	_clear_augment_abilities(ability_manager)
+	
+	# Add each ability augment
+	for augment in PlayerData.ability_augments:
+		if augment.augment_type == AugmentData.AugmentType.ABILITY and augment.ability_script:
+			# Create a new Node and attach the ability script
+			var ability_node = Node.new()
+			ability_node.set_script(augment.ability_script)
+			ability_node.set_meta("from_augment", true)  # Mark as augment-granted
+			ability_manager.add_child(ability_node)
+			ability_manager.abilities.append(ability_node)
+			print("Added ability from augment: ", augment.name)
+
+## Clear abilities that were granted by augments
+func _clear_augment_abilities(ability_manager: Node) -> void:
+	var abilities_to_remove = []
+	
+	# Find all augment-granted abilities
+	for ability in ability_manager.abilities:
+		if ability.has_meta("from_augment") and ability.get_meta("from_augment"):
+			abilities_to_remove.append(ability)
+	
+	# Remove them
+	for ability in abilities_to_remove:
+		ability_manager.abilities.erase(ability)
+		ability.queue_free()
+		print("Removed augment ability: ", ability.name)
