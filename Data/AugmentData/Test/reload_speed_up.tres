@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="AugmentData" load_steps=3 format=3 uid="uid://dagphrcf2u6ph"]
+
+[ext_resource type="Texture2D" uid="uid://dx0r2j000ve1j" path="res://Art/Filler/AugmentIcons/Asset 55@2x.png" id="1_a401p"]
+[ext_resource type="Script" uid="uid://dfu50k1tlerfj" path="res://Data/AugmentData/augment_data.gd" id="2_uyt8o"]
+
+[resource]
+script = ExtResource("2_uyt8o")
+name = "Reload Speed Up"
+description = "Up reload speed"
+icon = ExtResource("1_a401p")
+augment_type = 6
+value = -0.1
+metadata/_custom_type_script = "uid://dfu50k1tlerfj"

@@ -1,0 +1,122 @@
+[gd_scene load_steps=7 format=3 uid="uid://6w660hirryy6"]
+
+[ext_resource type="Script" uid="uid://coo3ymyhrbx62" path="res://UI/UpgradeScreen/augments_page/augment_panel_button.gd" id="1_d42pu"]
+[ext_resource type="Texture2D" uid="uid://dqmnca3rlhh4c" path="res://Art/Filler/AugmentIcons/Asset 50@2x.png" id="1_g2q03"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cq7v1"]
+font_size = 18
+
+[sub_resource type="LabelSettings" id="LabelSettings_40kup"]
+font_size = 22
+
+[sub_resource type="LabelSettings" id="LabelSettings_d42pu"]
+font_size = 14
+
+[sub_resource type="LabelSettings" id="LabelSettings_3tdn8"]
+font_size = 48
+
+[node name="AugmentPanelButton" type="Panel"]
+custom_minimum_size = Vector2(327, 357)
+offset_right = 327.0
+offset_bottom = 357.0
+size_flags_horizontal = 3
+script = ExtResource("1_d42pu")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -74.0
+offset_top = 16.0
+offset_right = -19.0
+offset_bottom = 39.0
+grow_horizontal = 0
+text = "69420$"
+label_settings = SubResource("LabelSettings_cq7v1")
+horizontal_alignment = 2
+
+[node name="IconTexture" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.5
+offset_top = -149.5
+offset_right = 40.5
+offset_bottom = -68.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_g2q03")
+expand_mode = 1
+
+[node name="NameLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -57.5
+offset_top = -43.5
+offset_right = 58.5
+offset_bottom = -20.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Name of thang"
+label_settings = SubResource("LabelSettings_40kup")
+
+[node name="DecriptionLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 16.0
+offset_top = 172.0
+offset_right = 311.0
+offset_bottom = 274.0
+text = "lorem uipsun lorem uipsun lorem uipsun lorem uipsun lorem uipsun lorem uipsun lorem uipsun lorem uipsun lorem uipsun lorem uipsun
+lorem uipsun lorem uipsun"
+label_settings = SubResource("LabelSettings_d42pu")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="BuyButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 296.0
+offset_right = 231.0
+offset_bottom = 339.0
+size_flags_horizontal = 3
+text = "Buy"
+
+[node name="PurchasedPanel" type="Panel" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PurchasedLabel" type="Label" parent="PurchasedPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Purchased!"
+label_settings = SubResource("LabelSettings_3tdn8")
+
+[connection signal="pressed" from="BuyButton" to="." method="_on_buy_button_pressed"]

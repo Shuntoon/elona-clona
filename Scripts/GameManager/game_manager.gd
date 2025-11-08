@@ -143,6 +143,11 @@ func _spawn_ally(ally_data: AllyData, spawn_position: Vector2) -> void:
 func _on_start_new_day() -> void:
 	_init_allies()
 
+	# Apply augments at the start of each day
+	var augment_manager = get_tree().get_first_node_in_group("augment_manager")
+	if augment_manager:
+		augment_manager.apply_all_augments()
+
 	sudden_death = false
 	spawn_timer.start()
 	day_timer.start(day_time_length)

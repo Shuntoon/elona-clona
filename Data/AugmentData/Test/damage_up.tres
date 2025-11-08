@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="AugmentData" load_steps=3 format=3 uid="uid://0sdi58td814s"]
+
+[ext_resource type="Texture2D" uid="uid://de2iab0ig0cyx" path="res://Art/Filler/AugmentIcons/Asset 84@2x.png" id="1_gv8vf"]
+[ext_resource type="Script" uid="uid://dfu50k1tlerfj" path="res://Data/AugmentData/augment_data.gd" id="2_pnhan"]
+
+[resource]
+script = ExtResource("2_pnhan")
+name = "Damage Up"
+description = "Up damage"
+icon = ExtResource("1_gv8vf")
+metadata/_custom_type_script = "uid://dfu50k1tlerfj"

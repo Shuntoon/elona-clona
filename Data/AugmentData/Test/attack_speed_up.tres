@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="AugmentData" load_steps=3 format=3 uid="uid://cgdvefnd7o8k6"]
+
+[ext_resource type="Script" uid="uid://dfu50k1tlerfj" path="res://Data/AugmentData/augment_data.gd" id="1_d0aou"]
+[ext_resource type="Texture2D" uid="uid://d2glsjhg3dw3p" path="res://Art/Filler/AugmentIcons/Asset 70@2x.png" id="1_rale1"]
+
+[resource]
+script = ExtResource("1_d0aou")
+name = "Attack Speed Up"
+description = "Up attack speed"
+icon = ExtResource("1_rale1")
+metadata/_custom_type_script = "uid://dfu50k1tlerfj"

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="AugmentData" load_steps=3 format=3 uid="uid://cnp5apbjdopuf"]
+
+[ext_resource type="Texture2D" uid="uid://dvqfslinhnchj" path="res://Art/Filler/AugmentIcons/Asset 86@2x.png" id="1_3x8bc"]
+[ext_resource type="Script" uid="uid://dfu50k1tlerfj" path="res://Data/AugmentData/augment_data.gd" id="2_y1nau"]
+
+[resource]
+script = ExtResource("2_y1nau")
+name = "Magazine Up"
+description = "Up magazine size"
+icon = ExtResource("1_3x8bc")
+metadata/_custom_type_script = "uid://dfu50k1tlerfj"

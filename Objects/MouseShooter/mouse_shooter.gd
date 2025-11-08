@@ -178,6 +178,11 @@ func _equip_weapon(slot: int) -> void:
 	
 	current_weapon_slot = slot
 	
+	# Apply augment bonuses after equipping
+	var augment_manager = get_tree().get_first_node_in_group("augment_manager")
+	if augment_manager:
+		augment_manager._update_weapon_stats()
+	
 	print("Equipped weapon: ", weapon_to_equip.weapon_name, " (Slot ", slot, ") - Ammo: ", current_ammo, "/", magazine_size)
 
 func _on_start_new_day() -> void:

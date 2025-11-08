@@ -12,5 +12,7 @@ extends Node
 @export var allies_level : int = 1
 @export var ability_slots_level : int = 1
 
+@export var augments : Array[AugmentData] = []
+
 func add_ally_data(ally_data: AllyData) -> void:
 	ally_datas.append(ally_data)
