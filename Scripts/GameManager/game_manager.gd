@@ -33,9 +33,24 @@ var current_health : int :
 @onready var ally_3_spawn: Marker2D = %Ally3Spawn
 @onready var allies_node: Node2D = $"../Entities/Allies"
 
+# Wave system reference
+var wave_manager
+
 func _ready() -> void:
 	current_health = max_health - 25
-	start_new_day.emit()
+	
+	# Get wave manager reference
+	wave_manager = get_tree().get_first_node_in_group("wave_manager")
+	if wave_manager:
+		wave_manager.wave_complete.connect(_on_wave_complete)
+		wave_manager.all_waves_complete.connect(_on_all_waves_complete)
+		print("WaveManager connected to GameManager")
+	else:
+		print("Warning: WaveManager not found! Add WaveManager node to scene.")
+	
+	# Defer signal to ensure all nodes are ready
+	call_deferred("emit_signal", "start_new_day")
+	print("GameManager: Deferred start_new_day signal")
 
 # Debug: Finish day input to clear enemies
 func _unhandled_input(event: InputEvent) -> void:
@@ -75,7 +90,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		all_enemies_killed.emit()
 
 func _on_spawn_timer_timeout() -> void:
-	spawner.spawn_enemy(ENEMY_BASE, Spawner.TERRAIN.GROUND)
+	# Old spawning system - now handled by WaveManager
+	pass
 
 func _on_day_timer_timeout() -> void:
 	day_timer_finished.emit()
@@ -86,7 +102,7 @@ func _on_day_timer_finished() -> void:
 	sudden_death = true
 	pass # Replace with function body.
 
-func _on_enemies_child_exiting_tree(node: Node) -> void:
+func _on_enemies_child_exiting_tree(_node: Node) -> void:
 	if sudden_death:
 		if enemies.get_child_count() <= 1:
 			all_enemies_killed.emit()
@@ -149,7 +165,7 @@ func _on_start_new_day() -> void:
 		augment_manager.apply_all_augments()
 
 	sudden_death = false
-	spawn_timer.start()
+	# Don't start spawn_timer - WaveManager handles spawning now
 	day_timer.start(day_time_length)
 
 func _clear_allies() -> void:
@@ -164,3 +180,23 @@ func _clear_allies() -> void:
 			print("Clearing ally: ", child.name)
 	
 	print("Cleared all allies")
+
+## Wave completion handlers
+func _on_wave_complete(wave_number: int):
+	print("Wave ", wave_number, " completed!")
+
+func _on_all_waves_complete():
+	print("All 10 waves completed! Victory!")
+	# Handle game completion - could show victory screen, credits, etc.
+
+## Get current wave info for UI updates
+func get_wave_info() -> Dictionary:
+	if wave_manager:
+		return wave_manager.get_wave_info()
+	return {
+		"current_wave": 1,
+		"total_waves": 10,
+		"day_progress": 0.0,
+		"current_difficulty": "easy",
+		"is_spawning": false
+	}

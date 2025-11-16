@@ -9,11 +9,17 @@ signal died
 @export var max_health : int = 5
 @export var range : float = 30
 @export var damage : int = 1
-@export var sprite : Sprite2D
 @export var attack_speed : float = 1
 @export var gold_reward : int = 5
 @export var gold_reward_variance : int = 2
 
+enum TERRAIN_TYPE {
+	GROUND,
+	AIR
+}
+var current_terrain_type : TERRAIN_TYPE = TERRAIN_TYPE.GROUND
+
+@onready var sprite: Sprite2D = $Sprite2D
 @onready var state_chart: StateChart = $StateChart
 @onready var attack_speed_timer: Timer = $AttackSpeedTimer
 @onready var wall_detector: Area2D = $WallDetector

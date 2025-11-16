@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://dv0g8f2gc182m"]
+
+[ext_resource type="Script" uid="uid://d4hepntti60rn" path="res://Data/EnemyData/enemy_data.gd" id="1_gruij"]
+[ext_resource type="Texture2D" uid="uid://c78tq86rp7x6x" path="res://Art/ArmyMen/Rifleman_Standing.png" id="2_gruij"]
+
+[resource]
+script = ExtResource("1_gruij")
+enemy_name = "x"
+speed = 3.0
+sprite = ExtResource("2_gruij")
+metadata/_custom_type_script = "uid://d4hepntti60rn"

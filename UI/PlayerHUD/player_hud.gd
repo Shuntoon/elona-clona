@@ -5,6 +5,7 @@ var game_manager : GameManager
 var mouse_shooter : MouseShooter
 var ability_manager : AbilityManager
 var allies_node: Node2D
+var wave_manager
 
 @onready var hp_progress_bar: ProgressBar = %HPProgressBar
 @onready var time_left_meter: ColorRect = %TimeLeftMeter
@@ -13,6 +14,7 @@ var allies_node: Node2D
 @onready var abilities_container: HBoxContainer = $MarginContainer/AbilitiesHBoxContainer
 @onready var ally_controls_container: VBoxContainer = %AllyControlsContainer
 @onready var weapon_label: Label = %WeaponLabel
+@onready var day_label: Label = %DayLabel
 
 # Dynamic ability slots
 var ability_vboxes: Array[VBoxContainer] = []
@@ -24,6 +26,7 @@ func _ready() -> void:
 	mouse_shooter = get_tree().get_first_node_in_group("mouse_shooter")
 	ability_manager = get_tree().get_first_node_in_group("ability_manager")
 	allies_node = get_tree().get_first_node_in_group("allies")
+	wave_manager = get_tree().get_first_node_in_group("wave_manager")
 	
 	if game_manager:
 		hp_progress_bar.max_value = game_manager.max_health
@@ -43,6 +46,13 @@ func _process(_delta: float) -> void:
 	if game_manager != null:
 		hp_progress_bar.value = game_manager.current_health
 		time_left_meter.material.set_shader_parameter("value", game_manager.day_timer.time_left / (game_manager.day_time_length))
+	
+	# Update day/wave display
+	if wave_manager:
+		var wave_info = wave_manager.get_wave_info()
+		day_label.text = "Day " + str(wave_info.current_wave) + " / " + str(wave_info.total_waves)
+	else:
+		day_label.text = "Day 1 / 10"
 	
 	if mouse_shooter != null:
 		# Update ammo display

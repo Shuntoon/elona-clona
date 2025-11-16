@@ -31,6 +31,11 @@ shadow_color = Color(0, 0, 0, 0.6039216)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5wk1x"]
 bg_color = Color(0.7851237, 0.036288843, 0.036288843, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_pkcmm"]
+font_size = 24
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.8156863)
+
 [sub_resource type="LabelSettings" id="LabelSettings_ability"]
 shadow_color = Color(0, 0, 0, 0.6)
 
@@ -47,11 +52,6 @@ corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
-
-[sub_resource type="LabelSettings" id="LabelSettings_pkcmm"]
-font_size = 24
-shadow_size = 2
-shadow_color = Color(0, 0, 0, 0.8156863)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_70xbo"]
 shader = ExtResource("2_pkcmm")
@@ -243,3 +243,11 @@ custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
+
+[node name="DayLabel" type="Label" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Day 1 / 10"
+label_settings = SubResource("LabelSettings_pkcmm")
