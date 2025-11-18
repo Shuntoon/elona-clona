@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="AugmentData" load_steps=3 format=3 uid="uid://djby6rnhk0mcl"]
+
+[ext_resource type="Texture2D" uid="uid://d13q8qscs6t5q" path="res://Art/Filler/AugmentIcons/Asset 9@2x.png" id="1_0hhsu"]
+[ext_resource type="Script" uid="uid://dfu50k1tlerfj" path="res://Data/AugmentData/augment_data.gd" id="2_3gg4t"]
+
+[resource]
+script = ExtResource("2_3gg4t")
+name = "Scope"
+description = "Up accuracy"
+icon = ExtResource("1_0hhsu")
+augment_type = 8
+value = 0.1
+metadata/_custom_type_script = "uid://dfu50k1tlerfj"

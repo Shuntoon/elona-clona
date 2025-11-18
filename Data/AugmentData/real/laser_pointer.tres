@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="AugmentData" load_steps=3 format=3 uid="uid://b3oy0gb8wwg51"]
+
+[ext_resource type="Texture2D" uid="uid://cncaeenubiptf" path="res://Art/VFX/Hit-a/hit-a4.png" id="1_c12in"]
+[ext_resource type="Script" uid="uid://dfu50k1tlerfj" path="res://Data/AugmentData/augment_data.gd" id="2_3jux0"]
+
+[resource]
+script = ExtResource("2_3jux0")
+name = "Laser Pointer"
+description = "Crit chance up"
+icon = ExtResource("1_c12in")
+augment_type = 3
+value = 0.1
+metadata/_custom_type_script = "uid://dfu50k1tlerfj"

@@ -1,13 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://dvsbfx38vbaju"]
+[gd_scene load_steps=11 format=3 uid="uid://dvsbfx38vbaju"]
 
 [ext_resource type="Script" uid="uid://d31madduro008" path="res://UI/UpgradeScreen/augments_page/augments_page.gd" id="1_b6eae"]
 [ext_resource type="PackedScene" uid="uid://6w660hirryy6" path="res://UI/UpgradeScreen/augments_page/augment_panel_button.tscn" id="2_c4yg0"]
 [ext_resource type="Script" uid="uid://dfu50k1tlerfj" path="res://Data/AugmentData/augment_data.gd" id="2_tsv3p"]
-[ext_resource type="Resource" uid="uid://cgdvefnd7o8k6" path="res://Data/AugmentData/Test/attack_speed_up.tres" id="3_o76bo"]
-[ext_resource type="Resource" uid="uid://0sdi58td814s" path="res://Data/AugmentData/Test/damage_up.tres" id="4_kpg4h"]
-[ext_resource type="Resource" uid="uid://cnp5apbjdopuf" path="res://Data/AugmentData/Test/magazine_up.tres" id="5_fkv8u"]
-[ext_resource type="Resource" uid="uid://dagphrcf2u6ph" path="res://Data/AugmentData/Test/reload_speed_up.tres" id="6_hsc5t"]
-[ext_resource type="Resource" uid="uid://bsluif11jogmg" path="res://Data/AugmentData/Test/attack_speed_boost_ability.tres" id="7_kpg4h"]
+[ext_resource type="Resource" uid="uid://7ro5vw42gv65" path="res://Data/AugmentData/real/energy_drink.tres" id="3_fkv8u"]
+[ext_resource type="Resource" uid="uid://c2pxit8eu3xee" path="res://Data/AugmentData/real/extended_clip.tres" id="4_hsc5t"]
+[ext_resource type="Resource" uid="uid://dhpoadkaik5jr" path="res://Data/AugmentData/real/hollow_point_rounds.tres" id="5_hpobp"]
+[ext_resource type="Resource" uid="uid://b3oy0gb8wwg51" path="res://Data/AugmentData/real/laser_pointer.tres" id="6_mson7"]
+[ext_resource type="Resource" uid="uid://dxefmjwmf12kf" path="res://Data/AugmentData/real/scope.tres" id="7_37cud"]
+[ext_resource type="Resource" uid="uid://djby6rnhk0mcl" path="res://Data/AugmentData/real/stock.tres" id="8_6mapy"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_skbsq"]
 font_size = 48
@@ -22,7 +23,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_b6eae")
-augment_selection = Array[ExtResource("2_tsv3p")]([ExtResource("3_o76bo"), ExtResource("4_kpg4h"), ExtResource("5_fkv8u"), ExtResource("6_hsc5t"), ExtResource("7_kpg4h")])
+augment_selection = Array[ExtResource("2_tsv3p")]([ExtResource("3_fkv8u"), ExtResource("4_hsc5t"), ExtResource("5_hpobp"), ExtResource("6_mson7"), ExtResource("7_37cud"), ExtResource("8_6mapy")])
 augment_panel_button_scene = ExtResource("2_c4yg0")
 
 [node name="AugmentsLabel" type="Label" parent="."]
