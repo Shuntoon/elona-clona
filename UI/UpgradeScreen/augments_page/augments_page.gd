@@ -14,17 +14,25 @@ class_name AugmentsPage
 @export var legendary_weight: float = 5.0
 
 @onready var augment_hbox_container: HBoxContainer = %AugmentHBoxContainer
+@onready var owned_grid: GridContainer = %AugmentsIconGridContainer
 
 var rng: RandomNumberGenerator
 
 func _ready():
 	rng = RandomNumberGenerator.new()
 	rng.randomize()
+	# Helpful group for cross-refresh after purchases
+	add_to_group("augments_page")
+	# Configure grid columns (optional tweak)
+	if owned_grid:
+		owned_grid.columns = 16
 	populate_augment_hbox()
+	_populate_owned_augments_grid()
 
 func _on_visibility_changed() -> void:
 	if augment_hbox_container != null:
 		populate_augment_hbox()
+		_populate_owned_augments_grid()
 
 func populate_augment_hbox() -> void:
 	# Clear existing children
@@ -94,3 +102,41 @@ func _on_reroll_button_pressed() -> void:
 	populate_augment_hbox()
 	PlayerData.gold -= reroll_cost
 	pass # Replace with function body.
+
+## Build the Owned Augments grid: one cell per unique augment with icon and stack count
+func _populate_owned_augments_grid() -> void:
+	if owned_grid == null:
+		return
+	# Clear existing
+	for child in owned_grid.get_children():
+		child.queue_free()
+
+	# Count augments by name
+	var augment_counts: Dictionary = {}
+	
+	# Count stat augments
+	for aug in PlayerData.augments:
+		if aug == null:
+			continue
+		var aug_name: String = aug.name
+		if not augment_counts.has(aug_name):
+			augment_counts[aug_name] = {"data": aug, "count": 0}
+		augment_counts[aug_name]["count"] += 1
+
+	# Include ability augments
+	for aaug in PlayerData.ability_augments:
+		if aaug == null:
+			continue
+		var aaug_name: String = aaug.name
+		if not augment_counts.has(aaug_name):
+			augment_counts[aaug_name] = {"data": aaug, "count": 0}
+		augment_counts[aaug_name]["count"] += 1
+
+	# Create cells for each unique augment
+	for aug_name in augment_counts:
+		var info: Dictionary = augment_counts[aug_name]
+		var aug_data: AugmentData = info["data"]
+		var count: int = info["count"]
+		var cell: Control = preload("res://UI/UpgradeScreen/augments_page/owned_augment_cell.tscn").instantiate()
+		cell.setup(aug_data, count)
+		owned_grid.add_child(cell)

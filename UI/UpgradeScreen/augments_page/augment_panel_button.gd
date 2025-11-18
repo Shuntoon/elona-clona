@@ -63,3 +63,8 @@ func _on_buy_button_pressed() -> void:
 	if augment_manager:
 		augment_manager.apply_augment(augment_data)
 		print("Applied augment immediately: ", augment_data.name)
+
+	# Refresh the owned augments grid if the page is open
+	var page = get_tree().get_first_node_in_group("augments_page")
+	if page and page.has_method("_populate_owned_augments_grid"):
+		page._populate_owned_augments_grid()

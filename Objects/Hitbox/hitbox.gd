@@ -89,6 +89,6 @@ func _spawn_damage_number(damage_value: int, spawn_position: Vector2, is_critica
 		return
 	
 	var damage_number_inst = DAMAGE_NUMBER.instantiate()
-	damage_number_inst.global_position = spawn_position
+	damage_number_inst.global_position = spawn_position + Vector2(randi_range(-20,20), randi_range(-20,-30))  # Slightly above hit position
 	damage_number_inst.set_damage(damage_value, is_critical)
 	vfx_parent.add_child(damage_number_inst)

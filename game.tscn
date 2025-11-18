@@ -275,13 +275,13 @@ position = Vector2(0, 407)
 unique_name_in_owner = true
 
 [node name="Pos1" type="Marker2D" parent="Spawner/Air"]
-position = Vector2(0, 148)
+position = Vector2(2, 224)
 
 [node name="Pos2" type="Marker2D" parent="Spawner/Air"]
-position = Vector2(0, 92)
+position = Vector2(2, 168)
 
 [node name="Pos3" type="Marker2D" parent="Spawner/Air"]
-position = Vector2(0, 30)
+position = Vector2(2, 106)
 
 [connection signal="all_enemies_killed" from="GameManager" to="GameManager" method="_on_all_enemies_killed"]
 [connection signal="day_timer_finished" from="GameManager" to="GameManager" method="_on_day_timer_finished"]
