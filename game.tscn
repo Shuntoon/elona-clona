@@ -14,8 +14,8 @@
 [ext_resource type="Script" uid="uid://b0hnw34sgf8um" path="res://Scripts/WaveManager/wave_manager.gd" id="8_lc2xo"]
 [ext_resource type="PackedScene" uid="uid://bljxubxu5eg3j" path="res://Objects/BulletBase/bullet_base.tscn" id="8_mfdv2"]
 [ext_resource type="Script" uid="uid://dssq5y3twr3y4" path="res://Scripts/WaveManager/wave_data.gd" id="9_80cx4"]
-[ext_resource type="Resource" uid="uid://dllb7i7ax465" path="res://Data/WaveData/test_data.tres" id="9_215e1"]
 [ext_resource type="PackedScene" uid="uid://djs38cy8bwdv7" path="res://Objects/Enemy/enemy_base.tscn" id="10_7sc4i"]
+[ext_resource type="Resource" uid="uid://bx8vj6p2k23n4" path="res://Data/WaveData/Test/Wave0_Data.tres" id="10_e8heu"]
 [ext_resource type="Resource" uid="uid://che2jquh8hejp" path="res://Data/WaveData/test_data_2.tres" id="11_e8heu"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_80nbo"]
@@ -23,7 +23,7 @@
 [sub_resource type="SphereMesh" id="SphereMesh_mfdv2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_80nbo"]
-size = Vector2(2.5714264, 11.25094)
+size = Vector2(2.5714264, 13.434127)
 
 [node name="Game" type="Node"]
 
@@ -37,6 +37,7 @@ visible = false
 
 [node name="GameManager" type="Node" parent="." groups=["game_manager"]]
 script = ExtResource("1_fc0e3")
+day_time_length = 60.0
 
 [node name="SpawnTimer" type="Timer" parent="GameManager"]
 
@@ -61,7 +62,7 @@ script = ExtResource("5_augment")
 
 [node name="WaveManager" type="Node" parent="."]
 script = ExtResource("8_lc2xo")
-waves = Array[ExtResource("9_80cx4")]([ExtResource("9_215e1"), ExtResource("11_e8heu")])
+waves = Array[ExtResource("9_80cx4")]([ExtResource("10_e8heu"), ExtResource("11_e8heu")])
 enemy_base_scene = ExtResource("10_7sc4i")
 metadata/_custom_type_script = "uid://b0hnw34sgf8um"
 
@@ -213,8 +214,8 @@ scale = Vector2(14.00005, 28.99991)
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/WallArea2D"]
-position = Vector2(0.60705394, -2.2603426)
-scale = Vector2(0.99999964, 0.9999997)
+position = Vector2(0.6070633, -3.3519344)
+scale = Vector2(0.9999996, 0.9999996)
 shape = SubResource("RectangleShape2D_80nbo")
 
 [node name="Entities" type="Node2D" parent="."]
@@ -261,13 +262,13 @@ position = Vector2(0, 607)
 position = Vector2(0, 557)
 
 [node name="Pos3" type="Marker2D" parent="Spawner/Ground"]
-position = Vector2(0, 507)
+position = Vector2(-1, 502)
 
 [node name="Pos4" type="Marker2D" parent="Spawner/Ground"]
-position = Vector2(0, 457)
+position = Vector2(0, 441)
 
 [node name="Pos5" type="Marker2D" parent="Spawner/Ground"]
-position = Vector2(0, 407)
+position = Vector2(2, 373)
 
 [node name="Air" type="Node2D" parent="Spawner"]
 unique_name_in_owner = true
