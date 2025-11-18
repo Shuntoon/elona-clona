@@ -7,6 +7,8 @@ class_name AugmentPanelButton
 @onready var name_label: Label = %NameLabel
 @onready var decription_label: Label = %DecriptionLabel
 @onready var purchased_panel: Panel = $PurchasedPanel
+@onready var price_label: Label = %Label
+@onready var buy_button: Button = $BuyButton
 
 func _ready():
 	init_panel(augment_data) 
@@ -16,9 +18,21 @@ func init_panel(augment_data_inst: AugmentData) -> void:
 	icon_texture.texture = augment_data.icon
 	name_label.text = augment_data.name
 	decription_label.text = augment_data.description
+	price_label.text = "%d$" % augment_data.price
+	
+	# Update buy button state based on player gold
+	_update_buy_button()
 	
 	# Set color based on rarity
 	_set_rarity_color()
+
+func _update_buy_button() -> void:
+	if PlayerData.gold < augment_data.price:
+		buy_button.disabled = true
+		buy_button.text = "Can't Afford"
+	else:
+		buy_button.disabled = false
+		buy_button.text = "Buy"
 
 func _set_rarity_color() -> void:
 	var color: Color
@@ -48,6 +62,14 @@ func _set_rarity_color() -> void:
 
 
 func _on_buy_button_pressed() -> void:
+	# Double-check player has enough gold
+	if PlayerData.gold < augment_data.price:
+		print("Not enough gold to buy augment!")
+		return
+	
+	# Deduct gold
+	PlayerData.gold -= augment_data.price
+	
 	purchased_panel.show()
 	
 	# Check if this is an ability augment

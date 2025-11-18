@@ -5,6 +5,7 @@ class_name AugmentData
 @export var description: String = ""
 @export var icon: Texture2D
 @export var rarity: Rarity
+@export var price: int = 100
 
 # Primary effect
 @export var augment_type: AugmentType
