@@ -3,6 +3,7 @@ class_name Enemy
 
 signal died
 
+const EXPLOSION_SCENE = preload("res://Objects/Explosion/explosion.tscn")
 const DAMAGE_NUMBER = preload("res://Objects/DamageNumber/damage_number.tscn")
 
 @export_category("Generics")
@@ -70,6 +71,24 @@ func _on_attack_speed_timer_timeout() -> void:
 
 func _on_died() -> void:
 	PlayerData.gold += randi_range(gold_reward - gold_reward_variance, gold_reward + gold_reward_variance)
+
+	# Chance to explode on death from augments
+	var augment_manager = get_tree().get_first_node_in_group("augment_manager")
+	if augment_manager and augment_manager.has_method("get_enemy_death_explosion_chance"):
+		var chance: float = augment_manager.get_enemy_death_explosion_chance()
+		if chance > 0.0 and randf() < chance:
+			# Spawn explosion at enemy position
+			var explosion = EXPLOSION_SCENE.instantiate()
+			explosion.global_position = global_position
+			# Set base damage to 10 as specified
+			if "damage" in explosion:
+				explosion.damage = 10
+			# Optional: can tweak radius or visual scale if desired
+			var vfx_parent = get_tree().get_first_node_in_group("neutral_entities")
+			if vfx_parent:
+				vfx_parent.add_child(explosion)
+			else:
+				get_tree().current_scene.add_child(explosion)
 	queue_free()
 	print("enemy died!")
 	pass # Replace with function body.

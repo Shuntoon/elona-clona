@@ -14,4 +14,5 @@ icon = SubResource("AtlasTexture_pxwm6")
 accuracy = 0.76
 fire_rate = 400.0
 crit_chance = 0.85
+bullet_damage = 10
 metadata/_custom_type_script = "uid://rimwdfuvv8ao"

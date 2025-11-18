@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="AugmentData" load_steps=3 format=3 uid="uid://dki75h8iwy3t7"]
+
+[ext_resource type="Texture2D" uid="uid://d2glsjhg3dw3p" path="res://Art/Filler/AugmentIcons/Asset 70@2x.png" id="1_icon"]
+[ext_resource type="Script" uid="uid://dfu50k1tlerfj" path="res://Data/AugmentData/augment_data.gd" id="2_script"]
+
+[resource]
+script = ExtResource("2_script")
+name = "Demolition Expert"
+description = "All projectile weapons become explosive. +50% explosion damage and radius."
+icon = ExtResource("1_icon")
+rarity = 4
+augment_type = 10
+value = 1.0
+has_secondary_effect = true
+secondary_augment_type = 13
+secondary_value = 0.5
+has_tertiary_effect = true
+tertiary_augment_type = 14
+tertiary_value = 0.5
+metadata/_custom_type_script = "uid://dfu50k1tlerfj"

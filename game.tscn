@@ -37,6 +37,7 @@ visible = false
 
 [node name="GameManager" type="Node" parent="." groups=["game_manager"]]
 script = ExtResource("1_fc0e3")
+day_time_length = 120.0
 
 [node name="SpawnTimer" type="Timer" parent="GameManager"]
 

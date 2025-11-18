@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="AugmentData" load_steps=3 format=3 uid="uid://c8eyam3oavolx"]
+
+[ext_resource type="Texture2D" uid="uid://d2glsjhg3dw3p" path="res://Art/Filler/AugmentIcons/Asset 70@2x.png" id="1_icon"]
+[ext_resource type="Script" uid="uid://dfu50k1tlerfj" path="res://Data/AugmentData/augment_data.gd" id="2_script"]
+
+[resource]
+script = ExtResource("2_script")
+name = "Volatile Blood"
+description = "Enemies have +10% per stack chance to explode on death (10 dmg)"
+icon = ExtResource("1_icon")
+rarity = 2
+augment_type = 12
+value = 0.1
+metadata/_custom_type_script = "uid://dfu50k1tlerfj"

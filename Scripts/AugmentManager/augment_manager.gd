@@ -20,6 +20,9 @@ var base_movement_speed_multiplier: float = 1.0
 var base_reload_speed_multiplier: float = 1.0
 var ally_damage_multiplier: float = 1.0
 var ally_fire_rate_multiplier: float = 1.0
+var enemy_death_explosion_chance: float = 0.0
+var explosion_damage_multiplier: float = 1.0
+var explosion_radius_multiplier: float = 1.0
 
 ## Apply all augments from PlayerData
 ## Call this at the start of a new day to recalculate all bonuses
@@ -33,6 +36,9 @@ func apply_all_augments() -> void:
 	base_reload_speed_multiplier = 1.0
 	ally_damage_multiplier = 1.0
 	ally_fire_rate_multiplier = 1.0
+	enemy_death_explosion_chance = 0.0
+	explosion_damage_multiplier = 1.0
+	explosion_radius_multiplier = 1.0
 	
 	# Apply each stat augment
 	for augment in PlayerData.augments:
@@ -55,8 +61,14 @@ func apply_augment(augment: AugmentData) -> void:
 	if augment.has_secondary_effect:
 		_apply_augment_effect(augment.secondary_augment_type, augment.secondary_value)
 		print("Applied augment: ", augment.name, " (primary: ", augment.value, ", secondary: ", augment.secondary_value, ")")
+
+	# Apply tertiary effect if it exists
+	if augment.has_tertiary_effect:
+		_apply_augment_effect(augment.tertiary_augment_type, augment.tertiary_value)
+		print("Applied augment tertiary: ", augment.tertiary_value)
 	else:
-		print("Applied augment: ", augment.name, " (", augment.value, ")")
+		if not augment.has_secondary_effect:
+			print("Applied augment: ", augment.name, " (", augment.value, ")")
 
 ## Apply a specific augment effect
 func _apply_augment_effect(augment_type: AugmentData.AugmentType, value: float) -> void:
@@ -89,6 +101,12 @@ func _apply_augment_effect(augment_type: AugmentData.AugmentType, value: float) 
 			_apply_ally_damage_multiplier(value)
 		AugmentData.AugmentType.ALLY_FIRE_RATE:
 			_apply_ally_fire_rate(value)
+		AugmentData.AugmentType.ENEMY_DEATH_EXPLOSION_CHANCE:
+			_apply_enemy_death_explosion_chance(value)
+		AugmentData.AugmentType.EXPLOSION_DAMAGE_MULTIPLIER:
+			_apply_explosion_damage_multiplier(value)
+		AugmentData.AugmentType.EXPLOSION_RADIUS_MULTIPLIER:
+			_apply_explosion_radius_multiplier(value)
 		AugmentData.AugmentType.ABILITY:
 			# Abilities are handled separately in _apply_ability_augments
 			pass
@@ -162,6 +180,19 @@ func _apply_bleed_chance(value: float) -> void:
 		mouse_shooter.weapon_data.bleed_chance = clamp(mouse_shooter.weapon_data.bleed_chance + value, 0.0, 1.0)
 		mouse_shooter.bleed_chance = mouse_shooter.weapon_data.bleed_chance
 
+func _apply_enemy_death_explosion_chance(value: float) -> void:
+	# Accumulate chance across stacks; clamp at 100%
+	enemy_death_explosion_chance = clamp(enemy_death_explosion_chance + value, 0.0, 1.0)
+
+func get_enemy_death_explosion_chance() -> float:
+	return enemy_death_explosion_chance
+
+func _apply_explosion_damage_multiplier(value: float) -> void:
+	explosion_damage_multiplier += value
+
+func _apply_explosion_radius_multiplier(value: float) -> void:
+	explosion_radius_multiplier += value
+
 func _apply_ally_damage_multiplier(value: float) -> void:
 	ally_damage_multiplier += value
 
@@ -206,11 +237,17 @@ func _update_weapon_stats() -> void:
 		mouse_shooter.weapon_data.set_meta("base_fire_rate", mouse_shooter.weapon_data.fire_rate)
 	if not mouse_shooter.weapon_data.has_meta("base_reload_time"):
 		mouse_shooter.weapon_data.set_meta("base_reload_time", mouse_shooter.weapon_data.reload_time)
+	if not mouse_shooter.weapon_data.has_meta("base_explosion_damage"):
+		mouse_shooter.weapon_data.set_meta("base_explosion_damage", mouse_shooter.weapon_data.explosion_damage)
+	if not mouse_shooter.weapon_data.has_meta("base_explosion_radius"):
+		mouse_shooter.weapon_data.set_meta("base_explosion_radius", mouse_shooter.weapon_data.explosion_radius)
 	
 	# Get base values
 	var base_damage = mouse_shooter.weapon_data.get_meta("base_damage")
 	var base_fire_rate = mouse_shooter.weapon_data.get_meta("base_fire_rate")
 	var base_reload_time = mouse_shooter.weapon_data.get_meta("base_reload_time")
+	var base_explosion_damage = mouse_shooter.weapon_data.get_meta("base_explosion_damage")
+	var base_explosion_radius = mouse_shooter.weapon_data.get_meta("base_explosion_radius")
 	
 	# Apply damage multiplier
 	mouse_shooter.weapon_data.bullet_damage = int(base_damage * base_damage_multiplier)
@@ -224,6 +261,12 @@ func _update_weapon_stats() -> void:
 	# Apply reload speed multiplier
 	mouse_shooter.weapon_data.reload_time = base_reload_time * base_reload_speed_multiplier
 	mouse_shooter.reload_time = mouse_shooter.weapon_data.reload_time
+
+	# Apply explosion multipliers
+	mouse_shooter.weapon_data.explosion_damage = int(base_explosion_damage * explosion_damage_multiplier)
+	mouse_shooter.explosion_damage = mouse_shooter.weapon_data.explosion_damage
+	mouse_shooter.weapon_data.explosion_radius = base_explosion_radius * explosion_radius_multiplier
+	mouse_shooter.explosion_radius = mouse_shooter.weapon_data.explosion_radius
 	
 	print("Updated weapon stats - Reload time: ", mouse_shooter.reload_time, " (base: ", base_reload_time, ", multiplier: ", base_reload_speed_multiplier, ")")
 

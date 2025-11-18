@@ -16,6 +16,11 @@ class_name AugmentData
 @export var secondary_augment_type: AugmentType
 @export var secondary_value: float = 0.0
 
+# Tertiary effect (optional third effect)
+@export var has_tertiary_effect: bool = false
+@export var tertiary_augment_type: AugmentType
+@export var tertiary_value: float = 0.0
+
 enum Rarity {
 	COMMON,
 	UNCOMMON,
@@ -37,6 +42,9 @@ enum AugmentType {
 	PROJECTILE_PIERCING,  # value = 1 to enable (boolean)
 	EXPLOSIVE_ROCKETS,    # value = 1 to enable (boolean)
 	BLEED_CHANCE,         # +0.1 = +10% bleed chance (flat)
+	ENEMY_DEATH_EXPLOSION_CHANCE, # +0.1 = +10% per stack enemy death explosion chance
+	EXPLOSION_DAMAGE_MULTIPLIER,  # +0.5 = +50% explosion damage (multiplier)
+	EXPLOSION_RADIUS_MULTIPLIER,  # +0.5 = +50% explosion radius (multiplier)
 	ALLY_DAMAGE_MULTIPLIER, # Allies deal more damage (multiplier)
 	ALLY_FIRE_RATE,         # Allies fire faster (multiplier)
 	ABILITY,              # Grants an ability (uses ability_scene)
