@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dvsbfx38vbaju"]
+[gd_scene load_steps=14 format=3 uid="uid://dvsbfx38vbaju"]
 
 [ext_resource type="Script" uid="uid://d31madduro008" path="res://UI/UpgradeScreen/augments_page/augments_page.gd" id="1_b6eae"]
 [ext_resource type="PackedScene" uid="uid://6w660hirryy6" path="res://UI/UpgradeScreen/augments_page/augment_panel_button.tscn" id="2_c4yg0"]
@@ -9,6 +9,9 @@
 [ext_resource type="Resource" uid="uid://b3oy0gb8wwg51" path="res://Data/AugmentData/real/laser_pointer.tres" id="6_mson7"]
 [ext_resource type="Resource" uid="uid://dxefmjwmf12kf" path="res://Data/AugmentData/real/scope.tres" id="7_37cud"]
 [ext_resource type="Resource" uid="uid://djby6rnhk0mcl" path="res://Data/AugmentData/real/stock.tres" id="8_6mapy"]
+[ext_resource type="Resource" uid="uid://c7j4n6qartv5y" path="res://Data/AugmentData/real/hair_trigger.tres" id="9_hpobp"]
+[ext_resource type="Resource" path="res://Data/AugmentData/real/heavy_rounds.tres" id="10_mson7"]
+[ext_resource type="Resource" uid="uid://dvhxc7l74fvnf" path="res://Data/AugmentData/real/drum_magazine.tres" id="11_mson7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_skbsq"]
 font_size = 48
@@ -23,7 +26,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_b6eae")
-augment_selection = Array[ExtResource("2_tsv3p")]([ExtResource("3_fkv8u"), ExtResource("4_hsc5t"), ExtResource("5_hpobp"), ExtResource("6_mson7"), ExtResource("7_37cud"), ExtResource("8_6mapy")])
+augment_selection = Array[ExtResource("2_tsv3p")]([ExtResource("3_fkv8u"), ExtResource("4_hsc5t"), ExtResource("5_hpobp"), ExtResource("6_mson7"), ExtResource("7_37cud"), ExtResource("8_6mapy"), ExtResource("9_hpobp"), ExtResource("10_mson7"), ExtResource("11_mson7")])
 augment_panel_button_scene = ExtResource("2_c4yg0")
 
 [node name="AugmentsLabel" type="Label" parent="."]
@@ -94,10 +97,12 @@ theme_override_constants/margin_bottom = 12
 [node name="GridContainer" type="GridContainer" parent="CurrentUpgradesPanel/MarginContainer"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="."]
+[node name="RerollButton" type="Button" parent="."]
 layout_mode = 0
 offset_left = 277.5
 offset_top = 64.888916
 offset_right = 370.7175
 offset_bottom = 130.0
 text = "Reroll"
+
+[connection signal="pressed" from="RerollButton" to="." method="_on_reroll_button_pressed"]

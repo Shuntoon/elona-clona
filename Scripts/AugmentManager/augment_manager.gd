@@ -41,34 +41,44 @@ func apply_all_augments() -> void:
 
 ## Apply a single augment's effects
 func apply_augment(augment: AugmentData) -> void:
-	match augment.augment_type:
+	# Apply primary effect
+	_apply_augment_effect(augment.augment_type, augment.value)
+	
+	# Apply secondary effect if it exists
+	if augment.has_secondary_effect:
+		_apply_augment_effect(augment.secondary_augment_type, augment.secondary_value)
+		print("Applied augment: ", augment.name, " (primary: ", augment.value, ", secondary: ", augment.secondary_value, ")")
+	else:
+		print("Applied augment: ", augment.name, " (", augment.value, ")")
+
+## Apply a specific augment effect
+func _apply_augment_effect(augment_type: AugmentData.AugmentType, value: float) -> void:
+	match augment_type:
 		AugmentData.AugmentType.MAX_HEALTH:
-			_apply_max_health(augment.value)
+			_apply_max_health(value)
 		AugmentData.AugmentType.DAMAGE_MULTIPLIER:
-			_apply_damage_multiplier(augment.value)
+			_apply_damage_multiplier(value)
 		AugmentData.AugmentType.FIRE_RATE:
-			_apply_fire_rate(augment.value)
+			_apply_fire_rate(value)
 		AugmentData.AugmentType.CRIT_CHANCE:
-			_apply_crit_chance(augment.value)
+			_apply_crit_chance(value)
 		AugmentData.AugmentType.CRIT_MULTIPLIER:
-			_apply_crit_multiplier(augment.value)
+			_apply_crit_multiplier(value)
 		AugmentData.AugmentType.MOVEMENT_SPEED:
-			_apply_movement_speed(augment.value)
+			_apply_movement_speed(value)
 		AugmentData.AugmentType.RELOAD_SPEED:
-			_apply_reload_speed(augment.value)
+			_apply_reload_speed(value)
 		AugmentData.AugmentType.MAGAZINE_SIZE:
-			_apply_magazine_size(augment.value)
+			_apply_magazine_size(value)
 		AugmentData.AugmentType.ACCURACY:
-			_apply_accuracy(augment.value)
+			_apply_accuracy(value)
 		AugmentData.AugmentType.PROJECTILE_PIERCING:
-			_apply_projectile_piercing(augment.value > 0)
+			_apply_projectile_piercing(value > 0)
 		AugmentData.AugmentType.EXPLOSIVE_ROCKETS:
-			_apply_explosive_rockets(augment.value > 0)
+			_apply_explosive_rockets(value > 0)
 		AugmentData.AugmentType.ABILITY:
 			# Abilities are handled separately in _apply_ability_augments
 			pass
-	
-	print("Applied augment: ", augment.name, " (", augment.value, ")")
 
 # === Augment Application Functions ===
 

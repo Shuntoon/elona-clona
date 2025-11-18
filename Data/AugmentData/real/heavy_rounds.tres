@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="AugmentData" load_steps=3 format=3 uid="uid://cqr8m3n5vwx2p"]
+
+[ext_resource type="Texture2D" uid="uid://d2glsjhg3dw3p" path="res://Art/Filler/AugmentIcons/Asset 70@2x.png" id="1_heavy"]
+[ext_resource type="Script" uid="uid://dfu50k1tlerfj" path="res://Data/AugmentData/augment_data.gd" id="2_heavy"]
+
+[resource]
+script = ExtResource("2_heavy")
+name = "Heavy Rounds"
+description = "+15% damage, -10% fire rate"
+icon = ExtResource("1_heavy")
+rarity = 1
+augment_type = 1
+value = 0.15
+has_secondary_effect = true
+secondary_augment_type = 2
+secondary_value = -0.1
+metadata/_custom_type_script = "uid://dfu50k1tlerfj"

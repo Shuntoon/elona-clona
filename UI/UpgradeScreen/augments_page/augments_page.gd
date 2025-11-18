@@ -5,6 +5,8 @@ class_name AugmentsPage
 @export var augment_selection_size : int = 3
 @export var augment_panel_button_scene : PackedScene
 
+@export var reroll_cost : int = 10
+
 # Rarity weights (higher = more common)
 @export var common_weight: float = 50.0
 @export var uncommon_weight: float = 30.0
@@ -81,3 +83,14 @@ func _pick_weighted_augment(augments: Array[AugmentData]) -> AugmentData:
 	# Use weighted random selection
 	var selected_index = rng.rand_weighted(weights)
 	return augments[selected_index]
+
+
+func _on_reroll_button_pressed() -> void:
+	if PlayerData.gold < reroll_cost:
+		print("Not enough gold to reroll augments!")
+		return
+
+
+	populate_augment_hbox()
+	PlayerData.gold -= reroll_cost
+	pass # Replace with function body.

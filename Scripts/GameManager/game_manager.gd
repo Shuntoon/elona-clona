@@ -113,7 +113,8 @@ func _on_all_enemies_killed() -> void:
 	upgrade_screen.position = Vector2.ZERO
 	upgrade_screen.show()
 	upgrade_screen._bounce_in()
-	pass # Replace with function body.
+	# Pause the game while in shop
+	get_tree().paused = true
 	
 func _init_allies() -> void:
 	_clear_allies()
@@ -165,6 +166,8 @@ func _on_start_new_day() -> void:
 		augment_manager.apply_all_augments()
 
 	sudden_death = false
+	# Unpause game when starting new day
+	get_tree().paused = false
 	# Don't start spawn_timer - WaveManager handles spawning now
 	day_timer.start(day_time_length)
 
@@ -182,8 +185,9 @@ func _clear_allies() -> void:
 	print("Cleared all allies")
 
 ## Wave completion handlers
-func _on_wave_complete(wave_number: int):
-	print("Wave ", wave_number, " completed!")
+func _on_wave_complete(_wave_number: int):
+	# Wave complete handling is done by WaveManager
+	pass
 
 func _on_all_waves_complete():
 	print("All 10 waves completed! Victory!")

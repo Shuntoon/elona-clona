@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="AugmentData" load_steps=3 format=3 uid="uid://dvhxc7l74fvnf"]
+
+[ext_resource type="Texture2D" uid="uid://d2glsjhg3dw3p" path="res://Art/Filler/AugmentIcons/Asset 70@2x.png" id="1_drum"]
+[ext_resource type="Script" uid="uid://dfu50k1tlerfj" path="res://Data/AugmentData/augment_data.gd" id="2_drum"]
+
+[resource]
+script = ExtResource("2_drum")
+name = "Drum Magazine"
+description = "+15 magazine size, -25% reload speed"
+icon = ExtResource("1_drum")
+rarity = 1
+augment_type = 7
+value = 15.0
+has_secondary_effect = true
+secondary_augment_type = 6
+secondary_value = 5.0
+metadata/_custom_type_script = "uid://dfu50k1tlerfj"

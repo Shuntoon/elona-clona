@@ -4,7 +4,7 @@ class_name UpgradeScreen
 var game_mananger : GameManager
 
 @onready var foundation_page: Panel = %FoundationPage
-@onready var augments_page: Panel = %AugmentsPage
+@onready var augments_page: AugmentsPage = %AugmentsPage
 @onready var armory_page: Panel = %ArmoryPage
 @onready var allies_page: Panel = %AlliesPage
 @onready var foundation_button: Button = %FoundationButton
@@ -14,6 +14,12 @@ var game_mananger : GameManager
 
 func _ready() -> void:
 	game_mananger = get_tree().get_first_node_in_group("game_manager")
+	
+	if game_mananger:
+		var wave_manager = get_tree().get_first_node_in_group("wave_manager")
+		if wave_manager:
+			wave_manager.wave_complete.connect(_on_wave_complete)
+			print("UpgradeScreen connected to wave_complete signal")
 
 func _process(delta: float) -> void:
 	update_stats()
@@ -62,4 +68,9 @@ func _on_allies_button_pressed() -> void:
 
 func update_stats() -> void:
 	gold_label.text = "Gold: " + str(PlayerData.gold)
-	base_health_label.text = "Base Health: %s / %s" % [str(game_mananger.current_health), str(game_mananger.max_health)]	
+	base_health_label.text = "Base Health: %s / %s" % [str(game_mananger.current_health), str(game_mananger.max_health)]
+
+func _on_wave_complete(wave_number: int) -> void:
+	print("Rerolling augments for wave ", wave_number + 1)
+	if augments_page:
+		augments_page.populate_augment_hbox()	

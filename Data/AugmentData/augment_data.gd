@@ -6,10 +6,15 @@ class_name AugmentData
 @export var icon: Texture2D
 @export var rarity: Rarity
 
-# Effect properties
+# Primary effect
 @export var augment_type: AugmentType
 @export var value: float = 0.0  # Amount to modify (can be flat value or percentage)
 @export var ability_script: Script  # For ABILITY type augments
+
+# Secondary effect (optional penalty/bonus)
+@export var has_secondary_effect: bool = false
+@export var secondary_augment_type: AugmentType
+@export var secondary_value: float = 0.0
 
 enum Rarity {
 	COMMON,
