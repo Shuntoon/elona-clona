@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="AugmentData" load_steps=3 format=3 uid="uid://cam7f3vc1ally"]
+
+[ext_resource type="Texture2D" uid="uid://d2glsjhg3dw3p" path="res://Art/Filler/AugmentIcons/Asset 70@2x.png" id="1_icon"]
+[ext_resource type="Script" uid="uid://dfu50k1tlerfj" path="res://Data/AugmentData/augment_data.gd" id="2_script"]
+
+[resource]
+script = ExtResource("2_script")
+name = "Combat Drills"
+description = "Allies: +15% damage and +15% fire rate"
+icon = ExtResource("1_icon")
+rarity = 1
+augment_type = 12
+value = 0.15
+has_secondary_effect = true
+secondary_augment_type = 13
+secondary_value = 0.15
+metadata/_custom_type_script = "uid://dfu50k1tlerfj"

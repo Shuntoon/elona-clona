@@ -31,6 +31,8 @@ func _enter_tree() -> void:
 @export_range(0.0, 1.0) var crit_chance: float = 0.1
 @export var crit_multiplier: float = 2.0
 
+@export var bleed_chance: float = 0.0
+
 var bullet_spawn_point : Vector2 = Vector2(1035, 508)
 
 enum BULLET_TYPE {
@@ -164,6 +166,7 @@ func _equip_weapon(slot: int) -> void:
 	explosion_radius = weapon_to_equip.explosion_radius
 	crit_chance = weapon_to_equip.crit_chance
 	crit_multiplier = weapon_to_equip.crit_multiplier
+	bleed_chance = weapon_to_equip.bleed_chance
 	
 	# Update internal state
 	time_between_shots = 60.0 / fire_rate
@@ -253,6 +256,7 @@ func _fire_bullet() -> void:
 		hitbox_inst.damage = bullet_damage
 		hitbox_inst.crit_chance = crit_chance
 		hitbox_inst.crit_multiplier = crit_multiplier
+		hitbox_inst.bleed_chance = bleed_chance
 		hitbox_inst.hit_enemy_vfx = HIT_ENEMY_VFX
 		hitbox_inst.hit_ground_vfx = HIT_GROUND_VFX
 		hitbox_inst.global_position = get_global_mouse_position() + _calculate_accuracy_offset()
@@ -287,6 +291,7 @@ func _fire_bullet() -> void:
 			hitbox.damage = bullet_damage
 			hitbox.crit_chance = crit_chance
 			hitbox.crit_multiplier = crit_multiplier
+			hitbox.bleed_chance = bleed_chance
 		if neutral_entities != null:
 			neutral_entities.add_child(bullet_base_inst)
 		else:

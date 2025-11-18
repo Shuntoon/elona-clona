@@ -18,6 +18,7 @@ class_name WeaponData
 @export_range(0.0, 1.0) var crit_chance: float = 0.1
 @export var crit_multiplier: float = 2.0
 @export var bullet_damage: int = 1
+@export_range(0.0, 1.0) var bleed_chance: float = 0.0
 
 @export_category("Burst Properties")
 @export var burst_count: int = 3

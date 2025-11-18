@@ -36,5 +36,8 @@ enum AugmentType {
 	ACCURACY,             # +0.1 = +10% accuracy (flat)
 	PROJECTILE_PIERCING,  # value = 1 to enable (boolean)
 	EXPLOSIVE_ROCKETS,    # value = 1 to enable (boolean)
+	BLEED_CHANCE,         # +0.1 = +10% bleed chance (flat)
+	ALLY_DAMAGE_MULTIPLIER, # Allies deal more damage (multiplier)
+	ALLY_FIRE_RATE,         # Allies fire faster (multiplier)
 	ABILITY,              # Grants an ability (uses ability_scene)
 }

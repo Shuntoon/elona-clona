@@ -18,6 +18,8 @@ var base_damage_multiplier: float = 1.0
 var base_fire_rate_multiplier: float = 1.0
 var base_movement_speed_multiplier: float = 1.0
 var base_reload_speed_multiplier: float = 1.0
+var ally_damage_multiplier: float = 1.0
+var ally_fire_rate_multiplier: float = 1.0
 
 ## Apply all augments from PlayerData
 ## Call this at the start of a new day to recalculate all bonuses
@@ -29,6 +31,8 @@ func apply_all_augments() -> void:
 	base_fire_rate_multiplier = 1.0
 	base_movement_speed_multiplier = 1.0
 	base_reload_speed_multiplier = 1.0
+	ally_damage_multiplier = 1.0
+	ally_fire_rate_multiplier = 1.0
 	
 	# Apply each stat augment
 	for augment in PlayerData.augments:
@@ -36,6 +40,9 @@ func apply_all_augments() -> void:
 	
 	# Apply ability augments
 	_apply_ability_augments()
+
+	# Update allies after applying all augments
+	_update_allies_stats()
 	
 	print("Applied ", PlayerData.augments.size(), " stat augments and ", PlayerData.ability_augments.size(), " ability augments")
 
@@ -76,6 +83,12 @@ func _apply_augment_effect(augment_type: AugmentData.AugmentType, value: float) 
 			_apply_projectile_piercing(value > 0)
 		AugmentData.AugmentType.EXPLOSIVE_ROCKETS:
 			_apply_explosive_rockets(value > 0)
+		AugmentData.AugmentType.BLEED_CHANCE:
+			_apply_bleed_chance(value)
+		AugmentData.AugmentType.ALLY_DAMAGE_MULTIPLIER:
+			_apply_ally_damage_multiplier(value)
+		AugmentData.AugmentType.ALLY_FIRE_RATE:
+			_apply_ally_fire_rate(value)
 		AugmentData.AugmentType.ABILITY:
 			# Abilities are handled separately in _apply_ability_augments
 			pass
@@ -143,6 +156,42 @@ func _apply_explosive_rockets(enabled: bool) -> void:
 	if mouse_shooter and mouse_shooter.weapon_data:
 		mouse_shooter.weapon_data.explosive_rockets = enabled
 		mouse_shooter.explosive_rockets = enabled
+
+func _apply_bleed_chance(value: float) -> void:
+	if mouse_shooter and mouse_shooter.weapon_data:
+		mouse_shooter.weapon_data.bleed_chance = clamp(mouse_shooter.weapon_data.bleed_chance + value, 0.0, 1.0)
+		mouse_shooter.bleed_chance = mouse_shooter.weapon_data.bleed_chance
+
+func _apply_ally_damage_multiplier(value: float) -> void:
+	ally_damage_multiplier += value
+
+func _apply_ally_fire_rate(value: float) -> void:
+	ally_fire_rate_multiplier += value
+
+func _update_allies_stats() -> void:
+	var allies = get_tree().get_nodes_in_group("allies")
+	for node in allies:
+		# Only operate on Ally instances to avoid invalid property access
+		if not (node is Ally):
+			continue
+		var ally: Ally = node
+
+		# Ensure base metas exist
+		if not ally.has_meta("base_ally_damage"):
+			ally.set_meta("base_ally_damage", ally.bullet_damage)
+		if not ally.has_meta("base_ally_fire_rate"):
+			ally.set_meta("base_ally_fire_rate", ally.fire_rate)
+
+		var base_ally_damage: int = int(ally.get_meta("base_ally_damage"))
+		var base_ally_fire_rate: float = float(ally.get_meta("base_ally_fire_rate"))
+
+		ally.bullet_damage = int(base_ally_damage * ally_damage_multiplier)
+		ally.fire_rate = base_ally_fire_rate * ally_fire_rate_multiplier
+		# Recalculate internal timing used by ally firing loop
+		ally.time_between_shots = 60.0 / max(1.0, ally.fire_rate)
+
+		# Optional: log once per ally type
+		# print("Updated ally stats:", ally.ally_name, ally.bullet_damage, ally.fire_rate)
 
 ## Helper function to update weapon stats that use multipliers
 ## Call this after equipping a weapon to apply augment bonuses

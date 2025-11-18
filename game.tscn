@@ -73,6 +73,7 @@ fire_mode = 2
 fire_rate = 300.0
 magazine_size = 1000
 explosion_damage = 0
+bleed_chance = 0.1
 
 [node name="BG" type="TextureRect" parent="."]
 modulate = Color(0.6561392, 0.60674095, 0.44889265, 1)

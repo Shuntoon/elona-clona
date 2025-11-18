@@ -1,17 +1,19 @@
-[gd_scene load_steps=14 format=3 uid="uid://dvsbfx38vbaju"]
+[gd_scene load_steps=16 format=3 uid="uid://dvsbfx38vbaju"]
 
 [ext_resource type="Script" uid="uid://d31madduro008" path="res://UI/UpgradeScreen/augments_page/augments_page.gd" id="1_b6eae"]
 [ext_resource type="PackedScene" uid="uid://6w660hirryy6" path="res://UI/UpgradeScreen/augments_page/augment_panel_button.tscn" id="2_c4yg0"]
 [ext_resource type="Script" uid="uid://dfu50k1tlerfj" path="res://Data/AugmentData/augment_data.gd" id="2_tsv3p"]
-[ext_resource type="Resource" uid="uid://7ro5vw42gv65" path="res://Data/AugmentData/real/energy_drink.tres" id="3_fkv8u"]
-[ext_resource type="Resource" uid="uid://c2pxit8eu3xee" path="res://Data/AugmentData/real/extended_clip.tres" id="4_hsc5t"]
-[ext_resource type="Resource" uid="uid://dhpoadkaik5jr" path="res://Data/AugmentData/real/hollow_point_rounds.tres" id="5_hpobp"]
-[ext_resource type="Resource" uid="uid://b3oy0gb8wwg51" path="res://Data/AugmentData/real/laser_pointer.tres" id="6_mson7"]
-[ext_resource type="Resource" uid="uid://dxefmjwmf12kf" path="res://Data/AugmentData/real/scope.tres" id="7_37cud"]
-[ext_resource type="Resource" uid="uid://djby6rnhk0mcl" path="res://Data/AugmentData/real/stock.tres" id="8_6mapy"]
-[ext_resource type="Resource" uid="uid://c7j4n6qartv5y" path="res://Data/AugmentData/real/hair_trigger.tres" id="9_hpobp"]
-[ext_resource type="Resource" path="res://Data/AugmentData/real/heavy_rounds.tres" id="10_mson7"]
-[ext_resource type="Resource" uid="uid://dvhxc7l74fvnf" path="res://Data/AugmentData/real/drum_magazine.tres" id="11_mson7"]
+[ext_resource type="Resource" uid="uid://7ro5vw42gv65" path="res://Data/AugmentData/real/common/energy_drink.tres" id="3_fkv8u"]
+[ext_resource type="Resource" uid="uid://c2pxit8eu3xee" path="res://Data/AugmentData/real/common/extended_clip.tres" id="4_hsc5t"]
+[ext_resource type="Resource" uid="uid://dhpoadkaik5jr" path="res://Data/AugmentData/real/common/hollow_point_rounds.tres" id="5_hpobp"]
+[ext_resource type="Resource" uid="uid://b3oy0gb8wwg51" path="res://Data/AugmentData/real/common/laser_pointer.tres" id="6_mson7"]
+[ext_resource type="Resource" uid="uid://dxefmjwmf12kf" path="res://Data/AugmentData/real/common/scope.tres" id="7_37cud"]
+[ext_resource type="Resource" uid="uid://djby6rnhk0mcl" path="res://Data/AugmentData/real/common/stock.tres" id="8_6mapy"]
+[ext_resource type="Resource" uid="uid://c7j4n6qartv5y" path="res://Data/AugmentData/real/uncommon/hair_trigger.tres" id="9_hpobp"]
+[ext_resource type="Resource" uid="uid://cqr8m3n5vwx2p" path="res://Data/AugmentData/real/uncommon/heavy_rounds.tres" id="10_mson7"]
+[ext_resource type="Resource" uid="uid://dvhxc7l74fvnf" path="res://Data/AugmentData/real/uncommon/drum_magazine.tres" id="11_mson7"]
+[ext_resource type="Resource" uid="uid://d3ay1p05j2h8" path="res://Data/AugmentData/real/common/serrated_rounds.tres" id="12_37cud"]
+[ext_resource type="Resource" uid="uid://cam7f3vc1ally" path="res://Data/AugmentData/real/uncommon/combat_drills.tres" id="13_6mapy"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_skbsq"]
 font_size = 48
@@ -26,7 +28,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_b6eae")
-augment_selection = Array[ExtResource("2_tsv3p")]([ExtResource("3_fkv8u"), ExtResource("4_hsc5t"), ExtResource("5_hpobp"), ExtResource("6_mson7"), ExtResource("7_37cud"), ExtResource("8_6mapy"), ExtResource("9_hpobp"), ExtResource("10_mson7"), ExtResource("11_mson7")])
+augment_selection = Array[ExtResource("2_tsv3p")]([ExtResource("3_fkv8u"), ExtResource("4_hsc5t"), ExtResource("5_hpobp"), ExtResource("6_mson7"), ExtResource("7_37cud"), ExtResource("8_6mapy"), ExtResource("9_hpobp"), ExtResource("10_mson7"), ExtResource("11_mson7"), ExtResource("12_37cud"), ExtResource("13_6mapy")])
 augment_panel_button_scene = ExtResource("2_c4yg0")
 
 [node name="AugmentsLabel" type="Label" parent="."]

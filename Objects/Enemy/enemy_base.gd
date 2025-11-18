@@ -3,6 +3,8 @@ class_name Enemy
 
 signal died
 
+const DAMAGE_NUMBER = preload("res://Objects/DamageNumber/damage_number.tscn")
+
 @export_category("Generics")
 @export var enemy_name : String
 @export var speed : float = 2
@@ -25,6 +27,7 @@ var current_terrain_type : TERRAIN_TYPE = TERRAIN_TYPE.GROUND
 @onready var wall_detector: Area2D = $WallDetector
 
 var game_manager : GameManager
+var bleed_effect: BleedEffect
 
 var current_health : int :
 	set(value) :
@@ -39,6 +42,11 @@ func _ready() -> void:
 	
 	attack_speed_timer.wait_time = attack_speed
 	current_health = max_health
+	
+	# Create and add bleed effect component
+	bleed_effect = BleedEffect.new()
+	add_child(bleed_effect)
+	bleed_effect.bleed_tick.connect(_on_bleed_tick)
 
 func _on_running_state_physics_processing(delta: float) -> void:
 	var new_global_pos = Vector2(global_position.x + speed, global_position.y)
@@ -65,3 +73,24 @@ func _on_died() -> void:
 	queue_free()
 	print("enemy died!")
 	pass # Replace with function body.
+
+func _on_bleed_tick(bleed_damage: int) -> void:
+	current_health -= bleed_damage
+	print("Bleed tick! Damage: ", bleed_damage)
+	
+	# Spawn red damage number for bleed
+	_spawn_bleed_damage_number(bleed_damage)
+
+func _spawn_bleed_damage_number(bleed_damage: int) -> void:
+	if DAMAGE_NUMBER == null:
+		return
+	
+	var vfx_parent = get_tree().get_first_node_in_group("neutral_entities")
+	if vfx_parent == null:
+		return
+	
+	var damage_number_inst = DAMAGE_NUMBER.instantiate()
+	damage_number_inst.global_position = global_position
+	damage_number_inst.set_bleed_damage(bleed_damage)
+	
+	vfx_parent.add_child(damage_number_inst)
