@@ -3,12 +3,12 @@
 [ext_resource type="Script" uid="uid://bk5upyxc362t4" path="res://UI/MainMenu/main_menu.gd" id="1_u0e1r"]
 [ext_resource type="Script" uid="uid://cvikpqyxjqs5g" path="res://Scripts/GameManager/game_manager.gd" id="3_mg3m2"]
 [ext_resource type="Script" uid="uid://b0hnw34sgf8um" path="res://Scripts/WaveManager/wave_manager.gd" id="8_8uw0o"]
+[ext_resource type="Texture2D" uid="uid://vyva55pseaxx" path="res://Art/BG/bg.png" id="8_ejg71"]
 [ext_resource type="Script" uid="uid://dssq5y3twr3y4" path="res://Scripts/WaveManager/wave_data.gd" id="9_ql5ya"]
 [ext_resource type="Resource" uid="uid://dllb7i7ax465" path="res://Data/WaveData/test_data.tres" id="10_ka3nr"]
 [ext_resource type="Resource" uid="uid://che2jquh8hejp" path="res://Data/WaveData/test_data_2.tres" id="11_48knj"]
 [ext_resource type="Shader" uid="uid://dpwvb4uoa52xy" path="res://UI/MainMenu/blur_backbuffer.gdshader" id="11_ejg71"]
 [ext_resource type="PackedScene" uid="uid://djs38cy8bwdv7" path="res://Objects/Enemy/enemy_base.tscn" id="12_m2y5l"]
-[ext_resource type="Texture2D" uid="uid://c7hoa4bjs6jxf" path="res://Art/Filler/BG/BG1.png" id="15_v2sba"]
 [ext_resource type="Texture2D" uid="uid://cseoedy4scsdr" path="res://icon.svg" id="16_ai24q"]
 [ext_resource type="Script" uid="uid://c60bxtqxj72gr" path="res://Objects/Spawner/spawner.gd" id="17_qby1g"]
 
@@ -44,18 +44,15 @@ waves = Array[ExtResource("9_ql5ya")]([ExtResource("10_ka3nr"), ExtResource("11_
 enemy_base_scene = ExtResource("12_m2y5l")
 metadata/_custom_type_script = "uid://b0hnw34sgf8um"
 
-[node name="BG" type="TextureRect" parent="."]
-modulate = Color(0.6561392, 0.60674095, 0.44889265, 1)
+[node name="BG2" type="TextureRect" parent="."]
+modulate = Color(0.8530103, 0.7348689, 0.6901674, 1)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -140.44446
-offset_top = -1032.0
-offset_right = 140.44446
-offset_bottom = 217.0
+offset_top = -145.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("15_v2sba")
+texture = ExtResource("8_ejg71")
 expand_mode = 1
 
 [node name="Environment" type="Node2D" parent="."]
@@ -252,6 +249,7 @@ position = Vector2(2, 168)
 position = Vector2(2, 106)
 
 [node name="BlurOverlay" type="ColorRect" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_lnp6m")
 anchors_preset = 15
 anchor_right = 1.0
@@ -260,6 +258,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="MainMenuControl" type="Control" parent="CanvasLayer"]
 layout_mode = 3
