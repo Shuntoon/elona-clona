@@ -1,22 +1,16 @@
-[gd_scene load_steps=21 format=3 uid="uid://c4ruds6frs58h"]
+[gd_scene load_steps=17 format=3 uid="uid://b021iasahg234"]
 
-[ext_resource type="Script" uid="uid://cvikpqyxjqs5g" path="res://Scripts/GameManager/game_manager.gd" id="1_fc0e3"]
-[ext_resource type="PackedScene" uid="uid://ci4hdj038kg5i" path="res://Objects/MouseShooter/mouse_shooter.tscn" id="1_feb5d"]
-[ext_resource type="PackedScene" uid="uid://dkvrnpgnp3f86" path="res://UI/PlayerHUD/player_hud.tscn" id="1_ryrav"]
-[ext_resource type="PackedScene" uid="uid://d225nmsfm10mv" path="res://UI/UpgradeScreen/upgrade_screen.tscn" id="2_eow3j"]
-[ext_resource type="Script" uid="uid://cfhy465135m07" path="res://Scripts/Abilities/ability_manager.gd" id="4_vef74"]
-[ext_resource type="Script" uid="uid://c60bxtqxj72gr" path="res://Objects/Spawner/spawner.gd" id="5_7jktm"]
-[ext_resource type="Script" uid="uid://cew50k8ripj4e" path="res://Scripts/AugmentManager/augment_manager.gd" id="5_augment"]
-[ext_resource type="Script" uid="uid://c60utqbyl6xt7" path="res://Scripts/Abilities/fire_rate_boost_ability.gd" id="5_hve3p"]
-[ext_resource type="Texture2D" uid="uid://cseoedy4scsdr" path="res://icon.svg" id="5_ryrav"]
-[ext_resource type="Script" uid="uid://bf28q005qtvbc" path="res://Scripts/Abilities/power_shot_ability.gd" id="6_hve3p"]
-[ext_resource type="Script" uid="uid://b0hnw34sgf8um" path="res://Scripts/WaveManager/wave_manager.gd" id="8_lc2xo"]
-[ext_resource type="PackedScene" uid="uid://bljxubxu5eg3j" path="res://Objects/BulletBase/bullet_base.tscn" id="8_mfdv2"]
-[ext_resource type="Script" uid="uid://dssq5y3twr3y4" path="res://Scripts/WaveManager/wave_data.gd" id="9_80cx4"]
-[ext_resource type="Resource" uid="uid://dllb7i7ax465" path="res://Data/WaveData/test_data.tres" id="9_215e1"]
-[ext_resource type="PackedScene" uid="uid://djs38cy8bwdv7" path="res://Objects/Enemy/enemy_base.tscn" id="10_7sc4i"]
-[ext_resource type="Resource" uid="uid://che2jquh8hejp" path="res://Data/WaveData/test_data_2.tres" id="11_e8heu"]
-[ext_resource type="Texture2D" uid="uid://vyva55pseaxx" path="res://Art/BG/bg.png" id="15_e8heu"]
+[ext_resource type="Script" uid="uid://bk5upyxc362t4" path="res://UI/MainMenu/main_menu.gd" id="1_u0e1r"]
+[ext_resource type="Script" uid="uid://cvikpqyxjqs5g" path="res://Scripts/GameManager/game_manager.gd" id="3_mg3m2"]
+[ext_resource type="Script" uid="uid://b0hnw34sgf8um" path="res://Scripts/WaveManager/wave_manager.gd" id="8_8uw0o"]
+[ext_resource type="Texture2D" uid="uid://vyva55pseaxx" path="res://Art/BG/bg.png" id="8_ejg71"]
+[ext_resource type="Script" uid="uid://dssq5y3twr3y4" path="res://Scripts/WaveManager/wave_data.gd" id="9_ql5ya"]
+[ext_resource type="Resource" uid="uid://dllb7i7ax465" path="res://Data/WaveData/test_data.tres" id="10_ka3nr"]
+[ext_resource type="Resource" uid="uid://che2jquh8hejp" path="res://Data/WaveData/test_data_2.tres" id="11_48knj"]
+[ext_resource type="Shader" uid="uid://dpwvb4uoa52xy" path="res://UI/MainMenu/blur_backbuffer.gdshader" id="11_ejg71"]
+[ext_resource type="PackedScene" uid="uid://djs38cy8bwdv7" path="res://Objects/Enemy/enemy_base.tscn" id="12_m2y5l"]
+[ext_resource type="Texture2D" uid="uid://cseoedy4scsdr" path="res://icon.svg" id="16_ai24q"]
+[ext_resource type="Script" uid="uid://c60bxtqxj72gr" path="res://Objects/Spawner/spawner.gd" id="17_qby1g"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_80nbo"]
 
@@ -25,67 +19,40 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_80nbo"]
 size = Vector2(2.5714264, 11.25094)
 
-[node name="Game" type="Node"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lnp6m"]
+shader = ExtResource("11_ejg71")
+shader_parameter/blur_amount = 10.0
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[sub_resource type="LabelSettings" id="LabelSettings_u0e1r"]
+font_size = 52
 
-[node name="PlayerHUD" parent="CanvasLayer" instance=ExtResource("1_ryrav")]
-
-[node name="UpgradeScreen" parent="CanvasLayer" instance=ExtResource("2_eow3j")]
-unique_name_in_owner = true
-visible = false
+[node name="MainMenu" type="Node"]
+script = ExtResource("1_u0e1r")
 
 [node name="GameManager" type="Node" parent="." groups=["game_manager"]]
-script = ExtResource("1_fc0e3")
-day_time_length = 120.0
+script = ExtResource("3_mg3m2")
+day_time_length = 9999999.0
 
 [node name="SpawnTimer" type="Timer" parent="GameManager"]
 
 [node name="DayTimer" type="Timer" parent="GameManager"]
 one_shot = true
 
-[node name="AbilityManager" type="Node" parent="." node_paths=PackedStringArray("abilities") groups=["ability_manager"]]
-script = ExtResource("4_vef74")
-abilities = [NodePath("FireRateBoostAbility"), NodePath("PowerShotAbility")]
-metadata/_custom_type_script = "uid://cfhy465135m07"
-
-[node name="FireRateBoostAbility" type="Node" parent="AbilityManager"]
-script = ExtResource("5_hve3p")
-metadata/_custom_type_script = "uid://c60utqbyl6xt7"
-
-[node name="PowerShotAbility" type="Node" parent="AbilityManager"]
-script = ExtResource("6_hve3p")
-metadata/_custom_type_script = "uid://bf28q005qtvbc"
-
-[node name="AugmentManager" type="Node" parent="." groups=["augment_manager"]]
-script = ExtResource("5_augment")
-
 [node name="WaveManager" type="Node" parent="."]
-script = ExtResource("8_lc2xo")
-waves = Array[ExtResource("9_80cx4")]([ExtResource("9_215e1"), ExtResource("11_e8heu")])
-enemy_base_scene = ExtResource("10_7sc4i")
+script = ExtResource("8_8uw0o")
+waves = Array[ExtResource("9_ql5ya")]([ExtResource("10_ka3nr"), ExtResource("11_48knj")])
+enemy_base_scene = ExtResource("12_m2y5l")
 metadata/_custom_type_script = "uid://b0hnw34sgf8um"
-
-[node name="MouseShooter" parent="." instance=ExtResource("1_feb5d")]
-BULLET_BASE = ExtResource("8_mfdv2")
-accuracy = 0.798
-bullet_type = 1
-fire_mode = 2
-fire_rate = 300.0
-magazine_size = 1000
-explosion_damage = 0
-bleed_chance = 0.1
 
 [node name="BG2" type="TextureRect" parent="."]
 modulate = Color(0.8530103, 0.7348689, 0.6901674, 1)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -203.0
-offset_bottom = 2.0
+offset_top = -145.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("15_e8heu")
+texture = ExtResource("8_ejg71")
 expand_mode = 1
 
 [node name="Environment" type="Node2D" parent="."]
@@ -226,7 +193,7 @@ shape = SubResource("RectangleShape2D_80nbo")
 [node name="Player" type="Sprite2D" parent="Entities/Allies"]
 position = Vector2(1068, 470)
 scale = Vector2(0.5156255, 0.5156255)
-texture = ExtResource("5_ryrav")
+texture = ExtResource("16_ai24q")
 
 [node name="Ally1Spawn" type="Marker2D" parent="Entities/Allies"]
 unique_name_in_owner = true
@@ -249,7 +216,7 @@ position = Vector2(1063, 675)
 [node name="Spawner" type="Node2D" parent="." groups=["spawner"]]
 unique_name_in_owner = true
 position = Vector2(-181, 0)
-script = ExtResource("5_7jktm")
+script = ExtResource("17_qby1g")
 
 [node name="Ground" type="Node2D" parent="Spawner"]
 unique_name_in_owner = true
@@ -281,9 +248,80 @@ position = Vector2(2, 168)
 [node name="Pos3" type="Marker2D" parent="Spawner/Air"]
 position = Vector2(2, 106)
 
+[node name="BlurOverlay" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_lnp6m")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="MainMenuControl" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleLabel" type="Label" parent="CanvasLayer/MainMenuControl"]
+layout_mode = 0
+offset_left = 214.0
+offset_top = 143.0
+offset_right = 1065.0
+offset_bottom = 215.0
+size_flags_horizontal = 4
+text = "GAME NAME: NAME OF THE GAME"
+label_settings = SubResource("LabelSettings_u0e1r")
+
+[node name="ButtonsVBoxContainer" type="VBoxContainer" parent="CanvasLayer/MainMenuControl"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -154.0
+offset_top = -90.0
+offset_right = 154.0
+offset_bottom = 270.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayButton" type="Button" parent="CanvasLayer/MainMenuControl/ButtonsVBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Play"
+
+[node name="HowToPlayButton" type="Button" parent="CanvasLayer/MainMenuControl/ButtonsVBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "How to Play"
+
+[node name="OptionsButton" type="Button" parent="CanvasLayer/MainMenuControl/ButtonsVBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Options"
+
+[node name="CreditsButton" type="Button" parent="CanvasLayer/MainMenuControl/ButtonsVBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Credits"
+
+[node name="QuitButton" type="Button" parent="CanvasLayer/MainMenuControl/ButtonsVBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Quit
+"
+
 [connection signal="all_enemies_killed" from="GameManager" to="GameManager" method="_on_all_enemies_killed"]
 [connection signal="day_timer_finished" from="GameManager" to="GameManager" method="_on_day_timer_finished"]
 [connection signal="start_new_day" from="GameManager" to="GameManager" method="_on_start_new_day"]
 [connection signal="timeout" from="GameManager/SpawnTimer" to="GameManager" method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="GameManager/DayTimer" to="GameManager" method="_on_day_timer_timeout"]
 [connection signal="child_exiting_tree" from="Entities/Enemies" to="GameManager" method="_on_enemies_child_exiting_tree"]
+[connection signal="pressed" from="CanvasLayer/MainMenuControl/ButtonsVBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]

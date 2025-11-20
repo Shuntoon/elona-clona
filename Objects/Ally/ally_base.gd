@@ -177,6 +177,10 @@ func _find_weakest_enemy(enemies: Array[Enemy]) -> Enemy:
 	return weakest
 
 func _start_combat_loop() -> void:
+	# Add random initial delay to stagger shots from multiple allies
+	var initial_delay = randf_range(0.0, 0.3)
+	await get_tree().create_timer(initial_delay).timeout
+	
 	while true:
 		if can_shoot and current_target and is_instance_valid(current_target):
 			_fire_at_target()
@@ -216,7 +220,7 @@ func _fire_bullet(target_pos: Vector2, is_rocket: bool) -> void:
 	else:
 		# Rifle configuration
 		bullet_inst.explosive = false
-		bullet_inst.speed = 300
+		bullet_inst.speed = 800  # Fast rifle bullets
 	
 	bullet_inst.hit_enemy_vfx = HIT_ENEMY_VFX
 	bullet_inst.hit_ground_vfx = HIT_GROUND_VFX

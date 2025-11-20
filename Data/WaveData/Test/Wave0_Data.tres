@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="WaveData" load_steps=6 format=3 uid="uid://bx8vj6p2k23n4"]
+
+[ext_resource type="Script" uid="uid://d4hepntti60rn" path="res://Data/EnemyData/enemy_data.gd" id="1_cn3ne"]
+[ext_resource type="Resource" uid="uid://dqv8yxqm84a7v" path="res://Data/EnemyData/Test/Basic_Enemy.tres" id="2_0up25"]
+[ext_resource type="Resource" uid="uid://dneqa136jkq47" path="res://Data/EnemyData/Test/Fast_Enemy.tres" id="3_3gf5t"]
+[ext_resource type="Resource" uid="uid://rpdyfx78int7" path="res://Data/EnemyData/Test/Air_Enemy.tres" id="4_6eo73"]
+[ext_resource type="Script" uid="uid://dssq5y3twr3y4" path="res://Scripts/WaveManager/wave_data.gd" id="4_o33oa"]
+
+[resource]
+script = ExtResource("4_o33oa")
+easy_enemies = Array[ExtResource("1_cn3ne")]([ExtResource("2_0up25")])
+medium_enemies = Array[ExtResource("1_cn3ne")]([ExtResource("3_3gf5t"), ExtResource("2_0up25")])
+hard_enemies = Array[ExtResource("1_cn3ne")]([ExtResource("3_3gf5t"), ExtResource("2_0up25"), ExtResource("4_6eo73")])
+easy_weights = Array[float]([1.0])
+medium_weights = Array[float]([1.0, 2.0])
+hard_weights = Array[float]([2.0, 1.0, 3.0])
+base_spawn_interval = 2.5
+easy_spawn_multiplier = 1.35
+medium_spawn_multiplier = 1.1
+hard_spawn_multiplier = 0.75
+metadata/_custom_type_script = "uid://dssq5y3twr3y4"

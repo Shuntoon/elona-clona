@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://dqv8yxqm84a7v"]
+
+[ext_resource type="Script" uid="uid://d4hepntti60rn" path="res://Data/EnemyData/enemy_data.gd" id="1_ithi2"]
+[ext_resource type="Texture2D" uid="uid://cseoedy4scsdr" path="res://icon.svg" id="2_yr2fp"]
+
+[resource]
+script = ExtResource("1_ithi2")
+enemy_name = "Basic Grunt"
+speed = 1.0
+max_health = 100
+sprite = ExtResource("2_yr2fp")
+metadata/_custom_type_script = "uid://d4hepntti60rn"

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://dneqa136jkq47"]
+
+[ext_resource type="Script" uid="uid://d4hepntti60rn" path="res://Data/EnemyData/enemy_data.gd" id="1_m68xe"]
+[ext_resource type="Texture2D" uid="uid://cseoedy4scsdr" path="res://icon.svg" id="2_7nn3y"]
+
+[resource]
+script = ExtResource("1_m68xe")
+enemy_name = "Fast Grunt"
+max_health = 70
+sprite = ExtResource("2_7nn3y")
+metadata/_custom_type_script = "uid://d4hepntti60rn"
