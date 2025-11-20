@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxae4nyei461n"]
+
+[ext_resource type="Script" uid="uid://c35rd04l8pws3" path="res://Objects/LaserOfDeath/laser_of_death.gd" id="1_uoa44"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_wte0r"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_3q3e8"]
+
+[node name="LaserOfDeath" type="Node2D" groups=["laser_of_death"]]
+script = ExtResource("1_uoa44")
+enabled = true
+damage_per_tick = 1
+tick_interval = 1.0
+follow_speed = 10.0
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="."]
+modulate = Color(0.51357734, 0.45606408, 0.45606408, 1)
+position = Vector2(-14.999978, -69.5)
+scale = Vector2(15.999894, 57.000023)
+mesh = SubResource("QuadMesh_wte0r")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+modulate = Color(0.4456907, 0.22284535, 0.22284535, 1)
+position = Vector2(-14.999978, -31.999998)
+scale = Vector2(94.00001, 82)
+mesh = SubResource("QuadMesh_wte0r")
+
+[node name="Line2D" type="Line2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-14, -106)
+points = PackedVector2Array(0, 0, 0, 0)
+width = 4.0
+default_color = Color(0.8462217, 0.1170255, 0.1170255, 1)
+
+[node name="MeshInstance2D3" type="MeshInstance2D" parent="."]
+modulate = Color(0.12662369, 0.087461375, 0.087461375, 1)
+position = Vector2(-15, -106)
+scale = Vector2(30.034037, 32.88471)
+mesh = SubResource("SphereMesh_3q3e8")

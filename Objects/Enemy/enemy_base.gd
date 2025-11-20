@@ -35,6 +35,11 @@ var current_health : int :
 		current_health = value
 		if current_health <= 0:
 			died.emit()
+
+# Slow effect variables
+var is_slowed: bool = false
+var base_speed: float = 0.0
+var slow_timer: Timer
 			
 
 func _ready() -> void:
@@ -43,6 +48,13 @@ func _ready() -> void:
 	
 	attack_speed_timer.wait_time = attack_speed
 	current_health = max_health
+	base_speed = speed  # Store original speed
+	
+	# Setup slow timer
+	slow_timer = Timer.new()
+	slow_timer.one_shot = true
+	slow_timer.timeout.connect(_on_slow_timer_timeout)
+	add_child(slow_timer)
 	
 	# Create and add bleed effect component
 	bleed_effect = BleedEffect.new()
@@ -74,21 +86,27 @@ func _on_died() -> void:
 
 	# Chance to explode on death from augments
 	var augment_manager = get_tree().get_first_node_in_group("augment_manager")
-	if augment_manager and augment_manager.has_method("get_enemy_death_explosion_chance"):
-		var chance: float = augment_manager.get_enemy_death_explosion_chance()
-		if chance > 0.0 and randf() < chance:
-			# Spawn explosion at enemy position
-			var explosion = EXPLOSION_SCENE.instantiate()
-			explosion.global_position = global_position
-			# Set base damage to 10 as specified
-			if "damage" in explosion:
-				explosion.damage = 10
-			# Optional: can tweak radius or visual scale if desired
-			var vfx_parent = get_tree().get_first_node_in_group("neutral_entities")
-			if vfx_parent:
-				vfx_parent.add_child(explosion)
-			else:
-				get_tree().current_scene.add_child(explosion)
+	if augment_manager:
+		# Cooldown reduction on kill
+		if augment_manager.has_method("trigger_cooldown_reduction_on_kill"):
+			augment_manager.trigger_cooldown_reduction_on_kill()
+		
+		# Explosion on death
+		if augment_manager.has_method("get_enemy_death_explosion_chance"):
+			var chance: float = augment_manager.get_enemy_death_explosion_chance()
+			if chance > 0.0 and randf() < chance:
+				# Spawn explosion at enemy position
+				var explosion = EXPLOSION_SCENE.instantiate()
+				explosion.global_position = global_position
+				# Set base damage to 10 as specified
+				if "damage" in explosion:
+					explosion.damage = 10
+				# Optional: can tweak radius or visual scale if desired
+				var vfx_parent = get_tree().get_first_node_in_group("neutral_entities")
+				if vfx_parent:
+					vfx_parent.add_child(explosion)
+				else:
+					get_tree().current_scene.add_child(explosion)
 	queue_free()
 	print("enemy died!")
 	pass # Replace with function body.
@@ -113,3 +131,20 @@ func _spawn_bleed_damage_number(bleed_damage: int) -> void:
 	damage_number_inst.set_bleed_damage(bleed_damage)
 	
 	vfx_parent.add_child(damage_number_inst)
+
+func apply_slow(slow_multiplier: float, duration: float) -> void:
+	print("apply_slow called! is_slowed: ", is_slowed, ", base_speed: ", base_speed, ", multiplier: ", slow_multiplier)
+	if not is_slowed:
+		is_slowed = true
+		speed = base_speed * slow_multiplier
+		slow_timer.start(duration)
+		print("Enemy slowed! New speed: ", speed, " (was ", base_speed, ")")
+	else:
+		# Refresh slow duration
+		slow_timer.start(duration)
+		print("Slow duration refreshed")
+
+func _on_slow_timer_timeout() -> void:
+	is_slowed = false
+	speed = base_speed
+	print("Enemy slow expired. Speed restored to: ", speed)

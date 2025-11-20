@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c4ruds6frs58h"]
+[gd_scene load_steps=22 format=3 uid="uid://c4ruds6frs58h"]
 
 [ext_resource type="Script" uid="uid://cvikpqyxjqs5g" path="res://Scripts/GameManager/game_manager.gd" id="1_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://ci4hdj038kg5i" path="res://Objects/MouseShooter/mouse_shooter.tscn" id="1_feb5d"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://djs38cy8bwdv7" path="res://Objects/Enemy/enemy_base.tscn" id="10_7sc4i"]
 [ext_resource type="Resource" uid="uid://che2jquh8hejp" path="res://Data/WaveData/test_data_2.tres" id="11_e8heu"]
 [ext_resource type="Texture2D" uid="uid://vyva55pseaxx" path="res://Art/BG/bg.png" id="15_e8heu"]
+[ext_resource type="PackedScene" uid="uid://dxae4nyei461n" path="res://Objects/LaserOfDeath/laser_of_death.tscn" id="18_rvswv"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_80nbo"]
 
@@ -280,6 +281,10 @@ position = Vector2(2, 168)
 
 [node name="Pos3" type="Marker2D" parent="Spawner/Air"]
 position = Vector2(2, 106)
+
+[node name="LaserOfDeath" parent="." instance=ExtResource("18_rvswv")]
+position = Vector2(1229, 387)
+follow_speed = 15.0
 
 [connection signal="all_enemies_killed" from="GameManager" to="GameManager" method="_on_all_enemies_killed"]
 [connection signal="day_timer_finished" from="GameManager" to="GameManager" method="_on_day_timer_finished"]

@@ -23,6 +23,18 @@ var ally_fire_rate_multiplier: float = 1.0
 var enemy_death_explosion_chance: float = 0.0
 var explosion_damage_multiplier: float = 1.0
 var explosion_radius_multiplier: float = 1.0
+var laser_of_death_stacks: int = 0
+var laser_of_death_instance: LaserOfDeath = null
+var gold_gain_multiplier: float = 1.0
+var slow_on_hit_enabled: bool = false
+var slow_on_hit_multiplier: float = 0.5  # 50% speed by default
+var slow_on_hit_duration: float = 3.0
+var ammo_refund_chance: float = 0.0
+var cooldown_reduction_on_kill_chance: float = 0.0
+var cooldown_reduction_on_kill_amount: float = 0.0
+var first_shot_damage_multiplier: float = 0.0
+var execute_chance: float = 0.0
+var execute_health_threshold: float = 0.2  # 20% health
 
 ## Apply all augments from PlayerData
 ## Call this at the start of a new day to recalculate all bonuses
@@ -39,6 +51,14 @@ func apply_all_augments() -> void:
 	enemy_death_explosion_chance = 0.0
 	explosion_damage_multiplier = 1.0
 	explosion_radius_multiplier = 1.0
+	laser_of_death_stacks = 0
+	gold_gain_multiplier = 1.0
+	slow_on_hit_enabled = false
+	ammo_refund_chance = 0.0
+	cooldown_reduction_on_kill_chance = 0.0
+	cooldown_reduction_on_kill_amount = 0.0
+	first_shot_damage_multiplier = 0.0
+	execute_chance = 0.0
 	
 	# Apply each stat augment
 	for augment in PlayerData.augments:
@@ -66,12 +86,23 @@ func apply_augment(augment: AugmentData) -> void:
 	if augment.has_tertiary_effect:
 		_apply_augment_effect(augment.tertiary_augment_type, augment.tertiary_value)
 		print("Applied augment tertiary: ", augment.tertiary_value)
+	
+	# Apply quaternary effect if it exists
+	if augment.has_quaternary_effect:
+		_apply_augment_effect(augment.quaternary_augment_type, augment.quaternary_value)
+		print("Applied augment quaternary: ", augment.quaternary_value)
+	
+	# Apply quinary effect if it exists
+	if augment.has_quinary_effect:
+		_apply_augment_effect(augment.quinary_augment_type, augment.quinary_value)
+		print("Applied augment quinary: ", augment.quinary_value)
 	else:
 		if not augment.has_secondary_effect:
 			print("Applied augment: ", augment.name, " (", augment.value, ")")
 
 ## Apply a specific augment effect
 func _apply_augment_effect(augment_type: AugmentData.AugmentType, value: float) -> void:
+	print("_apply_augment_effect called with type: ", augment_type, " (SLOW_ON_HIT = ", AugmentData.AugmentType.SLOW_ON_HIT, "), value: ", value)
 	match augment_type:
 		AugmentData.AugmentType.MAX_HEALTH:
 			_apply_max_health(value)
@@ -107,6 +138,22 @@ func _apply_augment_effect(augment_type: AugmentData.AugmentType, value: float) 
 			_apply_explosion_damage_multiplier(value)
 		AugmentData.AugmentType.EXPLOSION_RADIUS_MULTIPLIER:
 			_apply_explosion_radius_multiplier(value)
+		AugmentData.AugmentType.LASER_OF_DEATH:
+			_apply_laser_of_death(value)
+		AugmentData.AugmentType.GOLD_GAIN_MULTIPLIER:
+			_apply_gold_gain_multiplier(value)
+		AugmentData.AugmentType.SLOW_ON_HIT:
+			_apply_slow_on_hit(value)
+		AugmentData.AugmentType.BURST_COUNT:
+			_apply_burst_count(value)
+		AugmentData.AugmentType.AMMO_REFUND_CHANCE:
+			_apply_ammo_refund_chance(value)
+		AugmentData.AugmentType.COOLDOWN_REDUCTION_ON_KILL:
+			_apply_cooldown_reduction_on_kill(value)
+		AugmentData.AugmentType.FIRST_SHOT_DAMAGE:
+			_apply_first_shot_damage(value)
+		AugmentData.AugmentType.EXECUTE_CHANCE:
+			_apply_execute_chance(value)
 		AugmentData.AugmentType.ABILITY:
 			# Abilities are handled separately in _apply_ability_augments
 			pass
@@ -192,6 +239,85 @@ func _apply_explosion_damage_multiplier(value: float) -> void:
 
 func _apply_explosion_radius_multiplier(value: float) -> void:
 	explosion_radius_multiplier += value
+
+func _apply_laser_of_death(value: float) -> void:
+	laser_of_death_stacks += int(value)
+	
+	# First stack: spawn the laser
+	if laser_of_death_stacks == 1:
+		_spawn_laser_of_death()
+	# Subsequent stacks: upgrade the laser
+	elif laser_of_death_instance:
+		_upgrade_laser_of_death()
+
+func _spawn_laser_of_death() -> void:
+	const LASER_SCENE = preload("res://Objects/LaserOfDeath/laser_of_death.tscn")
+	
+	if not mouse_shooter:
+		print("Warning: MouseShooter not found for laser spawn")
+		return
+	
+	laser_of_death_instance = LASER_SCENE.instantiate()
+	mouse_shooter.add_child(laser_of_death_instance)
+	print("Laser of Death spawned!")
+
+func _upgrade_laser_of_death() -> void:
+	if not laser_of_death_instance:
+		return
+	
+	# Each stack increases damage by 3 and follow speed by 2
+	laser_of_death_instance.damage_per_tick += 3
+	laser_of_death_instance.follow_speed += 2.0
+	print("Laser of Death upgraded! Damage: ", laser_of_death_instance.damage_per_tick, ", Follow Speed: ", laser_of_death_instance.follow_speed)
+
+func _apply_gold_gain_multiplier(value: float) -> void:
+	gold_gain_multiplier += value
+	print("Gold gain multiplier: ", gold_gain_multiplier)
+
+func _apply_slow_on_hit(value: float) -> void:
+	slow_on_hit_enabled = true
+	slow_on_hit_multiplier = value
+	print("Slow on hit enabled! Speed multiplier: ", slow_on_hit_multiplier)
+
+func _apply_burst_count(value: float) -> void:
+	if mouse_shooter and mouse_shooter.weapon_data:
+		mouse_shooter.weapon_data.burst_count += int(value)
+		mouse_shooter.burst_count = mouse_shooter.weapon_data.burst_count
+		print("Burst count increased to: ", mouse_shooter.burst_count)
+
+func _apply_ammo_refund_chance(value: float) -> void:
+	ammo_refund_chance = clamp(ammo_refund_chance + value, 0.0, 1.0)
+	print("Ammo refund chance: ", ammo_refund_chance * 100, "%")
+
+func _apply_cooldown_reduction_on_kill(value: float) -> void:
+	# Value format: chance stored in first decimal place, amount in second
+	# e.g., 0.52 = 50% chance (0.5) to reduce by 2 seconds (2)
+	cooldown_reduction_on_kill_chance = 0.5  # 50% chance
+	cooldown_reduction_on_kill_amount = value  # Reduction amount in seconds
+	print("Cooldown reduction on kill: ", cooldown_reduction_on_kill_chance * 100, "% chance to reduce by ", cooldown_reduction_on_kill_amount, "s")
+
+func trigger_cooldown_reduction_on_kill() -> void:
+	if cooldown_reduction_on_kill_chance <= 0.0:
+		return
+	
+	if randf() < cooldown_reduction_on_kill_chance:
+		var ability_manager = get_tree().get_first_node_in_group("ability_manager")
+		if ability_manager:
+			for ability in ability_manager.abilities:
+				if ability.is_on_cooldown:
+					ability.cooldown_remaining = max(0.0, ability.cooldown_remaining - cooldown_reduction_on_kill_amount)
+					if ability.cooldown_remaining <= 0.0:
+						ability.is_on_cooldown = false
+						ability.cooldown_finished.emit()
+			print("Cooldown reduction triggered! Reduced all ability cooldowns by ", cooldown_reduction_on_kill_amount, "s")
+
+func _apply_first_shot_damage(value: float) -> void:
+	first_shot_damage_multiplier += value
+	print("First shot damage bonus: +", first_shot_damage_multiplier * 100, "%")
+
+func _apply_execute_chance(value: float) -> void:
+	execute_chance = clamp(execute_chance + value, 0.0, 1.0)
+	print("Execute chance: ", execute_chance * 100, "% on enemies below ", execute_health_threshold * 100, "% health")
 
 func _apply_ally_damage_multiplier(value: float) -> void:
 	ally_damage_multiplier += value
