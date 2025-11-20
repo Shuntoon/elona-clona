@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://bdxkq2be4kt0h"]
+
+[ext_resource type="Script" uid="uid://d4hepntti60rn" path="res://Data/EnemyData/enemy_data.gd" id="1_k2kaj"]
+[ext_resource type="Texture2D" uid="uid://cseoedy4scsdr" path="res://icon.svg" id="2_4rfj7"]
+
+[resource]
+script = ExtResource("1_k2kaj")
+enemy_name = "mace skeleton"
+max_health = 70
+sprite = ExtResource("2_4rfj7")
+metadata/_custom_type_script = "uid://d4hepntti60rn"

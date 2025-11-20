@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=4 format=3 uid="uid://b5ejowdrs4y1b"]
+
+[ext_resource type="Texture2D" uid="uid://d3rcf2brjy7c0" path="res://Art/Filler/Guns/1.png" id="1_nvnto"]
+[ext_resource type="Script" uid="uid://rimwdfuvv8ao" path="res://Data/WeaponData/weapon_data.gd" id="2_novgr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pxwm6"]
+atlas = ExtResource("1_nvnto")
+region = Rect2(0, 118, 12, 10.083237)
+
+[resource]
+script = ExtResource("2_novgr")
+weapon_name = "Pistol"
+icon = SubResource("AtlasTexture_pxwm6")
+bullet_type = 1
+accuracy = 0.914
+fire_rate = 120.0
+magazine_size = 2
+reload_time = 3.0
+crit_chance = 0.91
+burst_count = 15
+burst_delay = 0.001
+explosive_rockets = true
+explosion_damage = 30
+metadata/_custom_type_script = "uid://rimwdfuvv8ao"
