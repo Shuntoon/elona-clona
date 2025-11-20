@@ -29,6 +29,7 @@ var gold_gain_multiplier: float = 1.0
 var slow_on_hit_enabled: bool = false
 var slow_on_hit_multiplier: float = 0.5  # 50% speed by default
 var slow_on_hit_duration: float = 3.0
+var ammo_refund_chance: float = 0.0
 
 ## Apply all augments from PlayerData
 ## Call this at the start of a new day to recalculate all bonuses
@@ -48,6 +49,7 @@ func apply_all_augments() -> void:
 	laser_of_death_stacks = 0
 	gold_gain_multiplier = 1.0
 	slow_on_hit_enabled = false
+	ammo_refund_chance = 0.0
 	
 	# Apply each stat augment
 	for augment in PlayerData.augments:
@@ -123,6 +125,10 @@ func _apply_augment_effect(augment_type: AugmentData.AugmentType, value: float) 
 			_apply_gold_gain_multiplier(value)
 		AugmentData.AugmentType.SLOW_ON_HIT:
 			_apply_slow_on_hit(value)
+		AugmentData.AugmentType.BURST_COUNT:
+			_apply_burst_count(value)
+		AugmentData.AugmentType.AMMO_REFUND_CHANCE:
+			_apply_ammo_refund_chance(value)
 		AugmentData.AugmentType.ABILITY:
 			# Abilities are handled separately in _apply_ability_augments
 			pass
@@ -247,6 +253,16 @@ func _apply_slow_on_hit(value: float) -> void:
 	slow_on_hit_enabled = true
 	slow_on_hit_multiplier = value
 	print("Slow on hit enabled! Speed multiplier: ", slow_on_hit_multiplier)
+
+func _apply_burst_count(value: float) -> void:
+	if mouse_shooter and mouse_shooter.weapon_data:
+		mouse_shooter.weapon_data.burst_count += int(value)
+		mouse_shooter.burst_count = mouse_shooter.weapon_data.burst_count
+		print("Burst count increased to: ", mouse_shooter.burst_count)
+
+func _apply_ammo_refund_chance(value: float) -> void:
+	ammo_refund_chance = clamp(ammo_refund_chance + value, 0.0, 1.0)
+	print("Ammo refund chance: ", ammo_refund_chance * 100, "%")
 
 func _apply_ally_damage_multiplier(value: float) -> void:
 	ally_damage_multiplier += value

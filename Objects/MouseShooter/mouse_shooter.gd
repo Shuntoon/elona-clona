@@ -240,7 +240,15 @@ func _fire_bullet() -> void:
 	if current_ammo <= 0:
 		return
 	
-	current_ammo -= 1
+	# Check for ammo refund chance from augments
+	var augment_manager = get_tree().get_first_node_in_group("augment_manager")
+	var refund_ammo = false
+	if augment_manager and augment_manager.ammo_refund_chance > 0.0:
+		if randf() < augment_manager.ammo_refund_chance:
+			refund_ammo = true
+	
+	if not refund_ammo:
+		current_ammo -= 1
 	
 	if bullet_type == BULLET_TYPE.HITSCAN:
 		if not HITBOX:

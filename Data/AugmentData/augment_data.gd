@@ -51,5 +51,7 @@ enum AugmentType {
 	LASER_OF_DEATH,         # Enables/upgrades laser of death
 	GOLD_GAIN_MULTIPLIER,   # +0.1 = +10% gold gain (multiplier)
 	SLOW_ON_HIT,            # value = slow multiplier (0.5 = 50% speed)
+	BURST_COUNT,            # +2 bullets per burst (flat)
+	AMMO_REFUND_CHANCE,     # +0.25 = 25% chance to not consume ammo (flat)
 	ABILITY,              # Grants an ability (uses ability_scene)
 }
