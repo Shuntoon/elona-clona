@@ -23,6 +23,8 @@ var ally_fire_rate_multiplier: float = 1.0
 var enemy_death_explosion_chance: float = 0.0
 var explosion_damage_multiplier: float = 1.0
 var explosion_radius_multiplier: float = 1.0
+var laser_of_death_stacks: int = 0
+var laser_of_death_instance: LaserOfDeath = null
 
 ## Apply all augments from PlayerData
 ## Call this at the start of a new day to recalculate all bonuses
@@ -39,6 +41,7 @@ func apply_all_augments() -> void:
 	enemy_death_explosion_chance = 0.0
 	explosion_damage_multiplier = 1.0
 	explosion_radius_multiplier = 1.0
+	laser_of_death_stacks = 0
 	
 	# Apply each stat augment
 	for augment in PlayerData.augments:
@@ -107,6 +110,8 @@ func _apply_augment_effect(augment_type: AugmentData.AugmentType, value: float) 
 			_apply_explosion_damage_multiplier(value)
 		AugmentData.AugmentType.EXPLOSION_RADIUS_MULTIPLIER:
 			_apply_explosion_radius_multiplier(value)
+		AugmentData.AugmentType.LASER_OF_DEATH:
+			_apply_laser_of_death(value)
 		AugmentData.AugmentType.ABILITY:
 			# Abilities are handled separately in _apply_ability_augments
 			pass
@@ -192,6 +197,36 @@ func _apply_explosion_damage_multiplier(value: float) -> void:
 
 func _apply_explosion_radius_multiplier(value: float) -> void:
 	explosion_radius_multiplier += value
+
+func _apply_laser_of_death(value: float) -> void:
+	laser_of_death_stacks += int(value)
+	
+	# First stack: spawn the laser
+	if laser_of_death_stacks == 1:
+		_spawn_laser_of_death()
+	# Subsequent stacks: upgrade the laser
+	elif laser_of_death_instance:
+		_upgrade_laser_of_death()
+
+func _spawn_laser_of_death() -> void:
+	const LASER_SCENE = preload("res://Objects/LaserOfDeath/laser_of_death.tscn")
+	
+	if not mouse_shooter:
+		print("Warning: MouseShooter not found for laser spawn")
+		return
+	
+	laser_of_death_instance = LASER_SCENE.instantiate()
+	mouse_shooter.add_child(laser_of_death_instance)
+	print("Laser of Death spawned!")
+
+func _upgrade_laser_of_death() -> void:
+	if not laser_of_death_instance:
+		return
+	
+	# Each stack increases damage by 3 and follow speed by 2
+	laser_of_death_instance.damage_per_tick += 3
+	laser_of_death_instance.follow_speed += 2.0
+	print("Laser of Death upgraded! Damage: ", laser_of_death_instance.damage_per_tick, ", Follow Speed: ", laser_of_death_instance.follow_speed)
 
 func _apply_ally_damage_multiplier(value: float) -> void:
 	ally_damage_multiplier += value

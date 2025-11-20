@@ -48,5 +48,6 @@ enum AugmentType {
 	EXPLOSION_RADIUS_MULTIPLIER,  # +0.5 = +50% explosion radius (multiplier)
 	ALLY_DAMAGE_MULTIPLIER, # Allies deal more damage (multiplier)
 	ALLY_FIRE_RATE,         # Allies fire faster (multiplier)
+	LASER_OF_DEATH,         # Enables/upgrades laser of death
 	ABILITY,              # Grants an ability (uses ability_scene)
 }

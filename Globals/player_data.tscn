@@ -9,6 +9,7 @@
 [ext_resource type="Resource" uid="uid://cnp5apbjdopuf" path="res://Data/AugmentData/Test/magazine_up.tres" id="7_3gcu3"]
 
 [node name="PlayerData" type="Node"]
+process_mode = 3
 script = ExtResource("1_44c78")
 ally_datas = Array[ExtResource("2_m27fu")]([ExtResource("3_aknlj")])
 weapon_1_data = ExtResource("4_aknlj")
