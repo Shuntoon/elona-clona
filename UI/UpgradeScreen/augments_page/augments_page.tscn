@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dvsbfx38vbaju"]
+[gd_scene load_steps=20 format=3 uid="uid://dvsbfx38vbaju"]
 
 [ext_resource type="Script" uid="uid://d31madduro008" path="res://UI/UpgradeScreen/augments_page/augments_page.gd" id="1_b6eae"]
 [ext_resource type="PackedScene" uid="uid://6w660hirryy6" path="res://UI/UpgradeScreen/augments_page/augment_panel_button.tscn" id="2_c4yg0"]
@@ -16,7 +16,8 @@
 [ext_resource type="Resource" uid="uid://cam7f3vc1ally" path="res://Data/AugmentData/real/uncommon/combat_drills.tres" id="13_6mapy"]
 [ext_resource type="Resource" uid="uid://c8eyam3oavolx" path="res://Data/AugmentData/real/rare/volatile_blood.tres" id="14_i2sr4"]
 [ext_resource type="Resource" uid="uid://dki75h8iwy3t7" path="res://Data/AugmentData/real/legendary/demolition_expert.tres" id="15_7wcsf"]
-[ext_resource type="Resource" path="res://Data/AugmentData/real/legendary/laser_of_death.tres" id="16_oj2gc"]
+[ext_resource type="Resource" uid="uid://c8p4qw7n5jlam" path="res://Data/AugmentData/real/legendary/laser_of_death.tres" id="16_oj2gc"]
+[ext_resource type="Resource" path="res://Data/AugmentData/real/common/lucky_coin.tres" id="17_rqn6v"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_skbsq"]
 font_size = 48
@@ -31,7 +32,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_b6eae")
-augment_selection = Array[ExtResource("2_tsv3p")]([ExtResource("3_fkv8u"), ExtResource("4_hsc5t"), ExtResource("5_hpobp"), ExtResource("6_mson7"), ExtResource("7_37cud"), ExtResource("8_6mapy"), ExtResource("9_hpobp"), ExtResource("10_mson7"), ExtResource("11_mson7"), ExtResource("12_37cud"), ExtResource("13_6mapy"), ExtResource("14_i2sr4"), ExtResource("15_7wcsf"), ExtResource("16_oj2gc")])
+augment_selection = Array[ExtResource("2_tsv3p")]([ExtResource("3_fkv8u"), ExtResource("4_hsc5t"), ExtResource("5_hpobp"), ExtResource("6_mson7"), ExtResource("7_37cud"), ExtResource("8_6mapy"), ExtResource("9_hpobp"), ExtResource("10_mson7"), ExtResource("11_mson7"), ExtResource("12_37cud"), ExtResource("13_6mapy"), ExtResource("14_i2sr4"), ExtResource("15_7wcsf"), ExtResource("16_oj2gc"), ExtResource("17_rqn6v")])
 augment_panel_button_scene = ExtResource("2_c4yg0")
 
 [node name="AugmentsLabel" type="Label" parent="."]

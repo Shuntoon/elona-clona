@@ -25,6 +25,7 @@ var explosion_damage_multiplier: float = 1.0
 var explosion_radius_multiplier: float = 1.0
 var laser_of_death_stacks: int = 0
 var laser_of_death_instance: LaserOfDeath = null
+var gold_gain_multiplier: float = 1.0
 
 ## Apply all augments from PlayerData
 ## Call this at the start of a new day to recalculate all bonuses
@@ -42,6 +43,7 @@ func apply_all_augments() -> void:
 	explosion_damage_multiplier = 1.0
 	explosion_radius_multiplier = 1.0
 	laser_of_death_stacks = 0
+	gold_gain_multiplier = 1.0
 	
 	# Apply each stat augment
 	for augment in PlayerData.augments:
@@ -112,6 +114,8 @@ func _apply_augment_effect(augment_type: AugmentData.AugmentType, value: float) 
 			_apply_explosion_radius_multiplier(value)
 		AugmentData.AugmentType.LASER_OF_DEATH:
 			_apply_laser_of_death(value)
+		AugmentData.AugmentType.GOLD_GAIN_MULTIPLIER:
+			_apply_gold_gain_multiplier(value)
 		AugmentData.AugmentType.ABILITY:
 			# Abilities are handled separately in _apply_ability_augments
 			pass
@@ -227,6 +231,10 @@ func _upgrade_laser_of_death() -> void:
 	laser_of_death_instance.damage_per_tick += 3
 	laser_of_death_instance.follow_speed += 2.0
 	print("Laser of Death upgraded! Damage: ", laser_of_death_instance.damage_per_tick, ", Follow Speed: ", laser_of_death_instance.follow_speed)
+
+func _apply_gold_gain_multiplier(value: float) -> void:
+	gold_gain_multiplier += value
+	print("Gold gain multiplier: ", gold_gain_multiplier)
 
 func _apply_ally_damage_multiplier(value: float) -> void:
 	ally_damage_multiplier += value
