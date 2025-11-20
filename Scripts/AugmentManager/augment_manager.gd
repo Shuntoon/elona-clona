@@ -33,6 +33,8 @@ var ammo_refund_chance: float = 0.0
 var cooldown_reduction_on_kill_chance: float = 0.0
 var cooldown_reduction_on_kill_amount: float = 0.0
 var first_shot_damage_multiplier: float = 0.0
+var execute_chance: float = 0.0
+var execute_health_threshold: float = 0.2  # 20% health
 
 ## Apply all augments from PlayerData
 ## Call this at the start of a new day to recalculate all bonuses
@@ -56,6 +58,7 @@ func apply_all_augments() -> void:
 	cooldown_reduction_on_kill_chance = 0.0
 	cooldown_reduction_on_kill_amount = 0.0
 	first_shot_damage_multiplier = 0.0
+	execute_chance = 0.0
 	
 	# Apply each stat augment
 	for augment in PlayerData.augments:
@@ -149,6 +152,8 @@ func _apply_augment_effect(augment_type: AugmentData.AugmentType, value: float) 
 			_apply_cooldown_reduction_on_kill(value)
 		AugmentData.AugmentType.FIRST_SHOT_DAMAGE:
 			_apply_first_shot_damage(value)
+		AugmentData.AugmentType.EXECUTE_CHANCE:
+			_apply_execute_chance(value)
 		AugmentData.AugmentType.ABILITY:
 			# Abilities are handled separately in _apply_ability_augments
 			pass
@@ -309,6 +314,10 @@ func trigger_cooldown_reduction_on_kill() -> void:
 func _apply_first_shot_damage(value: float) -> void:
 	first_shot_damage_multiplier += value
 	print("First shot damage bonus: +", first_shot_damage_multiplier * 100, "%")
+
+func _apply_execute_chance(value: float) -> void:
+	execute_chance = clamp(execute_chance + value, 0.0, 1.0)
+	print("Execute chance: ", execute_chance * 100, "% on enemies below ", execute_health_threshold * 100, "% health")
 
 func _apply_ally_damage_multiplier(value: float) -> void:
 	ally_damage_multiplier += value

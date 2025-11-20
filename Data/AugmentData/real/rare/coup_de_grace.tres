@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="AugmentData" load_steps=3 format=3 uid="uid://buap6m5n3q8r4"]
+
+[ext_resource type="Texture2D" uid="uid://d2glsjhg3dw3p" path="res://Art/Filler/AugmentIcons/Asset 70@2x.png" id="1_icon"]
+[ext_resource type="Script" uid="uid://dfu50k1tlerfj" path="res://Data/AugmentData/augment_data.gd" id="2_script"]
+
+[resource]
+script = ExtResource("2_script")
+name = "Coup de Grace"
+description = "15% chance to instantly kill enemies below 20% health. Stacks."
+icon = ExtResource("1_icon")
+rarity = 2
+price = 275
+augment_type = 24
+value = 0.15
+has_secondary_effect = false
+has_tertiary_effect = false

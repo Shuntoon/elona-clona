@@ -65,5 +65,6 @@ enum AugmentType {
 	AMMO_REFUND_CHANCE,     # +0.25 = 25% chance to not consume ammo (flat)
 	COOLDOWN_REDUCTION_ON_KILL, # 50% chance to reduce all ability cooldowns by 2s on kill
 	FIRST_SHOT_DAMAGE,      # +0.5 = +50% damage on first shot in magazine (multiplier, stacks)
+	EXECUTE_CHANCE,         # +0.15 = 15% chance to instantly kill enemies below 20% health (stacks)
 	ABILITY,              # Grants an ability (uses ability_scene)
 }

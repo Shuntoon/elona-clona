@@ -40,6 +40,21 @@ func _on_area_entered(area: Area2D) -> void:
 			# Body shot: just base damage
 			final_damage = damage
 		
+		# Check for execute chance on low health enemies
+		var augment_manager = get_tree().get_first_node_in_group("augment_manager")
+		var executed = false
+		if augment_manager and augment_manager.execute_chance > 0.0:
+			# Check if enemy would be below threshold after this hit
+			var health_after_damage = enemy.current_health - final_damage
+			var health_percent = float(health_after_damage) / float(enemy.max_health)
+			
+			if health_percent <= augment_manager.execute_health_threshold and health_after_damage > 0:
+				if randf() < augment_manager.execute_chance:
+					# Execute! Set damage to kill the enemy
+					final_damage = enemy.current_health
+					executed = true
+					print("EXECUTED! Enemy health was ", enemy.current_health, "/", enemy.max_health)
+		
 		# Apply damage
 		enemy.current_health -= final_damage
 		
@@ -50,7 +65,6 @@ func _on_area_entered(area: Area2D) -> void:
 				print("Bleed applied! Chance: ", bleed_chance)
 		
 		# Check for slow on hit from augments
-		var augment_manager = get_tree().get_first_node_in_group("augment_manager")
 		if augment_manager:
 			print("Augment manager found. slow_on_hit_enabled: ", augment_manager.slow_on_hit_enabled)
 			if augment_manager.slow_on_hit_enabled:
@@ -59,8 +73,8 @@ func _on_area_entered(area: Area2D) -> void:
 		else:
 			print("No augment manager found!")
 		
-		# Spawn floating damage number
-		_spawn_damage_number(final_damage, global_position, is_critical)
+		# Spawn floating damage number (show execute as critical)
+		_spawn_damage_number(final_damage, global_position, is_critical or executed)
 		
 		# Spawn enemy hit VFX (red and bigger for headshots)
 		_spawn_vfx(hit_enemy_vfx, global_position, is_critical)
