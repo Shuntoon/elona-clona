@@ -23,6 +23,7 @@
 [ext_resource type="Resource" path="res://Data/AugmentData/real/rare/surplus_ammunition.tres" id="20_ammo"]
 [ext_resource type="Resource" path="res://Data/AugmentData/real/legendary/adrenaline_rush.tres" id="21_adrenaline"]
 [ext_resource type="Resource" path="res://Data/AugmentData/real/legendary/masterwork_armament.tres" id="22_masterwork"]
+[ext_resource type="Resource" path="res://Data/AugmentData/real/rare/opening_shot.tres" id="23_opening"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_skbsq"]
 font_size = 48
@@ -37,7 +38,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_b6eae")
-augment_selection = Array[ExtResource("2_tsv3p")]([ExtResource("3_fkv8u"), ExtResource("4_hsc5t"), ExtResource("5_hpobp"), ExtResource("6_mson7"), ExtResource("7_37cud"), ExtResource("8_6mapy"), ExtResource("9_hpobp"), ExtResource("10_mson7"), ExtResource("11_mson7"), ExtResource("12_37cud"), ExtResource("13_6mapy"), ExtResource("14_i2sr4"), ExtResource("15_7wcsf"), ExtResource("16_oj2gc"), ExtResource("17_rqn6v"), ExtResource("18_lehqo"), ExtResource("19_burst"), ExtResource("20_ammo"), ExtResource("21_adrenaline"), ExtResource("22_masterwork")])
+augment_selection = Array[ExtResource("2_tsv3p")]([ExtResource("3_fkv8u"), ExtResource("4_hsc5t"), ExtResource("5_hpobp"), ExtResource("6_mson7"), ExtResource("7_37cud"), ExtResource("8_6mapy"), ExtResource("9_hpobp"), ExtResource("10_mson7"), ExtResource("11_mson7"), ExtResource("12_37cud"), ExtResource("13_6mapy"), ExtResource("14_i2sr4"), ExtResource("15_7wcsf"), ExtResource("16_oj2gc"), ExtResource("17_rqn6v"), ExtResource("18_lehqo"), ExtResource("19_burst"), ExtResource("20_ammo"), ExtResource("21_adrenaline"), ExtResource("22_masterwork"), ExtResource("23_opening")])
 augment_panel_button_scene = ExtResource("2_c4yg0")
 
 [node name="AugmentsLabel" type="Label" parent="."]

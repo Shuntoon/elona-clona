@@ -262,6 +262,14 @@ func _fire_bullet() -> void:
 		
 		hitbox_inst.destroy_instantly = true
 		hitbox_inst.damage = bullet_damage
+		
+		# Check for first shot damage bonus from augments
+		if augment_manager and augment_manager.first_shot_damage_multiplier > 0.0:
+			# Check if this is the first shot (full magazine)
+			if current_ammo == magazine_size or (not refund_ammo and current_ammo == magazine_size - 1):
+				hitbox_inst.damage = int(bullet_damage * (1.0 + augment_manager.first_shot_damage_multiplier))
+				print("First shot bonus! Damage: ", hitbox_inst.damage, " (base: ", bullet_damage, ")")
+		
 		hitbox_inst.crit_chance = crit_chance
 		hitbox_inst.crit_multiplier = crit_multiplier
 		hitbox_inst.bleed_chance = bleed_chance
@@ -297,6 +305,14 @@ func _fire_bullet() -> void:
 		var hitbox = bullet_base_inst.get_node_or_null("Hitbox")
 		if hitbox:
 			hitbox.damage = bullet_damage
+			
+			# Check for first shot damage bonus from augments
+			if augment_manager and augment_manager.first_shot_damage_multiplier > 0.0:
+				# Check if this is the first shot (full magazine)
+				if current_ammo == magazine_size or (not refund_ammo and current_ammo == magazine_size - 1):
+					hitbox.damage = int(bullet_damage * (1.0 + augment_manager.first_shot_damage_multiplier))
+					print("First shot bonus! Damage: ", hitbox.damage, " (base: ", bullet_damage, ")")
+			
 			hitbox.crit_chance = crit_chance
 			hitbox.crit_multiplier = crit_multiplier
 			hitbox.bleed_chance = bleed_chance

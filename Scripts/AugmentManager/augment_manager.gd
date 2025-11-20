@@ -32,6 +32,7 @@ var slow_on_hit_duration: float = 3.0
 var ammo_refund_chance: float = 0.0
 var cooldown_reduction_on_kill_chance: float = 0.0
 var cooldown_reduction_on_kill_amount: float = 0.0
+var first_shot_damage_multiplier: float = 0.0
 
 ## Apply all augments from PlayerData
 ## Call this at the start of a new day to recalculate all bonuses
@@ -54,6 +55,7 @@ func apply_all_augments() -> void:
 	ammo_refund_chance = 0.0
 	cooldown_reduction_on_kill_chance = 0.0
 	cooldown_reduction_on_kill_amount = 0.0
+	first_shot_damage_multiplier = 0.0
 	
 	# Apply each stat augment
 	for augment in PlayerData.augments:
@@ -145,6 +147,8 @@ func _apply_augment_effect(augment_type: AugmentData.AugmentType, value: float) 
 			_apply_ammo_refund_chance(value)
 		AugmentData.AugmentType.COOLDOWN_REDUCTION_ON_KILL:
 			_apply_cooldown_reduction_on_kill(value)
+		AugmentData.AugmentType.FIRST_SHOT_DAMAGE:
+			_apply_first_shot_damage(value)
 		AugmentData.AugmentType.ABILITY:
 			# Abilities are handled separately in _apply_ability_augments
 			pass
@@ -301,6 +305,10 @@ func trigger_cooldown_reduction_on_kill() -> void:
 						ability.is_on_cooldown = false
 						ability.cooldown_finished.emit()
 			print("Cooldown reduction triggered! Reduced all ability cooldowns by ", cooldown_reduction_on_kill_amount, "s")
+
+func _apply_first_shot_damage(value: float) -> void:
+	first_shot_damage_multiplier += value
+	print("First shot damage bonus: +", first_shot_damage_multiplier * 100, "%")
 
 func _apply_ally_damage_multiplier(value: float) -> void:
 	ally_damage_multiplier += value
