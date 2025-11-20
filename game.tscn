@@ -91,124 +91,124 @@ expand_mode = 1
 [node name="Environment" type="Node2D" parent="."]
 
 [node name="Art" type="Node2D" parent="Environment"]
-position = Vector2(1007, 676)
+position = Vector2(1033, 676)
 
 [node name="MeshInstance2D2" type="MeshInstance2D" parent="Environment/Art"]
 modulate = Color(0.37101543, 0.37101543, 0.37101543, 1)
-position = Vector2(-17.927565, -15.597492)
+position = Vector2(0.99998474, -15.597492)
 scale = Vector2(14.00005, 28.99991)
 mesh = SubResource("QuadMesh_80nbo")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/Art"]
 modulate = Color(0.6697165, 0.6697165, 0.6697165, 1)
-position = Vector2(-12.0000305, -15.5)
+position = Vector2(6.9275208, -15.5)
 scale = Vector2(17.99994, 29.000065)
 mesh = SubResource("QuadMesh_80nbo")
 
 [node name="MeshInstance2D3" type="MeshInstance2D" parent="Environment/Art"]
 modulate = Color(0.37101543, 0.37101543, 0.37101543, 1)
-position = Vector2(-17.927504, -60.59743)
+position = Vector2(1.0000458, -60.59743)
 scale = Vector2(14.00005, 28.99991)
 mesh = SubResource("QuadMesh_80nbo")
 
 [node name="MeshInstance2D4" type="MeshInstance2D" parent="Environment/Art"]
 modulate = Color(0.6697165, 0.6697165, 0.6697165, 1)
-position = Vector2(-11.9999695, -60.49994)
+position = Vector2(6.927582, -60.49994)
 scale = Vector2(17.99994, 29.000065)
 mesh = SubResource("QuadMesh_80nbo")
 
 [node name="MeshInstance2D5" type="MeshInstance2D" parent="Environment/Art"]
 modulate = Color(0.37101543, 0.37101543, 0.37101543, 1)
-position = Vector2(-17.927504, -104.597496)
+position = Vector2(1.0000458, -104.597496)
 scale = Vector2(14.00005, 28.99991)
 mesh = SubResource("QuadMesh_80nbo")
 
 [node name="MeshInstance2D6" type="MeshInstance2D" parent="Environment/Art"]
 modulate = Color(0.6697165, 0.6697165, 0.6697165, 1)
-position = Vector2(-11.9999695, -104.49994)
+position = Vector2(6.927582, -104.49994)
 scale = Vector2(17.99994, 29.000065)
 mesh = SubResource("QuadMesh_80nbo")
 
 [node name="MeshInstance2D7" type="MeshInstance2D" parent="Environment/Art"]
 modulate = Color(0.37101543, 0.37101543, 0.37101543, 1)
-position = Vector2(-17.927504, -148.59752)
+position = Vector2(1.0000458, -148.59752)
 scale = Vector2(14.00005, 28.99991)
 mesh = SubResource("QuadMesh_80nbo")
 
 [node name="MeshInstance2D8" type="MeshInstance2D" parent="Environment/Art"]
 modulate = Color(0.6697165, 0.6697165, 0.6697165, 1)
-position = Vector2(-11.9999695, -148.49997)
+position = Vector2(6.927582, -148.49997)
 scale = Vector2(17.99994, 29.000065)
 mesh = SubResource("QuadMesh_80nbo")
 
 [node name="MeshInstance2D9" type="MeshInstance2D" parent="Environment/Art"]
 modulate = Color(0.37101543, 0.37101543, 0.37101543, 1)
-position = Vector2(-17.927504, -191.59752)
+position = Vector2(1.0000458, -191.59752)
 scale = Vector2(14.00005, 28.99991)
 mesh = SubResource("QuadMesh_80nbo")
 
 [node name="MeshInstance2D10" type="MeshInstance2D" parent="Environment/Art"]
 modulate = Color(0.6697165, 0.6697165, 0.6697165, 1)
-position = Vector2(-11.9999695, -191.49997)
+position = Vector2(6.927582, -191.49997)
 scale = Vector2(17.99994, 29.000065)
 mesh = SubResource("QuadMesh_80nbo")
 
 [node name="MeshInstance2D11" type="MeshInstance2D" parent="Environment/Art"]
 modulate = Color(0.37101543, 0.37101543, 0.37101543, 1)
-position = Vector2(-17.857605, -236.53699)
+position = Vector2(1.0699444, -236.53699)
 scale = Vector2(14.00005, 28.99991)
 mesh = SubResource("QuadMesh_80nbo")
 
 [node name="MeshInstance2D12" type="MeshInstance2D" parent="Environment/Art"]
 modulate = Color(0.6697165, 0.6697165, 0.6697165, 1)
-position = Vector2(-11.930071, -236.43945)
+position = Vector2(6.9974804, -236.43945)
 scale = Vector2(17.99994, 29.000065)
 mesh = SubResource("QuadMesh_80nbo")
 
 [node name="MeshInstance2D13" type="MeshInstance2D" parent="Environment/Art"]
 modulate = Color(0.37101543, 0.37101543, 0.37101543, 1)
-position = Vector2(-17.923939, -274.11346)
+position = Vector2(1.0036106, -274.11346)
 scale = Vector2(14.00005, 28.99991)
 mesh = SubResource("QuadMesh_80nbo")
 
 [node name="MeshInstance2D16" type="MeshInstance2D" parent="Environment/Art"]
 modulate = Color(0.5, 0.3942768, 0.16121706, 1)
-position = Vector2(258.99994, -292.74985)
+position = Vector2(277.9275, -292.74985)
 scale = Vector2(196.00008, 332.49997)
 mesh = SubResource("QuadMesh_80nbo")
 
 [node name="MeshInstance2D14" type="MeshInstance2D" parent="Environment/Art"]
 modulate = Color(0.6697165, 0.6697165, 0.6697165, 1)
-position = Vector2(-11.996403, -274.01596)
+position = Vector2(6.9311485, -274.01596)
 scale = Vector2(17.99994, 29.000065)
 mesh = SubResource("QuadMesh_80nbo")
 
 [node name="MeshInstance2D15" type="MeshInstance2D" parent="Environment/Art"]
 modulate = Color(0.43890208, 0.31733617, 0.10687964, 1)
-position = Vector2(259, -458.74997)
+position = Vector2(277.92755, -458.74997)
 scale = Vector2(195.99997, 52.50007)
 mesh = SubResource("SphereMesh_mfdv2")
 
 [node name="MeshInstance2D17" type="MeshInstance2D" parent="Environment/Art"]
 modulate = Color(0.5, 0.3942768, 0.16121706, 1)
-position = Vector2(211.61116, -181.74994)
+position = Vector2(230.53871, -181.74994)
 scale = Vector2(162.00003, 220.5003)
 mesh = SubResource("QuadMesh_80nbo")
 
 [node name="MeshInstance2D18" type="MeshInstance2D" parent="Environment/Art"]
 modulate = Color(0.43890208, 0.31733617, 0.10687964, 1)
-position = Vector2(212.16669, -291.74997)
+position = Vector2(231.09424, -291.74997)
 scale = Vector2(161.07137, 52.50007)
 mesh = SubResource("SphereMesh_mfdv2")
 
 [node name="MeshInstance2D19" type="MeshInstance2D" parent="Environment/Art"]
 modulate = Color(0.5, 0.3942768, 0.16121706, 1)
-position = Vector2(212.61124, -71)
+position = Vector2(231.53879, -71)
 scale = Vector2(165.40965, 52.50007)
 mesh = SubResource("SphereMesh_mfdv2")
 
 [node name="WallArea2D" type="Area2D" parent="Environment" groups=["wall"]]
-position = Vector2(987.00006, 606)
+position = Vector2(1030, 606)
 scale = Vector2(14.00005, 28.99991)
 collision_mask = 2
 
@@ -224,25 +224,25 @@ shape = SubResource("RectangleShape2D_80nbo")
 [node name="Allies" type="Node2D" parent="Entities" groups=["allies"]]
 
 [node name="Player" type="Sprite2D" parent="Entities/Allies"]
-position = Vector2(1068, 470)
+position = Vector2(1097, 470)
 scale = Vector2(0.5156255, 0.5156255)
 texture = ExtResource("5_ryrav")
 
 [node name="Ally1Spawn" type="Marker2D" parent="Entities/Allies"]
 unique_name_in_owner = true
-position = Vector2(1063, 387)
+position = Vector2(1092, 387)
 
 [node name="Ally2Spawn" type="Marker2D" parent="Entities/Allies"]
 unique_name_in_owner = true
-position = Vector2(1063, 546)
+position = Vector2(1092, 546)
 
 [node name="Ally3Spawn" type="Marker2D" parent="Entities/Allies"]
 unique_name_in_owner = true
-position = Vector2(1063, 607)
+position = Vector2(1092, 607)
 
 [node name="Ally4Spawn" type="Marker2D" parent="Entities/Allies"]
 unique_name_in_owner = true
-position = Vector2(1063, 675)
+position = Vector2(1092, 675)
 
 [node name="Neutral" type="Node2D" parent="Entities" groups=["neutral_entities"]]
 
