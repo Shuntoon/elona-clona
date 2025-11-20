@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://barbo7txnpgeo" path="res://Globals/PlayerData.gd" id="1_44c78"]
 [ext_resource type="Script" uid="uid://bhvur583pgsyf" path="res://Data/AllyData/ally_data.gd" id="2_m27fu"]
 [ext_resource type="Resource" uid="uid://boxv5rlsd54ii" path="res://Data/AllyData/rifleman.tres" id="3_aknlj"]
-[ext_resource type="Resource" uid="uid://cl5tfw0kdxrpj" path="res://Data/WeaponData/WeaponDatas/Test1/Pistol.tres" id="4_igx8g"]
+[ext_resource type="Resource" uid="uid://b5ejowdrs4y1b" path="res://Data/WeaponData/WeaponDatas/Test1/crossbow.tres" id="4_7qppq"]
 [ext_resource type="Resource" uid="uid://1gbswqjskx8o" path="res://Data/WeaponData/WeaponDatas/Test1/Noob_Tube.tres" id="5_7qppq"]
 [ext_resource type="Script" uid="uid://dfu50k1tlerfj" path="res://Data/AugmentData/augment_data.gd" id="5_igx8g"]
 [ext_resource type="Resource" uid="uid://dagphrcf2u6ph" path="res://Data/AugmentData/Test/reload_speed_up.tres" id="6_7qppq"]
@@ -12,7 +12,7 @@
 [node name="PlayerData" type="Node"]
 script = ExtResource("1_44c78")
 ally_datas = Array[ExtResource("2_m27fu")]([ExtResource("3_aknlj")])
-weapon_1_data = ExtResource("4_igx8g")
+weapon_1_data = ExtResource("4_7qppq")
 weapon_2_data = ExtResource("5_7qppq")
 gold = 500
 allies_level = 2
