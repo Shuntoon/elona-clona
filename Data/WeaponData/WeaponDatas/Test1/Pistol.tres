@@ -16,7 +16,6 @@ fire_rate = 120.0
 magazine_size = 18
 reload_time = 1.5
 crit_chance = 0.91
-bullet_damage = 35
 burst_count = 15
 burst_delay = 0.001
 metadata/_custom_type_script = "uid://rimwdfuvv8ao"

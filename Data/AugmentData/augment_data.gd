@@ -50,5 +50,6 @@ enum AugmentType {
 	ALLY_FIRE_RATE,         # Allies fire faster (multiplier)
 	LASER_OF_DEATH,         # Enables/upgrades laser of death
 	GOLD_GAIN_MULTIPLIER,   # +0.1 = +10% gold gain (multiplier)
+	SLOW_ON_HIT,            # value = slow multiplier (0.5 = 50% speed)
 	ABILITY,              # Grants an ability (uses ability_scene)
 }

@@ -49,6 +49,16 @@ func _on_area_entered(area: Area2D) -> void:
 				enemy.bleed_effect.apply_bleed_stack()
 				print("Bleed applied! Chance: ", bleed_chance)
 		
+		# Check for slow on hit from augments
+		var augment_manager = get_tree().get_first_node_in_group("augment_manager")
+		if augment_manager:
+			print("Augment manager found. slow_on_hit_enabled: ", augment_manager.slow_on_hit_enabled)
+			if augment_manager.slow_on_hit_enabled:
+				print("Applying slow to enemy with multiplier: ", augment_manager.slow_on_hit_multiplier, " for duration: ", augment_manager.slow_on_hit_duration)
+				enemy.apply_slow(augment_manager.slow_on_hit_multiplier, augment_manager.slow_on_hit_duration)
+		else:
+			print("No augment manager found!")
+		
 		# Spawn floating damage number
 		_spawn_damage_number(final_damage, global_position, is_critical)
 		

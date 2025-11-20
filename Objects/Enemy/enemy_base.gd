@@ -35,6 +35,11 @@ var current_health : int :
 		current_health = value
 		if current_health <= 0:
 			died.emit()
+
+# Slow effect variables
+var is_slowed: bool = false
+var base_speed: float = 0.0
+var slow_timer: Timer
 			
 
 func _ready() -> void:
@@ -43,6 +48,13 @@ func _ready() -> void:
 	
 	attack_speed_timer.wait_time = attack_speed
 	current_health = max_health
+	base_speed = speed  # Store original speed
+	
+	# Setup slow timer
+	slow_timer = Timer.new()
+	slow_timer.one_shot = true
+	slow_timer.timeout.connect(_on_slow_timer_timeout)
+	add_child(slow_timer)
 	
 	# Create and add bleed effect component
 	bleed_effect = BleedEffect.new()
@@ -113,3 +125,20 @@ func _spawn_bleed_damage_number(bleed_damage: int) -> void:
 	damage_number_inst.set_bleed_damage(bleed_damage)
 	
 	vfx_parent.add_child(damage_number_inst)
+
+func apply_slow(slow_multiplier: float, duration: float) -> void:
+	print("apply_slow called! is_slowed: ", is_slowed, ", base_speed: ", base_speed, ", multiplier: ", slow_multiplier)
+	if not is_slowed:
+		is_slowed = true
+		speed = base_speed * slow_multiplier
+		slow_timer.start(duration)
+		print("Enemy slowed! New speed: ", speed, " (was ", base_speed, ")")
+	else:
+		# Refresh slow duration
+		slow_timer.start(duration)
+		print("Slow duration refreshed")
+
+func _on_slow_timer_timeout() -> void:
+	is_slowed = false
+	speed = base_speed
+	print("Enemy slow expired. Speed restored to: ", speed)

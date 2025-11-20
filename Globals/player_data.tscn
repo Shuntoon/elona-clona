@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bhvur583pgsyf" path="res://Data/AllyData/ally_data.gd" id="2_m27fu"]
 [ext_resource type="Resource" uid="uid://boxv5rlsd54ii" path="res://Data/AllyData/rifleman.tres" id="3_aknlj"]
 [ext_resource type="Resource" uid="uid://cl5tfw0kdxrpj" path="res://Data/WeaponData/WeaponDatas/Test1/Pistol.tres" id="4_igx8g"]
-[ext_resource type="Resource" uid="uid://1gbswqjskx8o" path="res://Data/WeaponData/WeaponDatas/Test1/Noob_Tube.tres" id="5_7qppq"]
+[ext_resource type="Resource" uid="uid://bfiiml7x5jhaa" path="res://Data/WeaponData/WeaponDatas/Test1/Shotgun.tres" id="5_7qppq"]
 [ext_resource type="Script" uid="uid://dfu50k1tlerfj" path="res://Data/AugmentData/augment_data.gd" id="5_igx8g"]
 [ext_resource type="Resource" uid="uid://dagphrcf2u6ph" path="res://Data/AugmentData/Test/reload_speed_up.tres" id="6_7qppq"]
 [ext_resource type="Resource" uid="uid://cnp5apbjdopuf" path="res://Data/AugmentData/Test/magazine_up.tres" id="7_3gcu3"]
