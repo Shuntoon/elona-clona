@@ -30,6 +30,8 @@ var slow_on_hit_enabled: bool = false
 var slow_on_hit_multiplier: float = 0.5  # 50% speed by default
 var slow_on_hit_duration: float = 3.0
 var ammo_refund_chance: float = 0.0
+var cooldown_reduction_on_kill_chance: float = 0.0
+var cooldown_reduction_on_kill_amount: float = 0.0
 
 ## Apply all augments from PlayerData
 ## Call this at the start of a new day to recalculate all bonuses
@@ -50,6 +52,8 @@ func apply_all_augments() -> void:
 	gold_gain_multiplier = 1.0
 	slow_on_hit_enabled = false
 	ammo_refund_chance = 0.0
+	cooldown_reduction_on_kill_chance = 0.0
+	cooldown_reduction_on_kill_amount = 0.0
 	
 	# Apply each stat augment
 	for augment in PlayerData.augments:
@@ -77,6 +81,16 @@ func apply_augment(augment: AugmentData) -> void:
 	if augment.has_tertiary_effect:
 		_apply_augment_effect(augment.tertiary_augment_type, augment.tertiary_value)
 		print("Applied augment tertiary: ", augment.tertiary_value)
+	
+	# Apply quaternary effect if it exists
+	if augment.has_quaternary_effect:
+		_apply_augment_effect(augment.quaternary_augment_type, augment.quaternary_value)
+		print("Applied augment quaternary: ", augment.quaternary_value)
+	
+	# Apply quinary effect if it exists
+	if augment.has_quinary_effect:
+		_apply_augment_effect(augment.quinary_augment_type, augment.quinary_value)
+		print("Applied augment quinary: ", augment.quinary_value)
 	else:
 		if not augment.has_secondary_effect:
 			print("Applied augment: ", augment.name, " (", augment.value, ")")
@@ -129,6 +143,8 @@ func _apply_augment_effect(augment_type: AugmentData.AugmentType, value: float) 
 			_apply_burst_count(value)
 		AugmentData.AugmentType.AMMO_REFUND_CHANCE:
 			_apply_ammo_refund_chance(value)
+		AugmentData.AugmentType.COOLDOWN_REDUCTION_ON_KILL:
+			_apply_cooldown_reduction_on_kill(value)
 		AugmentData.AugmentType.ABILITY:
 			# Abilities are handled separately in _apply_ability_augments
 			pass
@@ -263,6 +279,28 @@ func _apply_burst_count(value: float) -> void:
 func _apply_ammo_refund_chance(value: float) -> void:
 	ammo_refund_chance = clamp(ammo_refund_chance + value, 0.0, 1.0)
 	print("Ammo refund chance: ", ammo_refund_chance * 100, "%")
+
+func _apply_cooldown_reduction_on_kill(value: float) -> void:
+	# Value format: chance stored in first decimal place, amount in second
+	# e.g., 0.52 = 50% chance (0.5) to reduce by 2 seconds (2)
+	cooldown_reduction_on_kill_chance = 0.5  # 50% chance
+	cooldown_reduction_on_kill_amount = value  # Reduction amount in seconds
+	print("Cooldown reduction on kill: ", cooldown_reduction_on_kill_chance * 100, "% chance to reduce by ", cooldown_reduction_on_kill_amount, "s")
+
+func trigger_cooldown_reduction_on_kill() -> void:
+	if cooldown_reduction_on_kill_chance <= 0.0:
+		return
+	
+	if randf() < cooldown_reduction_on_kill_chance:
+		var ability_manager = get_tree().get_first_node_in_group("ability_manager")
+		if ability_manager:
+			for ability in ability_manager.abilities:
+				if ability.is_on_cooldown:
+					ability.cooldown_remaining = max(0.0, ability.cooldown_remaining - cooldown_reduction_on_kill_amount)
+					if ability.cooldown_remaining <= 0.0:
+						ability.is_on_cooldown = false
+						ability.cooldown_finished.emit()
+			print("Cooldown reduction triggered! Reduced all ability cooldowns by ", cooldown_reduction_on_kill_amount, "s")
 
 func _apply_ally_damage_multiplier(value: float) -> void:
 	ally_damage_multiplier += value

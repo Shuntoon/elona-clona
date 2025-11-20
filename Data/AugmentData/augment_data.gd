@@ -22,6 +22,16 @@ class_name AugmentData
 @export var tertiary_augment_type: AugmentType
 @export var tertiary_value: float = 0.0
 
+# Quaternary effect (optional fourth effect)
+@export var has_quaternary_effect: bool = false
+@export var quaternary_augment_type: AugmentType
+@export var quaternary_value: float = 0.0
+
+# Quinary effect (optional fifth effect)
+@export var has_quinary_effect: bool = false
+@export var quinary_augment_type: AugmentType
+@export var quinary_value: float = 0.0
+
 enum Rarity {
 	COMMON,
 	UNCOMMON,
@@ -53,5 +63,6 @@ enum AugmentType {
 	SLOW_ON_HIT,            # value = slow multiplier (0.5 = 50% speed)
 	BURST_COUNT,            # +2 bullets per burst (flat)
 	AMMO_REFUND_CHANCE,     # +0.25 = 25% chance to not consume ammo (flat)
+	COOLDOWN_REDUCTION_ON_KILL, # 50% chance to reduce all ability cooldowns by 2s on kill
 	ABILITY,              # Grants an ability (uses ability_scene)
 }

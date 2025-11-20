@@ -13,7 +13,7 @@ var is_active: bool = false
 func _ready() -> void:
 	super._ready()
 	ability_name = "Rapid Fire"
-	cooldown_time = 10.0
+	cooldown_time = 30.0
 
 func activate() -> void:
 	if not mouse_shooter:

@@ -86,21 +86,27 @@ func _on_died() -> void:
 
 	# Chance to explode on death from augments
 	var augment_manager = get_tree().get_first_node_in_group("augment_manager")
-	if augment_manager and augment_manager.has_method("get_enemy_death_explosion_chance"):
-		var chance: float = augment_manager.get_enemy_death_explosion_chance()
-		if chance > 0.0 and randf() < chance:
-			# Spawn explosion at enemy position
-			var explosion = EXPLOSION_SCENE.instantiate()
-			explosion.global_position = global_position
-			# Set base damage to 10 as specified
-			if "damage" in explosion:
-				explosion.damage = 10
-			# Optional: can tweak radius or visual scale if desired
-			var vfx_parent = get_tree().get_first_node_in_group("neutral_entities")
-			if vfx_parent:
-				vfx_parent.add_child(explosion)
-			else:
-				get_tree().current_scene.add_child(explosion)
+	if augment_manager:
+		# Cooldown reduction on kill
+		if augment_manager.has_method("trigger_cooldown_reduction_on_kill"):
+			augment_manager.trigger_cooldown_reduction_on_kill()
+		
+		# Explosion on death
+		if augment_manager.has_method("get_enemy_death_explosion_chance"):
+			var chance: float = augment_manager.get_enemy_death_explosion_chance()
+			if chance > 0.0 and randf() < chance:
+				# Spawn explosion at enemy position
+				var explosion = EXPLOSION_SCENE.instantiate()
+				explosion.global_position = global_position
+				# Set base damage to 10 as specified
+				if "damage" in explosion:
+					explosion.damage = 10
+				# Optional: can tweak radius or visual scale if desired
+				var vfx_parent = get_tree().get_first_node_in_group("neutral_entities")
+				if vfx_parent:
+					vfx_parent.add_child(explosion)
+				else:
+					get_tree().current_scene.add_child(explosion)
 	queue_free()
 	print("enemy died!")
 	pass # Replace with function body.
