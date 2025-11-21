@@ -8,7 +8,6 @@
 [ext_resource type="Script" uid="uid://c60bxtqxj72gr" path="res://Objects/Spawner/spawner.gd" id="5_7jktm"]
 [ext_resource type="Script" uid="uid://cew50k8ripj4e" path="res://Scripts/AugmentManager/augment_manager.gd" id="5_augment"]
 [ext_resource type="Script" uid="uid://c60utqbyl6xt7" path="res://Scripts/Abilities/fire_rate_boost_ability.gd" id="5_hve3p"]
-[ext_resource type="Texture2D" uid="uid://cseoedy4scsdr" path="res://icon.svg" id="5_ryrav"]
 [ext_resource type="Script" uid="uid://bf28q005qtvbc" path="res://Scripts/Abilities/power_shot_ability.gd" id="6_hve3p"]
 [ext_resource type="Script" uid="uid://b0hnw34sgf8um" path="res://Scripts/WaveManager/wave_manager.gd" id="8_lc2xo"]
 [ext_resource type="PackedScene" uid="uid://bljxubxu5eg3j" path="res://Objects/BulletBase/bullet_base.tscn" id="8_mfdv2"]
@@ -17,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://djs38cy8bwdv7" path="res://Objects/Enemy/enemy_base.tscn" id="10_7sc4i"]
 [ext_resource type="Resource" uid="uid://che2jquh8hejp" path="res://Data/WaveData/test_data_2.tres" id="11_e8heu"]
 [ext_resource type="Texture2D" uid="uid://vyva55pseaxx" path="res://Art/BG/bg.png" id="15_e8heu"]
+[ext_resource type="PackedScene" uid="uid://dttnwpg88y083" path="res://Objects/Player/player.tscn" id="16_rvswv"]
 [ext_resource type="PackedScene" uid="uid://dxae4nyei461n" path="res://Objects/LaserOfDeath/laser_of_death.tscn" id="18_rvswv"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_80nbo"]
@@ -224,10 +224,10 @@ shape = SubResource("RectangleShape2D_80nbo")
 
 [node name="Allies" type="Node2D" parent="Entities" groups=["allies"]]
 
-[node name="Player" type="Sprite2D" parent="Entities/Allies"]
-position = Vector2(1109, 470)
-scale = Vector2(0.5156255, 0.5156255)
-texture = ExtResource("5_ryrav")
+[node name="Player" parent="Entities/Allies" groups=["player"] instance=ExtResource("16_rvswv")]
+modulate = Color(0.7802, 0.94, 0.78552663, 1)
+position = Vector2(1070, 456)
+scale = Vector2(3.312498, 3.3124986)
 
 [node name="Ally1Spawn" type="Marker2D" parent="Entities/Allies"]
 unique_name_in_owner = true

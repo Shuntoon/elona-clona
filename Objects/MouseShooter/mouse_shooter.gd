@@ -58,13 +58,21 @@ var reload_progress: float = 0.0  # 0.0 to 1.0
 var neutral_entities : Node2D
 var game_manager: GameManager
 var current_weapon_slot: int = 1  # 1 or 2
+var player_sprite: AnimatedSprite2D = null
 
 # Saved ammo for each weapon slot
 var weapon_1_ammo: int = -1  # -1 means not yet initialized
 var weapon_2_ammo: int = -1
 
+var is_playing_shoot_animation: bool = false
+
 func _ready() -> void:
 	game_manager = get_tree().get_first_node_in_group("game_manager")
+	
+	# Get player sprite reference
+	player_sprite = get_tree().get_first_node_in_group("player")
+	if player_sprite:
+		player_sprite.animation_finished.connect(_on_animation_finished)
 	
 	# Connect to start_new_day signal to re-equip weapons
 	if game_manager:
@@ -78,12 +86,30 @@ func _ready() -> void:
 	current_ammo = magazine_size
 
 func _process(_delta: float) -> void:
+	# Update player shooting animation
+	if player_sprite and player_sprite.sprite_frames:
+		# Start shoot animation when shooting begins
+		if is_shooting and not is_reloading and not is_playing_shoot_animation:
+			if player_sprite.sprite_frames.has_animation("shoot"):
+				is_playing_shoot_animation = true
+				player_sprite.play("shoot")
+	
 	# Handle automatic fire
 	if fire_mode == FIRE_MODE.AUTOMATIC and is_shooting and can_shoot and not is_reloading:
 		_fire_bullet()
 		can_shoot = false
 		await get_tree().create_timer(time_between_shots).timeout
 		can_shoot = true
+
+func _on_animation_finished() -> void:
+	if player_sprite.animation == "shoot":
+		is_playing_shoot_animation = false
+		# If not still shooting, go back to default
+		if not is_shooting:
+			player_sprite.play("default")
+		# If still shooting, loop the shoot animation
+		else:
+			player_sprite.play("shoot")
 
 func _unhandled_input(event: InputEvent) -> void:
 	# Weapon switching

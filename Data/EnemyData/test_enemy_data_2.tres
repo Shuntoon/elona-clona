@@ -8,4 +8,5 @@ script = ExtResource("1_gruij")
 enemy_name = "x"
 speed = 3.0
 sprite = ExtResource("2_gruij")
+body_hitbox_size = Vector2(32, 48)
 metadata/_custom_type_script = "uid://d4hepntti60rn"

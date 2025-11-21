@@ -22,6 +22,12 @@ enum TERRAIN_TYPE {
 }
 var current_terrain_type : TERRAIN_TYPE = TERRAIN_TYPE.GROUND
 
+# Hitbox configuration (set by WaveManager before adding to scene)
+var body_hitbox_size: Vector2 = Vector2.ZERO
+var body_pos: Vector2 = Vector2.ZERO
+var head_hitbox_size: Vector2 = Vector2.ZERO
+var head_pos: Vector2 = Vector2.ZERO
+
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var state_chart: StateChart = $StateChart
 @onready var attack_speed_timer: Timer = $AttackSpeedTimer
@@ -60,6 +66,9 @@ func _ready() -> void:
 	bleed_effect = BleedEffect.new()
 	add_child(bleed_effect)
 	bleed_effect.bleed_tick.connect(_on_bleed_tick)
+	
+	# Apply hitbox sizes if they were set
+	_apply_hitbox_configuration()
 
 func _on_running_state_physics_processing(delta: float) -> void:
 	var new_global_pos = Vector2(global_position.x + speed, global_position.y)
@@ -148,3 +157,30 @@ func _on_slow_timer_timeout() -> void:
 	is_slowed = false
 	speed = base_speed
 	print("Enemy slow expired. Speed restored to: ", speed)
+
+func _apply_hitbox_configuration() -> void:
+	# Apply body hitbox if size was set
+	if body_hitbox_size != Vector2.ZERO and has_node("HurtboxBody"):
+		var body_hurtbox: Hurtbox = get_node("HurtboxBody")
+		body_hurtbox.size = body_hitbox_size
+		body_hurtbox.pos = body_pos
+		# Update collision shape - create new shape to avoid shared resource issues
+		var body_collision = body_hurtbox.get_node_or_null("CollisionShape2D")
+		if body_collision:
+			var new_shape = RectangleShape2D.new()
+			new_shape.size = body_hitbox_size
+			body_collision.shape = new_shape
+			body_collision.position = body_pos
+	
+	# Apply head hitbox if size was set
+	if head_hitbox_size != Vector2.ZERO and has_node("HurtboxHead"):
+		var head_hurtbox: Hurtbox = get_node("HurtboxHead")
+		head_hurtbox.size = head_hitbox_size
+		head_hurtbox.pos = head_pos
+		# Update collision shape - create new shape to avoid shared resource issues
+		var head_collision = head_hurtbox.get_node_or_null("CollisionShape2D")
+		if head_collision:
+			var new_shape = RectangleShape2D.new()
+			new_shape.size = head_hitbox_size
+			head_collision.shape = new_shape
+			head_collision.position = head_pos
