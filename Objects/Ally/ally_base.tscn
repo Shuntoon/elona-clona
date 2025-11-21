@@ -1,12 +1,82 @@
-[gd_scene load_steps=3 format=3 uid="uid://shs4qcsi72hc"]
+[gd_scene load_steps=11 format=3 uid="uid://shs4qcsi72hc"]
 
 [ext_resource type="Script" uid="uid://ccwwlnnv3wvov" path="res://Objects/Ally/ally_base.gd" id="1_5tcxx"]
 [ext_resource type="Texture2D" uid="uid://cseoedy4scsdr" path="res://icon.svg" id="2_hpdbt"]
+[ext_resource type="Texture2D" uid="uid://c141i8bg1yp0o" path="res://Art/ArmyMen/Japan.png" id="3_hpdbt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_df6yp"]
+atlas = ExtResource("3_hpdbt")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8osn8"]
+atlas = ExtResource("3_hpdbt")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oxk24"]
+atlas = ExtResource("3_hpdbt")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g30mg"]
+atlas = ExtResource("3_hpdbt")
+region = Rect2(0, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6iax5"]
+atlas = ExtResource("3_hpdbt")
+region = Rect2(64, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2qoa2"]
+atlas = ExtResource("3_hpdbt")
+region = Rect2(128, 192, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lsslm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_df6yp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8osn8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oxk24")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g30mg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6iax5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2qoa2")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 5.0
+}]
 
 [node name="AllyBase" type="Node2D"]
 script = ExtResource("1_5tcxx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(0.0013465881, 1, 0, 1)
 scale = Vector2(0.359375, 0.359375)
 texture = ExtResource("2_hpdbt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2.25, 2.25)
+sprite_frames = SubResource("SpriteFrames_lsslm")
+animation = &"shoot"
+frame = 2
+frame_progress = 1.0
+flip_h = true
+
+[node name="Shootpoint" type="Marker2D" parent="AnimatedSprite2D"]
+unique_name_in_owner = true
+position = Vector2(-21.333334, -4.4444447)
+scale = Vector2(0.44444445, 0.44444445)

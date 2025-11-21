@@ -1,6 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://w7gefcihbnk1"]
+[gd_scene load_steps=4 format=3 uid="uid://w7gefcihbnk1"]
 
-[ext_resource type="Texture2D" uid="uid://cseoedy4scsdr" path="res://icon.svg" id="1_0fmc5"]
+[ext_resource type="Texture2D" uid="uid://c141i8bg1yp0o" path="res://Art/ArmyMen/Japan.png" id="1_0fmc5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3eyxt"]
+atlas = ExtResource("1_0fmc5")
+region = Rect2(15, 16, 39, 35)
 
 [sub_resource type="LabelSettings" id="LabelSettings_04dfh"]
 font_size = 20
@@ -41,7 +45,7 @@ offset_right = 78.5
 offset_bottom = 14.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_0fmc5")
+texture = SubResource("AtlasTexture_3eyxt")
 
 [node name="InfoLabelVBoxContainer" type="VBoxContainer" parent="."]
 unique_name_in_owner = true

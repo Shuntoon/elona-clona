@@ -46,6 +46,8 @@ enum TargetingMode {
 @export var heal_amount: int = 1
 @export var heal_interval: float = 2.0
 
+@onready var shootpoint: Marker2D = %Shootpoint
+
 # Internal state
 var current_target: Enemy = null
 var can_shoot: bool = true
@@ -53,12 +55,27 @@ var time_between_shots: float
 var neutral_entities: Node
 var enemies_node: Node2D
 var game_manager: GameManager
+var animated_sprite: AnimatedSprite2D = null
+var is_playing_shoot_animation: bool = false
+
+# Store original shootpoint position for flipping
+var shootpoint_original_x: float = 0.0
 
 func _ready() -> void:
 	add_to_group("allies")
 	neutral_entities = get_tree().get_first_node_in_group("neutral_entities")
 	enemies_node = get_tree().get_first_node_in_group("enemies")
 	game_manager = get_tree().get_first_node_in_group("game_manager")
+	
+	# Get AnimatedSprite2D reference
+	animated_sprite = get_node_or_null("AnimatedSprite2D")
+	if animated_sprite:
+		animated_sprite.animation_finished.connect(_on_animation_finished)
+		animated_sprite.play("default")
+	
+	# Store original shootpoint position for flipping
+	if shootpoint:
+		shootpoint_original_x = shootpoint.position.x
 	
 	if ally_data:
 		init_ally_data()
@@ -76,6 +93,23 @@ func _process(_delta: float) -> void:
 	# Update target for combat allies
 	if ally_type != AllyType.SUPPORT:
 		_update_target()
+		
+		# Rotate toward target
+		if current_target and is_instance_valid(current_target):
+			animated_sprite.look_at(current_target.global_position)
+			animated_sprite.flip_h = false
+			animated_sprite.flip_v = true
+		else:
+			animated_sprite.rotation = 0
+			animated_sprite.flip_h = true
+			animated_sprite.flip_v = false
+		
+		# Adjust shootpoint position based on horizontal flip
+		if shootpoint and animated_sprite:
+			if animated_sprite.flip_h:
+				shootpoint.position.x = -abs(shootpoint_original_x)
+			else:
+				shootpoint.position.x = abs(shootpoint_original_x)
 		
 func init_ally_data() -> void:
 	ally_type = ally_data.ally_type
@@ -194,6 +228,11 @@ func _fire_at_target() -> void:
 	if not current_target or not is_instance_valid(current_target):
 		return
 	
+	# Play shoot animation
+	if animated_sprite and not is_playing_shoot_animation:
+		is_playing_shoot_animation = true
+		animated_sprite.play("shoot")
+	
 	var target_position = current_target.global_position
 	
 	match ally_type:
@@ -207,7 +246,7 @@ func _fire_bullet(target_pos: Vector2, is_rocket: bool) -> void:
 		return
 	
 	var bullet_inst: Bullet = BULLET_BASE.instantiate()
-	bullet_inst.global_position = global_position
+	bullet_inst.global_position = shootpoint.global_position
 	bullet_inst.target = target_pos + _calculate_accuracy_offset()
 	
 	if is_rocket:
@@ -254,3 +293,8 @@ func _calculate_accuracy_offset() -> Vector2:
 
 func get_target() -> Enemy:
 	return current_target
+
+func _on_animation_finished() -> void:
+	if animated_sprite.animation == "shoot":
+		is_playing_shoot_animation = false
+		animated_sprite.play("default")
