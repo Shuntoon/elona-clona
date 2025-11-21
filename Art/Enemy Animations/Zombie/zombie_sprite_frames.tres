@@ -1,3 +1,67 @@
-[gd_resource type="SpriteFrames" format=3 uid="uid://d1lwbyhy7l38r"]
+[gd_resource type="SpriteFrames" load_steps=10 format=3 uid="uid://d1lwbyhy7l38r"]
+
+[ext_resource type="Texture2D" uid="uid://byslm6dhisqc" path="res://Art/Enemy Animations/Zombie/Walk.png" id="1_5vo4m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2yas0"]
+atlas = ExtResource("1_5vo4m")
+region = Rect2(0, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x7e7k"]
+atlas = ExtResource("1_5vo4m")
+region = Rect2(120, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_laq6g"]
+atlas = ExtResource("1_5vo4m")
+region = Rect2(240, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xe1qv"]
+atlas = ExtResource("1_5vo4m")
+region = Rect2(360, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fr3uw"]
+atlas = ExtResource("1_5vo4m")
+region = Rect2(480, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d46p0"]
+atlas = ExtResource("1_5vo4m")
+region = Rect2(600, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jwuy"]
+atlas = ExtResource("1_5vo4m")
+region = Rect2(720, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58nba"]
+atlas = ExtResource("1_5vo4m")
+region = Rect2(840, 0, 120, 120)
 
 [resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2yas0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x7e7k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_laq6g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xe1qv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fr3uw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d46p0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0jwuy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_58nba")
+}],
+"loop": true,
+"name": &"movement",
+"speed": 5.0
+}]
