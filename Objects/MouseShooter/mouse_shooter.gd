@@ -25,6 +25,7 @@ func _enter_tree() -> void:
 @export var reload_time: float = 2.0
 @export var projectile_piercing: bool = false
 @export var explosive_rockets: bool = false
+@export var bullet_speed: float = 500.0
 @export var bullet_damage: int = 1
 @export var explosion_damage: int = 10
 @export var explosion_radius: float = 100.0
@@ -161,6 +162,7 @@ func _equip_weapon(slot: int) -> void:
 	reload_time = weapon_to_equip.reload_time
 	projectile_piercing = weapon_to_equip.projectile_piercing
 	explosive_rockets = weapon_to_equip.explosive_rockets
+	bullet_speed = weapon_to_equip.bullet_speed
 	bullet_damage = weapon_to_equip.bullet_damage
 	explosion_damage = weapon_to_equip.explosion_damage
 	explosion_radius = weapon_to_equip.explosion_radius
@@ -293,6 +295,7 @@ func _fire_bullet() -> void:
 		
 		bullet_base_inst.global_position = bullet_spawn_point
 		bullet_base_inst.target = get_global_mouse_position() + _calculate_accuracy_offset()
+		bullet_base_inst.speed = bullet_speed
 		bullet_base_inst.piercing = projectile_piercing  # Set piercing based on export variable
 		bullet_base_inst.explosive = explosive_rockets
 		bullet_base_inst.explosion_damage = explosion_damage

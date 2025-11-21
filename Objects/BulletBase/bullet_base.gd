@@ -36,7 +36,9 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 		# Spawn explosion if explosive
 		if explosive:
 			_spawn_explosion()
-			queue_free()
+			# Only destroy if not piercing
+			if not piercing:
+				queue_free()
 		# Only destroy bullet if not piercing
 		elif not piercing:
 			queue_free()

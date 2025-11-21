@@ -92,7 +92,7 @@ expand_mode = 1
 [node name="Environment" type="Node2D" parent="."]
 
 [node name="Art" type="Node2D" parent="Environment"]
-position = Vector2(1033, 676)
+position = Vector2(1014, 676)
 
 [node name="MeshInstance2D2" type="MeshInstance2D" parent="Environment/Art"]
 modulate = Color(0.37101543, 0.37101543, 0.37101543, 1)
@@ -214,7 +214,7 @@ scale = Vector2(14.00005, 28.99991)
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/WallArea2D"]
-position = Vector2(0.60705394, -2.2603426)
+position = Vector2(-0.7857111, -2.2603426)
 scale = Vector2(0.99999964, 0.9999997)
 shape = SubResource("RectangleShape2D_80nbo")
 
@@ -225,25 +225,25 @@ shape = SubResource("RectangleShape2D_80nbo")
 [node name="Allies" type="Node2D" parent="Entities" groups=["allies"]]
 
 [node name="Player" type="Sprite2D" parent="Entities/Allies"]
-position = Vector2(1097, 470)
+position = Vector2(1109, 470)
 scale = Vector2(0.5156255, 0.5156255)
 texture = ExtResource("5_ryrav")
 
 [node name="Ally1Spawn" type="Marker2D" parent="Entities/Allies"]
 unique_name_in_owner = true
-position = Vector2(1092, 387)
+position = Vector2(1104, 387)
 
 [node name="Ally2Spawn" type="Marker2D" parent="Entities/Allies"]
 unique_name_in_owner = true
-position = Vector2(1092, 546)
+position = Vector2(1104, 546)
 
 [node name="Ally3Spawn" type="Marker2D" parent="Entities/Allies"]
 unique_name_in_owner = true
-position = Vector2(1092, 607)
+position = Vector2(1104, 607)
 
 [node name="Ally4Spawn" type="Marker2D" parent="Entities/Allies"]
 unique_name_in_owner = true
-position = Vector2(1092, 675)
+position = Vector2(1104, 675)
 
 [node name="Neutral" type="Node2D" parent="Entities" groups=["neutral_entities"]]
 
