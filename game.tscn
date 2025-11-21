@@ -284,6 +284,7 @@ position = Vector2(2, 106)
 
 [node name="LaserOfDeath" parent="." instance=ExtResource("18_rvswv")]
 position = Vector2(1229, 387)
+enabled = false
 follow_speed = 15.0
 
 [connection signal="all_enemies_killed" from="GameManager" to="GameManager" method="_on_all_enemies_killed"]
