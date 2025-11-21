@@ -70,6 +70,8 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Name of thang"
 label_settings = SubResource("LabelSettings_40kup")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="DecriptionLabel" type="Label" parent="."]
 unique_name_in_owner = true

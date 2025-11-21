@@ -53,12 +53,16 @@ func _create_damage_area() -> void:
 	# Get all overlapping areas (enemy hurtboxes)
 	var overlapping_areas = area.get_overlapping_areas()
 	
+	# Track which enemies we've already damaged to prevent double-hits
+	var damaged_enemies: Array[Enemy] = []
+	
 	for hurtbox_area in overlapping_areas:
 		if hurtbox_area is Hurtbox and hurtbox_area.owner.is_in_group("enemy"):
 			var enemy: Enemy = hurtbox_area.owner
-			if enemy:
+			if enemy and not damaged_enemies.has(enemy):
 				# Apply flat damage regardless of hurtbox type (no crits)
 				enemy.current_health -= damage
+				damaged_enemies.append(enemy)
 	
 	# Remove area after damage is dealt
 	area.queue_free()

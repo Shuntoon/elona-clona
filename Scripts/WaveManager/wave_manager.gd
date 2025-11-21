@@ -163,6 +163,27 @@ func _spawn_enemy_with_data(enemy_data: EnemyData):
 		var sprite_node: Sprite2D = enemy_inst.get_node("Sprite2D")
 		sprite_node.texture = enemy_data.sprite
 	
+	# Apply hurtbox sizes and positions
+	if enemy_inst.has_node("HurtboxBody"):
+		var body_hurtbox: Hurtbox = enemy_inst.get_node("HurtboxBody")
+		body_hurtbox.size = enemy_data.body_hitbox_size
+		body_hurtbox.pos = enemy_data.body_pos
+		# Update collision shape
+		var body_collision = body_hurtbox.get_node_or_null("CollisionShape2D")
+		if body_collision and body_collision.shape is RectangleShape2D:
+			body_collision.shape.size = enemy_data.body_hitbox_size
+			body_collision.position = enemy_data.body_pos
+	
+	if enemy_inst.has_node("HurtboxHead"):
+		var head_hurtbox: Hurtbox = enemy_inst.get_node("HurtboxHead")
+		head_hurtbox.size = enemy_data.head_hitbox_size
+		head_hurtbox.pos = enemy_data.head_pos
+		# Update collision shape
+		var head_collision = head_hurtbox.get_node_or_null("CollisionShape2D")
+		if head_collision and head_collision.shape is RectangleShape2D:
+			head_collision.shape.size = enemy_data.head_hitbox_size
+			head_collision.position = enemy_data.head_pos
+	
 	var spawn_terrain: Spawner.TERRAIN
 	if enemy_data.terrain_type == Enemy.TERRAIN_TYPE.GROUND:
 		spawn_terrain = Spawner.TERRAIN.GROUND

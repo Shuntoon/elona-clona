@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="AugmentData" load_steps=3 format=3 uid="uid://dvjk8n3nap2r5"]
+
+[ext_resource type="Texture2D" uid="uid://d2glsjhg3dw3p" path="res://Art/Filler/AugmentIcons/Asset 70@2x.png" id="1_icon"]
+[ext_resource type="Script" uid="uid://dfu50k1tlerfj" path="res://Data/AugmentData/augment_data.gd" id="2_script"]
+
+[resource]
+script = ExtResource("2_script")
+name = "Extended Burst"
+description = "Adds 2 bullets to each burst"
+icon = ExtResource("1_icon")
+rarity = 1
+price = 150
+augment_type = 20
+value = 2.0

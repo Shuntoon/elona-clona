@@ -24,6 +24,9 @@ class_name WeaponData
 @export var burst_count: int = 3
 @export var burst_delay: float = 0.1
 
+@export_category("Projectile Properties")
+@export var bullet_speed: float = 500.0
+
 @export_category("Rocket Properties")
 @export var explosive_rockets: bool = false
 @export var explosion_damage: int = 10

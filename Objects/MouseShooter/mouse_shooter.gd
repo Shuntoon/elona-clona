@@ -25,6 +25,7 @@ func _enter_tree() -> void:
 @export var reload_time: float = 2.0
 @export var projectile_piercing: bool = false
 @export var explosive_rockets: bool = false
+@export var bullet_speed: float = 500.0
 @export var bullet_damage: int = 1
 @export var explosion_damage: int = 10
 @export var explosion_radius: float = 100.0
@@ -161,6 +162,7 @@ func _equip_weapon(slot: int) -> void:
 	reload_time = weapon_to_equip.reload_time
 	projectile_piercing = weapon_to_equip.projectile_piercing
 	explosive_rockets = weapon_to_equip.explosive_rockets
+	bullet_speed = weapon_to_equip.bullet_speed
 	bullet_damage = weapon_to_equip.bullet_damage
 	explosion_damage = weapon_to_equip.explosion_damage
 	explosion_radius = weapon_to_equip.explosion_radius
@@ -240,7 +242,15 @@ func _fire_bullet() -> void:
 	if current_ammo <= 0:
 		return
 	
-	current_ammo -= 1
+	# Check for ammo refund chance from augments
+	var augment_manager = get_tree().get_first_node_in_group("augment_manager")
+	var refund_ammo = false
+	if augment_manager and augment_manager.ammo_refund_chance > 0.0:
+		if randf() < augment_manager.ammo_refund_chance:
+			refund_ammo = true
+	
+	if not refund_ammo:
+		current_ammo -= 1
 	
 	if bullet_type == BULLET_TYPE.HITSCAN:
 		if not HITBOX:
@@ -254,6 +264,14 @@ func _fire_bullet() -> void:
 		
 		hitbox_inst.destroy_instantly = true
 		hitbox_inst.damage = bullet_damage
+		
+		# Check for first shot damage bonus from augments
+		if augment_manager and augment_manager.first_shot_damage_multiplier > 0.0:
+			# Check if this is the first shot (full magazine)
+			if current_ammo == magazine_size or (not refund_ammo and current_ammo == magazine_size - 1):
+				hitbox_inst.damage = int(bullet_damage * (1.0 + augment_manager.first_shot_damage_multiplier))
+				print("First shot bonus! Damage: ", hitbox_inst.damage, " (base: ", bullet_damage, ")")
+		
 		hitbox_inst.crit_chance = crit_chance
 		hitbox_inst.crit_multiplier = crit_multiplier
 		hitbox_inst.bleed_chance = bleed_chance
@@ -277,6 +295,7 @@ func _fire_bullet() -> void:
 		
 		bullet_base_inst.global_position = bullet_spawn_point
 		bullet_base_inst.target = get_global_mouse_position() + _calculate_accuracy_offset()
+		bullet_base_inst.speed = bullet_speed
 		bullet_base_inst.piercing = projectile_piercing  # Set piercing based on export variable
 		bullet_base_inst.explosive = explosive_rockets
 		bullet_base_inst.explosion_damage = explosion_damage
@@ -289,6 +308,14 @@ func _fire_bullet() -> void:
 		var hitbox = bullet_base_inst.get_node_or_null("Hitbox")
 		if hitbox:
 			hitbox.damage = bullet_damage
+			
+			# Check for first shot damage bonus from augments
+			if augment_manager and augment_manager.first_shot_damage_multiplier > 0.0:
+				# Check if this is the first shot (full magazine)
+				if current_ammo == magazine_size or (not refund_ammo and current_ammo == magazine_size - 1):
+					hitbox.damage = int(bullet_damage * (1.0 + augment_manager.first_shot_damage_multiplier))
+					print("First shot bonus! Damage: ", hitbox.damage, " (base: ", bullet_damage, ")")
+			
 			hitbox.crit_chance = crit_chance
 			hitbox.crit_multiplier = crit_multiplier
 			hitbox.bleed_chance = bleed_chance
