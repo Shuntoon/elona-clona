@@ -15,6 +15,7 @@ fire_mode = 2
 accuracy = 0.517
 max_spread = 70.0
 fire_rate = 180.0
+reload_time = 1.75
 projectile_piercing = true
 crit_chance = 0.56
 crit_multiplier = 1.75
