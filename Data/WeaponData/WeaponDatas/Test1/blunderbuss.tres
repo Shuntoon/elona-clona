@@ -9,7 +9,7 @@ region = Rect2(0, 118, 12, 10.083237)
 
 [resource]
 script = ExtResource("2_g4kn6")
-weapon_name = "Pistol"
+weapon_name = "blunderbuss"
 icon = SubResource("AtlasTexture_pxwm6")
 bullet_type = 1
 fire_mode = 1
