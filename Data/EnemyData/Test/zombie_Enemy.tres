@@ -9,4 +9,5 @@ enemy_name = "zombie"
 speed = 1.0
 max_health = 150
 sprite = ExtResource("2_lhg4w")
+body_hitbox_size = Vector2(44, 29)
 metadata/_custom_type_script = "uid://d4hepntti60rn"

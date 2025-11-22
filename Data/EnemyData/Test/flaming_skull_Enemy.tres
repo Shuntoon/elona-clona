@@ -1,12 +1,14 @@
-[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://tg2rwim4e31y"]
+[gd_resource type="Resource" script_class="EnemyData" load_steps=4 format=3 uid="uid://tg2rwim4e31y"]
 
+[ext_resource type="SpriteFrames" uid="uid://bcy8kppwun46u" path="res://Art/Enemy Animations/Flaming Skull/flaming_skull_sprite_frames.tres" id="1_1b4h4"]
 [ext_resource type="Script" uid="uid://d4hepntti60rn" path="res://Data/EnemyData/enemy_data.gd" id="1_nxvfk"]
-[ext_resource type="Texture2D" uid="uid://cseoedy4scsdr" path="res://icon.svg" id="2_1b4h4"]
+[ext_resource type="Texture2D" uid="uid://lbrsuvf35b1s" path="res://Art/Enemy Animations/Flaming Skull/Skull_Normal_Idle_Turn_01.png" id="3_ytgvm"]
 
 [resource]
 script = ExtResource("1_nxvfk")
 enemy_name = "bat"
 max_health = 70
-sprite = ExtResource("2_1b4h4")
+sprite = ExtResource("3_ytgvm")
+animated_sprite_frames = ExtResource("1_1b4h4")
 terrain_type = 1
 metadata/_custom_type_script = "uid://d4hepntti60rn"

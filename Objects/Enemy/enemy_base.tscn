@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://djs38cy8bwdv7"]
+[gd_scene load_steps=13 format=3 uid="uid://djs38cy8bwdv7"]
 
 [ext_resource type="Script" uid="uid://d14fdqbjlksab" path="res://Objects/Enemy/enemy_base.gd" id="1_8e4qo"]
+[ext_resource type="SpriteFrames" uid="uid://buqvapslr2knq" path="res://Art/Enemy Animations/bat/bat_sprite_frames.tres" id="2_mvwl2"]
 [ext_resource type="Script" uid="uid://couw105c3bde4" path="res://addons/godot_state_charts/state_chart.gd" id="2_xt13y"]
 [ext_resource type="Script" uid="uid://jk2jm1g6q853" path="res://addons/godot_state_charts/compound_state.gd" id="3_0a3m8"]
 [ext_resource type="Script" uid="uid://cytafq8i1y8qm" path="res://addons/godot_state_charts/atomic_state.gd" id="4_d1qs5"]
@@ -23,6 +24,8 @@ script = ExtResource("1_8e4qo")
 speed = 3.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_mvwl2")
+animation = &"attack"
 
 [node name="StateChartDebugger" parent="." instance=ExtResource("6_0a3m8")]
 visible = false
@@ -84,7 +87,8 @@ delay_in_seconds = "0.0"
 [node name="AttackSpeedTimer" type="Timer" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(5.0000005, 4)
+visible = false
+position = Vector2(4.7683716e-07, 0)
 scale = Vector2(0.70967734, 0.9705876)
 texture = ExtResource("7_ptc2t")
 
@@ -99,14 +103,12 @@ debug_color = Color(1, 0.8115231, 0, 0.41960785)
 [node name="HurtboxBody" parent="." instance=ExtResource("8_ptc2t")]
 
 [node name="CollisionShape2D" parent="HurtboxBody" index="0"]
-position = Vector2(0, 4.5)
 shape = SubResource("RectangleShape2D_ptc2t")
 
 [node name="HurtboxHead" parent="." instance=ExtResource("8_ptc2t")]
 hurtbox_type = 1
 
 [node name="CollisionShape2D" parent="HurtboxHead" index="0"]
-position = Vector2(1, -33)
 shape = SubResource("RectangleShape2D_mvwl2")
 debug_color = Color(0, 0.20228878, 0.70196074, 0.41960785)
 
