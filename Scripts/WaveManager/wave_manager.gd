@@ -157,11 +157,7 @@ func _spawn_enemy_with_data(enemy_data: EnemyData):
 	enemy_inst.gold_reward = enemy_data.gold_reward
 	enemy_inst.gold_reward_variance = enemy_data.gold_reward_variance
 	enemy_inst.current_terrain_type = enemy_data.terrain_type
-	
-	# Set sprite texture if provided
-	if enemy_data.sprite and enemy_inst.has_node("Sprite2D"):
-		var sprite_node: Sprite2D = enemy_inst.get_node("Sprite2D")
-		sprite_node.texture = enemy_data.sprite
+	enemy_inst.animated_sprite_2d_scale = enemy_data.animated_sprite_2d_scale
 	
 	# Set hurtbox configuration (will be applied in enemy's _ready)
 	enemy_inst.body_hitbox_size = enemy_data.body_hitbox_size

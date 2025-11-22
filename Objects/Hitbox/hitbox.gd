@@ -66,7 +66,7 @@ func _on_area_entered(area: Area2D) -> void:
 		
 		# Check for slow on hit from augments
 		if augment_manager:
-			print("Augment manager found. slow_on_hit_enabled: ", augment_manager.slow_on_hit_enabled)
+			#print("Augment manager found. slow_on_hit_enabled: ", augment_manager.slow_on_hit_enabled)
 			if augment_manager.slow_on_hit_enabled:
 				print("Applying slow to enemy with multiplier: ", augment_manager.slow_on_hit_multiplier, " for duration: ", augment_manager.slow_on_hit_duration)
 				enemy.apply_slow(augment_manager.slow_on_hit_multiplier, augment_manager.slow_on_hit_duration)

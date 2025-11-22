@@ -25,7 +25,7 @@ speed = 3.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_mvwl2")
-animation = &"movement"
+animation = &"death"
 
 [node name="StateChartDebugger" parent="." instance=ExtResource("6_0a3m8")]
 visible = false
@@ -54,6 +54,12 @@ to = NodePath("../../Attacking")
 event = &"to_attacking"
 delay_in_seconds = "0.0"
 
+[node name="ToDead" type="Node" parent="StateChart/CompoundState/Running"]
+script = ExtResource("6_d1qs5")
+to = NodePath("../../Dead")
+event = &"to_dead"
+delay_in_seconds = "0.0"
+
 [node name="ToStaggered" type="Node" parent="StateChart/CompoundState/Running"]
 script = ExtResource("6_d1qs5")
 to = NodePath("../../Staggered")
@@ -67,6 +73,12 @@ script = ExtResource("4_d1qs5")
 script = ExtResource("6_d1qs5")
 to = NodePath("../../Staggered")
 event = &"ToStaggered"
+delay_in_seconds = "0.0"
+
+[node name="ToDead" type="Node" parent="StateChart/CompoundState/Attacking"]
+script = ExtResource("6_d1qs5")
+to = NodePath("../../Dead")
+event = &"to_dead"
 delay_in_seconds = "0.0"
 
 [node name="Staggered" type="Node" parent="StateChart/CompoundState"]
@@ -83,6 +95,9 @@ script = ExtResource("6_d1qs5")
 to = NodePath("../../Running")
 event = &"to_running"
 delay_in_seconds = "0.0"
+
+[node name="Dead" type="Node" parent="StateChart/CompoundState"]
+script = ExtResource("4_d1qs5")
 
 [node name="AttackSpeedTimer" type="Timer" parent="."]
 

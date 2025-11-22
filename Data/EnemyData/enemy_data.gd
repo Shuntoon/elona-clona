@@ -7,8 +7,8 @@ class_name EnemyData
 @export var max_health : int = 5
 @export var range : float = 30
 @export var damage : int = 1
-@export var sprite : Texture2D
 @export var animated_sprite_frames : SpriteFrames
+@export var animated_sprite_2d_scale : Vector2 = Vector2(1,1)
 @export var attack_speed : float = 1
 @export var gold_reward : int = 5
 @export var gold_reward_variance : int = 2

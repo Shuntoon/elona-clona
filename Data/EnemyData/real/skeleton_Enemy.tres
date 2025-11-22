@@ -1,15 +1,13 @@
-[gd_resource type="Resource" script_class="EnemyData" load_steps=4 format=3 uid="uid://dqv8yxqm84a7v"]
+[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://dqv8yxqm84a7v"]
 
 [ext_resource type="Script" uid="uid://d4hepntti60rn" path="res://Data/EnemyData/enemy_data.gd" id="1_ithi2"]
 [ext_resource type="SpriteFrames" uid="uid://hrlilf2257ik" path="res://Art/Enemy Animations/Skelton/skeleton_sprite_frames.tres" id="1_k6fpn"]
-[ext_resource type="Texture2D" uid="uid://cseoedy4scsdr" path="res://icon.svg" id="2_yr2fp"]
 
 [resource]
 script = ExtResource("1_ithi2")
 enemy_name = "Skelton"
 speed = 1.0
 max_health = 100
-sprite = ExtResource("2_yr2fp")
 animated_sprite_frames = ExtResource("1_k6fpn")
 body_hitbox_size = Vector2(29, 42)
 body_pos = Vector2(4, 5)

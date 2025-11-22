@@ -34,7 +34,7 @@ func _enter_tree() -> void:
 
 @export var bleed_chance: float = 0.0
 
-var bullet_spawn_point : Vector2 = Vector2(1035, 508)
+@onready var bullet_spawn_point: Marker2D = %BulletSpawnPoint
 
 enum BULLET_TYPE {
 	HITSCAN,
@@ -319,7 +319,7 @@ func _fire_bullet() -> void:
 			print("ERROR: Failed to instantiate BULLET_BASE!")
 			return
 		
-		bullet_base_inst.global_position = bullet_spawn_point
+		bullet_base_inst.global_position = bullet_spawn_point.global_position
 		bullet_base_inst.target = get_global_mouse_position() + _calculate_accuracy_offset()
 		bullet_base_inst.speed = bullet_speed
 		bullet_base_inst.piercing = projectile_piercing  # Set piercing based on export variable

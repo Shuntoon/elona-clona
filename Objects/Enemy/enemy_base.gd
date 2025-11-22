@@ -15,6 +15,7 @@ const DAMAGE_NUMBER = preload("res://Objects/DamageNumber/damage_number.tscn")
 @export var attack_speed : float = 1
 @export var gold_reward : int = 5
 @export var gold_reward_variance : int = 2
+@export var animated_sprite_2d_scale : Vector2
 
 enum TERRAIN_TYPE {
 	GROUND,
@@ -32,6 +33,7 @@ var head_pos: Vector2 = Vector2.ZERO
 @onready var state_chart: StateChart = $StateChart
 @onready var attack_speed_timer: Timer = $AttackSpeedTimer
 @onready var wall_detector: Area2D = $WallDetector
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 var game_manager : GameManager
 var bleed_effect: BleedEffect
@@ -49,6 +51,8 @@ var slow_timer: Timer
 			
 
 func _ready() -> void:
+	animated_sprite_2d.play("movement")
+	
 	wall_detector.position.x = range
 	game_manager = get_tree().get_first_node_in_group("game_manager")
 	
@@ -67,6 +71,8 @@ func _ready() -> void:
 	add_child(bleed_effect)
 	bleed_effect.bleed_tick.connect(_on_bleed_tick)
 	
+	animated_sprite_2d.scale = animated_sprite_2d_scale
+	
 	# Apply hitbox sizes if they were set
 	_apply_hitbox_configuration()
 
@@ -77,10 +83,18 @@ func _on_running_state_physics_processing(delta: float) -> void:
 func _on_wall_detector_area_entered(area: Area2D) -> void:
 	if area.is_in_group("wall"):
 		state_chart.send_event("to_attacking")
+		
+	if area.is_in_group("air_impact"):
+		print("enemy broke through!")
+		game_manager.current_health -= damage
+		
+		await get_tree().create_timer(.1).timeout
+		queue_free()
 	pass # Replace with function body.
 
 func _on_attacking_state_entered() -> void:
 	attack_speed_timer.start()
+	animated_sprite_2d.play("attack")
 
 func _on_attacking_state_physics_processing(delta: float) -> void:
 	global_position = global_position.move_toward(global_position, 25)
@@ -91,6 +105,9 @@ func _on_attack_speed_timer_timeout() -> void:
 	pass # Replace with function body.
 
 func _on_died() -> void:
+	animated_sprite_2d.play("death")
+	state_chart.send_event("to_dead")
+	
 	PlayerData.gold += randi_range(gold_reward - gold_reward_variance, gold_reward + gold_reward_variance)
 
 	# Chance to explode on death from augments
@@ -116,6 +133,8 @@ func _on_died() -> void:
 					vfx_parent.add_child(explosion)
 				else:
 					get_tree().current_scene.add_child(explosion)
+					
+	await animated_sprite_2d.animation_finished
 	queue_free()
 	print("enemy died!")
 	pass # Replace with function body.

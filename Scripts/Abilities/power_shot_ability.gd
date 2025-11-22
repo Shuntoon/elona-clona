@@ -33,7 +33,7 @@ func activate() -> void:
 	
 	# Create a powerful piercing bullet
 	var bullet_inst : Bullet = BULLET_BASE.instantiate()
-	bullet_inst.global_position = mouse_shooter.bullet_spawn_point
+	bullet_inst.global_position = mouse_shooter.bullet_spawn_point.global_position
 	bullet_inst.target = mouse_position + mouse_shooter._calculate_accuracy_offset()
 	bullet_inst.piercing = true  # Always piercing
 	bullet_inst.speed *= projectile_speed_multiplier

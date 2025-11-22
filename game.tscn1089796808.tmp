@@ -218,16 +218,6 @@ position = Vector2(-0.7857111, -2.2603426)
 scale = Vector2(0.99999964, 0.9999997)
 shape = SubResource("RectangleShape2D_80nbo")
 
-[node name="AirImpactArea2D" type="Area2D" parent="Environment" groups=["air_impact"]]
-position = Vector2(1376.0001, 176.99998)
-scale = Vector2(14.00005, 28.99991)
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/AirImpactArea2D"]
-position = Vector2(-0.7857111, -2.2603426)
-scale = Vector2(0.99999964, 0.9999997)
-shape = SubResource("RectangleShape2D_80nbo")
-
 [node name="Entities" type="Node2D" parent="."]
 
 [node name="Enemies" type="Node2D" parent="Entities" groups=["enemies"]]
