@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dssq5y3twr3y4" path="res://Scripts/WaveManager/wave_data.gd" id="1_c741i"]
 [ext_resource type="Script" uid="uid://d4hepntti60rn" path="res://Data/EnemyData/enemy_data.gd" id="1_vm1w7"]
-[ext_resource type="Resource" uid="uid://rpdyfx78int7" path="res://Data/EnemyData/Test/bat_Enemy.tres" id="2_8app1"]
+[ext_resource type="Resource" uid="uid://dhrc8qcymdph8" path="res://Data/EnemyData/Test/zombie_Enemy.tres" id="2_8app1"]
 [ext_resource type="Resource" uid="uid://be2g3uw5vays" path="res://Data/EnemyData/test_enemy_data_1.tres" id="2_ug6or"]
 
 [resource]
