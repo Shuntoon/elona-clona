@@ -1,16 +1,17 @@
 [gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://rpdyfx78int7"]
 
 [ext_resource type="Script" uid="uid://d4hepntti60rn" path="res://Data/EnemyData/enemy_data.gd" id="1_43f0g"]
-[ext_resource type="Texture2D" uid="uid://cseoedy4scsdr" path="res://icon.svg" id="2_eoidi"]
+[ext_resource type="SpriteFrames" uid="uid://buqvapslr2knq" path="res://Art/Enemy Animations/bat/bat_sprite_frames.tres" id="1_a3twt"]
 
 [resource]
 script = ExtResource("1_43f0g")
 enemy_name = "bat"
 max_health = 35
-sprite = ExtResource("2_eoidi")
+animated_sprite_frames = ExtResource("1_a3twt")
+animated_sprite_2d_scale = Vector2(2.5, 2.5)
 terrain_type = 1
-body_hitbox_size = Vector2(34, 11)
-body_pos = Vector2(-3, -1)
-head_hitbox_size = Vector2(8, 8)
-head_pos = Vector2(-2, 2)
+body_hitbox_size = Vector2(65, 33)
+body_pos = Vector2(-1.5, 4)
+head_hitbox_size = Vector2(18, 19)
+head_pos = Vector2(3, 0)
 metadata/_custom_type_script = "uid://d4hepntti60rn"

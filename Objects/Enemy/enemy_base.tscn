@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://djs38cy8bwdv7"]
 
 [ext_resource type="Script" uid="uid://d14fdqbjlksab" path="res://Objects/Enemy/enemy_base.gd" id="1_8e4qo"]
-[ext_resource type="SpriteFrames" uid="uid://hrlilf2257ik" path="res://Art/Enemy Animations/Skelton/skeleton_sprite_frames.tres" id="2_mvwl2"]
+[ext_resource type="SpriteFrames" uid="uid://buqvapslr2knq" path="res://Art/Enemy Animations/bat/bat_sprite_frames.tres" id="2_mvwl2"]
 [ext_resource type="Script" uid="uid://couw105c3bde4" path="res://addons/godot_state_charts/state_chart.gd" id="2_xt13y"]
 [ext_resource type="Script" uid="uid://jk2jm1g6q853" path="res://addons/godot_state_charts/compound_state.gd" id="3_0a3m8"]
 [ext_resource type="Script" uid="uid://cytafq8i1y8qm" path="res://addons/godot_state_charts/atomic_state.gd" id="4_d1qs5"]
@@ -25,7 +25,7 @@ speed = 3.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_mvwl2")
-animation = &"death"
+animation = &"attack"
 
 [node name="StateChartDebugger" parent="." instance=ExtResource("6_0a3m8")]
 visible = false
@@ -112,6 +112,7 @@ position = Vector2(25, 0)
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WallDetector"]
+position = Vector2(6, 0)
 shape = SubResource("RectangleShape2D_0a3m8")
 debug_color = Color(1, 0.8115231, 0, 0.41960785)
 
