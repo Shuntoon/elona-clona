@@ -1,14 +1,14 @@
 [gd_scene load_steps=6 format=3 uid="uid://bkb3jp1pjkudm"]
 
 [ext_resource type="Script" uid="uid://d14fdqbjlksab" path="res://Objects/Enemy/enemy_base.gd" id="1_gn1d5"]
-[ext_resource type="SpriteFrames" uid="uid://gy4kwrxuxs34" path="res://Art/Enemy Animations/goblin/goblin_sprite_frames.tres" id="2_gn1d5"]
+[ext_resource type="SpriteFrames" uid="uid://bix4nlvib5yww" path="res://Art/Enemy Animations/evil eye/evil_eye_sprite_frames.tres" id="2_gn1d5"]
 [ext_resource type="Script" uid="uid://rixcbilycpqv" path="res://Objects/Hurtbox/hurtbox.gd" id="3_n5xuw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ua6e8"]
-size = Vector2(31, 28)
+size = Vector2(25, 29)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qqtw7"]
-size = Vector2(9, 11)
+size = Vector2(7, 7)
 
 [node name="Enemy" type="Node2D"]
 script = ExtResource("1_gn1d5")
@@ -24,7 +24,7 @@ script = ExtResource("3_n5xuw")
 metadata/_custom_type_script = "uid://rixcbilycpqv"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2(0.3665619, 13.085709)
+position = Vector2(3.366562, 2.5857086)
 shape = SubResource("RectangleShape2D_ua6e8")
 
 [node name="Hurtbox2" type="Area2D" parent="."]
@@ -33,6 +33,6 @@ script = ExtResource("3_n5xuw")
 metadata/_custom_type_script = "uid://rixcbilycpqv"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox2"]
-position = Vector2(-12.046463, 20.940018)
+position = Vector2(-8.046463, 19.940018)
 shape = SubResource("RectangleShape2D_qqtw7")
 debug_color = Color(0.6735401, 0.5078047, 0, 0.41960785)

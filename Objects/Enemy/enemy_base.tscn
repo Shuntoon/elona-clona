@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://djs38cy8bwdv7"]
 
 [ext_resource type="Script" uid="uid://d14fdqbjlksab" path="res://Objects/Enemy/enemy_base.gd" id="1_8e4qo"]
-[ext_resource type="SpriteFrames" uid="uid://gy4kwrxuxs34" path="res://Art/Enemy Animations/goblin/goblin_sprite_frames.tres" id="2_mvwl2"]
+[ext_resource type="SpriteFrames" uid="uid://bix4nlvib5yww" path="res://Art/Enemy Animations/evil eye/evil_eye_sprite_frames.tres" id="2_mvwl2"]
 [ext_resource type="Script" uid="uid://couw105c3bde4" path="res://addons/godot_state_charts/state_chart.gd" id="2_xt13y"]
 [ext_resource type="Script" uid="uid://jk2jm1g6q853" path="res://addons/godot_state_charts/compound_state.gd" id="3_0a3m8"]
 [ext_resource type="Script" uid="uid://cytafq8i1y8qm" path="res://addons/godot_state_charts/atomic_state.gd" id="4_d1qs5"]
