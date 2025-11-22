@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bljxubxu5eg3j" path="res://Objects/BulletBase/bullet_base.tscn" id="8_mfdv2"]
 [ext_resource type="Script" uid="uid://dssq5y3twr3y4" path="res://Scripts/WaveManager/wave_data.gd" id="9_80cx4"]
 [ext_resource type="PackedScene" uid="uid://djs38cy8bwdv7" path="res://Objects/Enemy/enemy_base.tscn" id="10_7sc4i"]
-[ext_resource type="Resource" uid="uid://bx8vj6p2k23n4" path="res://Data/WaveData/Test/Wave0_Data.tres" id="10_e8heu"]
+[ext_resource type="Resource" uid="uid://bx8vj6p2k23n4" path="res://Data/WaveData/real/Wave0_Data.tres" id="10_e8heu"]
 [ext_resource type="Resource" uid="uid://che2jquh8hejp" path="res://Data/WaveData/test_data_2.tres" id="11_e8heu"]
 [ext_resource type="Texture2D" uid="uid://vyva55pseaxx" path="res://Art/BG/bg.png" id="15_e8heu"]
 [ext_resource type="PackedScene" uid="uid://dxae4nyei461n" path="res://Objects/LaserOfDeath/laser_of_death.tscn" id="18_rvswv"]
