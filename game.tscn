@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://c4ruds6frs58h"]
+[gd_scene load_steps=22 format=3 uid="uid://c4ruds6frs58h"]
 
 [ext_resource type="Script" uid="uid://cvikpqyxjqs5g" path="res://Scripts/GameManager/game_manager.gd" id="1_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://ci4hdj038kg5i" path="res://Objects/MouseShooter/mouse_shooter.tscn" id="1_feb5d"]
@@ -14,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://bljxubxu5eg3j" path="res://Objects/BulletBase/bullet_base.tscn" id="8_mfdv2"]
 [ext_resource type="Script" uid="uid://dssq5y3twr3y4" path="res://Scripts/WaveManager/wave_data.gd" id="9_80cx4"]
 [ext_resource type="PackedScene" uid="uid://djs38cy8bwdv7" path="res://Objects/Enemy/enemy_base.tscn" id="10_7sc4i"]
-[ext_resource type="Resource" uid="uid://dllb7i7ax465" path="res://Data/WaveData/test_data.tres" id="10_boyg6"]
 [ext_resource type="Resource" uid="uid://bx8vj6p2k23n4" path="res://Data/WaveData/Test/Wave0_Data.tres" id="10_e8heu"]
 [ext_resource type="Resource" uid="uid://che2jquh8hejp" path="res://Data/WaveData/test_data_2.tres" id="11_e8heu"]
 [ext_resource type="Texture2D" uid="uid://vyva55pseaxx" path="res://Art/BG/bg.png" id="15_e8heu"]
@@ -64,7 +63,7 @@ script = ExtResource("5_augment")
 
 [node name="WaveManager" type="Node" parent="."]
 script = ExtResource("8_lc2xo")
-waves = Array[ExtResource("9_80cx4")]([ExtResource("10_boyg6"), ExtResource("10_e8heu"), ExtResource("11_e8heu")])
+waves = Array[ExtResource("9_80cx4")]([ExtResource("10_e8heu"), ExtResource("11_e8heu")])
 enemy_base_scene = ExtResource("10_7sc4i")
 metadata/_custom_type_script = "uid://b0hnw34sgf8um"
 
