@@ -1,16 +1,15 @@
-[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://dhrc8qcymdph8"]
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://dhrc8qcymdph8"]
 
 [ext_resource type="Script" uid="uid://d4hepntti60rn" path="res://Data/EnemyData/enemy_data.gd" id="1_m8d31"]
-[ext_resource type="Texture2D" uid="uid://cseoedy4scsdr" path="res://icon.svg" id="2_lhg4w"]
 
 [resource]
 script = ExtResource("1_m8d31")
 enemy_name = "zombie"
 speed = 1.0
 max_health = 150
-sprite = ExtResource("2_lhg4w")
-body_hitbox_size = Vector2(26, 35)
-body_pos = Vector2(-3.25, 2)
-head_hitbox_size = Vector2(10, 10)
-head_pos = Vector2(9, -18)
+animated_sprite_2d_scale = Vector2(2, 2)
+body_hitbox_size = Vector2(49, 66)
+body_pos = Vector2(2, 7)
+head_hitbox_size = Vector2(17, 17)
+head_pos = Vector2(18, -34)
 metadata/_custom_type_script = "uid://d4hepntti60rn"
