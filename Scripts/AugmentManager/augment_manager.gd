@@ -35,6 +35,8 @@ var cooldown_reduction_on_kill_amount: float = 0.0
 var first_shot_damage_multiplier: float = 0.0
 var execute_chance: float = 0.0
 var execute_health_threshold: float = 0.2  # 20% health
+var froggert_count: int = 0
+var spawned_froggerts: Array[Froggert] = []
 
 ## Apply all augments from PlayerData
 ## Call this at the start of a new day to recalculate all bonuses
@@ -59,6 +61,10 @@ func apply_all_augments() -> void:
 	cooldown_reduction_on_kill_amount = 0.0
 	first_shot_damage_multiplier = 0.0
 	execute_chance = 0.0
+	froggert_count = 0
+	
+	# Clean up existing froggerts
+	_cleanup_froggerts()
 	
 	# Apply each stat augment
 	for augment in PlayerData.augments:
@@ -154,6 +160,8 @@ func _apply_augment_effect(augment_type: AugmentData.AugmentType, value: float) 
 			_apply_first_shot_damage(value)
 		AugmentData.AugmentType.EXECUTE_CHANCE:
 			_apply_execute_chance(value)
+		AugmentData.AugmentType.SPAWN_FROGGERT:
+			_apply_spawn_froggert(value)
 		AugmentData.AugmentType.ABILITY:
 			# Abilities are handled separately in _apply_ability_augments
 			pass
@@ -318,6 +326,52 @@ func _apply_first_shot_damage(value: float) -> void:
 func _apply_execute_chance(value: float) -> void:
 	execute_chance = clamp(execute_chance + value, 0.0, 1.0)
 	print("Execute chance: ", execute_chance * 100, "% on enemies below ", execute_health_threshold * 100, "% health")
+
+func _apply_spawn_froggert(value: float) -> void:
+	froggert_count += int(value)
+	print("Froggert count: ", froggert_count)
+	# Spawn froggerts immediately when augment is applied
+	call_deferred("_spawn_froggerts")
+
+func _spawn_froggerts() -> void:
+	const FROGGERT_SCENE = preload("res://Objects/Froggert/froggert.tscn")
+	
+	# Get froggert spawn points
+	var spawn_parent = get_tree().get_first_node_in_group("froggert_spawns")
+	if not spawn_parent:
+		print("Warning: froggert_spawns group not found!")
+		return
+	
+	var spawn_points = spawn_parent.get_children()
+	if spawn_points.is_empty():
+		print("Warning: No froggert spawn points found!")
+		return
+	
+	# Spawn froggerts up to froggert_count
+	var froggerts_to_spawn = froggert_count - spawned_froggerts.size()
+	for i in range(froggerts_to_spawn):
+		# Pick a random spawn point
+		var spawn_point = spawn_points[randi() % spawn_points.size()]
+		
+		# Instantiate froggert
+		var froggert = FROGGERT_SCENE.instantiate()
+		froggert.global_position = spawn_point.global_position
+		
+		# Add to neutral entities
+		var neutral_parent = get_tree().get_first_node_in_group("neutral_entities")
+		if neutral_parent:
+			neutral_parent.add_child(froggert)
+			spawned_froggerts.append(froggert)
+			print("Froggert spawned at: ", froggert.global_position)
+		else:
+			print("Warning: neutral_entities group not found!")
+			froggert.queue_free()
+
+func _cleanup_froggerts() -> void:
+	for froggert in spawned_froggerts:
+		if is_instance_valid(froggert):
+			froggert.queue_free()
+	spawned_froggerts.clear()
 
 func _apply_ally_damage_multiplier(value: float) -> void:
 	ally_damage_multiplier += value

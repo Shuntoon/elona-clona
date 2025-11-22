@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="AugmentData" load_steps=3 format=3 uid="uid://dj1v1ld5k5ewy"]
+
+[ext_resource type="Texture2D" uid="uid://d2glsjhg3dw3p" path="res://Art/Filler/AugmentIcons/Asset 70@2x.png" id="1_icon"]
+[ext_resource type="Script" uid="uid://dfu50k1tlerfj" path="res://Data/AugmentData/augment_data.gd" id="2_script"]
+
+[resource]
+script = ExtResource("2_script")
+name = "Froggert"
+description = "Spawns a Froggert on the battlefield. Shoots toxic projectiles and explodes on contact."
+icon = ExtResource("1_icon")
+rarity = 2
+price = 300
+augment_type = 25
+value = 1.0
