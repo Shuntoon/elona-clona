@@ -67,5 +67,6 @@ enum AugmentType {
 	FIRST_SHOT_DAMAGE,      # +0.5 = +50% damage on first shot in magazine (multiplier, stacks)
 	EXECUTE_CHANCE,         # +0.15 = 15% chance to instantly kill enemies below 20% health (stacks)
 	SPAWN_FROGGERT,         # Spawns a froggert on the battlefield (value = number of froggerts)
+	COIN_DROP_CHANCE,       # Chance to drop coins on enemy death (stacks increase chance and value)
 	ABILITY,              # Grants an ability (uses ability_scene)
 }

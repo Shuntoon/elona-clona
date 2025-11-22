@@ -37,6 +37,8 @@ var execute_chance: float = 0.0
 var execute_health_threshold: float = 0.2  # 20% health
 var froggert_count: int = 0
 var spawned_froggerts: Array[Froggert] = []
+var coin_drop_chance: float = 0.0
+var coin_drop_stacks: int = 0
 
 ## Apply all augments from PlayerData
 ## Call this at the start of a new day to recalculate all bonuses
@@ -62,6 +64,8 @@ func apply_all_augments() -> void:
 	first_shot_damage_multiplier = 0.0
 	execute_chance = 0.0
 	froggert_count = 0
+	coin_drop_chance = 0.0
+	coin_drop_stacks = 0
 	
 	# Clean up existing froggerts
 	_cleanup_froggerts()
@@ -162,6 +166,8 @@ func _apply_augment_effect(augment_type: AugmentData.AugmentType, value: float) 
 			_apply_execute_chance(value)
 		AugmentData.AugmentType.SPAWN_FROGGERT:
 			_apply_spawn_froggert(value)
+		AugmentData.AugmentType.COIN_DROP_CHANCE:
+			_apply_coin_drop_chance(value)
 		AugmentData.AugmentType.ABILITY:
 			# Abilities are handled separately in _apply_ability_augments
 			pass
@@ -372,6 +378,35 @@ func _cleanup_froggerts() -> void:
 		if is_instance_valid(froggert):
 			froggert.queue_free()
 	spawned_froggerts.clear()
+
+func _apply_coin_drop_chance(value: float) -> void:
+	coin_drop_stacks += 1
+	# Each stack increases chance by the value (e.g., 0.15 = 15%)
+	coin_drop_chance = clamp(coin_drop_chance + value, 0.0, 1.0)
+	print("Coin drop chance: ", coin_drop_chance * 100, "% (stacks: ", coin_drop_stacks, ")")
+
+func try_spawn_coin_on_enemy_death(enemy_position: Vector2) -> void:
+	if coin_drop_chance <= 0.0:
+		return
+	
+	if randf() < coin_drop_chance:
+		_spawn_coin(enemy_position)
+
+func _spawn_coin(position: Vector2) -> void:
+	const COIN_SCENE = preload("res://Objects/Coin/coin.tscn")
+	
+	var coin = COIN_SCENE.instantiate()
+	coin.global_position = position
+	
+	# Increase coin value based on stacks: base 10 + (5 * stacks)
+	coin.value = 10 + (5 * coin_drop_stacks)
+	
+	var neutral_parent = get_tree().get_first_node_in_group("neutral_entities")
+	if neutral_parent:
+		neutral_parent.add_child(coin)
+		print("Coin spawned! Value: ", coin.value)
+	else:
+		coin.queue_free()
 
 func _apply_ally_damage_multiplier(value: float) -> void:
 	ally_damage_multiplier += value

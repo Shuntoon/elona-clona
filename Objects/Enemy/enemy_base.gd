@@ -117,6 +117,10 @@ func _on_died() -> void:
 		if augment_manager.has_method("trigger_cooldown_reduction_on_kill"):
 			augment_manager.trigger_cooldown_reduction_on_kill()
 		
+		# Coin drop on death
+		if augment_manager.has_method("try_spawn_coin_on_enemy_death"):
+			augment_manager.try_spawn_coin_on_enemy_death(global_position)
+		
 		# Explosion on death
 		if augment_manager.has_method("get_enemy_death_explosion_chance"):
 			var chance: float = augment_manager.get_enemy_death_explosion_chance()
