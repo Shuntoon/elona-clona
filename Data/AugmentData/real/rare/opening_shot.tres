@@ -12,5 +12,3 @@ rarity = 2
 price = 250
 augment_type = 23
 value = 0.5
-has_secondary_effect = false
-has_tertiary_effect = false

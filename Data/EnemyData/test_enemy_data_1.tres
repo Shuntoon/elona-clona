@@ -9,4 +9,5 @@ enemy_name = "y"
 max_health = 50
 sprite = ExtResource("2_dblxp")
 terrain_type = 1
+body_hitbox_size = Vector2(32, 32)
 metadata/_custom_type_script = "uid://d4hepntti60rn"

@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=3 uid="uid://dttnwpg88y083"]
+
+[ext_resource type="Texture2D" uid="uid://dye6ign87u6v0" path="res://Art/ArmyMen/USA.png" id="1_156m4"]
+[ext_resource type="Script" uid="uid://ccg7poo1lbfig" path="res://Objects/Player/player.gd" id="2_yw17q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yw17q"]
+atlas = ExtResource("1_156m4")
+region = Rect2(12, 0, 46, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u7612"]
+atlas = ExtResource("1_156m4")
+region = Rect2(61, 0, 46, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l2ya6"]
+atlas = ExtResource("1_156m4")
+region = Rect2(13, 96, 44, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o1rty"]
+atlas = ExtResource("1_156m4")
+region = Rect2(60, 96, 46, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t45n6"]
+atlas = ExtResource("1_156m4")
+region = Rect2(108, 96, 46, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o1rty"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yw17q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u7612")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l2ya6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o1rty")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t45n6")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 10.0
+}]
+
+[node name="Player" type="AnimatedSprite2D"]
+scale = Vector2(1.625, 1.625)
+sprite_frames = SubResource("SpriteFrames_o1rty")
+animation = &"shoot"
+autoplay = "default"
+frame = 2
+frame_progress = 1.0
+flip_h = true
+script = ExtResource("2_yw17q")
