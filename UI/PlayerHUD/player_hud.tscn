@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dkvrnpgnp3f86"]
+[gd_scene load_steps=13 format=3 uid="uid://dkvrnpgnp3f86"]
 
 [ext_resource type="Script" uid="uid://cixf8coa0xj00" path="res://UI/PlayerHUD/player_hud.gd" id="1_pi8qp"]
 [ext_resource type="Shader" uid="uid://do6sswls8vm6l" path="res://Shaders/radial_bar.gdshader" id="2_pkcmm"]
@@ -64,6 +64,11 @@ shader_parameter/width_in = 0.0
 shader_parameter/width_out = 0.95
 shader_parameter/border_width = 0.05
 
+[sub_resource type="LabelSettings" id="LabelSettings_70xbo"]
+font_size = 36
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.8156863)
+
 [node name="PlayerHUD" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -75,11 +80,12 @@ mouse_filter = 2
 script = ExtResource("1_pi8qp")
 
 [node name="AllyControlsPanel" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 0
-offset_left = 1003.0
-offset_top = 136.0
-offset_right = 1195.5333
-offset_bottom = 178.0
+offset_left = 747.0
+offset_top = 32.0
+offset_right = 997.0
+offset_bottom = 85.0
 size_flags_horizontal = 8
 size_flags_vertical = 8
 theme_override_styles/panel = SubResource("StyleBoxFlat_ally_panel")
@@ -89,12 +95,28 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 6
 
-[node name="AllyControlsLabel" type="Label" parent="AllyControlsPanel/AllyControlsContainer"]
+[node name="AllyControlsHeader" type="HBoxContainer" parent="AllyControlsPanel/AllyControlsContainer"]
 layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="AllyControlsToggle" type="Button" parent="AllyControlsPanel/AllyControlsContainer/AllyControlsHeader"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+text = "▼"
+
+[node name="AllyControlsLabel" type="Label" parent="AllyControlsPanel/AllyControlsContainer/AllyControlsHeader"]
+layout_mode = 2
+size_flags_horizontal = 3
 text = "🎯 Ally Targeting"
 label_settings = SubResource("LabelSettings_ally")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AllyControlsContent" type="VBoxContainer" parent="AllyControlsPanel/AllyControlsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 6
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -243,6 +265,23 @@ custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
+
+[node name="GoldHBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_constants/separation = 8
+
+[node name="GoldIconLabel" type="Label" parent="MarginContainer/GoldHBoxContainer"]
+layout_mode = 2
+text = "💰"
+label_settings = SubResource("LabelSettings_pkcmm")
+
+[node name="GoldLabel" type="Label" parent="MarginContainer/GoldHBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_70xbo")
 
 [node name="DayLabel" type="Label" parent="MarginContainer"]
 unique_name_in_owner = true

@@ -108,6 +108,16 @@ func _on_died() -> void:
 	animated_sprite_2d.play("death")
 	state_chart.send_event("to_dead")
 	
+	# Disable hurtboxes to prevent further damage
+	if has_node("HurtboxBody"):
+		var body_hurtbox = get_node("HurtboxBody")
+		body_hurtbox.set_deferred("monitoring", false)
+		body_hurtbox.set_deferred("monitorable", false)
+	if has_node("HurtboxHead"):
+		var head_hurtbox = get_node("HurtboxHead")
+		head_hurtbox.set_deferred("monitoring", false)
+		head_hurtbox.set_deferred("monitorable", false)
+	
 	PlayerData.gold += randi_range(gold_reward - gold_reward_variance, gold_reward + gold_reward_variance)
 
 	# Chance to explode on death from augments
@@ -207,3 +217,7 @@ func _apply_hitbox_configuration() -> void:
 			new_shape.size = head_hitbox_size
 			head_collision.shape = new_shape
 			head_collision.position = head_pos
+
+
+func _on_dead_state_entered() -> void:
+	pass # Replace with function body.

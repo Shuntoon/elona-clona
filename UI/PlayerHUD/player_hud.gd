@@ -15,11 +15,15 @@ var wave_manager
 @onready var ally_controls_container: VBoxContainer = %AllyControlsContainer
 @onready var weapon_label: Label = %WeaponLabel
 @onready var day_label: Label = %DayLabel
+@onready var gold_label: Label = %GoldLabel
+@onready var ally_controls_toggle: Button = %AllyControlsToggle
+@onready var ally_controls_content: VBoxContainer = %AllyControlsContent
 
 # Dynamic ability slots
 var ability_vboxes: Array[VBoxContainer] = []
 var ability_labels: Array[Label] = []
 var ability_bars: Array[ProgressBar] = []
+var ally_controls_visible: bool = true
 
 func _ready() -> void:
 	game_manager = get_tree().get_first_node_in_group("game_manager")
@@ -41,6 +45,10 @@ func _ready() -> void:
 	# Setup ally controls
 	_setup_ally_controls()
 	
+	# Connect ally controls toggle button
+	if ally_controls_toggle:
+		ally_controls_toggle.pressed.connect(_on_ally_controls_toggle_pressed)
+	
 	
 func _process(_delta: float) -> void:
 	if game_manager != null:
@@ -53,6 +61,9 @@ func _process(_delta: float) -> void:
 		day_label.text = "Day " + str(wave_info.current_wave) + " / " + str(wave_info.total_waves)
 	else:
 		day_label.text = "Day 1 / 10"
+	
+	# Update gold display
+	gold_label.text = str(PlayerData.gold)
 	
 	if mouse_shooter != null:
 		# Update ammo display
@@ -79,19 +90,18 @@ func _process(_delta: float) -> void:
 func _setup_ally_controls() -> void:
 	print("=== Ally Controls Debug ===")
 	print("Allies node found: ", allies_node != null)
-	print("Ally controls container found: ", ally_controls_container != null)
+	print("Ally controls content found: ", ally_controls_content != null)
 	
-	if not ally_controls_container:
-		print("ERROR: ally_controls_container is null!")
+	if not ally_controls_content:
+		print("ERROR: ally_controls_content is null!")
 		return
 	
 	# Wait a frame to ensure all allies are loaded
 	await get_tree().process_frame
 	
-	# Clear existing controls (skip the label)
-	for child in ally_controls_container.get_children():
-		if child is HBoxContainer:
-			child.queue_free()
+	# Clear existing controls
+	for child in ally_controls_content.get_children():
+		child.queue_free()
 	
 	# Get all allies
 	var all_allies = get_tree().get_nodes_in_group("allies")
@@ -202,7 +212,7 @@ func _create_ally_control(ally: Ally) -> void:
 	dropdown.item_selected.connect(_on_targeting_dropdown_changed.bind(ally))
 	
 	ally_hbox.add_child(dropdown)
-	ally_controls_container.add_child(ally_hbox)
+	ally_controls_content.add_child(ally_hbox)
 
 func _on_targeting_dropdown_changed(index: int, ally: Ally) -> void:
 	if ally and is_instance_valid(ally):
@@ -243,3 +253,11 @@ func _on_start_new_day() -> void:
 	# Wait a frame to ensure allies are spawned
 	await get_tree().process_frame
 	_setup_ally_controls()
+
+func _on_ally_controls_toggle_pressed() -> void:
+	ally_controls_visible = !ally_controls_visible
+	if ally_controls_content:
+		ally_controls_content.visible = ally_controls_visible
+		# Update button text
+		if ally_controls_toggle:
+			ally_controls_toggle.text = "▼" if ally_controls_visible else "▶"
