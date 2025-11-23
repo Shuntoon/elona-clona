@@ -1,11 +1,13 @@
-[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://bev1s8tu8o4a1"]
+[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://bev1s8tu8o4a1"]
 
+[ext_resource type="SpriteFrames" uid="uid://xu143upubyv" path="res://Art/Enemy Animations/ghost knight/ghost_knight_sprite_frames.tres" id="1_ar0ch"]
 [ext_resource type="Script" uid="uid://d4hepntti60rn" path="res://Data/EnemyData/enemy_data.gd" id="1_gipc8"]
 
 [resource]
 script = ExtResource("1_gipc8")
 enemy_name = "mace skeleton"
 max_health = 70
+animated_sprite_frames = ExtResource("1_ar0ch")
 animated_sprite_2d_scale = Vector2(2.25, 2.25)
 body_hitbox_size = Vector2(55, 85)
 body_pos = Vector2(1, 8)
