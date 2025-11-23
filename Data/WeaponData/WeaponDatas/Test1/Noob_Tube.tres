@@ -9,16 +9,17 @@ region = Rect2(0, 118, 12, 10.083237)
 
 [resource]
 script = ExtResource("2_xijtu")
-weapon_name = "Pistol"
+weapon_name = "Noob Tube"
 icon = SubResource("AtlasTexture_pxwm6")
 bullet_type = 1
 accuracy = 0.914
-fire_rate = 120.0
+fire_rate = 60.0
 magazine_size = 2
-reload_time = 3.0
-crit_chance = 0.91
+crit_chance = 0.238
+bullet_damage = 10
 burst_count = 15
 burst_delay = 0.001
 explosive_rockets = true
-explosion_damage = 30
+explosion_damage = 70
+explosion_radius = 175.0
 metadata/_custom_type_script = "uid://rimwdfuvv8ao"
