@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="WaveData" load_steps=5 format=3 uid="uid://dllb7i7ax465"]
 
 [ext_resource type="Script" uid="uid://d4hepntti60rn" path="res://Data/EnemyData/enemy_data.gd" id="1_l8js4"]
-[ext_resource type="Resource" uid="uid://bev1s8tu8o4a1" path="res://Data/EnemyData/real/ghost_knight_Enemy.tres" id="2_l8js4"]
+[ext_resource type="Resource" uid="uid://tg2rwim4e31y" path="res://Data/EnemyData/real/flaming_skull_Enemy.tres" id="2_l8js4"]
 [ext_resource type="Resource" uid="uid://be2g3uw5vays" path="res://Data/EnemyData/test_enemy_data_1.tres" id="3_36xg7"]
 [ext_resource type="Script" uid="uid://dssq5y3twr3y4" path="res://Scripts/WaveManager/wave_data.gd" id="4_gssg2"]
 

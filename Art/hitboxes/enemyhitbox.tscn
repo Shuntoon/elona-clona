@@ -1,23 +1,23 @@
 [gd_scene load_steps=6 format=3 uid="uid://bkb3jp1pjkudm"]
 
 [ext_resource type="Script" uid="uid://d14fdqbjlksab" path="res://Objects/Enemy/enemy_base.gd" id="1_gn1d5"]
-[ext_resource type="SpriteFrames" uid="uid://xu143upubyv" path="res://Art/Enemy Animations/ghost knight/ghost_knight_sprite_frames.tres" id="2_gn1d5"]
+[ext_resource type="SpriteFrames" uid="uid://bcy8kppwun46u" path="res://Art/Enemy Animations/Flaming Skull/flaming_skull_sprite_frames.tres" id="2_gn1d5"]
 [ext_resource type="Script" uid="uid://rixcbilycpqv" path="res://Objects/Hurtbox/hurtbox.gd" id="3_n5xuw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ua6e8"]
-size = Vector2(55, 85)
+size = Vector2(35, 49)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qqtw7"]
-size = Vector2(12, 14)
+size = Vector2(16, 13)
 
 [node name="Enemy" type="Node2D"]
 script = ExtResource("1_gn1d5")
 metadata/_custom_type_script = "uid://d14fdqbjlksab"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(2.25, 2.25)
+scale = Vector2(1.75, 1.75)
 sprite_frames = ExtResource("2_gn1d5")
-animation = &"movement"
+animation = &"attack"
 
 [node name="Hurtbox" type="Area2D" parent="."]
 position = Vector2(0.13343811, -0.08570862)
@@ -25,7 +25,7 @@ script = ExtResource("3_n5xuw")
 metadata/_custom_type_script = "uid://rixcbilycpqv"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2(1.3665619, 7.5857086)
+position = Vector2(31.366562, 26.585709)
 shape = SubResource("RectangleShape2D_ua6e8")
 
 [node name="Hurtbox2" type="Area2D" parent="."]
@@ -34,6 +34,6 @@ script = ExtResource("3_n5xuw")
 metadata/_custom_type_script = "uid://rixcbilycpqv"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox2"]
-position = Vector2(-1.546463, -20.559982)
+position = Vector2(17.453537, 41.940018)
 shape = SubResource("RectangleShape2D_qqtw7")
 debug_color = Color(0.6735401, 0.5078047, 0, 0.41960785)
