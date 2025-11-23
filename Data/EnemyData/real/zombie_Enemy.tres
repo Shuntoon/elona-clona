@@ -1,12 +1,14 @@
-[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://dhrc8qcymdph8"]
+[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://dhrc8qcymdph8"]
 
 [ext_resource type="Script" uid="uid://d4hepntti60rn" path="res://Data/EnemyData/enemy_data.gd" id="1_m8d31"]
+[ext_resource type="SpriteFrames" uid="uid://d1lwbyhy7l38r" path="res://Art/Enemy Animations/Zombie/zombie_sprite_frames.tres" id="1_o6ddq"]
 
 [resource]
 script = ExtResource("1_m8d31")
 enemy_name = "zombie"
 speed = 1.0
 max_health = 150
+animated_sprite_frames = ExtResource("1_o6ddq")
 animated_sprite_2d_scale = Vector2(2, 2)
 body_hitbox_size = Vector2(49, 66)
 body_pos = Vector2(2, 7)
