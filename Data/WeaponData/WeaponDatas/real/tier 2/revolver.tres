@@ -14,7 +14,6 @@ icon = SubResource("AtlasTexture_pxwm6")
 accuracy = 0.8
 fire_rate = 120.0
 magazine_size = 6
-reload_time = 1.9449999999999998
 crit_chance = 1.0
 crit_multiplier = 2.5
 bullet_damage = 40

@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bhvur583pgsyf" path="res://Data/AllyData/ally_data.gd" id="2_m27fu"]
 [ext_resource type="Resource" uid="uid://boxv5rlsd54ii" path="res://Data/AllyData/rifleman.tres" id="3_aknlj"]
 [ext_resource type="Resource" uid="uid://cl5tfw0kdxrpj" path="res://Data/WeaponData/WeaponDatas/real/tier 1/Pistol.tres" id="4_igx8g"]
-[ext_resource type="Resource" uid="uid://crysos7qvdum7" path="res://Data/WeaponData/WeaponDatas/real/tier 2/revolver.tres" id="5_igx8g"]
+[ext_resource type="Resource" uid="uid://cwmun6nu3owv1" path="res://Data/WeaponData/WeaponDatas/real/tier 1/bow.tres" id="5_igx8g"]
 [ext_resource type="Script" uid="uid://dfu50k1tlerfj" path="res://Data/AugmentData/augment_data.gd" id="6_igx8g"]
 [ext_resource type="Resource" uid="uid://ckaqa86ei4mn" path="res://Data/AugmentData/real/rare/midas_touch.tres" id="7_7qppq"]
 
