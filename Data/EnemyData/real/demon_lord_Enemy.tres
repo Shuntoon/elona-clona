@@ -1,15 +1,14 @@
-[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://bdxkq2be4kt0h"]
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://bdxkq2be4kt0h"]
 
 [ext_resource type="Script" uid="uid://d4hepntti60rn" path="res://Data/EnemyData/enemy_data.gd" id="1_k2kaj"]
-[ext_resource type="Texture2D" uid="uid://cseoedy4scsdr" path="res://icon.svg" id="2_4rfj7"]
 
 [resource]
 script = ExtResource("1_k2kaj")
 enemy_name = "mace skeleton"
 max_health = 70
-sprite = ExtResource("2_4rfj7")
-body_hitbox_size = Vector2(63, 70)
-body_pos = Vector2(-2, 45)
-head_hitbox_size = Vector2(12, 16)
-head_pos = Vector2(10, 20)
+animated_sprite_2d_scale = Vector2(1.75, 1.75)
+body_hitbox_size = Vector2(92, 120)
+body_pos = Vector2(-4, 80)
+head_hitbox_size = Vector2(23, 28)
+head_pos = Vector2(17, 33)
 metadata/_custom_type_script = "uid://d4hepntti60rn"
