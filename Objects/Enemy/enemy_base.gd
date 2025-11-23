@@ -15,6 +15,7 @@ const DAMAGE_NUMBER = preload("res://Objects/DamageNumber/damage_number.tscn")
 @export var attack_speed : float = 1
 @export var gold_reward : int = 5
 @export var gold_reward_variance : int = 2
+@export var animated_sprite_frames : SpriteFrames
 @export var animated_sprite_2d_scale : Vector2
 
 enum TERRAIN_TYPE {
@@ -51,6 +52,7 @@ var slow_timer: Timer
 			
 
 func _ready() -> void:
+	animated_sprite_2d.sprite_frames = animated_sprite_frames
 	animated_sprite_2d.play("movement")
 	
 	wall_detector.position.x = range

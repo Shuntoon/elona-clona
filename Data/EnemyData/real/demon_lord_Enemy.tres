@@ -1,11 +1,13 @@
-[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://bdxkq2be4kt0h"]
+[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://bdxkq2be4kt0h"]
 
+[ext_resource type="SpriteFrames" uid="uid://badjsafmn7ktf" path="res://Art/Enemy Animations/Demon Lord/demon_lord_sprite_frames.tres" id="1_gsh37"]
 [ext_resource type="Script" uid="uid://d4hepntti60rn" path="res://Data/EnemyData/enemy_data.gd" id="1_k2kaj"]
 
 [resource]
 script = ExtResource("1_k2kaj")
 enemy_name = "mace skeleton"
 max_health = 70
+animated_sprite_frames = ExtResource("1_gsh37")
 animated_sprite_2d_scale = Vector2(1.75, 1.75)
 body_hitbox_size = Vector2(92, 120)
 body_pos = Vector2(-4, 80)
