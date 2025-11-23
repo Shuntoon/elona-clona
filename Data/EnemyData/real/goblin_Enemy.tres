@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource("1_m68xe")
 enemy_name = "Fast Grunt"
+speed = 2.5
 max_health = 70
 animated_sprite_2d_scale = Vector2(2.25, 2.25)
 body_hitbox_size = Vector2(33, 60)
