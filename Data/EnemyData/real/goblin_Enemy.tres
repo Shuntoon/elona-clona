@@ -1,12 +1,14 @@
-[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://dneqa136jkq47"]
+[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://dneqa136jkq47"]
 
 [ext_resource type="Script" uid="uid://d4hepntti60rn" path="res://Data/EnemyData/enemy_data.gd" id="1_m68xe"]
+[ext_resource type="SpriteFrames" uid="uid://gy4kwrxuxs34" path="res://Art/Enemy Animations/goblin/goblin_sprite_frames.tres" id="1_n78ik"]
 
 [resource]
 script = ExtResource("1_m68xe")
 enemy_name = "Fast Grunt"
 speed = 2.5
 max_health = 70
+animated_sprite_frames = ExtResource("1_n78ik")
 animated_sprite_2d_scale = Vector2(2.25, 2.25)
 body_hitbox_size = Vector2(33, 60)
 body_pos = Vector2(4, 29)
