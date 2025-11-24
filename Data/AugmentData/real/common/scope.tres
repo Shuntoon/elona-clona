@@ -10,5 +10,5 @@ description = "Up accuracy"
 icon = ExtResource("1_414jf")
 price = 75
 augment_type = 8
-value = 0.1
+value = 0.05
 metadata/_custom_type_script = "uid://dfu50k1tlerfj"

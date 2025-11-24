@@ -9,6 +9,6 @@ name = "Coup de Grace"
 description = "15% chance to instantly kill enemies below 20% health. Stacks."
 icon = ExtResource("1_icon")
 rarity = 2
-price = 275
+price = 200
 augment_type = 24
 value = 0.15

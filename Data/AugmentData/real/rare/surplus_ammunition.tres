@@ -9,6 +9,6 @@ name = "Surplus Ammunition"
 description = "25% chance to not consume ammo when firing"
 icon = ExtResource("1_icon")
 rarity = 2
-price = 300
+price = 200
 augment_type = 21
 value = 0.25

@@ -1,15 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://b7y52k5ebquh3"]
+[gd_scene load_steps=4 format=3 uid="uid://b7y52k5ebquh3"]
 
 [ext_resource type="Script" uid="uid://barbo7txnpgeo" path="res://Globals/PlayerData.gd" id="1_44c78"]
-[ext_resource type="Script" uid="uid://bhvur583pgsyf" path="res://Data/AllyData/ally_data.gd" id="2_m27fu"]
-[ext_resource type="Resource" uid="uid://boxv5rlsd54ii" path="res://Data/AllyData/rifleman.tres" id="3_aknlj"]
 [ext_resource type="Resource" uid="uid://1gbswqjskx8o" path="res://Data/WeaponData/WeaponDatas/real/tier 2/Noob_Tube.tres" id="5_1a1gf"]
 [ext_resource type="Resource" uid="uid://cjrne1ssl4irc" path="res://Data/WeaponData/WeaponDatas/real/tier 1/MP5.tres" id="5_7qppq"]
 
 [node name="PlayerData" type="Node"]
 process_mode = 3
 script = ExtResource("1_44c78")
-ally_datas = Array[ExtResource("2_m27fu")]([ExtResource("3_aknlj")])
 weapon_1_data = ExtResource("5_7qppq")
 weapon_2_data = ExtResource("5_1a1gf")
 gold = 100

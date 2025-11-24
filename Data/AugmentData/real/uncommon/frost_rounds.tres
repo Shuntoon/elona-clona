@@ -10,4 +10,4 @@ description = "Slows enemies by 50% for 3 seconds on hit"
 icon = ExtResource("1_w22hg")
 rarity = 1
 augment_type = 19
-value = 0.1
+value = 0.75
