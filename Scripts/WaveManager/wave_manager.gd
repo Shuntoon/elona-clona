@@ -157,6 +157,7 @@ func _spawn_enemy_with_data(enemy_data: EnemyData):
 	enemy_inst.gold_reward = enemy_data.gold_reward
 	enemy_inst.gold_reward_variance = enemy_data.gold_reward_variance
 	enemy_inst.current_terrain_type = enemy_data.terrain_type
+	enemy_inst.animated_sprite_frames = enemy_data.animated_sprite_frames
 	enemy_inst.animated_sprite_2d_scale = enemy_data.animated_sprite_2d_scale
 	
 	# Set hurtbox configuration (will be applied in enemy's _ready)
