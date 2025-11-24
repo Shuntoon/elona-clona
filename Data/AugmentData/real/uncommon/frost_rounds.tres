@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="AugmentData" load_steps=3 format=3 uid="uid://c3w8n7m5k2p4q"]
+
+[ext_resource type="Texture2D" uid="uid://d2glsjhg3dw3p" path="res://Art/Filler/AugmentIcons/Asset 70@2x.png" id="1_w22hg"]
+[ext_resource type="Script" uid="uid://dfu50k1tlerfj" path="res://Data/AugmentData/augment_data.gd" id="2_qhffa"]
+
+[resource]
+script = ExtResource("2_qhffa")
+name = "Frost Rounds"
+description = "Slows enemies by 50% for 3 seconds on hit"
+icon = ExtResource("1_w22hg")
+rarity = 1
+augment_type = 19
+value = 0.1

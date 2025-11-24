@@ -6,10 +6,12 @@
 [resource]
 script = ExtResource("1_m8d31")
 enemy_name = "zombie"
-speed = 1.0
+speed = 0.75
 max_health = 150
 animated_sprite_frames = ExtResource("1_o6ddq")
 animated_sprite_2d_scale = Vector2(2, 2)
+gold_reward = 15
+gold_reward_variance = 5
 body_hitbox_size = Vector2(49, 66)
 body_pos = Vector2(2, 7)
 head_hitbox_size = Vector2(17, 17)

@@ -8,6 +8,7 @@ script = ExtResource("2_a6o3k")
 name = "Extended Clip"
 description = "Up magazine size"
 icon = ExtResource("1_v6glp")
+price = 75
 augment_type = 7
 value = 5.0
 metadata/_custom_type_script = "uid://dfu50k1tlerfj"

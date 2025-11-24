@@ -9,6 +9,7 @@ name = "Volatile Blood"
 description = "Enemies have +10% per stack chance to explode on death (10 dmg)"
 icon = ExtResource("1_icon")
 rarity = 2
+price = 50
 augment_type = 12
 value = 0.1
 metadata/_custom_type_script = "uid://dfu50k1tlerfj"
