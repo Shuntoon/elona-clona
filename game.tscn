@@ -18,8 +18,8 @@
 [ext_resource type="Resource" uid="uid://ddxmacr6e0riv" path="res://Data/WaveData/real/wave_4.tres" id="10_hb5m1"]
 [ext_resource type="Resource" uid="uid://b5mfeioe3gmjm" path="res://Data/WaveData/real/wave_1.tres" id="10_rvswv"]
 [ext_resource type="Resource" uid="uid://cs2np5m8y180w" path="res://Data/WaveData/real/wave_2.tres" id="11_hb5m1"]
-[ext_resource type="Texture2D" uid="uid://vyva55pseaxx" path="res://Art/BG/bg.png" id="15_e8heu"]
 [ext_resource type="PackedScene" uid="uid://dttnwpg88y083" path="res://Objects/Player/player.tscn" id="16_rvswv"]
+[ext_resource type="Texture2D" uid="uid://cy8pou57fxnrh" path="res://Art/BG/RealBG.png" id="18_hb5m1"]
 [ext_resource type="PackedScene" uid="uid://dxae4nyei461n" path="res://Objects/LaserOfDeath/laser_of_death.tscn" id="18_rvswv"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_80nbo"]
@@ -85,11 +85,9 @@ modulate = Color(0.8530103, 0.7348689, 0.6901674, 1)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -203.0
-offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("15_e8heu")
+texture = ExtResource("18_hb5m1")
 expand_mode = 1
 
 [node name="Environment" type="Node2D" parent="."]
