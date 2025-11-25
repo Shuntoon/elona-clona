@@ -176,6 +176,7 @@ func _spawn_enemy_with_data(enemy_data: EnemyData):
 
 func _spawn_at_position(enemy_inst: Enemy, terrain: Spawner.TERRAIN):
 	var random_pos: Vector2
+	var random_pos_offset : Vector2 = Vector2.UP * randi_range(-72,72)
 	
 	match terrain:
 		Spawner.TERRAIN.GROUND:
@@ -185,7 +186,7 @@ func _spawn_at_position(enemy_inst: Enemy, terrain: Spawner.TERRAIN):
 				enemy_inst.queue_free()
 				return
 			var random_ground: Marker2D = ground_children.pick_random()
-			random_pos = random_ground.global_position
+			random_pos = random_ground.global_position + random_pos_offset
 		Spawner.TERRAIN.AIR:
 			var air_children = spawner.air.get_children()
 			if air_children.is_empty():
@@ -193,7 +194,7 @@ func _spawn_at_position(enemy_inst: Enemy, terrain: Spawner.TERRAIN):
 				enemy_inst.queue_free()
 				return
 			var random_air: Marker2D = air_children.pick_random()
-			random_pos = random_air.global_position
+			random_pos = random_air.global_position + random_pos_offset
 	
 	enemy_inst.global_position = random_pos
 	

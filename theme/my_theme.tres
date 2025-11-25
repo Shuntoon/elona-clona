@@ -1,7 +1,7 @@
 [gd_resource type="Theme" load_steps=9 format=3 uid="uid://d25n5wig5y5m7"]
 
-[ext_resource type="Texture2D" uid="uid://d3imhoxh0egv3" path="res://Art/UI/01_Flat_Theme/Sprites/UI_Flat_FrameSlot01c.png" id="1_ss8k4"]
 [ext_resource type="Texture2D" uid="uid://lyhsow10l3x5" path="res://Art/UI/01_Flat_Theme/Sprites/UI_Flat_FrameSlot01b.png" id="2_0hxft"]
+[ext_resource type="Texture2D" uid="uid://dj8xgtgfh8p3s" path="res://Art/UI/01_Flat_Theme/Sprites/UI_Flat_FrameSlot01a.png" id="2_ss8k4"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ss8k4"]
 load_path = "res://.godot/imported/UI_Flat_FrameSlot01b.png-a80e59aecddc6006819d332eaacf597b.ctex"
@@ -12,7 +12,7 @@ texture_margin_left = 4.0
 texture_margin_top = 4.0
 texture_margin_right = 4.0
 texture_margin_bottom = 4.0
-modulate_color = Color(0.79382855, 0.819067, 0.78120935, 1)
+modulate_color = Color(0.81, 0.648, 0.48600003, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ss8k4"]
 texture = ExtResource("2_0hxft")
@@ -20,7 +20,7 @@ texture_margin_left = 4.0
 texture_margin_top = 4.0
 texture_margin_right = 4.0
 texture_margin_bottom = 4.0
-modulate_color = Color(0.6285181, 0.6493505, 0.61506677, 1)
+modulate_color = Color(0.67058825, 0.49649078, 0.3176471, 1)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_odxc4"]
 load_path = "res://.godot/imported/UI_Flat_FrameSlot01b.png-a80e59aecddc6006819d332eaacf597b.ctex"
@@ -31,14 +31,15 @@ texture_margin_left = 4.0
 texture_margin_top = 4.0
 texture_margin_right = 4.0
 texture_margin_bottom = 4.0
-modulate_color = Color(0.5177867, 0.55430925, 0.49952543, 1)
+modulate_color = Color(0.4, 0.258, 0.11600001, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_odxc4"]
-texture = ExtResource("1_ss8k4")
+texture = ExtResource("2_ss8k4")
 texture_margin_left = 2.0
 texture_margin_top = 2.0
 texture_margin_right = 2.0
 texture_margin_bottom = 2.0
+modulate_color = Color(0.42532474, 0.3023348, 0.21825667, 1)
 
 [resource]
 Button/styles/hover = SubResource("StyleBoxTexture_0hxft")
