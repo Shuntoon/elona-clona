@@ -1,23 +1,19 @@
-[gd_scene load_steps=13 format=3 uid="uid://dkvrnpgnp3f86"]
+[gd_scene load_steps=14 format=3 uid="uid://dkvrnpgnp3f86"]
 
 [ext_resource type="Script" uid="uid://cixf8coa0xj00" path="res://UI/PlayerHUD/player_hud.gd" id="1_pi8qp"]
+[ext_resource type="Texture2D" uid="uid://lyhsow10l3x5" path="res://Art/UI/01_Flat_Theme/Sprites/UI_Flat_FrameSlot01b.png" id="2_70xbo"]
 [ext_resource type="Shader" uid="uid://do6sswls8vm6l" path="res://Shaders/radial_bar.gdshader" id="2_pkcmm"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ally_panel"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qo518"]
 content_margin_left = 8.0
 content_margin_top = 8.0
 content_margin_right = 8.0
 content_margin_bottom = 8.0
-bg_color = Color(0.1, 0.1, 0.1, 0.7)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.4, 0.7, 0.4, 0.5)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
+texture = ExtResource("2_70xbo")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_ally"]
 font_size = 18
@@ -88,7 +84,7 @@ offset_right = 997.0
 offset_bottom = 85.0
 size_flags_horizontal = 8
 size_flags_vertical = 8
-theme_override_styles/panel = SubResource("StyleBoxFlat_ally_panel")
+theme_override_styles/panel = SubResource("StyleBoxTexture_qo518")
 
 [node name="AllyControlsContainer" type="VBoxContainer" parent="AllyControlsPanel"]
 unique_name_in_owner = true

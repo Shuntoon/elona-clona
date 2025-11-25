@@ -233,6 +233,7 @@ shape = SubResource("RectangleShape2D_80nbo")
 [node name="Entities" type="Node2D" parent="."]
 
 [node name="Enemies" type="Node2D" parent="Entities" groups=["enemies"]]
+y_sort_enabled = true
 
 [node name="Allies" type="Node2D" parent="Entities" groups=["allies"]]
 

@@ -33,6 +33,7 @@ enabled=PackedStringArray("res://addons/godot_state_charts/plugin.cfg")
 [gui]
 
 theme/default_font_generate_mipmaps=true
+theme/custom="uid://d25n5wig5y5m7"
 theme/custom_font="uid://faffhogs7kh"
 
 [input]

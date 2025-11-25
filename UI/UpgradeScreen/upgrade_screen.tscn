@@ -1,17 +1,19 @@
-[gd_scene load_steps=8 format=3 uid="uid://d225nmsfm10mv"]
+[gd_scene load_steps=9 format=3 uid="uid://d225nmsfm10mv"]
 
 [ext_resource type="Script" uid="uid://8m8ugxxbryqp" path="res://UI/UpgradeScreen/upgrade_screen.gd" id="1_kyj5a"]
+[ext_resource type="Texture2D" uid="uid://lyhsow10l3x5" path="res://Art/UI/01_Flat_Theme/Sprites/UI_Flat_FrameSlot01b.png" id="2_5xjgn"]
 [ext_resource type="PackedScene" uid="uid://bm5ye4du2k3ta" path="res://UI/UpgradeScreen/foundation_page/foundation_page.tscn" id="2_fmioe"]
 [ext_resource type="PackedScene" uid="uid://dvsbfx38vbaju" path="res://UI/UpgradeScreen/augments_page/augments_page.tscn" id="3_jjsfe"]
 [ext_resource type="PackedScene" uid="uid://buj37tqnk8i22" path="res://UI/UpgradeScreen/armory_page/armory_page.tscn" id="4_mbga8"]
 [ext_resource type="PackedScene" uid="uid://bfguydj53ut7e" path="res://UI/UpgradeScreen/allies_page/allies_page.tscn" id="5_5xjgn"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kyj5a"]
-bg_color = Color(0.25560826, 0.25560826, 0.25560826, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lvoou"]
+texture = ExtResource("2_5xjgn")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+modulate_color = Color(0.6018299, 0.6018299, 0.6018299, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_0q4ua"]
 font_size = 24
@@ -37,7 +39,7 @@ offset_right = -24.888916
 offset_bottom = -14.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_kyj5a")
+theme_override_styles/panel = SubResource("StyleBoxTexture_lvoou")
 
 [node name="MarginContainer" type="MarginContainer" parent="BG"]
 layout_mode = 1
@@ -56,7 +58,7 @@ layout_mode = 2
 theme_override_constants/separation = 8
 
 [node name="PageButtonsVBoxContainer" type="VBoxContainer" parent="BG/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(120, 0)
+custom_minimum_size = Vector2(96, 0)
 layout_mode = 2
 
 [node name="FoundationButton" type="Button" parent="BG/MarginContainer/HBoxContainer/PageButtonsVBoxContainer"]
