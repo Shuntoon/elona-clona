@@ -20,6 +20,7 @@ size = Vector2(44, 61)
 size = Vector2(14, 13)
 
 [node name="EnemyBase" type="Node2D" groups=["enemy"]]
+y_sort_enabled = true
 script = ExtResource("1_8e4qo")
 speed = 3.0
 

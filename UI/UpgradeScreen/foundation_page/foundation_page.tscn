@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://coryl8brrnopj" path="res://UI/UpgradeScreen/foundation_page/foundation_page.gd" id="1_eyfy0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_in36i"]
-font_size = 32
+font_size = 72
 
 [node name="FoundationPage" type="Panel"]
 anchors_preset = 15

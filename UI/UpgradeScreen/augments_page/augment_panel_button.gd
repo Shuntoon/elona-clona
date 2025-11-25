@@ -39,25 +39,31 @@ func _set_rarity_color() -> void:
 	
 	match augment_data.rarity:
 		AugmentData.Rarity.COMMON:
-			color = Color(0.5, 0.5, 0.5)  # Grey
+			color = Color(0.7, 0.7, 0.7)  # Grey
 		AugmentData.Rarity.UNCOMMON:
-			color = Color(0.2, 0.8, 0.2)  # Green
+			color = Color(0.3, 1.0, 0.3)  # Green
 		AugmentData.Rarity.RARE:
-			color = Color(0.6, 0.2, 0.8)  # Purple
+			color = Color(0.7, 0.3, 1.0)  # Purple
 		AugmentData.Rarity.ABILITY:
-			color = Color(0.4, 0.8, 1.0)  # Light Blue
+			color = Color(0.5, 0.9, 1.0)  # Light Blue
 		AugmentData.Rarity.LEGENDARY:
-			color = Color(1.0, 0.4, 0.1)  # Orange-Red
+			color = Color(1.0, 0.5, 0.2)  # Orange-Red
 		_:
 			color = Color.WHITE  # Default
 	
-	# Get or create a StyleBox and apply the color
+	# Apply color modulation directly to the panel
+	self_modulate = color
+	
+	# Add a pronounced border with the rarity color
 	var stylebox = get_theme_stylebox("panel")
 	if stylebox:
-		# Duplicate to avoid modifying the original theme
 		stylebox = stylebox.duplicate()
 		if stylebox is StyleBoxFlat:
-			stylebox.bg_color = color
+			stylebox.border_width_left = 3
+			stylebox.border_width_top = 3
+			stylebox.border_width_right = 3
+			stylebox.border_width_bottom = 3
+			stylebox.border_color = color
 		add_theme_stylebox_override("panel", stylebox)
 
 
