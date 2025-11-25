@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://djs38cy8bwdv7" path="res://Objects/Enemy/enemy_base.tscn" id="10_7sc4i"]
 [ext_resource type="Resource" uid="uid://bx8vj6p2k23n4" path="res://Data/WaveData/Test/Wave0_Data.tres" id="10_e8heu"]
 [ext_resource type="Resource" uid="uid://che2jquh8hejp" path="res://Data/WaveData/test_data_2.tres" id="11_e8heu"]
-[ext_resource type="Texture2D" uid="uid://vyva55pseaxx" path="res://Art/BG/bg.png" id="15_e8heu"]
+[ext_resource type="Texture2D" uid="uid://cy8pou57fxnrh" path="res://Art/BG/RealBG.png" id="15_rvswv"]
 [ext_resource type="PackedScene" uid="uid://dttnwpg88y083" path="res://Objects/Player/player.tscn" id="16_rvswv"]
 [ext_resource type="PackedScene" uid="uid://dxae4nyei461n" path="res://Objects/LaserOfDeath/laser_of_death.tscn" id="18_rvswv"]
 
@@ -78,15 +78,12 @@ explosion_damage = 0
 bleed_chance = 0.1
 
 [node name="BG2" type="TextureRect" parent="."]
-modulate = Color(0.8530103, 0.7348689, 0.6901674, 1)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -203.0
-offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("15_e8heu")
+texture = ExtResource("15_rvswv")
 expand_mode = 1
 
 [node name="Environment" type="Node2D" parent="."]
