@@ -1,22 +1,10 @@
-[gd_resource type="Resource" script_class="WaveData" load_steps=9 format=3 uid="uid://cvlxkbw8betbi"]
+[gd_resource type="Resource" script_class="WaveData" load_steps=3 format=3 uid="uid://cvlxkbw8betbi"]
 
 [ext_resource type="Script" uid="uid://d4hepntti60rn" path="res://Data/EnemyData/enemy_data.gd" id="1_2leet"]
-[ext_resource type="Resource" uid="uid://rpdyfx78int7" path="res://Data/EnemyData/real/bat_Enemy.tres" id="2_vwo15"]
-[ext_resource type="Resource" uid="uid://b1npguc3ir6qk" path="res://Data/EnemyData/real/evil_eye_Enemy.tres" id="3_2uifv"]
-[ext_resource type="Resource" uid="uid://dneqa136jkq47" path="res://Data/EnemyData/real/goblin_Enemy.tres" id="4_rng73"]
-[ext_resource type="Resource" uid="uid://bev1s8tu8o4a1" path="res://Data/EnemyData/real/ghost_knight_Enemy.tres" id="5_38q8b"]
-[ext_resource type="Resource" uid="uid://dqv8yxqm84a7v" path="res://Data/EnemyData/real/skeleton_Enemy.tres" id="6_gdqcd"]
-[ext_resource type="Resource" uid="uid://dhrc8qcymdph8" path="res://Data/EnemyData/real/zombie_Enemy.tres" id="7_x6ijq"]
 [ext_resource type="Script" uid="uid://dssq5y3twr3y4" path="res://Scripts/WaveManager/wave_data.gd" id="8_cnuys"]
 
 [resource]
 script = ExtResource("8_cnuys")
-easy_enemies = Array[ExtResource("1_2leet")]([ExtResource("2_vwo15"), ExtResource("3_2uifv"), ExtResource("4_rng73")])
-medium_enemies = Array[ExtResource("1_2leet")]([ExtResource("2_vwo15"), ExtResource("3_2uifv"), ExtResource("4_rng73"), ExtResource("7_x6ijq")])
-hard_enemies = Array[ExtResource("1_2leet")]([ExtResource("4_rng73"), ExtResource("3_2uifv"), ExtResource("2_vwo15"), ExtResource("5_38q8b"), ExtResource("6_gdqcd")])
-easy_weights = Array[float]([2.0, 3.0, 1.0])
-medium_weights = Array[float]([1.0, 1.0, 1.0, 1.0])
-hard_weights = Array[float]([1.5, 2.0, 2.0, 1.0, 1.0])
 easy_spawn_multiplier = 1.25
 medium_spawn_multiplier = 0.9
 hard_spawn_multiplier = 0.8
