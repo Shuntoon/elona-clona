@@ -6,7 +6,8 @@
 [resource]
 script = ExtResource("1_c1374")
 enemy_name = "bat"
-max_health = 70
+speed = 1.75
+max_health = 135
 animated_sprite_frames = ExtResource("1_74xns")
 animated_sprite_2d_scale = Vector2(2.25, 2.25)
 terrain_type = 1
