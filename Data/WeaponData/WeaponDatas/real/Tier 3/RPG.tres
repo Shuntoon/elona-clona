@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=4 format=3 uid="uid://bmw3cst1caj24"]
+
+[ext_resource type="Texture2D" uid="uid://d3rcf2brjy7c0" path="res://Art/Filler/Guns/1.png" id="1_g3sab"]
+[ext_resource type="Script" uid="uid://rimwdfuvv8ao" path="res://Data/WeaponData/weapon_data.gd" id="2_bugfc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pxwm6"]
+atlas = ExtResource("1_g3sab")
+region = Rect2(0, 118, 12, 10.083237)
+
+[resource]
+script = ExtResource("2_bugfc")
+weapon_name = "RPG"
+icon = SubResource("AtlasTexture_pxwm6")
+bullet_type = 1
+accuracy = 0.914
+fire_rate = 60.0
+magazine_size = 1
+reload_time = 3.0
+crit_chance = 0.238
+bullet_damage = 10
+burst_count = 15
+burst_delay = 0.001
+explosive_rockets = true
+explosion_damage = 150
+explosion_radius = 175.0
+metadata/_custom_type_script = "uid://rimwdfuvv8ao"
