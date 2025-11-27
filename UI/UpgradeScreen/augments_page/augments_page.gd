@@ -58,11 +58,15 @@ func populate_augment_hbox() -> void:
 		# Remove selected augment to prevent duplicates
 		available_augments.erase(augment_data)
 	
-	# Add augment panels for each selected augment
+	# Add augment panels for each selected augment with staggered animation
+	var delay := 0.0
 	for augment_data in selected_augments:
 		var augment_panel_button_inst : AugmentPanelButton = augment_panel_button_scene.instantiate()
 		augment_panel_button_inst.augment_data = augment_data
 		augment_hbox_container.add_child(augment_panel_button_inst)
+		# Animate each card with staggered delay
+		augment_panel_button_inst.animate_entrance(delay)
+		delay += 0.1
 
 ## Pick a random augment from the list with weighted rarity
 func _pick_weighted_augment(augments: Array[AugmentData]) -> AugmentData:
