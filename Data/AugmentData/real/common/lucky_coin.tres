@@ -9,5 +9,5 @@ name = "Lucky Coin"
 description = "+10% gold gain"
 icon = ExtResource("1_icon")
 price = 75
-augment_type = 19
+augment_type = 18
 value = 0.1
