@@ -21,15 +21,13 @@
 [ext_resource type="PackedScene" uid="uid://dttnwpg88y083" path="res://Objects/Player/player.tscn" id="16_rvswv"]
 [ext_resource type="Texture2D" uid="uid://cy8pou57fxnrh" path="res://Art/BG/RealBG.png" id="18_hb5m1"]
 [ext_resource type="PackedScene" uid="uid://dxae4nyei461n" path="res://Objects/LaserOfDeath/laser_of_death.tscn" id="18_rvswv"]
-[ext_resource type="PackedScene" path="res://UI/Menus/pause_menu.tscn" id="22_pause"]
+[ext_resource type="Texture2D" uid="uid://dnsrbb1pdfvib" path="res://Art/Castle/Castle.png" id="21_f1jbl"]
+[ext_resource type="PackedScene" uid="uid://bufmu7frdb3wc" path="res://UI/Menus/pause_menu.tscn" id="22_pause"]
+[ext_resource type="Texture2D" uid="uid://bqu44ygj7r6ta" path="res://Art/Sandbag/Sandbag.png" id="22_vaj68"]
 [ext_resource type="PackedScene" path="res://UI/WaveAnnouncement/wave_announcement.tscn" id="23_wave"]
 
-[sub_resource type="QuadMesh" id="QuadMesh_80nbo"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_mfdv2"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_80nbo"]
-size = Vector2(2.5714264, 11.25094)
+size = Vector2(2.5714264, 13.12378)
 
 [node name="Game" type="Node"]
 
@@ -37,18 +35,19 @@ size = Vector2(2.5714264, 11.25094)
 
 [node name="PlayerHUD" parent="CanvasLayer" instance=ExtResource("1_ryrav")]
 
+[node name="WaveAnnouncement" parent="CanvasLayer" instance=ExtResource("23_wave")]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("22_pause")]
+visible = false
+
 [node name="UpgradeScreen" parent="CanvasLayer" instance=ExtResource("2_eow3j")]
 unique_name_in_owner = true
 visible = false
 
-[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("22_pause")]
-
-[node name="WaveAnnouncement" parent="CanvasLayer" instance=ExtResource("23_wave")]
-
 [node name="GameManager" type="Node" parent="." groups=["game_manager"]]
 script = ExtResource("1_fc0e3")
 bg_start_color = Color(0.9073196, 0.849941, 0.82958084, 1)
-bg_end_color = Color(0.38005883, 0.3520983, 0.4117474, 1)
+bg_end_color = Color(0.26091576, 0.24179953, 0.28276289, 1)
 day_time_length = 60.0
 
 [node name="SpawnTimer" type="Timer" parent="GameManager"]
@@ -103,119 +102,86 @@ expand_mode = 1
 [node name="Art" type="Node2D" parent="Environment"]
 position = Vector2(1014, 676)
 
-[node name="MeshInstance2D2" type="MeshInstance2D" parent="Environment/Art"]
-modulate = Color(0.37101543, 0.37101543, 0.37101543, 1)
-position = Vector2(0.99998474, -15.597492)
-scale = Vector2(14.00005, 28.99991)
-mesh = SubResource("QuadMesh_80nbo")
+[node name="Castle2" type="Sprite2D" parent="Environment/Art"]
+position = Vector2(300, -340.33194)
+scale = Vector2(0.88717616, 0.88717616)
+texture = ExtResource("21_f1jbl")
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/Art"]
-modulate = Color(0.6697165, 0.6697165, 0.6697165, 1)
-position = Vector2(6.9275208, -15.5)
-scale = Vector2(17.99994, 29.000065)
-mesh = SubResource("QuadMesh_80nbo")
+[node name="Castle" type="Sprite2D" parent="Environment/Art"]
+position = Vector2(238, -205)
+scale = Vector2(0.6601558, 0.6601558)
+texture = ExtResource("21_f1jbl")
 
-[node name="MeshInstance2D3" type="MeshInstance2D" parent="Environment/Art"]
-modulate = Color(0.37101543, 0.37101543, 0.37101543, 1)
-position = Vector2(1.0000458, -60.59743)
-scale = Vector2(14.00005, 28.99991)
-mesh = SubResource("QuadMesh_80nbo")
+[node name="Sandbag" type="Sprite2D" parent="Environment/Art"]
+position = Vector2(5, 3.999999)
+scale = Vector2(0.358, 0.358)
+texture = ExtResource("22_vaj68")
 
-[node name="MeshInstance2D4" type="MeshInstance2D" parent="Environment/Art"]
-modulate = Color(0.6697165, 0.6697165, 0.6697165, 1)
-position = Vector2(6.927582, -60.49994)
-scale = Vector2(17.99994, 29.000065)
-mesh = SubResource("QuadMesh_80nbo")
+[node name="Sandbag2" type="Sprite2D" parent="Environment/Art"]
+position = Vector2(4, -26)
+rotation = -0.22331324
+scale = Vector2(0.358, 0.358)
+texture = ExtResource("22_vaj68")
 
-[node name="MeshInstance2D5" type="MeshInstance2D" parent="Environment/Art"]
-modulate = Color(0.37101543, 0.37101543, 0.37101543, 1)
-position = Vector2(1.0000458, -104.597496)
-scale = Vector2(14.00005, 28.99991)
-mesh = SubResource("QuadMesh_80nbo")
+[node name="Sandbag3" type="Sprite2D" parent="Environment/Art"]
+position = Vector2(0.99999905, -61.000008)
+rotation = 0.025571465
+scale = Vector2(0.358, 0.358)
+texture = ExtResource("22_vaj68")
 
-[node name="MeshInstance2D6" type="MeshInstance2D" parent="Environment/Art"]
-modulate = Color(0.6697165, 0.6697165, 0.6697165, 1)
-position = Vector2(6.927582, -104.49994)
-scale = Vector2(17.99994, 29.000065)
-mesh = SubResource("QuadMesh_80nbo")
+[node name="Sandbag4" type="Sprite2D" parent="Environment/Art"]
+position = Vector2(-1.0000005, -91)
+rotation = -0.2453804
+scale = Vector2(0.358, 0.358)
+texture = ExtResource("22_vaj68")
 
-[node name="MeshInstance2D7" type="MeshInstance2D" parent="Environment/Art"]
-modulate = Color(0.37101543, 0.37101543, 0.37101543, 1)
-position = Vector2(1.0000458, -148.59752)
-scale = Vector2(14.00005, 28.99991)
-mesh = SubResource("QuadMesh_80nbo")
+[node name="Sandbag5" type="Sprite2D" parent="Environment/Art"]
+position = Vector2(-4.000001, -123)
+rotation = 0.07008958
+scale = Vector2(0.358, 0.358)
+texture = ExtResource("22_vaj68")
 
-[node name="MeshInstance2D8" type="MeshInstance2D" parent="Environment/Art"]
-modulate = Color(0.6697165, 0.6697165, 0.6697165, 1)
-position = Vector2(6.927582, -148.49997)
-scale = Vector2(17.99994, 29.000065)
-mesh = SubResource("QuadMesh_80nbo")
+[node name="Sandbag6" type="Sprite2D" parent="Environment/Art"]
+position = Vector2(1.791565, -150.53967)
+rotation = 0.16627002
+scale = Vector2(0.358, 0.358)
+texture = ExtResource("22_vaj68")
 
-[node name="MeshInstance2D9" type="MeshInstance2D" parent="Environment/Art"]
-modulate = Color(0.37101543, 0.37101543, 0.37101543, 1)
-position = Vector2(1.0000458, -191.59752)
-scale = Vector2(14.00005, 28.99991)
-mesh = SubResource("QuadMesh_80nbo")
+[node name="Sandbag7" type="Sprite2D" parent="Environment/Art"]
+position = Vector2(0.79156446, -180.53969)
+rotation = -0.057043225
+scale = Vector2(0.358, 0.358)
+texture = ExtResource("22_vaj68")
 
-[node name="MeshInstance2D10" type="MeshInstance2D" parent="Environment/Art"]
-modulate = Color(0.6697165, 0.6697165, 0.6697165, 1)
-position = Vector2(6.927582, -191.49997)
-scale = Vector2(17.99994, 29.000065)
-mesh = SubResource("QuadMesh_80nbo")
+[node name="Sandbag8" type="Sprite2D" parent="Environment/Art"]
+position = Vector2(2.9999988, -216)
+rotation = 0.19184148
+scale = Vector2(0.358, 0.358)
+texture = ExtResource("22_vaj68")
 
-[node name="MeshInstance2D11" type="MeshInstance2D" parent="Environment/Art"]
-modulate = Color(0.37101543, 0.37101543, 0.37101543, 1)
-position = Vector2(1.0699444, -236.53699)
-scale = Vector2(14.00005, 28.99991)
-mesh = SubResource("QuadMesh_80nbo")
+[node name="Sandbag9" type="Sprite2D" parent="Environment/Art"]
+position = Vector2(2.9999995, -252)
+rotation = -0.079110384
+scale = Vector2(0.358, 0.358)
+texture = ExtResource("22_vaj68")
 
-[node name="MeshInstance2D12" type="MeshInstance2D" parent="Environment/Art"]
-modulate = Color(0.6697165, 0.6697165, 0.6697165, 1)
-position = Vector2(6.9974804, -236.43945)
-scale = Vector2(17.99994, 29.000065)
-mesh = SubResource("QuadMesh_80nbo")
+[node name="Sandbag10" type="Sprite2D" parent="Environment/Art"]
+position = Vector2(3.999998, -280.99997)
+rotation = 0.2363596
+scale = Vector2(0.358, 0.358)
+texture = ExtResource("22_vaj68")
 
-[node name="MeshInstance2D13" type="MeshInstance2D" parent="Environment/Art"]
-modulate = Color(0.37101543, 0.37101543, 0.37101543, 1)
-position = Vector2(1.0036106, -274.11346)
-scale = Vector2(14.00005, 28.99991)
-mesh = SubResource("QuadMesh_80nbo")
+[node name="Sandbag11" type="Sprite2D" parent="Environment/Art"]
+position = Vector2(4.999998, -312.99997)
+rotation = -0.028782487
+scale = Vector2(0.358, 0.358)
+texture = ExtResource("22_vaj68")
 
-[node name="MeshInstance2D16" type="MeshInstance2D" parent="Environment/Art"]
-modulate = Color(0.5, 0.3942768, 0.16121706, 1)
-position = Vector2(277.9275, -292.74985)
-scale = Vector2(196.00008, 332.49997)
-mesh = SubResource("QuadMesh_80nbo")
-
-[node name="MeshInstance2D14" type="MeshInstance2D" parent="Environment/Art"]
-modulate = Color(0.6697165, 0.6697165, 0.6697165, 1)
-position = Vector2(6.9311485, -274.01596)
-scale = Vector2(17.99994, 29.000065)
-mesh = SubResource("QuadMesh_80nbo")
-
-[node name="MeshInstance2D15" type="MeshInstance2D" parent="Environment/Art"]
-modulate = Color(0.43890208, 0.31733617, 0.10687964, 1)
-position = Vector2(277.92755, -458.74997)
-scale = Vector2(195.99997, 52.50007)
-mesh = SubResource("SphereMesh_mfdv2")
-
-[node name="MeshInstance2D17" type="MeshInstance2D" parent="Environment/Art"]
-modulate = Color(0.5, 0.3942768, 0.16121706, 1)
-position = Vector2(230.53871, -181.74994)
-scale = Vector2(162.00003, 220.5003)
-mesh = SubResource("QuadMesh_80nbo")
-
-[node name="MeshInstance2D18" type="MeshInstance2D" parent="Environment/Art"]
-modulate = Color(0.43890208, 0.31733617, 0.10687964, 1)
-position = Vector2(231.09424, -291.74997)
-scale = Vector2(161.07137, 52.50007)
-mesh = SubResource("SphereMesh_mfdv2")
-
-[node name="MeshInstance2D19" type="MeshInstance2D" parent="Environment/Art"]
-modulate = Color(0.5, 0.3942768, 0.16121706, 1)
-position = Vector2(231.53879, -71)
-scale = Vector2(165.40965, 52.50007)
-mesh = SubResource("SphereMesh_mfdv2")
+[node name="Sandbag12" type="Sprite2D" parent="Environment/Art"]
+position = Vector2(6.999998, -335)
+rotation = 0.07394907
+scale = Vector2(0.358, 0.358)
+texture = ExtResource("22_vaj68")
 
 [node name="WallArea2D" type="Area2D" parent="Environment" groups=["wall"]]
 position = Vector2(1030, 606)
@@ -223,8 +189,8 @@ scale = Vector2(14.00005, 28.99991)
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/WallArea2D"]
-position = Vector2(-0.7857111, -2.2603426)
-scale = Vector2(0.99999964, 0.9999997)
+position = Vector2(-0.7857132, -3.1967583)
+scale = Vector2(0.9999996, 0.9999996)
 shape = SubResource("RectangleShape2D_80nbo")
 
 [node name="AirImpactArea2D" type="Area2D" parent="Environment" groups=["air_impact"]]

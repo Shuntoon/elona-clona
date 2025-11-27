@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d225nmsfm10mv"]
+[gd_scene load_steps=13 format=3 uid="uid://d225nmsfm10mv"]
 
 [ext_resource type="Script" uid="uid://8m8ugxxbryqp" path="res://UI/UpgradeScreen/upgrade_screen.gd" id="1_kyj5a"]
 [ext_resource type="Texture2D" uid="uid://bdylnvm06f5fm" path="res://Art/UI/RealUI/Panel.png" id="2_5xjgn"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dvsbfx38vbaju" path="res://UI/UpgradeScreen/augments_page/augments_page.tscn" id="3_jjsfe"]
 [ext_resource type="PackedScene" uid="uid://buj37tqnk8i22" path="res://UI/UpgradeScreen/armory_page/armory_page.tscn" id="4_mbga8"]
 [ext_resource type="PackedScene" uid="uid://bfguydj53ut7e" path="res://UI/UpgradeScreen/allies_page/allies_page.tscn" id="5_5xjgn"]
+[ext_resource type="Texture2D" uid="uid://bki3p3jojmdp4" path="res://Art/UI/RealUI/Button.png" id="7_lvoou"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lvoou"]
 texture = ExtResource("2_5xjgn")
@@ -14,6 +15,14 @@ texture_margin_top = 8.0
 texture_margin_right = 8.0
 texture_margin_bottom = 8.0
 modulate_color = Color(0.29634023, 0.2820734, 0.1793523, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rrvu0"]
+texture = ExtResource("7_lvoou")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+modulate_color = Color(0.5999126, 0.6202909, 0.6289846, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_mbga8"]
 font_size = 48
@@ -145,6 +154,7 @@ offset_top = 18.0
 offset_right = 1198.2222
 offset_bottom = 81.0
 theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxTexture_rrvu0")
 text = "Advance to next wave"
 
 [node name="EndOfTheDayLabel" type="Label" parent="."]

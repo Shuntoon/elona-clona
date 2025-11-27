@@ -44,7 +44,7 @@ var current_health : int :
 var wave_manager
 
 func _ready() -> void:
-	current_health = max_health - 25
+	current_health = max_health
 	
 	# Get wave manager reference
 	wave_manager = get_tree().get_first_node_in_group("wave_manager")
