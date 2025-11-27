@@ -59,7 +59,6 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Augments"
 label_settings = SubResource("LabelSettings_skbsq")
-horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="AugmentHBoxContainer" type="HBoxContainer" parent="."]
@@ -118,9 +117,9 @@ columns = 18
 
 [node name="RerollButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 277.5
+offset_left = 231.7175
 offset_top = 64.888916
-offset_right = 370.7175
+offset_right = 346.5
 offset_bottom = 130.0
 text = "Reroll"
 

@@ -2,6 +2,9 @@ extends Node
 class_name MainMenu
 
 const ALLY_SCENE = preload("res://Objects/Ally/ally_base.tscn")
+const OPTIONS_PANEL_SCENE = preload("res://UI/Menus/options_panel.tscn")
+const HOW_TO_PLAY_PANEL_SCENE = preload("res://UI/Menus/how_to_play_panel.tscn")
+const CREDITS_PANEL_SCENE = preload("res://UI/Menus/credits_panel.tscn")
 
 @onready var ally_spawns = [
 	%Ally1Spawn,
@@ -10,15 +13,36 @@ const ALLY_SCENE = preload("res://Objects/Ally/ally_base.tscn")
 	%Ally4Spawn
 ]
 
+@onready var main_menu_control: Control = $CanvasLayer/MainMenuControl
+
+# Popup panel instances
+var how_to_play_panel: Panel = null
+var options_panel: Panel = null
+var credits_panel: Panel = null
+
 var menu_allies: Array[Ally] = []
 var max_shooting_allies: int = 2
 var currently_shooting: Array[Ally] = []
 
 func _ready() -> void:
+	# Always show normal cursor in main menu
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	
+	# Hide and destroy any crosshair spawned by GameManager
 	await get_tree().create_timer(0.1).timeout
+	_hide_crosshair()
 	
 	_spawn_menu_allies()
 	_start_shooting_rotation()
+
+func _hide_crosshair() -> void:
+	# Find and destroy the crosshair if it exists
+	var game_manager = get_tree().get_first_node_in_group("game_manager")
+	if game_manager and game_manager.crosshair:
+		game_manager.crosshair.queue_free()
+		game_manager.crosshair = null
+	# Ensure cursor is visible
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func _spawn_menu_allies() -> void:
 	# Shuffle spawn positions and pick 3 random ones
@@ -75,4 +99,41 @@ func _rotate_shooters() -> void:
 
 func _on_play_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://game.tscn")
-	pass # Replace with function body.
+
+func _on_how_to_play_button_pressed() -> void:
+	_hide_all_popups()
+	if not how_to_play_panel:
+		how_to_play_panel = HOW_TO_PLAY_PANEL_SCENE.instantiate()
+		how_to_play_panel.back_pressed.connect(_hide_all_popups)
+		main_menu_control.add_child(how_to_play_panel)
+	how_to_play_panel.show_panel()
+
+func _on_options_button_pressed() -> void:
+	_hide_all_popups()
+	if not options_panel:
+		options_panel = OPTIONS_PANEL_SCENE.instantiate()
+		options_panel.back_pressed.connect(_hide_all_popups)
+		main_menu_control.add_child(options_panel)
+	options_panel.show_panel()
+
+func _on_credits_button_pressed() -> void:
+	_hide_all_popups()
+	if not credits_panel:
+		credits_panel = CREDITS_PANEL_SCENE.instantiate()
+		credits_panel.back_pressed.connect(_hide_all_popups)
+		main_menu_control.add_child(credits_panel)
+	credits_panel.show_panel()
+
+func _on_quit_button_pressed() -> void:
+	get_tree().quit()
+
+func _on_popup_back_button_pressed() -> void:
+	_hide_all_popups()
+
+func _hide_all_popups() -> void:
+	if how_to_play_panel:
+		how_to_play_panel.hide_panel()
+	if options_panel:
+		options_panel.hide_panel()
+	if credits_panel:
+		credits_panel.hide_panel()

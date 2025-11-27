@@ -94,8 +94,17 @@ func _on_day_started():
 	is_spawning = true
 	current_display_wave = current_wave_index + 1  # Update display wave when day starts
 	
+	# Ensure one frame delay before emitting
 	wave_started.emit(current_wave_index + 1)
 	print("Wave ", current_wave_index + 1, " started")
+	
+	# Show wave announcement
+	var wave_announcement = get_tree().get_first_node_in_group("wave_announcement")
+	if wave_announcement:
+		var wave_name = ""
+		if current_wave_data and current_wave_data.wave_name:
+			wave_name = current_wave_data.wave_name
+		wave_announcement.announce_wave(current_wave_index + 1, wave_name)
 	
 	var spawn_interval = current_wave_data.get_spawn_interval(current_difficulty_phase)
 	spawn_timer.wait_time = spawn_interval

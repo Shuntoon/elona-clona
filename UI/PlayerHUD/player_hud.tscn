@@ -62,7 +62,7 @@ shader_parameter/width_out = 0.95
 shader_parameter/border_width = 0.05
 
 [sub_resource type="LabelSettings" id="LabelSettings_70xbo"]
-font_size = 36
+font_size = 54
 shadow_size = 2
 shadow_color = Color(0, 0, 0, 0.8156863)
 

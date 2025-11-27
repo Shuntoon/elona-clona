@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bk5upyxc362t4" path="res://UI/MainMenu/main_menu.gd" id="1_u0e1r"]
 [ext_resource type="Script" uid="uid://cvikpqyxjqs5g" path="res://Scripts/GameManager/game_manager.gd" id="3_mg3m2"]
 [ext_resource type="Script" uid="uid://b0hnw34sgf8um" path="res://Scripts/WaveManager/wave_manager.gd" id="8_8uw0o"]
-[ext_resource type="Texture2D" uid="uid://vyva55pseaxx" path="res://Art/BG/bg.png" id="8_ejg71"]
+[ext_resource type="Texture2D" uid="uid://cy8pou57fxnrh" path="res://Art/BG/RealBG.png" id="8_ejg71"]
 [ext_resource type="Script" uid="uid://dssq5y3twr3y4" path="res://Scripts/WaveManager/wave_data.gd" id="9_ql5ya"]
 [ext_resource type="Resource" uid="uid://dllb7i7ax465" path="res://Data/WaveData/Test/quick_individual_unit_data.tres" id="10_ka3nr"]
 [ext_resource type="Resource" uid="uid://che2jquh8hejp" path="res://Data/WaveData/test_data_2.tres" id="11_48knj"]
@@ -49,7 +49,6 @@ modulate = Color(0.8530103, 0.7348689, 0.6901674, 1)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -145.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("8_ejg71")
@@ -249,7 +248,6 @@ position = Vector2(2, 168)
 position = Vector2(2, 106)
 
 [node name="BlurOverlay" type="ColorRect" parent="."]
-visible = false
 material = SubResource("ShaderMaterial_lnp6m")
 anchors_preset = 15
 anchor_right = 1.0
@@ -258,7 +256,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="MainMenuControl" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -277,6 +274,8 @@ offset_bottom = 215.0
 size_flags_horizontal = 4
 text = "GAME NAME: NAME OF THE GAME"
 label_settings = SubResource("LabelSettings_u0e1r")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ButtonsVBoxContainer" type="VBoxContainer" parent="CanvasLayer/MainMenuControl"]
 layout_mode = 1
@@ -325,3 +324,7 @@ text = "Quit
 [connection signal="timeout" from="GameManager/DayTimer" to="GameManager" method="_on_day_timer_timeout"]
 [connection signal="child_exiting_tree" from="Entities/Enemies" to="GameManager" method="_on_enemies_child_exiting_tree"]
 [connection signal="pressed" from="CanvasLayer/MainMenuControl/ButtonsVBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenuControl/ButtonsVBoxContainer/HowToPlayButton" to="." method="_on_how_to_play_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenuControl/ButtonsVBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenuControl/ButtonsVBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenuControl/ButtonsVBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

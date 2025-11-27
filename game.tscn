@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://c4ruds6frs58h"]
+[gd_scene load_steps=27 format=3 uid="uid://c4ruds6frs58h"]
 
 [ext_resource type="Script" uid="uid://cvikpqyxjqs5g" path="res://Scripts/GameManager/game_manager.gd" id="1_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://ci4hdj038kg5i" path="res://Objects/MouseShooter/mouse_shooter.tscn" id="1_feb5d"]
@@ -21,6 +21,8 @@
 [ext_resource type="PackedScene" uid="uid://dttnwpg88y083" path="res://Objects/Player/player.tscn" id="16_rvswv"]
 [ext_resource type="Texture2D" uid="uid://cy8pou57fxnrh" path="res://Art/BG/RealBG.png" id="18_hb5m1"]
 [ext_resource type="PackedScene" uid="uid://dxae4nyei461n" path="res://Objects/LaserOfDeath/laser_of_death.tscn" id="18_rvswv"]
+[ext_resource type="PackedScene" path="res://UI/Menus/pause_menu.tscn" id="22_pause"]
+[ext_resource type="PackedScene" path="res://UI/WaveAnnouncement/wave_announcement.tscn" id="23_wave"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_80nbo"]
 
@@ -38,6 +40,10 @@ size = Vector2(2.5714264, 11.25094)
 [node name="UpgradeScreen" parent="CanvasLayer" instance=ExtResource("2_eow3j")]
 unique_name_in_owner = true
 visible = false
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("22_pause")]
+
+[node name="WaveAnnouncement" parent="CanvasLayer" instance=ExtResource("23_wave")]
 
 [node name="GameManager" type="Node" parent="." groups=["game_manager"]]
 script = ExtResource("1_fc0e3")

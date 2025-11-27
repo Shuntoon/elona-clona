@@ -1,48 +1,19 @@
-[gd_resource type="Theme" load_steps=9 format=3 uid="uid://d25n5wig5y5m7"]
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://d25n5wig5y5m7"]
 
-[ext_resource type="Texture2D" uid="uid://lyhsow10l3x5" path="res://Art/UI/01_Flat_Theme/Sprites/UI_Flat_FrameSlot01b.png" id="2_0hxft"]
-[ext_resource type="Texture2D" uid="uid://dj8xgtgfh8p3s" path="res://Art/UI/01_Flat_Theme/Sprites/UI_Flat_FrameSlot01a.png" id="2_ss8k4"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uhvb7"]
+bg_color = Color(0.24881959, 0.18830876, 0.11786434, 1)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ss8k4"]
-load_path = "res://.godot/imported/UI_Flat_FrameSlot01b.png-a80e59aecddc6006819d332eaacf597b.ctex"
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0hxft"]
-texture = SubResource("CompressedTexture2D_ss8k4")
-texture_margin_left = 4.0
-texture_margin_top = 4.0
-texture_margin_right = 4.0
-texture_margin_bottom = 4.0
-modulate_color = Color(0.81, 0.648, 0.48600003, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ss8k4"]
-texture = ExtResource("2_0hxft")
-texture_margin_left = 4.0
-texture_margin_top = 4.0
-texture_margin_right = 4.0
-texture_margin_bottom = 4.0
-modulate_color = Color(0.67058825, 0.49649078, 0.3176471, 1)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_odxc4"]
-load_path = "res://.godot/imported/UI_Flat_FrameSlot01b.png-a80e59aecddc6006819d332eaacf597b.ctex"
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mprn6"]
-texture = SubResource("CompressedTexture2D_odxc4")
-texture_margin_left = 4.0
-texture_margin_top = 4.0
-texture_margin_right = 4.0
-texture_margin_bottom = 4.0
-modulate_color = Color(0.4, 0.258, 0.11600001, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_odxc4"]
-texture = ExtResource("2_ss8k4")
-texture_margin_left = 2.0
-texture_margin_top = 2.0
-texture_margin_right = 2.0
-texture_margin_bottom = 2.0
-modulate_color = Color(0.42532474, 0.3023348, 0.21825667, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_famks"]
+bg_color = Color(0.18312031, 0.2148763, 0.08058855, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [resource]
-Button/styles/hover = SubResource("StyleBoxTexture_0hxft")
-Button/styles/normal = SubResource("StyleBoxTexture_ss8k4")
-Button/styles/pressed = SubResource("StyleBoxTexture_mprn6")
-Panel/styles/panel = SubResource("StyleBoxTexture_odxc4")
+Button/styles/normal = SubResource("StyleBoxFlat_uhvb7")
+Panel/styles/panel = SubResource("StyleBoxFlat_famks")

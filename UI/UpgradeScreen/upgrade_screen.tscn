@@ -7,11 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://bfguydj53ut7e" path="res://UI/UpgradeScreen/allies_page/allies_page.tscn" id="5_5xjgn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mbga8"]
-bg_color = Color(0.3438608, 0.25018016, 0.14027074, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
+bg_color = Color(0.25473627, 0.26918554, 0.1505255, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
 border_color = Color(0.11304635, 0.11304635, 0.11304635, 1)
 corner_radius_top_left = 32
 corner_radius_top_right = 32
