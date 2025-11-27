@@ -41,6 +41,8 @@ visible = false
 
 [node name="GameManager" type="Node" parent="." groups=["game_manager"]]
 script = ExtResource("1_fc0e3")
+bg_start_color = Color(0.9073196, 0.849941, 0.82958084, 1)
+bg_end_color = Color(0.38005883, 0.3520983, 0.4117474, 1)
 day_time_length = 60.0
 
 [node name="SpawnTimer" type="Timer" parent="GameManager"]

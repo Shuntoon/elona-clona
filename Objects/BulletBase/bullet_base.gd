@@ -2,6 +2,8 @@ extends Node2D
 class_name Bullet
 
 @export var speed : float = 200
+@export var bullet_texture : Texture2D
+@export var rocket_texture : Texture2D
 @export var piercing : bool = false
 @export var explosive : bool = false
 @export var explosion_damage : int = 10
@@ -18,7 +20,21 @@ var explosion_scene: PackedScene
 func _ready() -> void:
 	# Calculate direction once and keep flying in that direction
 	direction = global_position.direction_to(target)
-	rotation = direction.angle()
+
+	if explosive:
+		# Rotate rocket to face target
+		scale = Vector2(1.75, 1.75)
+		rotation = direction.angle() + deg_to_rad(90)
+	else:
+		rotation = direction.angle()
+	
+	# Set the appropriate texture based on projectile type
+	var sprite = get_node_or_null("BulletSprite")
+	if sprite:
+		if explosive and rocket_texture:
+			sprite.texture = rocket_texture
+		elif bullet_texture:
+			sprite.texture = bullet_texture
 	
 	# Pass piercing value and VFX to the hitbox child
 	var hitbox = get_node_or_null("Hitbox")
