@@ -1,6 +1,8 @@
 extends Node2D
 class_name Explosion
 
+const DAMAGE_NUMBER = preload("res://Objects/DamageNumber/damage_number.tscn")
+
 ## Damage dealt to enemies in explosion radius
 @export var damage: int = 10
 ## Radius of the explosion
@@ -63,6 +65,16 @@ func _create_damage_area() -> void:
 				# Apply flat damage regardless of hurtbox type (no crits)
 				enemy.current_health -= damage
 				damaged_enemies.append(enemy)
+				# Spawn explosion damage number
+				_spawn_explosion_damage_number(damage, enemy.global_position)
 	
 	# Remove area after damage is dealt
 	area.queue_free()
+
+func _spawn_explosion_damage_number(damage_value: int, spawn_position: Vector2) -> void:
+	if DAMAGE_NUMBER == null or vfx_parent == null:
+		return
+	var damage_number_inst = DAMAGE_NUMBER.instantiate()
+	damage_number_inst.global_position = spawn_position + Vector2(randi_range(-20, 20), randi_range(-30, -50))
+	damage_number_inst.set_explosion_damage(damage_value)
+	vfx_parent.add_child(damage_number_inst)

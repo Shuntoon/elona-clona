@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=4 format=3 uid="uid://df405oehsa8yx"]
+
+[ext_resource type="Texture2D" uid="uid://d3rcf2brjy7c0" path="res://Art/Filler/Guns/1.png" id="1_m6aja"]
+[ext_resource type="Script" uid="uid://rimwdfuvv8ao" path="res://Data/WeaponData/weapon_data.gd" id="2_tsafl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pxwm6"]
+atlas = ExtResource("1_m6aja")
+region = Rect2(0, 118, 12, 10.083237)
+
+[resource]
+script = ExtResource("2_tsafl")
+weapon_name = "dirty cheater"
+icon = SubResource("AtlasTexture_pxwm6")
+fire_mode = 2
+max_spread = 80.0
+fire_rate = 120.0
+magazine_size = 8
+reload_time = 3.0
+crit_chance = 1.0
+bullet_damage = 100
+burst_count = 200
+burst_delay = 0.001
+explosion_damage = 30
+metadata/_custom_type_script = "uid://rimwdfuvv8ao"

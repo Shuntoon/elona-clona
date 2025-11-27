@@ -10,8 +10,46 @@ class_name AugmentPanelButton
 @onready var price_label: Label = %Label
 @onready var buy_button: Button = $BuyButton
 
+var base_scale := Vector2.ONE
+var hover_tween: Tween
+var is_purchased := false
+
 func _ready():
-	init_panel(augment_data) 
+	base_scale = scale
+	mouse_entered.connect(_on_mouse_entered)
+	mouse_exited.connect(_on_mouse_exited)
+	init_panel(augment_data)
+
+func animate_entrance(delay: float = 0.0) -> void:
+	# Start off-screen and transparent
+	modulate.a = 0.0
+	scale = Vector2(0.8, 0.8)
+	position.y += 50
+	
+	# Animate in with delay
+	var tween = create_tween().set_parallel(true)
+	tween.tween_property(self, "modulate:a", 1.0, 0.3).set_delay(delay).set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, "scale", base_scale, 0.35).set_delay(delay).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
+	tween.tween_property(self, "position:y", position.y - 50, 0.3).set_delay(delay).set_ease(Tween.EASE_OUT)
+
+func _on_mouse_entered() -> void:
+	if is_purchased:
+		return
+	if hover_tween and hover_tween.is_valid():
+		hover_tween.kill()
+	hover_tween = create_tween().set_parallel(true)
+	hover_tween.tween_property(self, "scale", base_scale * 1.05, 0.15).set_ease(Tween.EASE_OUT)
+	# Slight glow effect via modulate
+	hover_tween.tween_property(self, "modulate", Color(1.2, 1.2, 1.2, 1.0), 0.15)
+
+func _on_mouse_exited() -> void:
+	if is_purchased:
+		return
+	if hover_tween and hover_tween.is_valid():
+		hover_tween.kill()
+	hover_tween = create_tween().set_parallel(true)
+	hover_tween.tween_property(self, "scale", base_scale, 0.15).set_ease(Tween.EASE_OUT)
+	hover_tween.tween_property(self, "modulate", Color.WHITE, 0.15) 
 
 func init_panel(augment_data_inst: AugmentData) -> void:
 	augment_data = augment_data_inst
@@ -39,25 +77,31 @@ func _set_rarity_color() -> void:
 	
 	match augment_data.rarity:
 		AugmentData.Rarity.COMMON:
-			color = Color(0.5, 0.5, 0.5)  # Grey
+			color = Color(0.7, 0.7, 0.7)  # Grey
 		AugmentData.Rarity.UNCOMMON:
-			color = Color(0.2, 0.8, 0.2)  # Green
+			color = Color(0.3, 1.0, 0.3)  # Green
 		AugmentData.Rarity.RARE:
-			color = Color(0.6, 0.2, 0.8)  # Purple
+			color = Color(0.7, 0.3, 1.0)  # Purple
 		AugmentData.Rarity.ABILITY:
-			color = Color(0.4, 0.8, 1.0)  # Light Blue
+			color = Color(0.5, 0.9, 1.0)  # Light Blue
 		AugmentData.Rarity.LEGENDARY:
-			color = Color(1.0, 0.4, 0.1)  # Orange-Red
+			color = Color(1.0, 0.5, 0.2)  # Orange-Red
 		_:
 			color = Color.WHITE  # Default
 	
-	# Get or create a StyleBox and apply the color
+	# Apply color modulation directly to the panel
+	self_modulate = color
+	
+	# Add a pronounced border with the rarity color
 	var stylebox = get_theme_stylebox("panel")
 	if stylebox:
-		# Duplicate to avoid modifying the original theme
 		stylebox = stylebox.duplicate()
 		if stylebox is StyleBoxFlat:
-			stylebox.bg_color = color
+			stylebox.border_width_left = 3
+			stylebox.border_width_top = 3
+			stylebox.border_width_right = 3
+			stylebox.border_width_bottom = 3
+			stylebox.border_color = color
 		add_theme_stylebox_override("panel", stylebox)
 
 
@@ -70,7 +114,20 @@ func _on_buy_button_pressed() -> void:
 	# Deduct gold
 	PlayerData.gold -= augment_data.price
 	
+	# Play purchase animation
+	is_purchased = true
+	_play_purchase_animation()
+	
 	purchased_panel.show()
+
+func _play_purchase_animation() -> void:
+	var tween = create_tween()
+	# Quick scale pop then settle
+	tween.tween_property(self, "scale", base_scale * 1.15, 0.1).set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, "scale", base_scale * 0.95, 0.15).set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property(self, "scale", base_scale, 0.1).set_ease(Tween.EASE_OUT)
+	# Fade to purchased state
+	tween.parallel().tween_property(self, "modulate", Color(0.6, 0.6, 0.6, 0.8), 0.3)
 	
 	# Check if this is an ability augment
 	if augment_data.augment_type == AugmentData.AugmentType.ABILITY:

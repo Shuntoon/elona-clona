@@ -6,11 +6,13 @@
 [resource]
 script = ExtResource("1_ithi2")
 enemy_name = "Skelton"
-speed = 1.0
+speed = 1.2
 max_health = 100
 animated_sprite_frames = ExtResource("1_k6fpn")
-body_hitbox_size = Vector2(29, 42)
-body_pos = Vector2(4, 5)
-head_hitbox_size = Vector2(14, 12)
-head_pos = Vector2(12, -21)
+animated_sprite_2d_scale = Vector2(2, 2)
+gold_reward = 10
+body_hitbox_size = Vector2(58, 84)
+body_pos = Vector2(4, 10)
+head_hitbox_size = Vector2(18, 21)
+head_pos = Vector2(19, -42)
 metadata/_custom_type_script = "uid://d4hepntti60rn"

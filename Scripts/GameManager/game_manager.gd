@@ -7,8 +7,10 @@ signal start_new_day
 
 const ENEMY_BASE = preload("uid://djs38cy8bwdv7")
 const ALLY_BASE = preload("uid://shs4qcsi72hc")
+const CROSSHAIR_SCENE = preload("res://UI/Crosshair/crosshair.tscn")
 
 var sudden_death : bool = false
+var crosshair: Crosshair = null
 var max_health : int = 50
 var current_health : int : 
 	set(value):
@@ -19,6 +21,8 @@ var current_health : int :
 		if current_health > max_health:
 			current_health = max_health
 		
+@export var bg_start_color: Color = Color(0.8530103, 0.7348689, 0.6901674, 1.0)  # Original daytime color
+@export var bg_end_color: Color = Color(0.6, 0.5, 0.7, 1.0)  # Lavender/dusk color
 @export var day_time_length : float = 10
 
 @onready var spawner: Spawner = %Spawner
@@ -32,6 +36,9 @@ var current_health : int :
 @onready var ally_2_spawn: Marker2D = %Ally2Spawn
 @onready var ally_3_spawn: Marker2D = %Ally3Spawn
 @onready var allies_node: Node2D = $"../Entities/Allies"
+
+# Background modulation for day/night cycle
+@onready var background: TextureRect = $"../BG2"
 
 # Wave system reference
 var wave_manager
@@ -51,6 +58,18 @@ func _ready() -> void:
 	# Defer signal to ensure all nodes are ready
 	call_deferred("emit_signal", "start_new_day")
 	print("GameManager: Deferred start_new_day signal")
+
+func _process(_delta: float) -> void:
+	# Update background color based on day progress (only in second half of day)
+	if background and day_timer and not day_timer.is_stopped():
+		var progress = 1.0 - (day_timer.time_left / day_time_length)
+		# Only start transitioning after 50% of the day
+		if progress > 0.5:
+			# Remap 0.5-1.0 to 0.0-1.0 for the transition
+			var transition_progress = (progress - 0.5) * 2.0
+			background.modulate = bg_start_color.lerp(bg_end_color, transition_progress)
+		else:
+			background.modulate = bg_start_color
 
 # Debug: Finish day input to clear enemies
 func _unhandled_input(event: InputEvent) -> void:
@@ -115,6 +134,9 @@ func _on_all_enemies_killed() -> void:
 	upgrade_screen._bounce_in()
 	# Pause the game while in shop
 	get_tree().paused = true
+	# Hide crosshair for shop
+	if crosshair:
+		crosshair.hide_crosshair()
 	
 func _init_allies() -> void:
 	_clear_allies()
@@ -168,6 +190,18 @@ func _on_start_new_day() -> void:
 	sudden_death = false
 	# Unpause game when starting new day
 	get_tree().paused = false
+	
+	# Reset background to daytime color
+	if background:
+		background.modulate = bg_start_color
+	
+	# Show crosshair for gameplay
+	if not crosshair and CROSSHAIR_SCENE:
+		crosshair = CROSSHAIR_SCENE.instantiate()
+		add_child(crosshair)
+	if crosshair:
+		crosshair.show_crosshair()
+	
 	# Don't start spawn_timer - WaveManager handles spawning now
 	day_timer.start(day_time_length)
 

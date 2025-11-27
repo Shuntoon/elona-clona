@@ -1,15 +1,14 @@
-[gd_scene load_steps=17 format=3 uid="uid://b021iasahg234"]
+[gd_scene load_steps=16 format=3 uid="uid://b021iasahg234"]
 
 [ext_resource type="Script" uid="uid://bk5upyxc362t4" path="res://UI/MainMenu/main_menu.gd" id="1_u0e1r"]
 [ext_resource type="Script" uid="uid://cvikpqyxjqs5g" path="res://Scripts/GameManager/game_manager.gd" id="3_mg3m2"]
 [ext_resource type="Script" uid="uid://b0hnw34sgf8um" path="res://Scripts/WaveManager/wave_manager.gd" id="8_8uw0o"]
-[ext_resource type="Texture2D" uid="uid://vyva55pseaxx" path="res://Art/BG/bg.png" id="8_ejg71"]
+[ext_resource type="Texture2D" uid="uid://cy8pou57fxnrh" path="res://Art/BG/RealBG.png" id="8_ejg71"]
 [ext_resource type="Script" uid="uid://dssq5y3twr3y4" path="res://Scripts/WaveManager/wave_data.gd" id="9_ql5ya"]
-[ext_resource type="Resource" uid="uid://dllb7i7ax465" path="res://Data/WaveData/test_data.tres" id="10_ka3nr"]
+[ext_resource type="Resource" uid="uid://dllb7i7ax465" path="res://Data/WaveData/Test/quick_individual_unit_data.tres" id="10_ka3nr"]
 [ext_resource type="Resource" uid="uid://che2jquh8hejp" path="res://Data/WaveData/test_data_2.tres" id="11_48knj"]
 [ext_resource type="Shader" uid="uid://dpwvb4uoa52xy" path="res://UI/MainMenu/blur_backbuffer.gdshader" id="11_ejg71"]
 [ext_resource type="PackedScene" uid="uid://djs38cy8bwdv7" path="res://Objects/Enemy/enemy_base.tscn" id="12_m2y5l"]
-[ext_resource type="Texture2D" uid="uid://cseoedy4scsdr" path="res://icon.svg" id="16_ai24q"]
 [ext_resource type="Script" uid="uid://c60bxtqxj72gr" path="res://Objects/Spawner/spawner.gd" id="17_qby1g"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_80nbo"]
@@ -21,17 +20,17 @@ size = Vector2(2.5714264, 11.25094)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lnp6m"]
 shader = ExtResource("11_ejg71")
-shader_parameter/blur_amount = 10.0
+shader_parameter/blur_amount = 35.0000016625
 
 [sub_resource type="LabelSettings" id="LabelSettings_u0e1r"]
-font_size = 52
+font_size = 72
 
 [node name="MainMenu" type="Node"]
 script = ExtResource("1_u0e1r")
 
 [node name="GameManager" type="Node" parent="." groups=["game_manager"]]
 script = ExtResource("3_mg3m2")
-day_time_length = 9999999.0
+day_time_length = 99999999.0
 
 [node name="SpawnTimer" type="Timer" parent="GameManager"]
 
@@ -49,7 +48,6 @@ modulate = Color(0.8530103, 0.7348689, 0.6901674, 1)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -145.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("8_ejg71")
@@ -190,11 +188,6 @@ shape = SubResource("RectangleShape2D_80nbo")
 
 [node name="Allies" type="Node2D" parent="Entities" groups=["allies"]]
 
-[node name="Player" type="Sprite2D" parent="Entities/Allies"]
-position = Vector2(1068, 470)
-scale = Vector2(0.5156255, 0.5156255)
-texture = ExtResource("16_ai24q")
-
 [node name="Ally1Spawn" type="Marker2D" parent="Entities/Allies"]
 unique_name_in_owner = true
 position = Vector2(1063, 387)
@@ -249,7 +242,6 @@ position = Vector2(2, 168)
 position = Vector2(2, 106)
 
 [node name="BlurOverlay" type="ColorRect" parent="."]
-visible = false
 material = SubResource("ShaderMaterial_lnp6m")
 anchors_preset = 15
 anchor_right = 1.0
@@ -258,7 +250,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="MainMenuControl" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -271,12 +262,14 @@ grow_vertical = 2
 [node name="TitleLabel" type="Label" parent="CanvasLayer/MainMenuControl"]
 layout_mode = 0
 offset_left = 214.0
-offset_top = 143.0
-offset_right = 1065.0
-offset_bottom = 215.0
+offset_top = 168.0
+offset_right = 1097.0
+offset_bottom = 286.0
 size_flags_horizontal = 4
 text = "GAME NAME: NAME OF THE GAME"
 label_settings = SubResource("LabelSettings_u0e1r")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ButtonsVBoxContainer" type="VBoxContainer" parent="CanvasLayer/MainMenuControl"]
 layout_mode = 1
@@ -285,12 +278,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -154.0
-offset_top = -90.0
-offset_right = 154.0
-offset_bottom = 270.0
+offset_left = -129.0
+offset_top = -49.0
+offset_right = 129.0
+offset_bottom = 229.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 8
 
 [node name="PlayButton" type="Button" parent="CanvasLayer/MainMenuControl/ButtonsVBoxContainer"]
 layout_mode = 2
@@ -325,3 +319,7 @@ text = "Quit
 [connection signal="timeout" from="GameManager/DayTimer" to="GameManager" method="_on_day_timer_timeout"]
 [connection signal="child_exiting_tree" from="Entities/Enemies" to="GameManager" method="_on_enemies_child_exiting_tree"]
 [connection signal="pressed" from="CanvasLayer/MainMenuControl/ButtonsVBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenuControl/ButtonsVBoxContainer/HowToPlayButton" to="." method="_on_how_to_play_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenuControl/ButtonsVBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenuControl/ButtonsVBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenuControl/ButtonsVBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

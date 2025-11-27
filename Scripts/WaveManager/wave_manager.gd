@@ -94,8 +94,17 @@ func _on_day_started():
 	is_spawning = true
 	current_display_wave = current_wave_index + 1  # Update display wave when day starts
 	
+	# Ensure one frame delay before emitting
 	wave_started.emit(current_wave_index + 1)
 	print("Wave ", current_wave_index + 1, " started")
+	
+	# Show wave announcement
+	var wave_announcement = get_tree().get_first_node_in_group("wave_announcement")
+	if wave_announcement:
+		var wave_name = ""
+		if current_wave_data and current_wave_data.wave_name:
+			wave_name = current_wave_data.wave_name
+		wave_announcement.announce_wave(current_wave_index + 1, wave_name)
 	
 	var spawn_interval = current_wave_data.get_spawn_interval(current_difficulty_phase)
 	spawn_timer.wait_time = spawn_interval
@@ -157,6 +166,7 @@ func _spawn_enemy_with_data(enemy_data: EnemyData):
 	enemy_inst.gold_reward = enemy_data.gold_reward
 	enemy_inst.gold_reward_variance = enemy_data.gold_reward_variance
 	enemy_inst.current_terrain_type = enemy_data.terrain_type
+	enemy_inst.animated_sprite_frames = enemy_data.animated_sprite_frames
 	enemy_inst.animated_sprite_2d_scale = enemy_data.animated_sprite_2d_scale
 	
 	# Set hurtbox configuration (will be applied in enemy's _ready)
@@ -175,6 +185,7 @@ func _spawn_enemy_with_data(enemy_data: EnemyData):
 
 func _spawn_at_position(enemy_inst: Enemy, terrain: Spawner.TERRAIN):
 	var random_pos: Vector2
+	var random_pos_offset : Vector2 = Vector2.UP * randi_range(-72,72)
 	
 	match terrain:
 		Spawner.TERRAIN.GROUND:
@@ -184,7 +195,7 @@ func _spawn_at_position(enemy_inst: Enemy, terrain: Spawner.TERRAIN):
 				enemy_inst.queue_free()
 				return
 			var random_ground: Marker2D = ground_children.pick_random()
-			random_pos = random_ground.global_position
+			random_pos = random_ground.global_position + random_pos_offset
 		Spawner.TERRAIN.AIR:
 			var air_children = spawner.air.get_children()
 			if air_children.is_empty():
@@ -192,7 +203,7 @@ func _spawn_at_position(enemy_inst: Enemy, terrain: Spawner.TERRAIN):
 				enemy_inst.queue_free()
 				return
 			var random_air: Marker2D = air_children.pick_random()
-			random_pos = random_air.global_position
+			random_pos = random_air.global_position + random_pos_offset
 	
 	enemy_inst.global_position = random_pos
 	

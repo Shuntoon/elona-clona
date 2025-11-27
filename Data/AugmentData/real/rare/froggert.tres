@@ -9,6 +9,6 @@ name = "Froggert"
 description = "Spawns a Froggert on the battlefield. Shoots toxic projectiles and explodes on contact."
 icon = ExtResource("1_icon")
 rarity = 2
-price = 300
+price = 200
 augment_type = 25
 value = 1.0

@@ -268,6 +268,10 @@ func _fire_bullet() -> void:
 	if current_ammo <= 0:
 		return
 	
+	# Trigger crosshair shoot animation
+	if game_manager and game_manager.crosshair:
+		game_manager.crosshair.on_shoot()
+	
 	# Check for ammo refund chance from augments
 	var augment_manager = get_tree().get_first_node_in_group("augment_manager")
 	var refund_ammo = false

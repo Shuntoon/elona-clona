@@ -9,6 +9,6 @@ name = "Opening Shot"
 description = "First shot in each magazine deals +50% damage. Stacks."
 icon = ExtResource("1_icon")
 rarity = 2
-price = 250
+price = 200
 augment_type = 23
 value = 0.5

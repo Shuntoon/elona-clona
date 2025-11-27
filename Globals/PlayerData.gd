@@ -11,6 +11,7 @@ extends Node
 
 @export var allies_level : int = 1
 @export var ability_slots_level : int = 1
+@export var reroll_discount_level : int = 0  # Each level reduces reroll cost by 15%
 
 @export var augments : Array[AugmentData] = []
 @export var ability_augments : Array[AugmentData] = []  # Max 3 ability augments

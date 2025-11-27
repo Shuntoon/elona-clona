@@ -26,13 +26,14 @@ func _process(delta: float) -> void:
 
 func _on_next_wave_button_pressed() -> void:
 	_swipe_out()
+	await get_tree().create_timer(1.0).timeout
 	game_mananger.start_new_day.emit()
 	pass # Replace with function body.
 
 func _bounce_in() -> void:
 	position.y = position.y - 1000
 	var tween := create_tween()
-	tween.tween_property(self, "position:y", position.y + 1000, 1).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, "position:y", position.y + 1000, 1).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 	
 	foundation_button.grab_focus()
 
@@ -46,25 +47,27 @@ func hide_pages() -> void:
 	armory_page.hide()
 	allies_page.hide()
 
-func _on_foundation_button_pressed() -> void:
+func _show_page_animated(page: Control) -> void:
 	hide_pages()
-	foundation_page.show()
-	pass # Replace with function body.
+	page.show()
+	# Slide in from left with fade
+	page.modulate.a = 0.0
+	page.position.x = -30
+	var tween = create_tween().set_parallel(true)
+	tween.tween_property(page, "modulate:a", 1.0, 0.2).set_ease(Tween.EASE_OUT)
+	tween.tween_property(page, "position:x", 0.0, 0.25).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
+
+func _on_foundation_button_pressed() -> void:
+	_show_page_animated(foundation_page)
 
 func _on_augments_button_pressed() -> void:
-	hide_pages()
-	augments_page.show()
-	pass # Replace with function body.
+	_show_page_animated(augments_page)
 
 func _on_armory_button_pressed() -> void:
-	hide_pages()
-	armory_page.show()
-	pass # Replace with function body.
+	_show_page_animated(armory_page)
 
 func _on_allies_button_pressed() -> void:
-	hide_pages()
-	allies_page.show()
-	pass # Replace with function body.
+	_show_page_animated(allies_page)
 
 func update_stats() -> void:
 	gold_label.text = "Gold: " + str(PlayerData.gold)

@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=4 format=3 uid="uid://crysos7qvdum7"]
+
+[ext_resource type="Texture2D" uid="uid://d3rcf2brjy7c0" path="res://Art/Filler/Guns/1.png" id="1_mrl35"]
+[ext_resource type="Script" uid="uid://rimwdfuvv8ao" path="res://Data/WeaponData/weapon_data.gd" id="2_rx10j"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pxwm6"]
+atlas = ExtResource("1_mrl35")
+region = Rect2(0, 118, 12, 10.083237)
+
+[resource]
+script = ExtResource("2_rx10j")
+weapon_name = "Revolver"
+icon = SubResource("AtlasTexture_pxwm6")
+accuracy = 0.8
+fire_rate = 120.0
+magazine_size = 6
+crit_chance = 1.0
+crit_multiplier = 2.5
+bullet_damage = 40
+burst_count = 15
+burst_delay = 0.001
+metadata/_custom_type_script = "uid://rimwdfuvv8ao"

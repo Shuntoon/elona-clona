@@ -1,8 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://bljxubxu5eg3j"]
+[gd_scene load_steps=8 format=3 uid="uid://bljxubxu5eg3j"]
 
 [ext_resource type="Script" uid="uid://bqeixh23sac7h" path="res://Objects/BulletBase/bullet_base.gd" id="1_0rh40"]
-[ext_resource type="Texture2D" uid="uid://cseoedy4scsdr" path="res://icon.svg" id="1_4qeoi"]
 [ext_resource type="PackedScene" uid="uid://bg6uxodad3g5f" path="res://Objects/Hitbox/hitbox.tscn" id="2_0rh40"]
+[ext_resource type="Texture2D" uid="uid://cb4kodadvotk3" path="res://Art/Bullet/All_Fire_Bullet_Pixel_16x16_00.png" id="2_lcnbm"]
+[ext_resource type="Texture2D" uid="uid://c1ddjgbaaj7wh" path="res://Art/Bullet/RocketGrey.png" id="3_lcnbm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2dcwa"]
+atlas = ExtResource("2_lcnbm")
+region = Rect2(339, 117, 11, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lcnbm"]
+atlas = ExtResource("3_lcnbm")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0rh40"]
 size = Vector2(10, 10)
@@ -10,10 +18,12 @@ size = Vector2(10, 10)
 [node name="BulletBase" type="Node2D"]
 script = ExtResource("1_0rh40")
 speed = 5000.0
+bullet_texture = SubResource("AtlasTexture_2dcwa")
+rocket_texture = ExtResource("3_lcnbm")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.078125, 0.07812501)
-texture = ExtResource("1_4qeoi")
+[node name="BulletSprite" type="Sprite2D" parent="."]
+scale = Vector2(1.2499998, 1.25)
+texture = SubResource("AtlasTexture_lcnbm")
 
 [node name="Hitbox" parent="." instance=ExtResource("2_0rh40")]
 destroy_instantly = false

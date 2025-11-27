@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="WaveData" load_steps=7 format=3 uid="uid://b5mfeioe3gmjm"]
+
+[ext_resource type="Script" uid="uid://d4hepntti60rn" path="res://Data/EnemyData/enemy_data.gd" id="1_vbgn6"]
+[ext_resource type="Resource" uid="uid://dqv8yxqm84a7v" path="res://Data/EnemyData/real/skeleton_Enemy.tres" id="2_7k4m3"]
+[ext_resource type="Resource" uid="uid://dneqa136jkq47" path="res://Data/EnemyData/real/goblin_Enemy.tres" id="3_f16rw"]
+[ext_resource type="Script" uid="uid://dssq5y3twr3y4" path="res://Scripts/WaveManager/wave_data.gd" id="4_2wbfc"]
+[ext_resource type="Resource" uid="uid://rpdyfx78int7" path="res://Data/EnemyData/real/bat_Enemy.tres" id="4_5g688"]
+[ext_resource type="Resource" uid="uid://dhrc8qcymdph8" path="res://Data/EnemyData/real/zombie_Enemy.tres" id="5_t1n44"]
+
+[resource]
+script = ExtResource("4_2wbfc")
+easy_enemies = Array[ExtResource("1_vbgn6")]([ExtResource("2_7k4m3"), ExtResource("3_f16rw"), ExtResource("4_5g688"), ExtResource("5_t1n44")])
+medium_enemies = Array[ExtResource("1_vbgn6")]([ExtResource("2_7k4m3"), ExtResource("3_f16rw"), ExtResource("4_5g688"), ExtResource("5_t1n44")])
+hard_enemies = Array[ExtResource("1_vbgn6")]([ExtResource("2_7k4m3"), ExtResource("3_f16rw"), ExtResource("4_5g688"), ExtResource("5_t1n44")])
+easy_weights = Array[float]([1.0, 3.0, 0.0, 0.0])
+medium_weights = Array[float]([1.0, 2.0, 1.0, 2.0])
+hard_weights = Array[float]([1.0, 1.5, 2.0, 1.0])
+base_spawn_interval = 1.8
+easy_spawn_multiplier = 1.4
+medium_spawn_multiplier = 1.2
+hard_spawn_multiplier = 0.9
+metadata/_custom_type_script = "uid://dssq5y3twr3y4"

@@ -45,30 +45,31 @@ theme_override_constants/separation = 8
 [node name="RiflemanButton" type="Button" parent="MarginContainer/ButtonVBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "Rifleman"
+text = "Rifleman ($200)"
 
 [node name="SupportButton" type="Button" parent="MarginContainer/ButtonVBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "Support"
-
-[node name="SniperButton" type="Button" parent="MarginContainer/ButtonVBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-text = "Sniper"
+text = "Support ($300)"
 
 [node name="MachineGunnerButton" type="Button" parent="MarginContainer/ButtonVBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "Machine Gunner"
+text = "Machine Gunner ($400)"
+
+[node name="SniperButton" type="Button" parent="MarginContainer/ButtonVBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Sniper($500)"
 
 [node name="MachineGunnerButton2" type="Button" parent="MarginContainer/ButtonVBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "Rocketeer"
+text = "Rocketeer($750)"
 
 [node name="LockedPanel" type="Panel" parent="."]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -95,6 +96,6 @@ stretch_mode = 5
 
 [connection signal="pressed" from="MarginContainer/ButtonVBoxContainer/RiflemanButton" to="." method="_on_rifleman_button_pressed"]
 [connection signal="pressed" from="MarginContainer/ButtonVBoxContainer/SupportButton" to="." method="_on_support_button_pressed"]
-[connection signal="pressed" from="MarginContainer/ButtonVBoxContainer/SniperButton" to="." method="_on_sniper_button_pressed"]
 [connection signal="pressed" from="MarginContainer/ButtonVBoxContainer/MachineGunnerButton" to="." method="_on_machine_gunner_button_pressed"]
+[connection signal="pressed" from="MarginContainer/ButtonVBoxContainer/SniperButton" to="." method="_on_sniper_button_pressed"]
 [connection signal="pressed" from="MarginContainer/ButtonVBoxContainer/MachineGunnerButton2" to="." method="_on_machine_gunner_button_2_pressed"]

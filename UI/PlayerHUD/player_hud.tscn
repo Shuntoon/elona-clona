@@ -1,32 +1,39 @@
-[gd_scene load_steps=12 format=3 uid="uid://dkvrnpgnp3f86"]
+[gd_scene load_steps=16 format=3 uid="uid://dkvrnpgnp3f86"]
 
 [ext_resource type="Script" uid="uid://cixf8coa0xj00" path="res://UI/PlayerHUD/player_hud.gd" id="1_pi8qp"]
+[ext_resource type="Texture2D" uid="uid://bdylnvm06f5fm" path="res://Art/UI/RealUI/Panel.png" id="2_70xbo"]
 [ext_resource type="Shader" uid="uid://do6sswls8vm6l" path="res://Shaders/radial_bar.gdshader" id="2_pkcmm"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ally_panel"]
-content_margin_left = 8.0
-content_margin_top = 8.0
-content_margin_right = 8.0
-content_margin_bottom = 8.0
-bg_color = Color(0.1, 0.1, 0.1, 0.7)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.4, 0.7, 0.4, 0.5)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qo518"]
+content_margin_left = 14.0
+content_margin_top = 14.0
+content_margin_right = 16.0
+texture = ExtResource("2_70xbo")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+modulate_color = Color(0.35064948, 0.31822386, 0.1822429, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_ally"]
-font_size = 18
+[sub_resource type="LabelSettings" id="LabelSettings_yqh1v"]
+font_size = 24
 shadow_color = Color(0, 0, 0, 0.6)
 
 [sub_resource type="LabelSettings" id="LabelSettings_5o0p8"]
 font_size = 32
 shadow_size = 2
 shadow_color = Color(0, 0, 0, 0.6039216)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_70xbo"]
+texture = ExtResource("2_70xbo")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+expand_margin_left = 6.0
+expand_margin_top = 6.0
+expand_margin_right = 6.0
+expand_margin_bottom = 6.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5wk1x"]
 bg_color = Color(0.7851237, 0.036288843, 0.036288843, 1)
@@ -64,6 +71,16 @@ shader_parameter/width_in = 0.0
 shader_parameter/width_out = 0.95
 shader_parameter/border_width = 0.05
 
+[sub_resource type="LabelSettings" id="LabelSettings_70xbo"]
+font_size = 54
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.8156863)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qo518"]
+font_size = 36
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.8156863)
+
 [node name="PlayerHUD" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -75,26 +92,45 @@ mouse_filter = 2
 script = ExtResource("1_pi8qp")
 
 [node name="AllyControlsPanel" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 0
-offset_left = 1003.0
-offset_top = 136.0
-offset_right = 1195.5333
-offset_bottom = 178.0
+offset_left = 779.0
+offset_top = 32.0
+offset_right = 1029.0
+offset_bottom = 97.0
 size_flags_horizontal = 8
 size_flags_vertical = 8
-theme_override_styles/panel = SubResource("StyleBoxFlat_ally_panel")
+theme_override_styles/panel = SubResource("StyleBoxTexture_qo518")
 
 [node name="AllyControlsContainer" type="VBoxContainer" parent="AllyControlsPanel"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 6
 
-[node name="AllyControlsLabel" type="Label" parent="AllyControlsPanel/AllyControlsContainer"]
+[node name="AllyControlsHeader" type="HBoxContainer" parent="AllyControlsPanel/AllyControlsContainer"]
 layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="AllyControlsToggle" type="Button" parent="AllyControlsPanel/AllyControlsContainer/AllyControlsHeader"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "▼"
+
+[node name="AllyControlsLabel" type="Label" parent="AllyControlsPanel/AllyControlsContainer/AllyControlsHeader"]
+layout_mode = 2
+size_flags_horizontal = 3
 text = "🎯 Ally Targeting"
-label_settings = SubResource("LabelSettings_ally")
+label_settings = SubResource("LabelSettings_yqh1v")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AllyControlsContent" type="VBoxContainer" parent="AllyControlsPanel/AllyControlsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 6
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -113,6 +149,7 @@ theme_override_constants/margin_bottom = 32
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_constants/separation = 12
 
 [node name="HPLabel" type="Label" parent="MarginContainer/HPHBoxContainer"]
 layout_mode = 2
@@ -128,6 +165,7 @@ custom_minimum_size = Vector2(240, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxTexture_70xbo")
 theme_override_styles/fill = SubResource("StyleBoxFlat_5wk1x")
 value = 21.06
 show_percentage = false
@@ -157,6 +195,7 @@ layout_mode = 2
 show_percentage = false
 
 [node name="AbilitiesHBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
@@ -244,10 +283,46 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 
-[node name="DayLabel" type="Label" parent="MarginContainer"]
+[node name="GoldHBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_constants/separation = 8
+
+[node name="GoldIconLabel" type="Label" parent="MarginContainer/GoldHBoxContainer"]
+layout_mode = 2
+text = "💰"
+label_settings = SubResource("LabelSettings_pkcmm")
+
+[node name="GoldLabel" type="Label" parent="MarginContainer/GoldHBoxContainer"]
 unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_70xbo")
+
+[node name="Panel" type="Panel" parent="MarginContainer"]
+custom_minimum_size = Vector2(164, 48)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
+
+[node name="DayLabel" type="Label" parent="MarginContainer/Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = -22.0
+offset_right = 90.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
 text = "Day 1 / 10"
-label_settings = SubResource("LabelSettings_pkcmm")
+label_settings = SubResource("LabelSettings_qo518")
+horizontal_alignment = 1
+vertical_alignment = 1

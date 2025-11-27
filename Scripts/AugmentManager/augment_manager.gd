@@ -395,7 +395,8 @@ func try_spawn_coin_on_enemy_death(enemy_position: Vector2) -> void:
 		return
 	
 	if randf() < coin_drop_chance:
-		_spawn_coin(enemy_position)
+		# Defer spawning to avoid physics state conflicts
+		call_deferred("_spawn_coin", enemy_position)
 
 func _spawn_coin(position: Vector2) -> void:
 	const COIN_SCENE = preload("res://Objects/Coin/coin.tscn")

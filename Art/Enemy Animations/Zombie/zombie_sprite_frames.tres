@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=39 format=3 uid="uid://d1lwbyhy7l38r"]
+[gd_resource type="SpriteFrames" load_steps=38 format=3 uid="uid://d1lwbyhy7l38r"]
 
 [ext_resource type="Texture2D" uid="uid://byslm6dhisqc" path="res://Art/Enemy Animations/Zombie/Walk.png" id="1_5vo4m"]
 [ext_resource type="Texture2D" uid="uid://cc23i1vwrtdpw" path="res://Art/Enemy Animations/Zombie/Attack.png" id="1_x7e7k"]
@@ -66,51 +66,47 @@ region = Rect2(1680, 0, 120, 120)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p7xcy"]
 atlas = ExtResource("2_laq6g")
-region = Rect2(0, 0, 110, 120)
+region = Rect2(0, 0, 120, 120)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3bwhn"]
 atlas = ExtResource("2_laq6g")
-region = Rect2(110, 0, 110, 120)
+region = Rect2(120, 0, 120, 120)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o7jjw"]
 atlas = ExtResource("2_laq6g")
-region = Rect2(220, 0, 110, 120)
+region = Rect2(240, 0, 120, 120)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v34bo"]
 atlas = ExtResource("2_laq6g")
-region = Rect2(330, 0, 110, 120)
+region = Rect2(360, 0, 120, 120)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2jvlo"]
 atlas = ExtResource("2_laq6g")
-region = Rect2(440, 0, 110, 120)
+region = Rect2(480, 0, 120, 120)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tx38n"]
 atlas = ExtResource("2_laq6g")
-region = Rect2(550, 0, 110, 120)
+region = Rect2(600, 0, 120, 120)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jc6ho"]
 atlas = ExtResource("2_laq6g")
-region = Rect2(660, 0, 110, 120)
+region = Rect2(720, 0, 120, 120)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_20fb4"]
 atlas = ExtResource("2_laq6g")
-region = Rect2(770, 0, 110, 120)
+region = Rect2(840, 0, 120, 120)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wolhb"]
 atlas = ExtResource("2_laq6g")
-region = Rect2(880, 0, 110, 120)
+region = Rect2(960, 0, 120, 120)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g51dv"]
 atlas = ExtResource("2_laq6g")
-region = Rect2(990, 0, 110, 120)
+region = Rect2(1080, 0, 120, 120)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5n6te"]
 atlas = ExtResource("2_laq6g")
-region = Rect2(1100, 0, 110, 120)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vcx2v"]
-atlas = ExtResource("2_laq6g")
-region = Rect2(1210, 0, 110, 120)
+region = Rect2(1200, 0, 120, 120)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2yas0"]
 atlas = ExtResource("1_5vo4m")
@@ -229,9 +225,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5n6te")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vcx2v")
 }],
 "loop": false,
 "name": &"death",

@@ -1,12 +1,41 @@
-[gd_scene load_steps=6 format=3 uid="uid://buj37tqnk8i22"]
+[gd_scene load_steps=21 format=3 uid="uid://buj37tqnk8i22"]
 
 [ext_resource type="Script" uid="uid://d0o2h0vu1j1k4" path="res://UI/UpgradeScreen/armory_page/armory_page.gd" id="1_xy3um"]
 [ext_resource type="PackedScene" uid="uid://b23ol6kgi5880" path="res://UI/UpgradeScreen/armory_page/armory_weapon_slot.tscn" id="2_aduju"]
+[ext_resource type="Texture2D" uid="uid://bdylnvm06f5fm" path="res://Art/UI/RealUI/Panel.png" id="2_mdc5b"]
 [ext_resource type="Script" uid="uid://dfruej83tgxwe" path="res://UI/UpgradeScreen/armory_page/equipped_weapon_panel.gd" id="2_mvr1a"]
 [ext_resource type="Resource" uid="uid://b6ryv1lnoqoao" path="res://Data/WeaponData/WeaponDatas/Test/test_revolver.tres" id="4_4t1su"]
+[ext_resource type="Resource" uid="uid://cl5tfw0kdxrpj" path="res://Data/WeaponData/WeaponDatas/real/tier 1/Pistol.tres" id="5_xepml"]
+[ext_resource type="Resource" uid="uid://cjrne1ssl4irc" path="res://Data/WeaponData/WeaponDatas/real/tier 1/MP5.tres" id="6_mdc5b"]
+[ext_resource type="Resource" uid="uid://bfiiml7x5jhaa" path="res://Data/WeaponData/WeaponDatas/real/tier 1/Shotgun.tres" id="7_i5wgx"]
+[ext_resource type="Resource" uid="uid://cwmun6nu3owv1" path="res://Data/WeaponData/WeaponDatas/real/tier 1/bow.tres" id="8_ux8k0"]
+[ext_resource type="Resource" uid="uid://blabt6x5ve6tu" path="res://Data/WeaponData/WeaponDatas/real/tier 2/AK47.tres" id="9_0dyyn"]
+[ext_resource type="Resource" uid="uid://cxmbt671jx0e6" path="res://Data/WeaponData/WeaponDatas/real/tier 2/m16.tres" id="10_77iqj"]
+[ext_resource type="Resource" uid="uid://1gbswqjskx8o" path="res://Data/WeaponData/WeaponDatas/real/tier 2/Noob_Tube.tres" id="11_tst6o"]
+[ext_resource type="Resource" uid="uid://crysos7qvdum7" path="res://Data/WeaponData/WeaponDatas/real/tier 2/revolver.tres" id="12_e4i4i"]
+[ext_resource type="Resource" uid="uid://ctlemusvkrmxm" path="res://Data/WeaponData/WeaponDatas/real/Tier 3/LMG.tres" id="13_c7853"]
+[ext_resource type="Resource" uid="uid://bmw3cst1caj24" path="res://Data/WeaponData/WeaponDatas/real/Tier 3/RPG.tres" id="14_aa3gy"]
+[ext_resource type="Resource" uid="uid://cpjvgx5fcck6g" path="res://Data/WeaponData/WeaponDatas/real/Tier 3/Saw_Launcher.tres" id="15_jgjiw"]
+[ext_resource type="Resource" uid="uid://uk35gpob4qh1" path="res://Data/WeaponData/WeaponDatas/real/Tier 3/Sniper_Rifle.tres" id="16_qp41p"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_umnqg"]
 font_size = 48
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i5wgx"]
+texture = ExtResource("2_mdc5b")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+modulate_color = Color(0.180933, 0.16518886, 0.116644494, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ux8k0"]
+texture = ExtResource("2_mdc5b")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+modulate_color = Color(0.180933, 0.16518886, 0.116644494, 1)
 
 [node name="ArmoryPage" type="Panel" groups=["armory_page"]]
 custom_minimum_size = Vector2(1065, 564)
@@ -41,6 +70,7 @@ offset_left = 131.5
 offset_top = 43.0
 offset_right = 369.5
 offset_bottom = 154.59702
+theme_override_styles/panel = SubResource("StyleBoxTexture_i5wgx")
 script = ExtResource("2_mvr1a")
 weapon_slot = 0
 
@@ -89,6 +119,7 @@ offset_top = 43.0
 offset_right = -124.5
 offset_bottom = 154.59702
 grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ux8k0")
 script = ExtResource("2_mvr1a")
 weapon_slot = 1
 
@@ -225,20 +256,19 @@ layout_mode = 2
 
 [node name="ArmoryWeaponSlot" parent="WeaponsHbox/WeaponsRow1" instance=ExtResource("2_aduju")]
 layout_mode = 2
-weapon_data = ExtResource("4_4t1su")
-cost = 100
+weapon_data = ExtResource("5_xepml")
 
 [node name="ArmoryWeaponSlot2" parent="WeaponsHbox/WeaponsRow1" instance=ExtResource("2_aduju")]
 layout_mode = 2
-weapon_data = ExtResource("4_4t1su")
+weapon_data = ExtResource("6_mdc5b")
 
 [node name="ArmoryWeaponSlot3" parent="WeaponsHbox/WeaponsRow1" instance=ExtResource("2_aduju")]
 layout_mode = 2
-weapon_data = ExtResource("4_4t1su")
+weapon_data = ExtResource("7_i5wgx")
 
 [node name="ArmoryWeaponSlot4" parent="WeaponsHbox/WeaponsRow1" instance=ExtResource("2_aduju")]
 layout_mode = 2
-weapon_data = ExtResource("4_4t1su")
+weapon_data = ExtResource("8_ux8k0")
 
 [node name="WeaponsRow2" type="VBoxContainer" parent="WeaponsHbox"]
 unique_name_in_owner = true
@@ -246,19 +276,19 @@ layout_mode = 2
 
 [node name="ArmoryWeaponSlot" parent="WeaponsHbox/WeaponsRow2" instance=ExtResource("2_aduju")]
 layout_mode = 2
-weapon_data = ExtResource("4_4t1su")
+weapon_data = ExtResource("9_0dyyn")
 
 [node name="ArmoryWeaponSlot2" parent="WeaponsHbox/WeaponsRow2" instance=ExtResource("2_aduju")]
 layout_mode = 2
-weapon_data = ExtResource("4_4t1su")
+weapon_data = ExtResource("10_77iqj")
 
 [node name="ArmoryWeaponSlot3" parent="WeaponsHbox/WeaponsRow2" instance=ExtResource("2_aduju")]
 layout_mode = 2
-weapon_data = ExtResource("4_4t1su")
+weapon_data = ExtResource("11_tst6o")
 
 [node name="ArmoryWeaponSlot4" parent="WeaponsHbox/WeaponsRow2" instance=ExtResource("2_aduju")]
 layout_mode = 2
-weapon_data = ExtResource("4_4t1su")
+weapon_data = ExtResource("12_e4i4i")
 
 [node name="WeaponsRow3" type="VBoxContainer" parent="WeaponsHbox"]
 unique_name_in_owner = true
@@ -266,16 +296,16 @@ layout_mode = 2
 
 [node name="ArmoryWeaponSlot" parent="WeaponsHbox/WeaponsRow3" instance=ExtResource("2_aduju")]
 layout_mode = 2
-weapon_data = ExtResource("4_4t1su")
+weapon_data = ExtResource("13_c7853")
 
 [node name="ArmoryWeaponSlot2" parent="WeaponsHbox/WeaponsRow3" instance=ExtResource("2_aduju")]
 layout_mode = 2
-weapon_data = ExtResource("4_4t1su")
+weapon_data = ExtResource("14_aa3gy")
 
 [node name="ArmoryWeaponSlot3" parent="WeaponsHbox/WeaponsRow3" instance=ExtResource("2_aduju")]
 layout_mode = 2
-weapon_data = ExtResource("4_4t1su")
+weapon_data = ExtResource("15_jgjiw")
 
 [node name="ArmoryWeaponSlot4" parent="WeaponsHbox/WeaponsRow3" instance=ExtResource("2_aduju")]
 layout_mode = 2
-weapon_data = ExtResource("4_4t1su")
+weapon_data = ExtResource("16_qp41p")

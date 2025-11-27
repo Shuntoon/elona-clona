@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://w7gefcihbnk1"]
+[gd_scene load_steps=5 format=3 uid="uid://w7gefcihbnk1"]
 
 [ext_resource type="Texture2D" uid="uid://c141i8bg1yp0o" path="res://Art/ArmyMen/Japan.png" id="1_0fmc5"]
+[ext_resource type="Script" uid="uid://ol2whcmau8wg" path="res://UI/UpgradeScreen/allies_page/ally_filled_panel.gd" id="1_3eyxt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3eyxt"]
 atlas = ExtResource("1_0fmc5")
@@ -12,6 +13,7 @@ font_size = 20
 [node name="AllyFilledPanel" type="Panel"]
 custom_minimum_size = Vector2(240, 404)
 size_flags_horizontal = 3
+script = ExtResource("1_3eyxt")
 
 [node name="NameLabel" type="Label" parent="."]
 unique_name_in_owner = true

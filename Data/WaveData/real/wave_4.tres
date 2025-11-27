@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="WaveData" load_steps=9 format=3 uid="uid://ddxmacr6e0riv"]
+
+[ext_resource type="Script" uid="uid://d4hepntti60rn" path="res://Data/EnemyData/enemy_data.gd" id="1_7u2gc"]
+[ext_resource type="Resource" uid="uid://dqv8yxqm84a7v" path="res://Data/EnemyData/real/skeleton_Enemy.tres" id="2_vip55"]
+[ext_resource type="Resource" uid="uid://1o130blftit8" path="res://Data/EnemyData/real/Mace_skeleton_Enemy.tres" id="3_2mgnx"]
+[ext_resource type="Resource" uid="uid://rpdyfx78int7" path="res://Data/EnemyData/real/bat_Enemy.tres" id="3_42aj1"]
+[ext_resource type="Resource" uid="uid://dneqa136jkq47" path="res://Data/EnemyData/real/goblin_Enemy.tres" id="4_42aj1"]
+[ext_resource type="Resource" uid="uid://dhrc8qcymdph8" path="res://Data/EnemyData/real/zombie_Enemy.tres" id="5_wc1kt"]
+[ext_resource type="Script" uid="uid://dssq5y3twr3y4" path="res://Scripts/WaveManager/wave_data.gd" id="6_fd4vt"]
+[ext_resource type="Resource" uid="uid://bev1s8tu8o4a1" path="res://Data/EnemyData/real/ghost_knight_Enemy.tres" id="7_wc1kt"]
+
+[resource]
+script = ExtResource("6_fd4vt")
+easy_enemies = Array[ExtResource("1_7u2gc")]([ExtResource("2_vip55"), ExtResource("3_42aj1"), ExtResource("4_42aj1"), ExtResource("3_2mgnx")])
+medium_enemies = Array[ExtResource("1_7u2gc")]([ExtResource("2_vip55"), ExtResource("3_42aj1"), ExtResource("5_wc1kt"), ExtResource("4_42aj1"), ExtResource("7_wc1kt")])
+hard_enemies = Array[ExtResource("1_7u2gc")]([ExtResource("2_vip55"), ExtResource("3_42aj1"), ExtResource("5_wc1kt"), ExtResource("4_42aj1"), ExtResource("3_2mgnx"), ExtResource("7_wc1kt")])
+easy_weights = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0])
+medium_weights = Array[float]([1.0, 1.0, 1.0, 1.5, 1.0, 0.8])
+hard_weights = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
+base_spawn_interval = 1.8
+medium_spawn_multiplier = 1.1
+hard_spawn_multiplier = 1.0
+metadata/_custom_type_script = "uid://dssq5y3twr3y4"

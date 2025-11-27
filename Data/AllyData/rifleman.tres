@@ -5,4 +5,8 @@
 [resource]
 script = ExtResource("1_he4qt")
 ally_name = "Rifleman"
+fire_rate = 180.0
+bullet_damage = 12
+accuracy = 0.633
+max_spread = 40.0
 metadata/_custom_type_script = "uid://bhvur583pgsyf"

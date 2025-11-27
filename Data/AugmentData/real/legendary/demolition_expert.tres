@@ -9,6 +9,7 @@ name = "Demolition Expert"
 description = "All projectile weapons become explosive. +50% explosion damage and radius."
 icon = ExtResource("1_icon")
 rarity = 4
+price = 300
 augment_type = 10
 value = 1.0
 has_secondary_effect = true

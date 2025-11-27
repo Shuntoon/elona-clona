@@ -15,6 +15,7 @@ const DAMAGE_NUMBER = preload("res://Objects/DamageNumber/damage_number.tscn")
 @export var attack_speed : float = 1
 @export var gold_reward : int = 5
 @export var gold_reward_variance : int = 2
+@export var animated_sprite_frames : SpriteFrames
 @export var animated_sprite_2d_scale : Vector2
 
 enum TERRAIN_TYPE {
@@ -51,6 +52,7 @@ var slow_timer: Timer
 			
 
 func _ready() -> void:
+	animated_sprite_2d.sprite_frames = animated_sprite_frames
 	animated_sprite_2d.play("movement")
 	
 	wall_detector.position.x = range
@@ -107,6 +109,16 @@ func _on_attack_speed_timer_timeout() -> void:
 func _on_died() -> void:
 	animated_sprite_2d.play("death")
 	state_chart.send_event("to_dead")
+	
+	# Disable hurtboxes to prevent further damage
+	if has_node("HurtboxBody"):
+		var body_hurtbox = get_node("HurtboxBody")
+		body_hurtbox.set_deferred("monitoring", false)
+		body_hurtbox.set_deferred("monitorable", false)
+	if has_node("HurtboxHead"):
+		var head_hurtbox = get_node("HurtboxHead")
+		head_hurtbox.set_deferred("monitoring", false)
+		head_hurtbox.set_deferred("monitorable", false)
 	
 	PlayerData.gold += randi_range(gold_reward - gold_reward_variance, gold_reward + gold_reward_variance)
 
@@ -207,3 +219,7 @@ func _apply_hitbox_configuration() -> void:
 			new_shape.size = head_hitbox_size
 			head_collision.shape = new_shape
 			head_collision.position = head_pos
+
+
+func _on_dead_state_entered() -> void:
+	pass # Replace with function body.

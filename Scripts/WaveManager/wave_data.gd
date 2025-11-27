@@ -4,6 +4,7 @@ class_name WaveData
 ## Configuration for a single wave with manual difficulty phase setup
 
 @export var wave_number: int = 1
+@export var wave_name: String = ""  # Optional wave name for announcements
 
 # Enemy pools for each difficulty phase (first third, second third, final third of day)
 @export var easy_enemies: Array[EnemyData]  # Array of EnemyData
