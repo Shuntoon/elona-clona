@@ -18,6 +18,7 @@ var base_damage_multiplier: float = 1.0
 var base_fire_rate_multiplier: float = 1.0
 var base_movement_speed_multiplier: float = 1.0
 var base_reload_speed_multiplier: float = 1.0
+var base_magazine_size_multiplier: float = 1.0
 var ally_damage_multiplier: float = 1.0
 var ally_fire_rate_multiplier: float = 1.0
 var enemy_death_explosion_chance: float = 0.0
@@ -50,6 +51,7 @@ func apply_all_augments() -> void:
 	base_fire_rate_multiplier = 1.0
 	base_movement_speed_multiplier = 1.0
 	base_reload_speed_multiplier = 1.0
+	base_magazine_size_multiplier = 1.0
 	ally_damage_multiplier = 1.0
 	ally_fire_rate_multiplier = 1.0
 	enemy_death_explosion_chance = 0.0
@@ -79,6 +81,9 @@ func apply_all_augments() -> void:
 
 	# Update allies after applying all augments
 	_update_allies_stats()
+	
+	# Fill ammo to max at start of day
+	_update_weapon_stats(true)
 	
 	print("Applied ", PlayerData.augments.size(), " stat augments and ", PlayerData.ability_augments.size(), " ability augments")
 
@@ -217,9 +222,9 @@ func _apply_reload_speed(value: float) -> void:
 	_update_weapon_stats()
 
 func _apply_magazine_size(value: float) -> void:
-	if mouse_shooter and mouse_shooter.weapon_data:
-		mouse_shooter.weapon_data.magazine_size += int(value)
-		mouse_shooter.magazine_size = mouse_shooter.weapon_data.magazine_size
+	# Value is a percentage increase (e.g., 0.1 = +10%)
+	base_magazine_size_multiplier += value
+	_update_weapon_stats()
 
 func _apply_accuracy(value: float) -> void:
 	if mouse_shooter and mouse_shooter.weapon_data:
@@ -441,7 +446,8 @@ func _update_allies_stats() -> void:
 
 ## Helper function to update weapon stats that use multipliers
 ## Call this after equipping a weapon to apply augment bonuses
-func _update_weapon_stats() -> void:
+## fill_ammo: if true, sets current ammo to magazine size (use for start of day)
+func _update_weapon_stats(fill_ammo: bool = false) -> void:
 	if not mouse_shooter or not mouse_shooter.weapon_data:
 		return
 	
@@ -456,6 +462,8 @@ func _update_weapon_stats() -> void:
 		mouse_shooter.weapon_data.set_meta("base_explosion_damage", mouse_shooter.weapon_data.explosion_damage)
 	if not mouse_shooter.weapon_data.has_meta("base_explosion_radius"):
 		mouse_shooter.weapon_data.set_meta("base_explosion_radius", mouse_shooter.weapon_data.explosion_radius)
+	if not mouse_shooter.weapon_data.has_meta("base_magazine_size"):
+		mouse_shooter.weapon_data.set_meta("base_magazine_size", mouse_shooter.weapon_data.magazine_size)
 	
 	# Get base values
 	var base_damage = mouse_shooter.weapon_data.get_meta("base_damage")
@@ -463,6 +471,7 @@ func _update_weapon_stats() -> void:
 	var base_reload_time = mouse_shooter.weapon_data.get_meta("base_reload_time")
 	var base_explosion_damage = mouse_shooter.weapon_data.get_meta("base_explosion_damage")
 	var base_explosion_radius = mouse_shooter.weapon_data.get_meta("base_explosion_radius")
+	var base_magazine_size = mouse_shooter.weapon_data.get_meta("base_magazine_size")
 	
 	# Apply damage multiplier
 	mouse_shooter.weapon_data.bullet_damage = int(base_damage * base_damage_multiplier)
@@ -476,6 +485,14 @@ func _update_weapon_stats() -> void:
 	# Apply reload speed multiplier
 	mouse_shooter.weapon_data.reload_time = base_reload_time * base_reload_speed_multiplier
 	mouse_shooter.reload_time = mouse_shooter.weapon_data.reload_time
+	
+	# Apply magazine size multiplier (round up)
+	mouse_shooter.weapon_data.magazine_size = ceili(base_magazine_size * base_magazine_size_multiplier)
+	mouse_shooter.magazine_size = mouse_shooter.weapon_data.magazine_size
+	# Only fill ammo to max at start of day, not when switching weapons
+	if fill_ammo:
+		mouse_shooter.current_ammo = mouse_shooter.magazine_size
+	print("Updated magazine size: ", mouse_shooter.magazine_size, " (base: ", base_magazine_size, ", multiplier: ", base_magazine_size_multiplier, ")")
 
 	# Apply explosion multipliers
 	mouse_shooter.weapon_data.explosion_damage = int(base_explosion_damage * explosion_damage_multiplier)
