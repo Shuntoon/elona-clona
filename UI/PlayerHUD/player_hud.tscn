@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dkvrnpgnp3f86"]
+[gd_scene load_steps=15 format=3 uid="uid://dkvrnpgnp3f86"]
 
 [ext_resource type="Script" uid="uid://cixf8coa0xj00" path="res://UI/PlayerHUD/player_hud.gd" id="1_pi8qp"]
 [ext_resource type="Texture2D" uid="uid://lyhsow10l3x5" path="res://Art/UI/01_Flat_Theme/Sprites/UI_Flat_FrameSlot01b.png" id="2_70xbo"]
@@ -66,6 +66,11 @@ font_size = 54
 shadow_size = 2
 shadow_color = Color(0, 0, 0, 0.8156863)
 
+[sub_resource type="LabelSettings" id="LabelSettings_qo518"]
+font_size = 36
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.8156863)
+
 [node name="PlayerHUD" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -77,11 +82,12 @@ mouse_filter = 2
 script = ExtResource("1_pi8qp")
 
 [node name="AllyControlsPanel" type="PanelContainer" parent="."]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 0
-offset_left = 747.0
+offset_left = 779.0
 offset_top = 32.0
-offset_right = 997.0
+offset_right = 1029.0
 offset_bottom = 85.0
 size_flags_horizontal = 8
 size_flags_vertical = 8
@@ -176,6 +182,7 @@ layout_mode = 2
 show_percentage = false
 
 [node name="AbilitiesHBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
@@ -280,10 +287,29 @@ layout_mode = 2
 text = "0"
 label_settings = SubResource("LabelSettings_70xbo")
 
-[node name="DayLabel" type="Label" parent="MarginContainer"]
-unique_name_in_owner = true
+[node name="Panel" type="Panel" parent="MarginContainer"]
+custom_minimum_size = Vector2(164, 48)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
+
+[node name="DayLabel" type="Label" parent="MarginContainer/Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = -22.0
+offset_right = 90.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
 text = "Day 1 / 10"
-label_settings = SubResource("LabelSettings_pkcmm")
+label_settings = SubResource("LabelSettings_qo518")
+horizontal_alignment = 1
+vertical_alignment = 1

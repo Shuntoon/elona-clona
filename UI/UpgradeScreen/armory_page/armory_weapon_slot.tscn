@@ -12,17 +12,7 @@ font_size = 24
 atlas = ExtResource("1_6jg88")
 region = Rect2(96, 118, 16, 10)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4t1su"]
-content_margin_left = 0.0
-content_margin_top = 0.0
-content_margin_right = 0.0
-content_margin_bottom = 0.0
-bg_color = Color(0.1, 0.1, 0.1, 0.6)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y5e3k"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_p53s0"]
 font_size = 24
@@ -94,7 +84,7 @@ theme_override_constants/separation = 8
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_4t1su")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_y5e3k")
 
 [node name="NameLabel" type="Label" parent="LockedWeaponPanel/LockedWeaponHBoxContainer/NamePanel"]
 unique_name_in_owner = true
@@ -136,8 +126,10 @@ vertical_alignment = 1
 
 [node name="BuyButton" type="Button" parent="LockedWeaponPanel/LockedWeaponHBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 6
+size_flags_vertical = 4
 
 [node name="BuyLabel" type="Label" parent="LockedWeaponPanel/LockedWeaponHBoxContainer/BuyButton"]
 unique_name_in_owner = true

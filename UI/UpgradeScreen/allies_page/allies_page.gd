@@ -18,7 +18,7 @@ func populate_allies_hbox() -> void:
 	# Add filled panels for each ally data
 	for ally_data in PlayerData.ally_datas:
 		var ally_filled_panel = ALLY_FILLED_PANEL_SCENE.instantiate()
-		#ally_filled_panel.setup_with_ally_data(ally_data)
+		ally_filled_panel.setup_with_ally_data(ally_data)
 		allies_hbox_container.add_child(ally_filled_panel)
 
 	# Add empty slots to fill up to 4 total (based on actual ally count, not child count)

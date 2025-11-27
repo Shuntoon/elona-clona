@@ -16,6 +16,7 @@ var wave_manager
 @onready var weapon_label: Label = %WeaponLabel
 @onready var day_label: Label = %DayLabel
 @onready var gold_label: Label = %GoldLabel
+@onready var ally_controls_panel: PanelContainer = %AllyControlsPanel
 @onready var ally_controls_toggle: Button = %AllyControlsToggle
 @onready var ally_controls_content: VBoxContainer = %AllyControlsContent
 
@@ -64,6 +65,9 @@ func _process(_delta: float) -> void:
 	
 	# Update gold display
 	gold_label.text = str(PlayerData.gold)
+
+	if PlayerData.ally_datas.size() <= 0:
+		ally_controls_panel.hide()
 	
 	if mouse_shooter != null:
 		# Update ammo display

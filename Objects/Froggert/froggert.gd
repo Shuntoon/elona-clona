@@ -43,7 +43,7 @@ func _on_collision_area_area_entered(_area: Area2D) -> void:
 	
 	# Play death animation and clean up
 	animated_sprite_2d.play("death")
-	await animated_sprite_2d.animation_finished
+	await get_tree().create_timer(0.6).timeout
 	queue_free()
 
 func _on_detection_area_area_entered(area: Area2D) -> void:
