@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="WaveData" load_steps=3 format=3 uid="uid://cvlxkbw8betbi"]
+
+[ext_resource type="Script" uid="uid://d4hepntti60rn" path="res://Data/EnemyData/enemy_data.gd" id="1_2leet"]
+[ext_resource type="Script" uid="uid://dssq5y3twr3y4" path="res://Scripts/WaveManager/wave_data.gd" id="8_cnuys"]
+
+[resource]
+script = ExtResource("8_cnuys")
+easy_spawn_multiplier = 1.25
+medium_spawn_multiplier = 0.9
+hard_spawn_multiplier = 0.8
+metadata/_custom_type_script = "uid://dssq5y3twr3y4"

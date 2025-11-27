@@ -31,7 +31,7 @@ func _process(delta: float) -> void:
 		stop_bleeding()
 
 func apply_bleed_stack() -> void:
-	bleed_stacks += 1
+	bleed_stacks += 10
 	
 	# Reset duration when new stack is applied
 	time_remaining = bleed_duration
