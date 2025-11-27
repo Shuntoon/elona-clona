@@ -450,7 +450,11 @@ func _update_allies_stats() -> void:
 ## fill_ammo: if true, sets current ammo to magazine size (use for start of day)
 func _update_weapon_stats(fill_ammo: bool = false) -> void:
 	if not mouse_shooter or not mouse_shooter.weapon_data:
-		return
+		# Try to get mouse_shooter again if it was null
+		mouse_shooter = get_tree().get_first_node_in_group("mouse_shooter")
+		if not mouse_shooter or not mouse_shooter.weapon_data:
+			print("Warning: MouseShooter or weapon_data not found!")
+			return
 	
 	# Store base values if not already stored
 	if not mouse_shooter.weapon_data.has_meta("base_damage"):
@@ -493,6 +497,10 @@ func _update_weapon_stats(fill_ammo: bool = false) -> void:
 	# Only fill ammo to max at start of day, not when switching weapons
 	if fill_ammo:
 		mouse_shooter.current_ammo = mouse_shooter.magazine_size
+		# Also reset saved ammo slots so weapon switching works correctly
+		mouse_shooter.weapon_1_ammo = mouse_shooter.magazine_size
+		mouse_shooter.weapon_2_ammo = mouse_shooter.magazine_size
+		print("Filled ammo to max: ", mouse_shooter.magazine_size)
 	print("Updated magazine size: ", mouse_shooter.magazine_size, " (base: ", base_magazine_size, ", multiplier: ", base_magazine_size_multiplier, ")")
 
 	# Apply explosion multipliers

@@ -199,7 +199,15 @@ func _equip_weapon(slot: int) -> void:
 	# Update internal state
 	time_between_shots = 60.0 / fire_rate
 	
-	# Restore saved ammo for this weapon, or set to full magazine if first time
+	current_weapon_slot = slot
+	
+	# Apply augment bonuses after equipping (this updates magazine_size with augments)
+	var augment_manager = get_tree().get_first_node_in_group("augment_manager")
+	if augment_manager:
+		augment_manager._update_weapon_stats()
+	
+	# Restore saved ammo for this weapon, or set to full augmented magazine if first time
+	# This must happen AFTER augments are applied so magazine_size has the augmented value
 	if slot == 1:
 		current_ammo = weapon_1_ammo if weapon_1_ammo >= 0 else magazine_size
 		weapon_1_ammo = current_ammo  # Update in case it was -1
@@ -207,23 +215,14 @@ func _equip_weapon(slot: int) -> void:
 		current_ammo = weapon_2_ammo if weapon_2_ammo >= 0 else magazine_size
 		weapon_2_ammo = current_ammo  # Update in case it was -1
 	
-	current_weapon_slot = slot
-	
-	# Apply augment bonuses after equipping
-	var augment_manager = get_tree().get_first_node_in_group("augment_manager")
-	if augment_manager:
-		augment_manager._update_weapon_stats()
-	
 	print("Equipped weapon: ", weapon_to_equip.weapon_name, " (Slot ", slot, ") - Ammo: ", current_ammo, "/", magazine_size)
 
 func _on_start_new_day() -> void:
-	# Reset ammo for both weapons when a new day starts
+	# Reset saved ammo for both weapons when a new day starts
+	# The augment manager will handle updating stats and filling ammo
 	weapon_1_ammo = -1
 	weapon_2_ammo = -1
-	
-	# Re-equip the current weapon to refresh stats from PlayerData
-	_equip_weapon(current_weapon_slot)
-	print("Re-equipped weapon for new day with full ammo")
+	print("MouseShooter: Reset ammo slots for new day")
 
 func _set_shooter_properties() -> void:
 	pass
