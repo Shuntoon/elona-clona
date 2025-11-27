@@ -68,6 +68,8 @@ func _process(_delta: float) -> void:
 
 	if PlayerData.ally_datas.size() <= 0:
 		ally_controls_panel.hide()
+	else:
+		ally_controls_panel.show()
 	
 	if mouse_shooter != null:
 		# Update ammo display
@@ -95,12 +97,14 @@ func _setup_ally_controls() -> void:
 	print("=== Ally Controls Debug ===")
 	print("Allies node found: ", allies_node != null)
 	print("Ally controls content found: ", ally_controls_content != null)
+	print("PlayerData.ally_datas size: ", PlayerData.ally_datas.size())
 	
 	if not ally_controls_content:
 		print("ERROR: ally_controls_content is null!")
 		return
 	
-	# Wait a frame to ensure all allies are loaded
+	# Wait multiple frames to ensure all allies are loaded
+	await get_tree().process_frame
 	await get_tree().process_frame
 	
 	# Clear existing controls
@@ -110,6 +114,11 @@ func _setup_ally_controls() -> void:
 	# Get all allies
 	var all_allies = get_tree().get_nodes_in_group("allies")
 	print("Total nodes in 'allies' group: ", all_allies.size())
+	
+	# If no spawned allies but we have ally data, show empty panel
+	if all_allies.size() == 0 and PlayerData.ally_datas.size() > 0:
+		print("Allies not spawned yet - panel will update on day start")
+		return
 	
 	# Create control for each combat ally
 	var combat_allies_count = 0
@@ -254,7 +263,9 @@ func _on_start_new_day() -> void:
 	print("HUD: Refreshing ally controls and ability slots for new day")
 	# Refresh ability slots in case level changed
 	_setup_ability_slots()
-	# Wait a frame to ensure allies are spawned
+	# Wait multiple frames to ensure allies are spawned
+	await get_tree().process_frame
+	await get_tree().process_frame
 	await get_tree().process_frame
 	_setup_ally_controls()
 

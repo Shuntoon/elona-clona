@@ -1,31 +1,28 @@
-[gd_scene load_steps=10 format=3 uid="uid://d225nmsfm10mv"]
+[gd_scene load_steps=11 format=3 uid="uid://d225nmsfm10mv"]
 
 [ext_resource type="Script" uid="uid://8m8ugxxbryqp" path="res://UI/UpgradeScreen/upgrade_screen.gd" id="1_kyj5a"]
+[ext_resource type="Texture2D" uid="uid://bdylnvm06f5fm" path="res://Art/UI/RealUI/Panel.png" id="2_5xjgn"]
 [ext_resource type="PackedScene" uid="uid://bm5ye4du2k3ta" path="res://UI/UpgradeScreen/foundation_page/foundation_page.tscn" id="2_fmioe"]
 [ext_resource type="PackedScene" uid="uid://dvsbfx38vbaju" path="res://UI/UpgradeScreen/augments_page/augments_page.tscn" id="3_jjsfe"]
 [ext_resource type="PackedScene" uid="uid://buj37tqnk8i22" path="res://UI/UpgradeScreen/armory_page/armory_page.tscn" id="4_mbga8"]
 [ext_resource type="PackedScene" uid="uid://bfguydj53ut7e" path="res://UI/UpgradeScreen/allies_page/allies_page.tscn" id="5_5xjgn"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mbga8"]
-bg_color = Color(0.25473627, 0.26918554, 0.1505255, 1)
-border_width_left = 8
-border_width_top = 8
-border_width_right = 8
-border_width_bottom = 8
-border_color = Color(0.11304635, 0.11304635, 0.11304635, 1)
-corner_radius_top_left = 32
-corner_radius_top_right = 32
-corner_radius_bottom_right = 32
-corner_radius_bottom_left = 32
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lvoou"]
+texture = ExtResource("2_5xjgn")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+modulate_color = Color(0.29634023, 0.2820734, 0.1793523, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_mbga8"]
-font_size = 32
+font_size = 48
 
 [sub_resource type="LabelSettings" id="LabelSettings_0q4ua"]
-font_size = 34
+font_size = 24
 
 [sub_resource type="LabelSettings" id="LabelSettings_5xjgn"]
-font_size = 25
+font_size = 24
 
 [node name="UpgradeScreen" type="Control"]
 process_mode = 3
@@ -48,7 +45,7 @@ offset_right = -24.888916
 offset_bottom = -14.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_mbga8")
+theme_override_styles/panel = SubResource("StyleBoxTexture_lvoou")
 
 [node name="MarginContainer" type="MarginContainer" parent="BG"]
 layout_mode = 1
@@ -143,10 +140,11 @@ grow_vertical = 1
 unique_name_in_owner = true
 z_index = 1
 layout_mode = 0
-offset_left = 999.1111
+offset_left = 917.1111
 offset_top = 18.0
 offset_right = 1198.2222
-offset_bottom = 76.0
+offset_bottom = 81.0
+theme_override_font_sizes/font_size = 24
 text = "Advance to next wave"
 
 [node name="EndOfTheDayLabel" type="Label" parent="."]
@@ -154,9 +152,9 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -103.0
+offset_left = -89.0
 offset_top = 36.0
-offset_right = 122.0
+offset_right = 214.0
 offset_bottom = 81.0
 grow_horizontal = 2
 size_flags_horizontal = 4
@@ -174,7 +172,7 @@ anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -583.0
 offset_top = 36.0
-offset_right = -358.0
+offset_right = -447.0
 offset_bottom = 81.0
 grow_horizontal = 2
 size_flags_horizontal = 4
@@ -189,16 +187,15 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -353.0
+offset_left = -433.0
 offset_top = 36.0
-offset_right = -126.0
+offset_right = -206.0
 offset_bottom = 81.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 text = "Base Health 100 / 100"
 label_settings = SubResource("LabelSettings_5xjgn")
-horizontal_alignment = 1
 vertical_alignment = 1
 
 [connection signal="pressed" from="BG/MarginContainer/HBoxContainer/PageButtonsVBoxContainer/FoundationButton" to="." method="_on_foundation_button_pressed"]

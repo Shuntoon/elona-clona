@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://buj37tqnk8i22"]
+[gd_scene load_steps=21 format=3 uid="uid://buj37tqnk8i22"]
 
 [ext_resource type="Script" uid="uid://d0o2h0vu1j1k4" path="res://UI/UpgradeScreen/armory_page/armory_page.gd" id="1_xy3um"]
 [ext_resource type="PackedScene" uid="uid://b23ol6kgi5880" path="res://UI/UpgradeScreen/armory_page/armory_weapon_slot.tscn" id="2_aduju"]
+[ext_resource type="Texture2D" uid="uid://bdylnvm06f5fm" path="res://Art/UI/RealUI/Panel.png" id="2_mdc5b"]
 [ext_resource type="Script" uid="uid://dfruej83tgxwe" path="res://UI/UpgradeScreen/armory_page/equipped_weapon_panel.gd" id="2_mvr1a"]
 [ext_resource type="Resource" uid="uid://b6ryv1lnoqoao" path="res://Data/WeaponData/WeaponDatas/Test/test_revolver.tres" id="4_4t1su"]
 [ext_resource type="Resource" uid="uid://cl5tfw0kdxrpj" path="res://Data/WeaponData/WeaponDatas/real/tier 1/Pistol.tres" id="5_xepml"]
@@ -19,6 +20,22 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_umnqg"]
 font_size = 48
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i5wgx"]
+texture = ExtResource("2_mdc5b")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+modulate_color = Color(0.180933, 0.16518886, 0.116644494, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ux8k0"]
+texture = ExtResource("2_mdc5b")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+modulate_color = Color(0.180933, 0.16518886, 0.116644494, 1)
 
 [node name="ArmoryPage" type="Panel" groups=["armory_page"]]
 custom_minimum_size = Vector2(1065, 564)
@@ -53,6 +70,7 @@ offset_left = 131.5
 offset_top = 43.0
 offset_right = 369.5
 offset_bottom = 154.59702
+theme_override_styles/panel = SubResource("StyleBoxTexture_i5wgx")
 script = ExtResource("2_mvr1a")
 weapon_slot = 0
 
@@ -101,6 +119,7 @@ offset_top = 43.0
 offset_right = -124.5
 offset_bottom = 154.59702
 grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ux8k0")
 script = ExtResource("2_mvr1a")
 weapon_slot = 1
 

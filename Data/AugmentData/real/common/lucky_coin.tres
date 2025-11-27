@@ -13,5 +13,5 @@ name = "Lucky Coin"
 description = "+10% gold gain"
 icon = SubResource("AtlasTexture_gs8ly")
 price = 75
-augment_type = 19
+augment_type = 18
 value = 0.1

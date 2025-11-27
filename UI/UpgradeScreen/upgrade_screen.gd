@@ -33,7 +33,7 @@ func _on_next_wave_button_pressed() -> void:
 func _bounce_in() -> void:
 	position.y = position.y - 1000
 	var tween := create_tween()
-	tween.tween_property(self, "position:y", position.y + 1000, 1).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, "position:y", position.y + 1000, 1).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 	
 	foundation_button.grab_focus()
 

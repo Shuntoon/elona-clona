@@ -1,6 +1,6 @@
 shader_type canvas_item;
 
-uniform float blur_amount : hint_range(0.0, 10.0) = 3.0;
+uniform float blur_amount : hint_range(0.0, 50.0) = 3.0;
 uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_nearest;
 
 void fragment() {
