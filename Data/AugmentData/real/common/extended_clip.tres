@@ -1,13 +1,17 @@
-[gd_resource type="Resource" script_class="AugmentData" load_steps=3 format=3 uid="uid://c2pxit8eu3xee"]
+[gd_resource type="Resource" script_class="AugmentData" load_steps=4 format=3 uid="uid://c2pxit8eu3xee"]
 
-[ext_resource type="Texture2D" uid="uid://d2glsjhg3dw3p" path="res://Art/Filler/AugmentIcons/Asset 70@2x.png" id="1_v6glp"]
+[ext_resource type="Texture2D" uid="uid://bklje6ftk6f45" path="res://Art/Icons/easy_sheet.tres" id="1_3kb5c"]
 [ext_resource type="Script" uid="uid://dfu50k1tlerfj" path="res://Data/AugmentData/augment_data.gd" id="2_a6o3k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ls6h"]
+atlas = ExtResource("1_3kb5c")
+region = Rect2(256, 416, 32, 32)
 
 [resource]
 script = ExtResource("2_a6o3k")
 name = "Extended Clip"
 description = "Up magazine size"
-icon = ExtResource("1_v6glp")
+icon = SubResource("AtlasTexture_1ls6h")
 price = 75
 augment_type = 7
 value = 5.0

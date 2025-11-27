@@ -1,13 +1,17 @@
-[gd_resource type="Resource" script_class="AugmentData" load_steps=3 format=3 uid="uid://7ro5vw42gv65"]
+[gd_resource type="Resource" script_class="AugmentData" load_steps=4 format=3 uid="uid://7ro5vw42gv65"]
 
-[ext_resource type="Texture2D" uid="uid://d2glsjhg3dw3p" path="res://Art/Filler/AugmentIcons/Asset 70@2x.png" id="1_rkeie"]
+[ext_resource type="Texture2D" uid="uid://bfhajqqqpf3km" path="res://Art/Icons/32x32.png" id="1_a4xgc"]
 [ext_resource type="Script" uid="uid://dfu50k1tlerfj" path="res://Data/AugmentData/augment_data.gd" id="2_ah5mj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yv3fl"]
+atlas = ExtResource("1_a4xgc")
+region = Rect2(384, 1024, 32, 32)
 
 [resource]
 script = ExtResource("2_ah5mj")
 name = "Energy Drink"
 description = "Up attack speed"
-icon = ExtResource("1_rkeie")
+icon = SubResource("AtlasTexture_yv3fl")
 price = 75
 augment_type = 2
 value = 0.1

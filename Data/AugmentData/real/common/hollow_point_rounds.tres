@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="AugmentData" load_steps=3 format=3 uid="uid://dhpoadkaik5jr"]
 
-[ext_resource type="Texture2D" uid="uid://d2glsjhg3dw3p" path="res://Art/Filler/AugmentIcons/Asset 70@2x.png" id="1_711sd"]
+[ext_resource type="Texture2D" uid="uid://q8auichptb82" path="res://Art/Icons/easy_atlas_texture.tres" id="1_wcgo0"]
 [ext_resource type="Script" uid="uid://dfu50k1tlerfj" path="res://Data/AugmentData/augment_data.gd" id="2_8t226"]
 
 [resource]
 script = ExtResource("2_8t226")
 name = "Hollow Point Rounds"
 description = "Up damage"
-icon = ExtResource("1_711sd")
+icon = ExtResource("1_wcgo0")
 price = 75
 augment_type = 1
 value = 0.1

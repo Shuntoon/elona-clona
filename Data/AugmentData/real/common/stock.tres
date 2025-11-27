@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="AugmentData" load_steps=3 format=3 uid="uid://djby6rnhk0mcl"]
 
-[ext_resource type="Texture2D" uid="uid://d13q8qscs6t5q" path="res://Art/Filler/AugmentIcons/Asset 9@2x.png" id="1_0hhsu"]
+[ext_resource type="Texture2D" uid="uid://q8auichptb82" path="res://Art/Icons/easy_atlas_texture.tres" id="1_47d48"]
 [ext_resource type="Script" uid="uid://dfu50k1tlerfj" path="res://Data/AugmentData/augment_data.gd" id="2_3gg4t"]
 
 [resource]
 script = ExtResource("2_3gg4t")
-name = "Scope"
+name = "Stock"
 description = "Up accuracy"
-icon = ExtResource("1_0hhsu")
+icon = ExtResource("1_47d48")
 price = 75
 augment_type = 8
 value = 0.05
