@@ -7,7 +7,7 @@
 script = ExtResource("2_geyul")
 enemy_name = "bat"
 speed = 0.9
-max_health = 150
+max_health = 175
 animated_sprite_frames = ExtResource("1_ym4sy")
 animated_sprite_2d_scale = Vector2(1.75, 1.75)
 gold_reward = 40

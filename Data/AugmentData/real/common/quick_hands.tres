@@ -5,10 +5,10 @@
 
 [resource]
 script = ExtResource("2_3gg4t")
-name = "Stock"
-description = "Up accuracy"
+name = "Quick Hands"
+description = "up reload speed"
 icon = ExtResource("1_47d48")
 price = 75
-augment_type = 8
-value = 0.05
+augment_type = 6
+value = -0.1
 metadata/_custom_type_script = "uid://dfu50k1tlerfj"

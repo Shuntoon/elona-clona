@@ -1,8 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://b7y52k5ebquh3"]
+[gd_scene load_steps=10 format=3 uid="uid://b7y52k5ebquh3"]
 
 [ext_resource type="Script" uid="uid://barbo7txnpgeo" path="res://Globals/PlayerData.gd" id="1_44c78"]
 [ext_resource type="Resource" uid="uid://ctlemusvkrmxm" path="res://Data/WeaponData/WeaponDatas/real/Tier 3/LMG.tres" id="2_1a1gf"]
 [ext_resource type="Resource" uid="uid://dub6ux6iwtmmj" path="res://Data/WeaponData/WeaponDatas/real/Tier OP/Laser_Pointer.tres" id="3_m27fu"]
+[ext_resource type="Script" uid="uid://dfu50k1tlerfj" path="res://Data/AugmentData/augment_data.gd" id="4_3gcu3"]
+[ext_resource type="Resource" uid="uid://djby6rnhk0mcl" path="res://Data/AugmentData/real/common/quick_hands.tres" id="5_kvro7"]
+[ext_resource type="Resource" uid="uid://cgdvefnd7o8k6" path="res://Data/AugmentData/Test/attack_speed_up.tres" id="6_pyexi"]
+[ext_resource type="Resource" uid="uid://dxefmjwmf12kf" path="res://Data/AugmentData/real/common/scope.tres" id="7_cuqhq"]
+[ext_resource type="Resource" uid="uid://dhpoadkaik5jr" path="res://Data/AugmentData/real/common/hollow_point_rounds.tres" id="8_raw3g"]
+[ext_resource type="Resource" uid="uid://b3oy0gb8wwg51" path="res://Data/AugmentData/real/common/laser_pointer.tres" id="9_fdjao"]
 
 [node name="PlayerData" type="Node"]
 process_mode = 3
@@ -11,3 +17,4 @@ weapon_1_data = ExtResource("2_1a1gf")
 weapon_2_data = ExtResource("3_m27fu")
 gold = 100
 ability_slots_level = 0
+augments = Array[ExtResource("4_3gcu3")]([ExtResource("5_kvro7"), ExtResource("6_pyexi"), ExtResource("7_cuqhq"), ExtResource("8_raw3g"), ExtResource("9_fdjao")])

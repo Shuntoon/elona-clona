@@ -8,7 +8,7 @@
 [ext_resource type="Resource" uid="uid://dhpoadkaik5jr" path="res://Data/AugmentData/real/common/hollow_point_rounds.tres" id="5_hpobp"]
 [ext_resource type="Resource" uid="uid://b3oy0gb8wwg51" path="res://Data/AugmentData/real/common/laser_pointer.tres" id="6_mson7"]
 [ext_resource type="Resource" uid="uid://dxefmjwmf12kf" path="res://Data/AugmentData/real/common/scope.tres" id="7_37cud"]
-[ext_resource type="Resource" uid="uid://djby6rnhk0mcl" path="res://Data/AugmentData/real/common/stock.tres" id="8_6mapy"]
+[ext_resource type="Resource" uid="uid://djby6rnhk0mcl" path="res://Data/AugmentData/real/common/quick_hands.tres" id="8_6mapy"]
 [ext_resource type="Resource" uid="uid://c7j4n6qartv5y" path="res://Data/AugmentData/real/uncommon/hair_trigger.tres" id="9_hpobp"]
 [ext_resource type="Resource" uid="uid://cqr8m3n5vwx2p" path="res://Data/AugmentData/real/uncommon/heavy_rounds.tres" id="10_mson7"]
 [ext_resource type="Resource" uid="uid://dvhxc7l74fvnf" path="res://Data/AugmentData/real/uncommon/drum_magazine.tres" id="11_mson7"]
