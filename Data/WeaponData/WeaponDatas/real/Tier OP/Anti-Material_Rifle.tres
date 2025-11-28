@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=4 format=3 uid="uid://cfx5p1tfn5q5e"]
+
+[ext_resource type="Texture2D" uid="uid://d3rcf2brjy7c0" path="res://Art/Filler/Guns/1.png" id="1_pkacp"]
+[ext_resource type="Script" uid="uid://rimwdfuvv8ao" path="res://Data/WeaponData/weapon_data.gd" id="2_aufd2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pxwm6"]
+atlas = ExtResource("1_pkacp")
+region = Rect2(0, 118, 12, 10.083237)
+
+[resource]
+script = ExtResource("2_aufd2")
+weapon_name = "Anti-Material Rifle"
+icon = SubResource("AtlasTexture_pxwm6")
+bullet_type = 1
+fire_rate = 240.0
+magazine_size = 4
+projectile_piercing = true
+crit_chance = 1.0
+crit_multiplier = 3.0
+bullet_damage = 150
+burst_count = 15
+burst_delay = 0.001
+bullet_speed = 2000.0
+explosion_damage = 30
+metadata/_custom_type_script = "uid://rimwdfuvv8ao"

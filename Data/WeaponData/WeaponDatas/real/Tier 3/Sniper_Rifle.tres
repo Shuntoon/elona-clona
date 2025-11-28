@@ -21,4 +21,5 @@ crit_multiplier = 3.0
 bullet_damage = 65
 burst_count = 15
 burst_delay = 0.001
+explosive_rockets = true
 metadata/_custom_type_script = "uid://rimwdfuvv8ao"
