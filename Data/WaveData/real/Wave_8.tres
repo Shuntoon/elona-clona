@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="WaveData" load_steps=13 format=3 uid="uid://c603bycnpfxgq"]
+
+[ext_resource type="Script" uid="uid://d4hepntti60rn" path="res://Data/EnemyData/enemy_data.gd" id="1_dvj72"]
+[ext_resource type="Resource" uid="uid://dncxgg12ffcsy" path="res://Data/EnemyData/real/flaming_skull_ground_Enemy.tres" id="2_00nw5"]
+[ext_resource type="Resource" uid="uid://rpdyfx78int7" path="res://Data/EnemyData/real/bat_Enemy.tres" id="2_ep8lm"]
+[ext_resource type="Resource" uid="uid://bev1s8tu8o4a1" path="res://Data/EnemyData/real/ghost_knight_Enemy.tres" id="3_fyqqf"]
+[ext_resource type="Resource" uid="uid://dneqa136jkq47" path="res://Data/EnemyData/real/goblin_Enemy.tres" id="4_np5od"]
+[ext_resource type="Resource" uid="uid://dhrc8qcymdph8" path="res://Data/EnemyData/real/zombie_Enemy.tres" id="4_suls7"]
+[ext_resource type="Resource" uid="uid://dqv8yxqm84a7v" path="res://Data/EnemyData/real/skeleton_Enemy.tres" id="5_st7ye"]
+[ext_resource type="Resource" uid="uid://bdxkq2be4kt0h" path="res://Data/EnemyData/real/demon_lord_Enemy.tres" id="5_t2jne"]
+[ext_resource type="Script" uid="uid://dssq5y3twr3y4" path="res://Scripts/WaveManager/wave_data.gd" id="6_2x1xt"]
+[ext_resource type="Resource" uid="uid://tg2rwim4e31y" path="res://Data/EnemyData/real/flaming_skull_Enemy.tres" id="6_n7q8m"]
+[ext_resource type="Resource" uid="uid://1o130blftit8" path="res://Data/EnemyData/real/Mace_skeleton_Enemy.tres" id="9_hcsyh"]
+[ext_resource type="Resource" uid="uid://b1npguc3ir6qk" path="res://Data/EnemyData/real/evil_eye_Enemy.tres" id="10_a18ny"]
+
+[resource]
+script = ExtResource("6_2x1xt")
+easy_enemies = Array[ExtResource("1_dvj72")]([ExtResource("2_ep8lm"), ExtResource("4_suls7"), ExtResource("4_np5od"), ExtResource("5_st7ye")])
+medium_enemies = Array[ExtResource("1_dvj72")]([ExtResource("9_hcsyh"), ExtResource("10_a18ny"), ExtResource("3_fyqqf")])
+hard_enemies = Array[ExtResource("1_dvj72")]([ExtResource("6_n7q8m"), ExtResource("2_00nw5"), ExtResource("5_t2jne")])
+easy_weights = Array[float]([1.0, 1.0, 1.0, 1.0])
+medium_weights = Array[float]([1.0, 1.0, 1.0])
+hard_weights = Array[float]([1.0, 1.0, 1.0])
+base_spawn_interval = 1.0
+easy_spawn_multiplier = 1.0
+hard_spawn_multiplier = 1.0
+metadata/_custom_type_script = "uid://dssq5y3twr3y4"
