@@ -6,9 +6,12 @@
 [resource]
 script = ExtResource("1_nxvfk")
 enemy_name = "bat"
-max_health = 70
+speed = 0.9
+max_health = 150
 animated_sprite_frames = ExtResource("1_1b4h4")
 animated_sprite_2d_scale = Vector2(1.75, 1.75)
+gold_reward = 40
+gold_reward_variance = 15
 terrain_type = 1
 body_hitbox_size = Vector2(35, 49)
 body_pos = Vector2(32, 27)

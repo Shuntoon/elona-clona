@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://dncxgg12ffcsy"]
+
+[ext_resource type="SpriteFrames" uid="uid://bcy8kppwun46u" path="res://Art/Enemy Animations/Flaming Skull/flaming_skull_sprite_frames.tres" id="1_ym4sy"]
+[ext_resource type="Script" uid="uid://d4hepntti60rn" path="res://Data/EnemyData/enemy_data.gd" id="2_geyul"]
+
+[resource]
+script = ExtResource("2_geyul")
+enemy_name = "bat"
+speed = 0.9
+max_health = 150
+animated_sprite_frames = ExtResource("1_ym4sy")
+animated_sprite_2d_scale = Vector2(1.75, 1.75)
+gold_reward = 40
+gold_reward_variance = 15
+body_hitbox_size = Vector2(35, 49)
+body_pos = Vector2(32, 27)
+head_hitbox_size = Vector2(16, 13)
+head_pos = Vector2(34, 21)
+metadata/_custom_type_script = "uid://d4hepntti60rn"

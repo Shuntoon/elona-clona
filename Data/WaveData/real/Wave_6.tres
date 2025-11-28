@@ -1,19 +1,20 @@
-[gd_resource type="Resource" script_class="WaveData" load_steps=5 format=3 uid="uid://cvlxkbw8betbi"]
+[gd_resource type="Resource" script_class="WaveData" load_steps=6 format=3 uid="uid://cvlxkbw8betbi"]
 
 [ext_resource type="Script" uid="uid://d4hepntti60rn" path="res://Data/EnemyData/enemy_data.gd" id="1_2leet"]
 [ext_resource type="Resource" uid="uid://bdxkq2be4kt0h" path="res://Data/EnemyData/real/demon_lord_Enemy.tres" id="2_76ncs"]
-[ext_resource type="Resource" uid="uid://dqv8yxqm84a7v" path="res://Data/EnemyData/real/skeleton_Enemy.tres" id="3_463ki"]
+[ext_resource type="Resource" uid="uid://tg2rwim4e31y" path="res://Data/EnemyData/real/flaming_skull_Enemy.tres" id="3_y2h66"]
+[ext_resource type="Resource" uid="uid://dncxgg12ffcsy" path="res://Data/EnemyData/real/flaming_skull_ground_Enemy.tres" id="4_y2h66"]
 [ext_resource type="Script" uid="uid://dssq5y3twr3y4" path="res://Scripts/WaveManager/wave_data.gd" id="8_cnuys"]
 
 [resource]
 script = ExtResource("8_cnuys")
-easy_enemies = Array[ExtResource("1_2leet")]([ExtResource("2_76ncs"), null, ExtResource("3_463ki")])
-medium_enemies = Array[ExtResource("1_2leet")]([ExtResource("2_76ncs"), ExtResource("3_463ki"), ExtResource("3_463ki"), ExtResource("3_463ki")])
-hard_enemies = Array[ExtResource("1_2leet")]([ExtResource("2_76ncs")])
-easy_weights = Array[float]([1.0, 2.0, 1.0])
-medium_weights = Array[float]([1.0])
-hard_weights = Array[float]([1.0])
-easy_spawn_multiplier = 1.25
-medium_spawn_multiplier = 0.9
+easy_enemies = Array[ExtResource("1_2leet")]([ExtResource("2_76ncs"), ExtResource("3_y2h66")])
+medium_enemies = Array[ExtResource("1_2leet")]([ExtResource("2_76ncs"), ExtResource("3_y2h66"), ExtResource("4_y2h66")])
+hard_enemies = Array[ExtResource("1_2leet")]([ExtResource("2_76ncs"), ExtResource("4_y2h66"), ExtResource("3_y2h66")])
+easy_weights = Array[float]([1.0, 1.75])
+medium_weights = Array[float]([0.75, 1.0, 1.5])
+hard_weights = Array[float]([0.8, 1.75, 1.5])
+base_spawn_interval = 3.25
+easy_spawn_multiplier = 1.1
 hard_spawn_multiplier = 0.8
 metadata/_custom_type_script = "uid://dssq5y3twr3y4"
