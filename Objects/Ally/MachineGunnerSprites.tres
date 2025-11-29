@@ -1,0 +1,51 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://cdtcqyhlcv5dc"]
+
+[ext_resource type="Texture2D" uid="uid://c141i8bg1yp0o" path="res://Art/ArmyMen/Japan.png" id="1_33gtc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m14m7"]
+atlas = ExtResource("1_33gtc")
+region = Rect2(0, 520, 64, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6u8kw"]
+atlas = ExtResource("1_33gtc")
+region = Rect2(9, 512, 63, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aj5n4"]
+atlas = ExtResource("1_33gtc")
+region = Rect2(72, 512, 63, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lfrnh"]
+atlas = ExtResource("1_33gtc")
+region = Rect2(135, 512, 63, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_viyrh"]
+atlas = ExtResource("1_33gtc")
+region = Rect2(198, 512, 63, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m14m7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6u8kw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aj5n4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lfrnh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_viyrh")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 8.0
+}]

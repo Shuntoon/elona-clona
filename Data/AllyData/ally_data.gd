@@ -19,6 +19,8 @@ enum TargetingMode {
 @export var ally_type: Ally.AllyType
 @export var ally_name: String = "Ally"
 @export var targeting_mode: TargetingMode = TargetingMode.CLOSEST
+@export var sprite_frames: SpriteFrames
+@export var portrait: Texture2D
 
 ## Detection range for finding enemies
 @export var detection_range: float = 500.0

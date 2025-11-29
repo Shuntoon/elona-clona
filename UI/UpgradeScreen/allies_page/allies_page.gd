@@ -6,6 +6,9 @@ class_name AlliesPage
 const ALLY_FILLED_PANEL_SCENE = preload("uid://w7gefcihbnk1")
 const ALLY_UNFILLLED_PLANEL_SCNE = preload("uid://ufhh6su3k4gn")
 
+func _ready() -> void:
+	add_to_group("allies_page")
+
 func _on_visibility_changed() -> void:
 	if allies_hbox_container != null:
 		populate_allies_hbox()
@@ -16,9 +19,10 @@ func populate_allies_hbox() -> void:
 		child.queue_free()
 	
 	# Add filled panels for each ally data
-	for ally_data in PlayerData.ally_datas:
+	for i in range(PlayerData.ally_datas.size()):
+		var ally_data = PlayerData.ally_datas[i]
 		var ally_filled_panel = ALLY_FILLED_PANEL_SCENE.instantiate()
-		ally_filled_panel.setup_with_ally_data(ally_data)
+		ally_filled_panel.setup_with_ally_data(ally_data, i)
 		allies_hbox_container.add_child(ally_filled_panel)
 
 	# Add empty slots to fill up to 4 total (based on actual ally count, not child count)

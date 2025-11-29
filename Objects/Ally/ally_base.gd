@@ -47,6 +47,7 @@ enum TargetingMode {
 @export var heal_interval: float = 2.0
 
 @onready var shootpoint: Marker2D = %Shootpoint
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 # Internal state
 var current_target: Enemy = null
@@ -62,6 +63,7 @@ var is_playing_shoot_animation: bool = false
 var shootpoint_original_x: float = 0.0
 
 func _ready() -> void:
+
 	add_to_group("allies")
 	neutral_entities = get_tree().get_first_node_in_group("neutral_entities")
 	enemies_node = get_tree().get_first_node_in_group("enemies")
@@ -70,6 +72,7 @@ func _ready() -> void:
 	# Get AnimatedSprite2D reference
 	animated_sprite = get_node_or_null("AnimatedSprite2D")
 	if animated_sprite:
+		animated_sprite.sprite_frames = ally_data.sprite_frames 
 		animated_sprite.animation_finished.connect(_on_animation_finished)
 		animated_sprite.play("default")
 	
@@ -84,7 +87,7 @@ func _ready() -> void:
 	
 	# Start type-specific behavior
 	match ally_type:
-		AllyType.RIFLEMAN, AllyType.ROCKETEER:
+		AllyType.RIFLEMAN, AllyType.ROCKETEER, AllyType.MACHINE_GUNNER, AllyType.SNIPER:
 			_start_combat_loop()
 		AllyType.SUPPORT:
 			_start_healing_loop()
@@ -236,7 +239,7 @@ func _fire_at_target() -> void:
 	var target_position = current_target.global_position
 	
 	match ally_type:
-		AllyType.RIFLEMAN:
+		AllyType.RIFLEMAN, AllyType.MACHINE_GUNNER, AllyType.SNIPER:
 			_fire_bullet(target_position, false)
 		AllyType.ROCKETEER:
 			_fire_bullet(target_position, true)

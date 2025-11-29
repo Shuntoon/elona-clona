@@ -216,24 +216,24 @@ y_sort_enabled = true
 
 [node name="Player" parent="Entities/Allies" groups=["player"] instance=ExtResource("16_rvswv")]
 modulate = Color(0.7802, 0.94, 0.78552663, 1)
-position = Vector2(1070, 456)
+position = Vector2(1074.1875, 475)
 scale = Vector2(3.312498, 3.3124986)
 
 [node name="Ally1Spawn" type="Marker2D" parent="Entities/Allies"]
 unique_name_in_owner = true
-position = Vector2(1104, 387)
+position = Vector2(1108.1875, 352)
 
 [node name="Ally2Spawn" type="Marker2D" parent="Entities/Allies"]
 unique_name_in_owner = true
-position = Vector2(1104, 546)
+position = Vector2(1108.1875, 410)
 
 [node name="Ally3Spawn" type="Marker2D" parent="Entities/Allies"]
 unique_name_in_owner = true
-position = Vector2(1104, 607)
+position = Vector2(1108.1875, 572)
 
 [node name="Ally4Spawn" type="Marker2D" parent="Entities/Allies"]
 unique_name_in_owner = true
-position = Vector2(1104, 675)
+position = Vector2(1108.1875, 640)
 
 [node name="Neutral" type="Node2D" parent="Entities" groups=["neutral_entities"]]
 
@@ -267,31 +267,31 @@ script = ExtResource("5_7jktm")
 unique_name_in_owner = true
 
 [node name="Pos1" type="Marker2D" parent="Spawner/Ground"]
-position = Vector2(0, 607)
+position = Vector2(0, 583)
 
 [node name="Pos2" type="Marker2D" parent="Spawner/Ground"]
-position = Vector2(0, 557)
+position = Vector2(0, 533)
 
 [node name="Pos3" type="Marker2D" parent="Spawner/Ground"]
-position = Vector2(0, 507)
+position = Vector2(0, 483)
 
 [node name="Pos4" type="Marker2D" parent="Spawner/Ground"]
-position = Vector2(0, 457)
+position = Vector2(0, 433)
 
 [node name="Pos5" type="Marker2D" parent="Spawner/Ground"]
-position = Vector2(0, 407)
+position = Vector2(0, 383)
 
 [node name="Air" type="Node2D" parent="Spawner"]
 unique_name_in_owner = true
 
 [node name="Pos1" type="Marker2D" parent="Spawner/Air"]
-position = Vector2(2, 224)
+position = Vector2(2, 284)
 
 [node name="Pos2" type="Marker2D" parent="Spawner/Air"]
-position = Vector2(2, 168)
+position = Vector2(2, 228)
 
 [node name="Pos3" type="Marker2D" parent="Spawner/Air"]
-position = Vector2(2, 106)
+position = Vector2(2, 166)
 
 [node name="LaserOfDeath" parent="." instance=ExtResource("18_rvswv")]
 position = Vector2(1229, 387)

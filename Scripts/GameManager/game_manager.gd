@@ -35,6 +35,7 @@ var current_health : int :
 @onready var ally_1_spawn: Marker2D = %Ally1Spawn
 @onready var ally_2_spawn: Marker2D = %Ally2Spawn
 @onready var ally_3_spawn: Marker2D = %Ally3Spawn
+@onready var ally_4_spawn: Marker2D = %Ally4Spawn
 @onready var allies_node: Node2D = $"../Entities/Allies"
 
 # Background modulation for day/night cycle
@@ -141,7 +142,7 @@ func _on_all_enemies_killed() -> void:
 func _init_allies() -> void:
 	_clear_allies()
 	
-	var ally_spawns = [ally_1_spawn, ally_2_spawn, ally_3_spawn]
+	var ally_spawns = [ally_1_spawn, ally_2_spawn, ally_3_spawn, ally_4_spawn]
 	
 	print("Initializing allies. PlayerData has ", PlayerData.ally_datas.size(), " allies")
 	

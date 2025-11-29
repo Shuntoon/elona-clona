@@ -1,11 +1,13 @@
-[gd_resource type="Resource" script_class="AllyData" load_steps=2 format=3 uid="uid://brbmo3pqv8hne"]
+[gd_resource type="Resource" script_class="AllyData" load_steps=3 format=3 uid="uid://brbmo3pqv8hne"]
 
 [ext_resource type="Script" uid="uid://bhvur583pgsyf" path="res://Data/AllyData/ally_data.gd" id="1_j781e"]
+[ext_resource type="SpriteFrames" uid="uid://dpbpiij17ahov" path="res://Objects/Ally/RiflemanSpriteFrames.tres" id="2_y5vte"]
 
 [resource]
 script = ExtResource("1_j781e")
 ally_type = 4
 ally_name = "Jackal"
+sprite_frames = ExtResource("2_y5vte")
 detection_range = 1000.0
 fire_rate = 60.0
 bullet_damage = 100

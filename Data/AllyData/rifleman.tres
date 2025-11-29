@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="AllyData" load_steps=2 format=3 uid="uid://boxv5rlsd54ii"]
+[gd_resource type="Resource" script_class="AllyData" load_steps=3 format=3 uid="uid://boxv5rlsd54ii"]
 
 [ext_resource type="Script" uid="uid://bhvur583pgsyf" path="res://Data/AllyData/ally_data.gd" id="1_he4qt"]
+[ext_resource type="SpriteFrames" uid="uid://cu88ug8v8wh6b" path="res://Objects/Ally/GunnerSpriteFrames.tres" id="2_48xt0"]
 
 [resource]
 script = ExtResource("1_he4qt")
-ally_name = "Rifleman"
+ally_name = "Gunner"
+sprite_frames = ExtResource("2_48xt0")
 detection_range = 750.0
 fire_rate = 120.0
 bullet_damage = 40
