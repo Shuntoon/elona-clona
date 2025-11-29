@@ -6,13 +6,21 @@
 [resource]
 script = ExtResource("2_bugfc")
 weapon_name = "RPG"
+description = "Stranger! Stranger! now that's a weapon!
+Damage: 10 , 150 Explosion
+Fire Rate: 1 RPS
+Ammo: 1
+Reload: 3
+Critical Chance: 25%
+Critical Damage: 2x
+"
 icon = ExtResource("1_ypk8q")
 bullet_type = 1
 accuracy = 0.914
 fire_rate = 60.0
 magazine_size = 1
 reload_time = 3.0
-crit_chance = 0.238
+crit_chance = 0.25
 bullet_damage = 10
 burst_count = 15
 burst_delay = 0.001

@@ -1,23 +1,26 @@
-[gd_resource type="Resource" script_class="WeaponData" load_steps=4 format=3 uid="uid://cjrne1ssl4irc"]
+[gd_resource type="Resource" script_class="WeaponData" load_steps=3 format=3 uid="uid://cjrne1ssl4irc"]
 
-[ext_resource type="Texture2D" uid="uid://d3rcf2brjy7c0" path="res://Art/Filler/Guns/1.png" id="1_xgkwu"]
+[ext_resource type="Texture2D" uid="uid://b4768vc6x77ba" path="res://Art/guns/mp5.png" id="1_i1c6p"]
 [ext_resource type="Script" uid="uid://rimwdfuvv8ao" path="res://Data/WeaponData/weapon_data.gd" id="2_o2bqx"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pxwm6"]
-atlas = ExtResource("1_xgkwu")
-region = Rect2(0, 118, 12, 10.083237)
 
 [resource]
 script = ExtResource("2_o2bqx")
-weapon_name = "mp5"
-icon = SubResource("AtlasTexture_pxwm6")
+weapon_name = "SMG"
+description = "Now I have a machinegun. HO-HO-HO
+Damage: 20
+Fire Rate: 4 RPS
+Ammo: 30
+Reload: 1.75 
+Critical Chance: 60%
+Critical Damage: 1.75x"
+icon = ExtResource("1_i1c6p")
 fire_mode = 2
 accuracy = 0.517
 max_spread = 70.0
-fire_rate = 180.0
+fire_rate = 240.0
 reload_time = 1.75
 projectile_piercing = true
-crit_chance = 0.56
+crit_chance = 0.6
 crit_multiplier = 1.75
 bullet_damage = 20
 burst_count = 15

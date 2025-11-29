@@ -6,13 +6,20 @@
 [resource]
 script = ExtResource("2_rx10j")
 weapon_name = "Revolver"
+description = "Out here, due process is a bullet.
+Damage: 50
+Fire Rate: 2 RPS
+Ammo: 6
+Reload: 2
+Critical Chance: 100%
+Critical Damage: 2.5x"
 icon = ExtResource("1_ux0y4")
 accuracy = 0.8
 fire_rate = 120.0
 magazine_size = 6
 crit_chance = 1.0
 crit_multiplier = 2.5
-bullet_damage = 40
+bullet_damage = 50
 burst_count = 15
 burst_delay = 0.001
 metadata/_custom_type_script = "uid://rimwdfuvv8ao"

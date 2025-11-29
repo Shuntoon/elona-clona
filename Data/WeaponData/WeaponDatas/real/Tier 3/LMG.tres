@@ -6,12 +6,19 @@
 [resource]
 script = ExtResource("2_eikcc")
 weapon_name = "LMG"
+description = "Loaded with religous intent.
+Damage: 18
+Fire Rate: 7 RPS
+Ammo: 70
+Reload: 2.5
+Critical Chance: 50%
+Critical Damage: 2x"
 icon = ExtResource("1_q2qcm")
 bullet_type = 1
 fire_mode = 2
 accuracy = 0.425
 max_spread = 250.0
-fire_rate = 400.0
+fire_rate = 420.0
 magazine_size = 70
 reload_time = 2.5
 crit_chance = 0.508
