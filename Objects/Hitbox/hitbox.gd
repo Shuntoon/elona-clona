@@ -16,12 +16,19 @@ const DAMAGE_NUMBER = preload("res://Objects/DamageNumber/damage_number.tscn")
 
 var vfx_parent: Node
 var hit_enemy: bool = false  # Track if we hit an enemy
+var damaged_enemies: Array[Enemy] = []  # Track which enemies we've already hit
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.owner.is_in_group("enemy"):
-		hit_enemy = true  # Mark that we hit an enemy
 		var hurtbox : Hurtbox = area
 		var enemy : Enemy = area.owner
+		
+		# Skip if we've already hit this enemy
+		if damaged_enemies.has(enemy):
+			return
+		
+		damaged_enemies.append(enemy)
+		hit_enemy = true  # Mark that we hit an enemy
 		var is_critical = false
 		var final_damage = damage
 		
