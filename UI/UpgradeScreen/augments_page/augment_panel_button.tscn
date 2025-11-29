@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://6w660hirryy6"]
+[gd_scene load_steps=9 format=3 uid="uid://6w660hirryy6"]
 
 [ext_resource type="Script" uid="uid://coo3ymyhrbx62" path="res://UI/UpgradeScreen/augments_page/augment_panel_button.gd" id="1_d42pu"]
 [ext_resource type="Texture2D" uid="uid://dqmnca3rlhh4c" path="res://Art/Filler/AugmentIcons/Asset 50@2x.png" id="1_g2q03"]
 [ext_resource type="AudioStream" uid="uid://cw3snnmx6tkgm" path="res://SFX/UI/confirm_style_2_003.ogg" id="3_3tdn8"]
+[ext_resource type="FontFile" uid="uid://c5xqmx37bvo2s" path="res://UI/Fonts/LazyFox Pixel Font 1.ttf" id="3_cq7v1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_cq7v1"]
 font_size = 32
@@ -11,6 +12,7 @@ font_size = 32
 font_size = 24
 
 [sub_resource type="LabelSettings" id="LabelSettings_d42pu"]
+font = ExtResource("3_cq7v1")
 font_size = 18
 
 [sub_resource type="LabelSettings" id="LabelSettings_3tdn8"]

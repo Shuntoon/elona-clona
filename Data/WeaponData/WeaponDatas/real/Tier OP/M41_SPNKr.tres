@@ -27,5 +27,4 @@ bullet_speed = 1000.0
 explosive_rockets = true
 explosion_damage = 200
 explosion_radius = 250.0
-explosion_scale = 12.0
 metadata/_custom_type_script = "uid://rimwdfuvv8ao"

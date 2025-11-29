@@ -8,6 +8,7 @@ var game_mananger : GameManager
 @onready var armory_page: Panel = %ArmoryPage
 @onready var allies_page: Panel = %AlliesPage
 @onready var foundation_button: Button = %FoundationButton
+@onready var switch_page_sound: AudioStreamPlayer = %SwitchPageSound
 
 @onready var base_health_label: Label = %BaseHealthLabel
 @onready var gold_label: Label = %GoldLabel
@@ -58,15 +59,19 @@ func _show_page_animated(page: Control) -> void:
 	tween.tween_property(page, "position:x", 0.0, 0.25).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
 
 func _on_foundation_button_pressed() -> void:
+	switch_page_sound.play()
 	_show_page_animated(foundation_page)
 
 func _on_augments_button_pressed() -> void:
+	switch_page_sound.play()
 	_show_page_animated(augments_page)
 
 func _on_armory_button_pressed() -> void:
+	switch_page_sound.play()
 	_show_page_animated(armory_page)
 
 func _on_allies_button_pressed() -> void:
+	switch_page_sound.play()
 	_show_page_animated(allies_page)
 
 func update_stats() -> void:

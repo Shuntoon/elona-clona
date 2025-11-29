@@ -3,6 +3,8 @@ class_name EquippedWeaponPanel
 
 @export_enum("Weapon Slot 1", "Weapon Slot 2") var weapon_slot
 
+@onready var equip_sound: AudioStreamPlayer = %EquipSound
+
 var armory_page: ArmoryPage
 
 func _ready() -> void:
@@ -17,6 +19,7 @@ func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
 
 func _drop_data(at_position: Vector2, data: Variant) -> void:
 	if data.has("weapon_data"):
+		equip_sound.play()
 		print("Dropping weapon data")
 		var weapon_data: WeaponData = data["weapon_data"]
 

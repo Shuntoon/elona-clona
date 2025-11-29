@@ -20,6 +20,7 @@ const REROLL_DISCOUNT_PER_LEVEL: float = 0.15
 @onready var augment_hbox_container: HBoxContainer = %AugmentHBoxContainer
 @onready var owned_grid: GridContainer = %AugmentsIconGridContainer
 @onready var reroll_button: Button = $MarginContainer/HBoxContainer/RerollButton
+@onready var reroll_sound: AudioStreamPlayer = %RerollSound
 
 var rng: RandomNumberGenerator
 
@@ -134,6 +135,7 @@ func update_reroll_button() -> void:
 	reroll_button.disabled = PlayerData.gold < current_cost
 
 func _on_reroll_button_pressed() -> void:
+	reroll_sound.play()
 	var current_cost = get_current_reroll_cost()
 	if PlayerData.gold < current_cost:
 		print("Not enough gold to reroll augments!")

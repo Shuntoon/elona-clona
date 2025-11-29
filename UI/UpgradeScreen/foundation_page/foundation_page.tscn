@@ -15,6 +15,10 @@ grow_vertical = 2
 script = ExtResource("1_eyfy0")
 base_reroll_cost = 250
 price_multiplier = 2.0
+regain_health_price_multiplier = 1.0
+upgrade_armory_price_multiplier = 2.5
+upgrade_ally_slots_price_multiplier = 2.0
+upgrade_ability_slots_price_multiplier = 1.0
 
 [node name="TitleLabel" type="Label" parent="."]
 layout_mode = 1
@@ -65,7 +69,7 @@ custom_minimum_size = Vector2(320, 200)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 24
 text = "Regain 50 Health"
 
 [node name="UpgradeBaseHealthButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
@@ -74,7 +78,7 @@ custom_minimum_size = Vector2(320, 200)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 24
 text = "Upgrade Base Health"
 
 [node name="UpgradeAllySlotsButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
@@ -83,7 +87,7 @@ custom_minimum_size = Vector2(320, 200)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 24
 text = "Upgrade Ally Slots"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
@@ -95,29 +99,29 @@ theme_override_constants/separation = 16
 [node name="UpgradeAbilitySlotsButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
 unique_name_in_owner = true
 visible = false
-custom_minimum_size = Vector2(320, 200)
+custom_minimum_size = Vector2(360, 200)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 24
 text = "Upgrade Ability Slots"
 
 [node name="UpgradeArmorySelectionButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(320, 200)
+custom_minimum_size = Vector2(360, 200)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 24
 text = "Upgrade Armory Selection (1/3)"
 
 [node name="UpgradeAugmentRerollsButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(320, 200)
+custom_minimum_size = Vector2(360, 200)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 24
 text = "Upgrade Augment Rerolls"
 
 [node name="ButtonSound" type="AudioStreamPlayer" parent="."]

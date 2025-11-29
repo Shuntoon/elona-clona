@@ -1,9 +1,10 @@
-[gd_scene load_steps=26 format=3 uid="uid://buj37tqnk8i22"]
+[gd_scene load_steps=30 format=3 uid="uid://buj37tqnk8i22"]
 
 [ext_resource type="Script" uid="uid://d0o2h0vu1j1k4" path="res://UI/UpgradeScreen/armory_page/armory_page.gd" id="1_xy3um"]
 [ext_resource type="PackedScene" uid="uid://b23ol6kgi5880" path="res://UI/UpgradeScreen/armory_page/armory_weapon_slot.tscn" id="2_aduju"]
 [ext_resource type="Texture2D" uid="uid://bdylnvm06f5fm" path="res://Art/UI/RealUI/Panel.png" id="2_mdc5b"]
 [ext_resource type="Script" uid="uid://dfruej83tgxwe" path="res://UI/UpgradeScreen/armory_page/equipped_weapon_panel.gd" id="2_mvr1a"]
+[ext_resource type="FontFile" uid="uid://c5xqmx37bvo2s" path="res://UI/Fonts/LazyFox Pixel Font 1.ttf" id="2_tst6o"]
 [ext_resource type="Resource" uid="uid://b6ryv1lnoqoao" path="res://Data/WeaponData/WeaponDatas/Test/test_revolver.tres" id="4_4t1su"]
 [ext_resource type="Resource" uid="uid://cl5tfw0kdxrpj" path="res://Data/WeaponData/WeaponDatas/real/tier 1/Pistol.tres" id="5_xepml"]
 [ext_resource type="Resource" uid="uid://cjrne1ssl4irc" path="res://Data/WeaponData/WeaponDatas/real/tier 1/MP5.tres" id="6_mdc5b"]
@@ -21,11 +22,13 @@
 [ext_resource type="Resource" uid="uid://dub6ux6iwtmmj" path="res://Data/WeaponData/WeaponDatas/real/Tier OP/Laser_Pointer.tres" id="19_tst6o"]
 [ext_resource type="Resource" uid="uid://c0f8ib63w403v" path="res://Data/WeaponData/WeaponDatas/real/Tier OP/M41_SPNKr.tres" id="20_e4i4i"]
 [ext_resource type="Resource" uid="uid://bnwovoclogqnn" path="res://Data/WeaponData/WeaponDatas/real/Tier OP/Minigun.tres" id="21_c7853"]
+[ext_resource type="AudioStream" uid="uid://dxn53jesg5ejo" path="res://SFX/gun sounds/1911-reload-6248.mp3" id="23_e4i4i"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_umnqg"]
 font_size = 48
 
 [sub_resource type="LabelSettings" id="LabelSettings_77iqj"]
+font = ExtResource("2_tst6o")
 font_size = 18
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i5wgx"]
@@ -36,6 +39,9 @@ texture_margin_right = 8.0
 texture_margin_bottom = 8.0
 modulate_color = Color(0.180933, 0.16518886, 0.116644494, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_e4i4i"]
+font_size = 24
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ux8k0"]
 texture = ExtResource("2_mdc5b")
 texture_margin_left = 8.0
@@ -43,6 +49,9 @@ texture_margin_top = 8.0
 texture_margin_right = 8.0
 texture_margin_bottom = 8.0
 modulate_color = Color(0.180933, 0.16518886, 0.116644494, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_c7853"]
+font_size = 24
 
 [node name="ArmoryPage" type="Panel" groups=["armory_page"]]
 custom_minimum_size = Vector2(1065, 564)
@@ -112,6 +121,7 @@ offset_bottom = 33.402985
 grow_horizontal = 2
 grow_vertical = 0
 text = "Weapon 1"
+label_settings = SubResource("LabelSettings_e4i4i")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -162,6 +172,7 @@ offset_bottom = 33.402985
 grow_horizontal = 2
 grow_vertical = 0
 text = "Weapon 1"
+label_settings = SubResource("LabelSettings_c7853")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -364,3 +375,7 @@ weapon_data = ExtResource("20_e4i4i")
 [node name="ArmoryWeaponSlot4" parent="WeaponsHbox/VBoxContainer/WeaponsRow4" instance=ExtResource("2_aduju")]
 layout_mode = 2
 weapon_data = ExtResource("21_c7853")
+
+[node name="EquipSound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("23_e4i4i")
