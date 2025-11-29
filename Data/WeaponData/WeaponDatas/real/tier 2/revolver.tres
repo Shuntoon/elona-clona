@@ -6,13 +6,7 @@
 [resource]
 script = ExtResource("2_rx10j")
 weapon_name = "Revolver"
-description = "Out here, due process is a bullet.
-Damage: 50
-Fire Rate: 2 RPS
-Ammo: 6
-Reload: 2
-Critical Chance: 100%
-Critical Damage: 2.5x"
+description = "Out here, due process is a bullet."
 icon = ExtResource("1_ux0y4")
 accuracy = 0.8
 fire_rate = 120.0

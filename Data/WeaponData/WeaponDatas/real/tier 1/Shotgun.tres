@@ -6,13 +6,7 @@
 [resource]
 script = ExtResource("2_7stqr")
 weapon_name = "shotgun"
-description = "This...is my BOOMSTICK!
-Damage: 15 x 5
-Fire Rate: 1.5 RPS
-Ammo: 5
-Reload: 1.8
-Critical Chance: 50%
-Critical Damage: 1.5x"
+description = "This...is my BOOMSTICK!"
 icon = ExtResource("1_jjtmc")
 fire_mode = 1
 accuracy = 0.464

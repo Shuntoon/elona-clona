@@ -6,13 +6,7 @@
 [resource]
 script = ExtResource("2_xijtu")
 weapon_name = "Grenade Launcher"
-description = "\"I'm goin' ta blast ya into thin gruel. KA-BOOM!
-Damage: 10 , 70 Explosion
-Fire Rate: 1 RPS
-Ammo: 1
-Reload: 2
-Critical Chance: 25%
-Critical Damage: 2.5x"
+description = "\"I'm goin' ta blast ya into thin gruel. KA-BOOM!"
 icon = ExtResource("1_askb5")
 bullet_type = 1
 accuracy = 0.914

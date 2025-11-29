@@ -6,13 +6,7 @@
 [resource]
 script = ExtResource("2_xn1vv")
 weapon_name = "M16"
-description = "This is my rifle. There are many like it, but this one is mine.
-Damage: 24 x 3
-Fire Rate: 60 RPS
-Ammo: 24
-Reload: 2
-Critical Chance: 65%
-Critical Damage: 1.8x"
+description = "This is my rifle. There are many like it, but this one is mine."
 icon = ExtResource("1_v8mk0")
 fire_mode = 1
 accuracy = 0.589

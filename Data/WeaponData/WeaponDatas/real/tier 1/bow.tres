@@ -7,18 +7,6 @@
 script = ExtResource("2_m860w")
 weapon_name = "bow"
 description = "A William Tell tool of choice.
-Damage: 35
-Fire Rate: 2 RPS
-Ammo: 1
-Reload: 0.8
-Critical Chance: 100%
-Critical Damage: 2x
-Damage: 35
-Fire Rate: 2 RPS
-Ammo: 1
-Reload: 0.8
-Critical Chance: 100%
-Critical Damage: 2x
 "
 icon = ExtResource("1_21ndw")
 bullet_type = 1

@@ -6,13 +6,7 @@
 [resource]
 script = ExtResource("2_o2bqx")
 weapon_name = "SMG"
-description = "Now I have a machinegun. HO-HO-HO
-Damage: 20
-Fire Rate: 4 RPS
-Ammo: 30
-Reload: 1.75 
-Critical Chance: 60%
-Critical Damage: 1.75x"
+description = "Now I have a machinegun. HO-HO-HO"
 icon = ExtResource("1_i1c6p")
 fire_mode = 2
 accuracy = 0.517

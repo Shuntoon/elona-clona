@@ -10,14 +10,7 @@ region = Rect2(102.44589, 244.0904, 378.2283, 98.321625)
 [resource]
 script = ExtResource("2_aufd2")
 weapon_name = "Anti-Material Rifle"
-description = "We Can't Expect God To Do All The Work.
-Piercing
-Damage: 150
-Fire Rate: 4 RPS
-Ammo: 4
-Reload: 2
-Critical Chance: 100%
-Critical Damage: 3x"
+description = "We Can't Expect God To Do All The Work."
 icon = SubResource("AtlasTexture_at6eb")
 bullet_type = 1
 fire_rate = 240.0

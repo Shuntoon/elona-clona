@@ -10,15 +10,7 @@ region = Rect2(0, 118, 12, 10.083237)
 [resource]
 script = ExtResource("2_40y4a")
 weapon_name = "Saw Blade Launcher"
-description = "Live Or Die. Make Your Choice.
-Piercing
-Always Bleeds
-Damage: 10
-Fire Rate: 1 RPS
-Ammo: 6
-Reload: 2
-Critical Chance: 40%
-Critical Damage: 1.5x"
+description = "Live Or Die. Make Your Choice."
 icon = SubResource("AtlasTexture_pxwm6")
 bullet_type = 1
 accuracy = 0.724

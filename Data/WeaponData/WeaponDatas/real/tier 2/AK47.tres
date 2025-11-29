@@ -6,14 +6,7 @@
 [resource]
 script = ExtResource("2_sssep")
 weapon_name = "AK47"
-description = "After the Cold War, the AK-47 became Russia's biggest export. After that came vodka, caviar, and suicidal novelists.
-Damage: 15
-Fire Rate: 6 RPS
-Ammo: 36
-Reload: 1.6
-Critical Chance: 50%
-Critical Damage: 2x
-"
+description = "After the Cold War, the AK-47 became Russia's biggest export. After that came vodka, caviar, and suicidal novelists."
 icon = ExtResource("1_635gh")
 fire_mode = 2
 accuracy = 0.554
