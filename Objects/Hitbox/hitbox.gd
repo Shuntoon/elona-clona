@@ -41,14 +41,29 @@ func _on_area_entered(area: Area2D) -> void:
 	# Skip if we've already hit this enemy
 	if damaged_enemies.has(enemy):
 		return
-	
+
+	# Determine which hurtbox should be considered for this hit.
+	# If we hit the body but the enemy has a head hurtbox that also overlaps our hit position,
+	# prefer the head (so overlapping head hitboxes take precedence).
+	var effective_hurtbox: Hurtbox = hurtbox
+	if hurtbox.hurtbox_type == Hurtbox.HURTBOX_TYPE.BODY and enemy.has_node("HurtboxHead"):
+		var head_hurtbox: Hurtbox = enemy.get_node("HurtboxHead")
+		var head_collision = head_hurtbox.get_node_or_null("CollisionShape2D")
+		if head_collision and head_collision.shape and head_collision.shape is RectangleShape2D:
+			var shape_size: Vector2 = head_collision.shape.size
+			var center: Vector2 = head_collision.global_position
+			var rect = Rect2(center - shape_size * 0.5, shape_size)
+			# If our hit position is inside the head rect, promote to head
+			if rect.has_point(global_position):
+				effective_hurtbox = head_hurtbox
+
 	damaged_enemies.append(enemy)
 	hit_enemy = true  # Mark that we hit an enemy
 	var is_critical = false
 	var final_damage = damage
 	
 	# Check if it's a headshot
-	if hurtbox.hurtbox_type == Hurtbox.HURTBOX_TYPE.HEAD:
+	if effective_hurtbox.hurtbox_type == Hurtbox.HURTBOX_TYPE.HEAD:
 		# Headshot: check for crit chance
 		if randf() < crit_chance:
 			final_damage = int(damage * crit_multiplier)
@@ -122,6 +137,7 @@ func _spawn_vfx(vfx_scene: PackedScene, spawn_position: Vector2, is_critical: bo
 		return
 	
 	var vfx_inst = vfx_scene.instantiate()
+	vfx_inst.scale = Vector2(1.5,1.5)
 	vfx_inst.global_position = spawn_position
 	
 	# Set critical flag if the VFX has this property

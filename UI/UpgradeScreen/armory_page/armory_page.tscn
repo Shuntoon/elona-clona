@@ -379,3 +379,4 @@ weapon_data = ExtResource("21_c7853")
 [node name="EquipSound" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("23_e4i4i")
+bus = &"SFX"

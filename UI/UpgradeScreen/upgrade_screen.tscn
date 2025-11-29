@@ -198,6 +198,7 @@ vertical_alignment = 1
 [node name="SwitchPageSound" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("8_rrvu0")
+bus = &"SFX"
 
 [connection signal="pressed" from="BG/MarginContainer/HBoxContainer/PageButtonsVBoxContainer/FoundationButton" to="." method="_on_foundation_button_pressed"]
 [connection signal="pressed" from="BG/MarginContainer/HBoxContainer/PageButtonsVBoxContainer/AugmentsButton" to="." method="_on_augments_button_pressed"]

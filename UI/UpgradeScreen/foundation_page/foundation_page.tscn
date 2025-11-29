@@ -127,6 +127,7 @@ text = "Upgrade Augment Rerolls"
 [node name="ButtonSound" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("2_pmdis")
+bus = &"SFX"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/RegainHealthButton" to="." method="_on_regain_health_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/UpgradeBaseHealthButton" to="." method="_on_upgrade_base_health_button_pressed"]

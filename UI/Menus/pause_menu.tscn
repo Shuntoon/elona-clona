@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bufmu7frdb3wc"]
+[gd_scene load_steps=6 format=3 uid="uid://bufmu7frdb3wc"]
 
 [ext_resource type="Script" uid="uid://bh2uov7tafbk7" path="res://UI/Menus/pause_menu.gd" id="1_script"]
 [ext_resource type="Shader" uid="uid://dpwvb4uoa52xy" path="res://UI/MainMenu/blur_backbuffer.gdshader" id="2_1i8f4"]
+[ext_resource type="AudioStream" uid="uid://cw3snnmx6tkgm" path="res://SFX/UI/confirm_style_2_003.ogg" id="3_a0cxc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a0cxc"]
 shader = ExtResource("2_1i8f4")
@@ -97,6 +98,10 @@ text = "Restart Game"
 layout_mode = 2
 size_flags_vertical = 3
 text = "Quit to Main Menu"
+
+[node name="MenuSound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_a0cxc")
 
 [connection signal="pressed" from="PausePanel/VBoxContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="PausePanel/VBoxContainer/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]

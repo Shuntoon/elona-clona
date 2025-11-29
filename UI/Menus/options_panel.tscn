@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://g4jkr40ugd1a"]
+[gd_scene load_steps=3 format=3 uid="uid://g4jkr40ugd1a"]
 
 [ext_resource type="Script" uid="uid://d18xtt5pagwl5" path="res://UI/Menus/options_panel.gd" id="1_script"]
+[ext_resource type="AudioStream" uid="uid://crjtqxhwu0o1h" path="res://SFX/UI/back_style_2_004.ogg" id="2_wamcc"]
 
 [node name="OptionsPanel" type="Panel"]
 anchors_preset = 8
@@ -34,12 +35,13 @@ theme_override_constants/separation = 16
 
 [node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 0
+size_flags_vertical = 2
 text = "Options"
 horizontal_alignment = 1
 
 [node name="MasterVolumeHBox" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MasterVolumeHBox"]
 layout_mode = 2
@@ -54,6 +56,7 @@ value = 100.0
 
 [node name="MusicVolumeHBox" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MusicVolumeHBox"]
 layout_mode = 2
@@ -68,6 +71,7 @@ value = 100.0
 
 [node name="SFXVolumeHBox" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/SFXVolumeHBox"]
 layout_mode = 2
@@ -82,6 +86,7 @@ value = 100.0
 
 [node name="FullscreenHBox" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/FullscreenHBox"]
 layout_mode = 2
@@ -91,16 +96,20 @@ text = "Fullscreen"
 [node name="FullscreenCheckbox" type="CheckBox" parent="MarginContainer/VBoxContainer/FullscreenHBox"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 10
 
 [node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
 
 [node name="BackButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 0
 text = "Back"
+
+[node name="MenuSound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("2_wamcc")
+bus = &"SFX"
 
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/MasterVolumeHBox/MasterVolumeSlider" to="." method="_on_master_volume_changed"]
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/MusicVolumeHBox/MusicVolumeSlider" to="." method="_on_music_volume_changed"]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cem6bms5ob8r7"]
+[gd_scene load_steps=4 format=3 uid="uid://cem6bms5ob8r7"]
 
 [ext_resource type="Script" uid="uid://q4gch4xix7d" path="res://UI/Menus/credits_panel.gd" id="1_script"]
+[ext_resource type="AudioStream" uid="uid://crjtqxhwu0o1h" path="res://SFX/UI/back_style_2_004.ogg" id="2_wh6rb"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_b84m7"]
 font_size = 48
@@ -65,5 +66,10 @@ autowrap_mode = 2
 layout_mode = 2
 size_flags_vertical = 0
 text = "Back"
+
+[node name="MenuSound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("2_wh6rb")
+bus = &"SFX"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

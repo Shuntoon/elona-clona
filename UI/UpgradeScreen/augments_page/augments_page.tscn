@@ -125,5 +125,6 @@ text = "Reroll"
 unique_name_in_owner = true
 stream = ExtResource("28_uj7ik")
 pitch_scale = 0.5
+bus = &"SFX"
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/RerollButton" to="." method="_on_reroll_button_pressed"]

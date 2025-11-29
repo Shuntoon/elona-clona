@@ -16,6 +16,7 @@ const CREDITS_PANEL_SCENE = preload("res://UI/Menus/credits_panel.tscn")
 @onready var main_menu_control: Control = $CanvasLayer/MainMenuControl
 @onready var menu_sound_1 : AudioStreamPlayer = %MenuSound1
 @onready var menu_sound_2 : AudioStreamPlayer = %MenuSound2
+@onready var bg_music: AudioStreamPlayer = $BGMusic
 
 # Popup panel instances
 var how_to_play_panel: Panel = null
@@ -33,9 +34,30 @@ func _ready() -> void:
 	# Hide and destroy any crosshair spawned by GameManager
 	await get_tree().create_timer(0.1).timeout
 	_hide_crosshair()
-	
+	# Start BG music faded in
+	_fade_in_bg_music()
+
 	_spawn_menu_allies()
 	_start_shooting_rotation()
+
+
+func _fade_in_bg_music(duration: float = 0.5, target_db: float = 0.0) -> void:
+	if not bg_music:
+		return
+	# Start from silence
+	bg_music.volume_db = -80.0
+	if not bg_music.playing:
+		bg_music.play()
+	var t: float = 0.0
+	var start_db: float = bg_music.volume_db
+	while t < duration:
+		await get_tree().process_frame
+		var delta = get_process_delta_time()
+		t += delta
+		var progress = min(1.0, t / duration)
+		bg_music.volume_db = lerp(start_db, target_db, progress)
+	# Ensure final value
+	bg_music.volume_db = target_db
 
 func _hide_crosshair() -> void:
 	# Find and destroy the crosshair if it exists

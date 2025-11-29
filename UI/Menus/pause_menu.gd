@@ -9,6 +9,7 @@ const OPTIONS_PANEL_SCENE = preload("res://UI/Menus/options_panel.tscn")
 
 @onready var pause_panel: Panel = $PausePanel
 @onready var dim_overlay: ColorRect = $DimOverlay
+@onready var menu_sound: AudioStreamPlayer = %MenuSound
 
 var options_panel: OptionsPanel = null
 var is_showing_options: bool = false
@@ -56,10 +57,12 @@ func hide_pause_menu() -> void:
 		game_manager.crosshair.show_crosshair()
 
 func _on_resume_button_pressed() -> void:
+	menu_sound.play()
 	resumed.emit()
 	hide_pause_menu()
 
 func _on_options_button_pressed() -> void:
+	menu_sound.play()
 	is_showing_options = true
 	pause_panel.hide()
 	
@@ -71,17 +74,20 @@ func _on_options_button_pressed() -> void:
 	options_panel.show_panel()
 
 func _hide_options() -> void:
+	menu_sound.play()
 	is_showing_options = false
 	if options_panel:
 		options_panel.hide_panel()
 	pause_panel.show()
 
 func _on_restart_button_pressed() -> void:
+	menu_sound.play()
 	restarted.emit()
 	get_tree().paused = false
 	get_tree().reload_current_scene()
 
 func _on_quit_to_menu_button_pressed() -> void:
+	menu_sound.play()
 	quit_to_menu.emit()
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://UI/MainMenu/main_menu.tscn")

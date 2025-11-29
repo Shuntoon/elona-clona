@@ -3,6 +3,8 @@ class_name HowToPlayPanel
 
 signal back_pressed
 
+@onready var menu_sound: AudioStreamPlayer = %MenuSound
+
 func show_panel() -> void:
 	show()
 	# Animate popup in
@@ -16,5 +18,6 @@ func hide_panel() -> void:
 	hide()
 
 func _on_back_button_pressed() -> void:
+	menu_sound.play()
 	back_pressed.emit()
 	hide_panel()
