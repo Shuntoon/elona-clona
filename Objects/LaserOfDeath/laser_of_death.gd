@@ -17,8 +17,9 @@ var current_target_pos: Vector2 = Vector2.ZERO
 var damaged_enemies_this_tick: Array[Enemy] = []  # Track enemies hit this tick
 
 func _ready() -> void:
-	if not enabled:
-		hide()
+	# Always show when ready - visibility controlled by enabled flag in _process
+	show()
+	z_index = 50  # Make sure laser renders on top
 	
 	neutral_entities = get_tree().get_first_node_in_group("neutral_entities")
 	
@@ -28,8 +29,12 @@ func _ready() -> void:
 	damage_timer.timeout.connect(_on_damage_tick)
 	damage_timer.start()
 	
-	# Initialize target position
-	current_target_pos = line_2d.points[1]
+	# Initialize target position to mouse position
+	var mouse_pos = get_global_mouse_position()
+	current_target_pos = line_2d.to_local(mouse_pos)
+	line_2d.set_point_position(1, current_target_pos)
+	
+	print("Laser of Death ready! Enabled: ", enabled, " Position: ", global_position)
 
 func _process(_delta: float) -> void:
 	if not enabled:

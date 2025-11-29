@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ccwwlnnv3wvov" path="res://Objects/Ally/ally_base.gd" id="1_5tcxx"]
 [ext_resource type="Texture2D" uid="uid://cseoedy4scsdr" path="res://icon.svg" id="2_hpdbt"]
-[ext_resource type="SpriteFrames" uid="uid://c2uhwq612imyk" path="res://Objects/Ally/SupportSpriteFrames.tres" id="3_hpdbt"]
+[ext_resource type="SpriteFrames" uid="uid://dpbpiij17ahov" path="res://Objects/Ally/RiflemanSpriteFrames.tres" id="3_hpdbt"]
 
 [node name="AllyBase" type="Node2D"]
 script = ExtResource("1_5tcxx")
@@ -19,7 +19,6 @@ unique_name_in_owner = true
 scale = Vector2(2.25, 2.25)
 sprite_frames = ExtResource("3_hpdbt")
 animation = &"shoot"
-frame_progress = 0.91690886
 flip_h = true
 
 [node name="Shootpoint" type="Marker2D" parent="AnimatedSprite2D"]

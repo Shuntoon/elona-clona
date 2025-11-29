@@ -58,9 +58,9 @@ func _spawn_menu_allies() -> void:
 			# Configure ally with high damage but disabled shooting
 			ally.ally_type = Ally.AllyType.RIFLEMAN
 			ally.bullet_damage = 50  # High damage to 1-2 shot enemies
-			ally.fire_rate = 100.0   # Fast fire rate
+			ally.fire_rate = 50.0   # Fast fire rate
 			ally.accuracy = 0.95     # High accuracy
-			ally.detection_range = 800.0
+			ally.detection_range = randf_range(700.0, 900.0)
 			ally.can_shoot = false   # Start disabled
 			
 			ally.global_position = spawn_marker.global_position

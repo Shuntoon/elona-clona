@@ -8,15 +8,18 @@ class_name AugmentsPage
 const BASE_REROLL_COST: int = 150
 const REROLL_DISCOUNT_PER_LEVEL: float = 0.15
 
-# Rarity weights (higher = more common)
+# Rarity weights (higher = more common) - base values at wave 1
 @export var common_weight: float = 50.0
 @export var uncommon_weight: float = 30.0
 @export var rare_weight: float = 15.0
 @export var legendary_weight: float = 5.0
 
+# How much rarity improves per wave (percentage increase per wave for better rarities)
+@export var rarity_scaling_per_wave: float = 0.08  # 8% improvement per wave
+
 @onready var augment_hbox_container: HBoxContainer = %AugmentHBoxContainer
 @onready var owned_grid: GridContainer = %AugmentsIconGridContainer
-@onready var reroll_button: Button = $RerollButton
+@onready var reroll_button: Button = $MarginContainer/HBoxContainer/RerollButton
 
 var rng: RandomNumberGenerator
 
@@ -75,10 +78,25 @@ func populate_augment_hbox() -> void:
 		augment_panel_button_inst.animate_entrance(delay)
 		delay += 0.1
 
-## Pick a random augment from the list with weighted rarity
+## Pick a random augment from the list with weighted rarity (scales with wave count)
 func _pick_weighted_augment(augments: Array[AugmentData]) -> AugmentData:
 	if augments.is_empty():
 		return null
+	
+	# Get current wave for scaling
+	var current_wave: int = 1
+	var wave_manager = get_tree().get_first_node_in_group("wave_manager")
+	if wave_manager:
+		current_wave = wave_manager.current_display_wave
+	
+	# Calculate wave scaling factor (waves beyond 1 improve rarity chances)
+	var wave_bonus = (current_wave - 1) * rarity_scaling_per_wave
+	
+	# Calculate scaled weights - common decreases, others increase with wave
+	var scaled_common = common_weight * max(0.2, 1.0 - wave_bonus)  # Common decreases (min 20% of base)
+	var scaled_uncommon = uncommon_weight * (1.0 + wave_bonus * 0.5)  # Uncommon increases slower
+	var scaled_rare = rare_weight * (1.0 + wave_bonus)  # Rare increases
+	var scaled_legendary = legendary_weight * (1.0 + wave_bonus * 1.5)  # Legendary increases fastest
 	
 	# Build weights array based on rarity
 	var weights: PackedFloat32Array = PackedFloat32Array()
@@ -87,15 +105,15 @@ func _pick_weighted_augment(augments: Array[AugmentData]) -> AugmentData:
 		var weight: float
 		match augment.rarity:
 			AugmentData.Rarity.COMMON:
-				weight = common_weight
+				weight = scaled_common
 			AugmentData.Rarity.UNCOMMON:
-				weight = uncommon_weight
+				weight = scaled_uncommon
 			AugmentData.Rarity.RARE:
-				weight = rare_weight
+				weight = scaled_rare
 			AugmentData.Rarity.LEGENDARY:
-				weight = legendary_weight
+				weight = scaled_legendary
 			_:
-				weight = common_weight  # Default to common
+				weight = scaled_common  # Default to common
 		
 		weights.append(weight)
 	
@@ -109,6 +127,8 @@ func get_current_reroll_cost() -> int:
 	return int(BASE_REROLL_COST * (1.0 - discount))
 
 func update_reroll_button() -> void:
+	if not reroll_button:
+		return
 	var current_cost = get_current_reroll_cost()
 	reroll_button.text = "Reroll [%d Gold]" % current_cost
 	reroll_button.disabled = PlayerData.gold < current_cost

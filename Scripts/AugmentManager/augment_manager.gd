@@ -272,13 +272,18 @@ func _apply_laser_of_death(value: float) -> void:
 func _spawn_laser_of_death() -> void:
 	const LASER_SCENE = preload("res://Objects/LaserOfDeath/laser_of_death.tscn")
 	
-	if not mouse_shooter:
-		print("Warning: MouseShooter not found for laser spawn")
+	# Add to neutral_entities so it's always visible in the game world
+	var neutral_entities = get_tree().get_first_node_in_group("neutral_entities")
+	if not neutral_entities:
+		print("Warning: neutral_entities not found for laser spawn")
 		return
 	
 	laser_of_death_instance = LASER_SCENE.instantiate()
-	mouse_shooter.add_child(laser_of_death_instance)
-	print("Laser of Death spawned!")
+	laser_of_death_instance.enabled = true
+	neutral_entities.add_child(laser_of_death_instance)
+	laser_of_death_instance.global_position = Vector2(1261, 363)
+	laser_of_death_instance.show()
+	print("Laser of Death spawned! Parent: ", laser_of_death_instance.get_parent().name)
 
 func _upgrade_laser_of_death() -> void:
 	if not laser_of_death_instance:

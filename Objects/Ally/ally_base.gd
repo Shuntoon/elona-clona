@@ -71,7 +71,7 @@ func _ready() -> void:
 	
 	# Get AnimatedSprite2D reference
 	animated_sprite = get_node_or_null("AnimatedSprite2D")
-	if animated_sprite:
+	if animated_sprite and ally_data and ally_data.sprite_frames:
 		animated_sprite.sprite_frames = ally_data.sprite_frames 
 		animated_sprite.animation_finished.connect(_on_animation_finished)
 		animated_sprite.play("default")

@@ -33,70 +33,53 @@ font_size = 48
 
 [node name="AugmentsPage" type="Panel"]
 custom_minimum_size = Vector2(1065, 564)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_b6eae")
 augment_selection = Array[ExtResource("2_tsv3p")]([ExtResource("3_fkv8u"), ExtResource("4_hsc5t"), ExtResource("5_hpobp"), ExtResource("6_mson7"), ExtResource("7_37cud"), ExtResource("8_6mapy"), ExtResource("9_hpobp"), ExtResource("10_mson7"), ExtResource("11_mson7"), ExtResource("12_37cud"), ExtResource("13_6mapy"), ExtResource("14_i2sr4"), ExtResource("15_7wcsf"), ExtResource("16_oj2gc"), ExtResource("17_rqn6v"), ExtResource("18_lehqo"), ExtResource("19_burst"), ExtResource("20_ammo"), ExtResource("21_adrenaline"), ExtResource("22_masterwork"), ExtResource("23_opening"), ExtResource("24_execute"), ExtResource("25_1ywgw"), ExtResource("26_ld1q1")])
 augment_panel_button_scene = ExtResource("2_c4yg0")
+common_weight = 60.0
+uncommon_weight = 10.0
+rare_weight = 3.0
+legendary_weight = 1.0
 
-[node name="AugmentsLabel" type="Label" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -507.0
-offset_top = -247.0
-offset_right = -272.0
-offset_bottom = -130.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Augments"
-label_settings = SubResource("LabelSettings_skbsq")
-vertical_alignment = 1
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
 
-[node name="AugmentHBoxContainer" type="HBoxContainer" parent="."]
+[node name="AugmentHBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -507.0
-offset_top = -94.0
-offset_right = 507.0
-offset_bottom = 237.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
 theme_override_constants/separation = 16
 
-[node name="CurrentUpgradesPanel" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -673.0
-offset_top = 50.0
-offset_right = -25.5
-offset_bottom = 167.0
-grow_horizontal = 0
+[node name="CurrentUpgradesPanel" type="Panel" parent="MarginContainer"]
+custom_minimum_size = Vector2(640, 110)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
 
-[node name="Label" type="Label" parent="CurrentUpgradesPanel"]
+[node name="Label" type="Label" parent="MarginContainer/CurrentUpgradesPanel"]
 layout_mode = 0
 offset_left = 0.5
-offset_top = -31.0
+offset_top = -19.0
 offset_right = 138.5
-offset_bottom = -8.0
+offset_bottom = -4.0
 text = "Current Upgrades"
 
-[node name="MarginContainer" type="MarginContainer" parent="CurrentUpgradesPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/CurrentUpgradesPanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -108,19 +91,33 @@ theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
-[node name="AugmentsIconGridContainer" type="GridContainer" parent="CurrentUpgradesPanel/MarginContainer"]
+[node name="AugmentsIconGridContainer" type="GridContainer" parent="MarginContainer/CurrentUpgradesPanel/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/h_separation = 12
 theme_override_constants/v_separation = 12
 columns = 18
 
-[node name="RerollButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 231.7175
-offset_top = 64.888916
-offset_right = 346.5
-offset_bottom = 130.0
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(0, 124)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 32
+
+[node name="AugmentsLabel" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Augments"
+label_settings = SubResource("LabelSettings_skbsq")
+vertical_alignment = 1
+
+[node name="RerollButton" type="Button" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 text = "Reroll"
 
-[connection signal="pressed" from="RerollButton" to="." method="_on_reroll_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/RerollButton" to="." method="_on_reroll_button_pressed"]

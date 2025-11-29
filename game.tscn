@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://c4ruds6frs58h"]
+[gd_scene load_steps=30 format=3 uid="uid://c4ruds6frs58h"]
 
 [ext_resource type="Script" uid="uid://cvikpqyxjqs5g" path="res://Scripts/GameManager/game_manager.gd" id="1_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://ci4hdj038kg5i" path="res://Objects/MouseShooter/mouse_shooter.tscn" id="1_feb5d"]
@@ -24,7 +24,6 @@
 [ext_resource type="PackedScene" uid="uid://dttnwpg88y083" path="res://Objects/Player/player.tscn" id="16_rvswv"]
 [ext_resource type="Resource" uid="uid://c326rujinburw" path="res://Data/WaveData/real/Wave_5.tres" id="18_bnpwn"]
 [ext_resource type="Texture2D" uid="uid://cy8pou57fxnrh" path="res://Art/BG/RealBG.png" id="18_hb5m1"]
-[ext_resource type="PackedScene" uid="uid://dxae4nyei461n" path="res://Objects/LaserOfDeath/laser_of_death.tscn" id="18_rvswv"]
 [ext_resource type="Texture2D" uid="uid://dnsrbb1pdfvib" path="res://Art/Castle/Castle.png" id="21_f1jbl"]
 [ext_resource type="PackedScene" uid="uid://bufmu7frdb3wc" path="res://UI/Menus/pause_menu.tscn" id="22_pause"]
 [ext_resource type="Texture2D" uid="uid://bqu44ygj7r6ta" path="res://Art/Sandbag/Sandbag.png" id="22_vaj68"]
@@ -292,11 +291,6 @@ position = Vector2(2, 228)
 
 [node name="Pos3" type="Marker2D" parent="Spawner/Air"]
 position = Vector2(2, 166)
-
-[node name="LaserOfDeath" parent="." instance=ExtResource("18_rvswv")]
-position = Vector2(1229, 387)
-enabled = false
-follow_speed = 15.0
 
 [connection signal="all_enemies_killed" from="GameManager" to="GameManager" method="_on_all_enemies_killed"]
 [connection signal="day_timer_finished" from="GameManager" to="GameManager" method="_on_day_timer_finished"]

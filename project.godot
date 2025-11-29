@@ -10,10 +10,11 @@ config_version=5
 
 [application]
 
-config/name="ElonaClona"
+config/name="Wave Defender: Apocalypse"
 run/main_scene="uid://c4ruds6frs58h"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://cqcgdffl2eao8"
+config/windows_native_icon="res://Art/Froggert/FroggertIcon.ico"
 
 [autoload]
 

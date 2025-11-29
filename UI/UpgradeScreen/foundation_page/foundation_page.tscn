@@ -12,6 +12,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_eyfy0")
+base_reroll_cost = 250
+price_multiplier = 2.0
 
 [node name="TitleLabel" type="Label" parent="."]
 layout_mode = 1
