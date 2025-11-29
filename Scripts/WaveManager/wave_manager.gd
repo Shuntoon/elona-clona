@@ -7,6 +7,7 @@ signal all_waves_complete()
 
 @export var waves: Array[WaveData]
 @export var enemy_base_scene: PackedScene
+@export var scaling_health_base: int = 25  # Base health scaling per wave
 
 var spawner: Spawner
 var game_manager: GameManager
@@ -159,7 +160,7 @@ func _spawn_enemy_with_data(enemy_data: EnemyData):
 	# Inject enemy data properties
 	enemy_inst.enemy_name = enemy_data.enemy_name
 	enemy_inst.speed = enemy_data.speed
-	enemy_inst.max_health = enemy_data.max_health + randi_range(-25 * (current_wave_index + 1) ,25 * (current_wave_index + 1))
+	enemy_inst.max_health = enemy_data.max_health + randi_range(-scaling_health_base * (current_wave_index + 1) ,scaling_health_base * (current_wave_index + 1))
 	enemy_inst.range = enemy_data.range
 	enemy_inst.damage = enemy_data.damage
 	enemy_inst.attack_speed = enemy_data.attack_speed
