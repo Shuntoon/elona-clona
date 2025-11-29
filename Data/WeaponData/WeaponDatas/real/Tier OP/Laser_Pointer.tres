@@ -1,16 +1,12 @@
-[gd_resource type="Resource" script_class="WeaponData" load_steps=4 format=3 uid="uid://dub6ux6iwtmmj"]
+[gd_resource type="Resource" script_class="WeaponData" load_steps=3 format=3 uid="uid://dub6ux6iwtmmj"]
 
-[ext_resource type="Texture2D" uid="uid://d3rcf2brjy7c0" path="res://Art/Filler/Guns/1.png" id="1_gv1gt"]
+[ext_resource type="Texture2D" uid="uid://0mdq6w0oytmc" path="res://Art/guns/m9bu73evl9391.png" id="1_gv1gt"]
 [ext_resource type="Script" uid="uid://rimwdfuvv8ao" path="res://Data/WeaponData/weapon_data.gd" id="2_givjj"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pxwm6"]
-atlas = ExtResource("1_gv1gt")
-region = Rect2(0, 118, 12, 10.083237)
 
 [resource]
 script = ExtResource("2_givjj")
 weapon_name = "pointer"
-icon = SubResource("AtlasTexture_pxwm6")
+icon = ExtResource("1_gv1gt")
 bullet_type = 1
 fire_mode = 2
 max_spread = 1.0
