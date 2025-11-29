@@ -1,16 +1,16 @@
 [gd_resource type="Resource" script_class="WeaponData" load_steps=4 format=3 uid="uid://cfx5p1tfn5q5e"]
 
-[ext_resource type="Texture2D" uid="uid://d3rcf2brjy7c0" path="res://Art/Filler/Guns/1.png" id="1_pkacp"]
+[ext_resource type="Texture2D" uid="uid://c5egilrsi4bxh" path="res://Art/guns/halo.png" id="1_xq0ou"]
 [ext_resource type="Script" uid="uid://rimwdfuvv8ao" path="res://Data/WeaponData/weapon_data.gd" id="2_aufd2"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pxwm6"]
-atlas = ExtResource("1_pkacp")
-region = Rect2(0, 118, 12, 10.083237)
+[sub_resource type="AtlasTexture" id="AtlasTexture_at6eb"]
+atlas = ExtResource("1_xq0ou")
+region = Rect2(102.44589, 244.0904, 378.2283, 98.321625)
 
 [resource]
 script = ExtResource("2_aufd2")
 weapon_name = "Anti-Material Rifle"
-icon = SubResource("AtlasTexture_pxwm6")
+icon = SubResource("AtlasTexture_at6eb")
 bullet_type = 1
 fire_rate = 240.0
 magazine_size = 4
