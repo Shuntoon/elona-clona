@@ -13,6 +13,7 @@ name = "Heavy Rounds"
 description = "+15% damage, -10% fire rate"
 icon = SubResource("AtlasTexture_fe2o0")
 rarity = 1
+price = 150
 augment_type = 1
 value = 0.15
 has_secondary_effect = true

@@ -13,6 +13,6 @@ name = "Adrenaline Rush"
 description = "50% chance on kill to reduce all ability cooldowns by 2 seconds"
 icon = SubResource("AtlasTexture_lkdgv")
 rarity = 4
-price = 300
+price = 350
 augment_type = 22
 value = 2.0

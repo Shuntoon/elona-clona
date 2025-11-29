@@ -13,6 +13,6 @@ name = "Opening Shot"
 description = "First shot in each magazine deals +50% damage. Stacks."
 icon = SubResource("AtlasTexture_26f7n")
 rarity = 2
-price = 200
+price = 250
 augment_type = 23
 value = 0.5

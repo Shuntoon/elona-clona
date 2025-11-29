@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_3gg4t")
 name = "Quick Hands"
-description = "up reload speed"
+description = "+10% Reload Speed"
 icon = ExtResource("1_47d48")
 price = 75
 augment_type = 6

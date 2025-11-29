@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_8t226")
 name = "Hollow Point Rounds"
-description = "Up damage"
+description = "+10% Damage"
 icon = ExtResource("1_wcgo0")
 price = 75
 augment_type = 1

@@ -13,6 +13,7 @@ name = "Drum Magazine"
 description = "+35% magazine size, +20% reload time"
 icon = SubResource("AtlasTexture_06epe")
 rarity = 2
+price = 150
 augment_type = 7
 value = 0.35
 has_secondary_effect = true

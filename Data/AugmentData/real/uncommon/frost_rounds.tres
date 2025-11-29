@@ -14,4 +14,4 @@ description = "Slows enemies by 10% for 3 seconds on hit"
 icon = SubResource("AtlasTexture_qhffa")
 rarity = 1
 augment_type = 19
-value = 0.1
+value = 0.9

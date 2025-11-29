@@ -12,7 +12,7 @@ region = Rect2(32, 0, 32, 32)
 [resource]
 script = ExtResource("2_3jux0")
 name = "Laser Pointer"
-description = "Crit chance up"
+description = "+10% Crit chance"
 icon = SubResource("AtlasTexture_chb84")
 price = 75
 augment_type = 3
