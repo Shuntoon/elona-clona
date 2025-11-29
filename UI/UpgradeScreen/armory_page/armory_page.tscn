@@ -110,6 +110,7 @@ offset_right = 39.0
 offset_bottom = 39.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 expand_mode = 1
 
 [node name="Weapon2Panel" type="Panel" parent="."]
@@ -159,6 +160,7 @@ offset_right = 39.0
 offset_bottom = 39.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 expand_mode = 1
 
 [node name="GridContainer" type="GridContainer" parent="."]
