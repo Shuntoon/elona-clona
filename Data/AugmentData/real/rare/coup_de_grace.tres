@@ -1,13 +1,17 @@
-[gd_resource type="Resource" script_class="AugmentData" load_steps=3 format=3 uid="uid://buap6m5n3q8r4"]
+[gd_resource type="Resource" script_class="AugmentData" load_steps=4 format=3 uid="uid://buap6m5n3q8r4"]
 
-[ext_resource type="Texture2D" uid="uid://d2glsjhg3dw3p" path="res://Art/Filler/AugmentIcons/Asset 70@2x.png" id="1_icon"]
+[ext_resource type="Texture2D" uid="uid://bklje6ftk6f45" path="res://Art/Icons/easy_sheet.tres" id="1_hhy3n"]
 [ext_resource type="Script" uid="uid://dfu50k1tlerfj" path="res://Data/AugmentData/augment_data.gd" id="2_script"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppn66"]
+atlas = ExtResource("1_hhy3n")
+region = Rect2(352, 3424, 32, 32)
 
 [resource]
 script = ExtResource("2_script")
 name = "Coup de Grace"
 description = "15% chance to instantly kill enemies below 20% health. Stacks."
-icon = ExtResource("1_icon")
+icon = SubResource("AtlasTexture_ppn66")
 rarity = 2
 price = 200
 augment_type = 24

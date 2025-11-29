@@ -1,13 +1,17 @@
-[gd_resource type="Resource" script_class="AugmentData" load_steps=3 format=3 uid="uid://dki75h8iwy3t7"]
+[gd_resource type="Resource" script_class="AugmentData" load_steps=4 format=3 uid="uid://dki75h8iwy3t7"]
 
-[ext_resource type="Texture2D" uid="uid://d2glsjhg3dw3p" path="res://Art/Filler/AugmentIcons/Asset 70@2x.png" id="1_icon"]
+[ext_resource type="Texture2D" uid="uid://bklje6ftk6f45" path="res://Art/Icons/easy_sheet.tres" id="1_5ary3"]
 [ext_resource type="Script" uid="uid://dfu50k1tlerfj" path="res://Data/AugmentData/augment_data.gd" id="2_script"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7jncf"]
+atlas = ExtResource("1_5ary3")
+region = Rect2(352, 1504, 32, 32)
 
 [resource]
 script = ExtResource("2_script")
 name = "Demolition Expert"
 description = "All projectile weapons become explosive. +50% explosion damage and radius."
-icon = ExtResource("1_icon")
+icon = SubResource("AtlasTexture_7jncf")
 rarity = 4
 price = 300
 augment_type = 10

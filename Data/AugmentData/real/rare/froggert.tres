@@ -1,13 +1,17 @@
-[gd_resource type="Resource" script_class="AugmentData" load_steps=3 format=3 uid="uid://dj1v1ld5k5ewy"]
+[gd_resource type="Resource" script_class="AugmentData" load_steps=4 format=3 uid="uid://dj1v1ld5k5ewy"]
 
-[ext_resource type="Texture2D" uid="uid://d2glsjhg3dw3p" path="res://Art/Filler/AugmentIcons/Asset 70@2x.png" id="1_icon"]
+[ext_resource type="Texture2D" uid="uid://m6poado1x4u0" path="res://Art/Froggert/ToxicFrogBlueBlue_Idle.png" id="1_gget2"]
 [ext_resource type="Script" uid="uid://dfu50k1tlerfj" path="res://Data/AugmentData/augment_data.gd" id="2_script"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gupob"]
+atlas = ExtResource("1_gget2")
+region = Rect2(0, 0, 48, 48)
 
 [resource]
 script = ExtResource("2_script")
 name = "Froggert"
 description = "Spawns a Froggert on the battlefield. Shoots toxic projectiles and explodes on contact."
-icon = ExtResource("1_icon")
+icon = SubResource("AtlasTexture_gupob")
 rarity = 2
 price = 200
 augment_type = 25
