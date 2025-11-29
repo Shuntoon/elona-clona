@@ -104,7 +104,7 @@ custom_minimum_size = Vector2(0, 124)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-theme_override_constants/separation = 32
+theme_override_constants/separation = 16
 
 [node name="AugmentsLabel" type="Label" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -115,7 +115,7 @@ vertical_alignment = 1
 
 [node name="RerollButton" type="Button" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(120, 48)
+custom_minimum_size = Vector2(148, 48)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4

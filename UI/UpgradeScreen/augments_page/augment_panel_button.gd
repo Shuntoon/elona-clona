@@ -21,6 +21,10 @@ func _ready():
 	mouse_exited.connect(_on_mouse_exited)
 	init_panel(augment_data)
 
+func _process(delta):
+	_update_buy_button()
+	
+
 func animate_entrance(delay: float = 0.0) -> void:
 	# Start off-screen and transparent
 	modulate.a = 0.0
@@ -60,7 +64,6 @@ func init_panel(augment_data_inst: AugmentData) -> void:
 	price_label.text = "%d$" % augment_data.price
 	
 	# Update buy button state based on player gold
-	_update_buy_button()
 	
 	# Set color based on rarity
 	_set_rarity_color()
@@ -130,7 +133,7 @@ func _play_purchase_animation() -> void:
 	tween.tween_property(self, "scale", base_scale * 0.95, 0.15).set_ease(Tween.EASE_IN_OUT)
 	tween.tween_property(self, "scale", base_scale, 0.1).set_ease(Tween.EASE_OUT)
 	# Fade to purchased state
-	tween.parallel().tween_property(self, "modulate", Color(0.6, 0.6, 0.6, 0.8), 0.3)
+	tween.parallel().tween_property(self, "modulate", Color(0.6, 0.6, 0.6, 1.0), 0.3)
 	
 	# Check if this is an ability augment
 	if augment_data.augment_type == AugmentData.AugmentType.ABILITY:

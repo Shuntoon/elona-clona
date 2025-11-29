@@ -8,6 +8,7 @@ script = ExtResource("1_kbo54")
 ally_type = 1
 ally_name = "Rocketeer"
 sprite_frames = ExtResource("2_gq2r1")
+detection_range = 600.0
 fire_rate = 30.0
 explosion_damage = 75
 explosion_radius = 175.0

@@ -7,8 +7,9 @@
 [resource]
 script = ExtResource("1_xqfgw")
 ally_type = 3
-ally_name = "Gunna"
+ally_name = "Machine Gunner"
 sprite_frames = ExtResource("2_di0kg")
+detection_range = 700.0
 bullet_damage = 20
 accuracy = 0.594
 max_spread = 50.0

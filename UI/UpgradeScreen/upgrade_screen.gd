@@ -26,6 +26,7 @@ func _process(delta: float) -> void:
 	update_stats()
 
 func _on_next_wave_button_pressed() -> void:
+	switch_page_sound.play()
 	_swipe_out()
 	await get_tree().create_timer(1.0).timeout
 	game_mananger.start_new_day.emit()

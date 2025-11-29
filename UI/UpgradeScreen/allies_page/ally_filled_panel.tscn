@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://w7gefcihbnk1"]
+[gd_scene load_steps=15 format=3 uid="uid://w7gefcihbnk1"]
 
 [ext_resource type="Texture2D" uid="uid://c141i8bg1yp0o" path="res://Art/ArmyMen/Japan.png" id="1_0fmc5"]
 [ext_resource type="Script" uid="uid://ol2whcmau8wg" path="res://UI/UpgradeScreen/allies_page/ally_filled_panel.gd" id="1_3eyxt"]
 [ext_resource type="Texture2D" uid="uid://vm0qjj50rfwj" path="res://Art/PlagueDoctor/Plague_Doctor_Sprite_Sheet.png" id="3_481oq"]
+[ext_resource type="FontFile" uid="uid://c5xqmx37bvo2s" path="res://UI/Fonts/LazyFox Pixel Font 1.ttf" id="4_i6tet"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i6tet"]
 atlas = ExtResource("1_0fmc5")
@@ -38,6 +39,7 @@ atlas = ExtResource("1_0fmc5")
 region = Rect2(15, 16, 39, 35)
 
 [sub_resource type="LabelSettings" id="LabelSettings_04dfh"]
+font = ExtResource("4_i6tet")
 font_size = 20
 
 [node name="AllyFilledPanel" type="Panel"]
