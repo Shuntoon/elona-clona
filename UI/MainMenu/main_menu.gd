@@ -14,6 +14,8 @@ const CREDITS_PANEL_SCENE = preload("res://UI/Menus/credits_panel.tscn")
 ]
 
 @onready var main_menu_control: Control = $CanvasLayer/MainMenuControl
+@onready var menu_sound_1 : AudioStreamPlayer = %MenuSound1
+@onready var menu_sound_2 : AudioStreamPlayer = %MenuSound2
 
 # Popup panel instances
 var how_to_play_panel: Panel = null
@@ -98,9 +100,11 @@ func _rotate_shooters() -> void:
 		currently_shooting.append(new_shooter)
 
 func _on_play_button_pressed() -> void:
+	menu_sound_1.play()
 	get_tree().change_scene_to_file("res://game.tscn")
 
 func _on_how_to_play_button_pressed() -> void:
+	menu_sound_2.play()
 	_hide_all_popups()
 	if not how_to_play_panel:
 		how_to_play_panel = HOW_TO_PLAY_PANEL_SCENE.instantiate()
@@ -109,6 +113,7 @@ func _on_how_to_play_button_pressed() -> void:
 	how_to_play_panel.show_panel()
 
 func _on_options_button_pressed() -> void:
+	menu_sound_2.play()
 	_hide_all_popups()
 	if not options_panel:
 		options_panel = OPTIONS_PANEL_SCENE.instantiate()
@@ -117,6 +122,7 @@ func _on_options_button_pressed() -> void:
 	options_panel.show_panel()
 
 func _on_credits_button_pressed() -> void:
+	menu_sound_2.play()
 	_hide_all_popups()
 	if not credits_panel:
 		credits_panel = CREDITS_PANEL_SCENE.instantiate()
@@ -125,9 +131,11 @@ func _on_credits_button_pressed() -> void:
 	credits_panel.show_panel()
 
 func _on_quit_button_pressed() -> void:
+	menu_sound_1.play()	
 	get_tree().quit()
 
 func _on_popup_back_button_pressed() -> void:
+	menu_sound_2.play()
 	_hide_all_popups()
 
 func _hide_all_popups() -> void:
