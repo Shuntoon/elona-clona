@@ -6,10 +6,17 @@
 [resource]
 script = ExtResource("2_vdodv")
 weapon_name = "Pistol"
+description = "Hickory, Dickory, Dock, it's time for the Glock
+Damage: 25
+Fire Rate: 2 RPS
+Ammo: 17
+Reload: 1.4 
+Critical Chance: 70%
+Critical Damage: 2x"
 icon = ExtResource("1_dme8r")
 accuracy = 0.65
 fire_rate = 120.0
-magazine_size = 15
+magazine_size = 17
 reload_time = 1.4
 crit_chance = 0.7
 bullet_damage = 25

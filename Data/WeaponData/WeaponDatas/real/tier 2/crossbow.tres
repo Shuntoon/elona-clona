@@ -6,6 +6,15 @@
 [resource]
 script = ExtResource("2_novgr")
 weapon_name = "crossbow"
+description = "Hit him with your crossbow Steve!
+Piercing
+Damage: 75
+Fire Rate: 2 RPS
+Ammo: 1
+Reload: 1.5
+Critical Chance: 100%
+Critical Damage: 2x
+"
 icon = ExtResource("1_3i7uy")
 bullet_type = 1
 accuracy = 0.9

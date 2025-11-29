@@ -5,13 +5,21 @@
 
 [resource]
 script = ExtResource("2_xijtu")
-weapon_name = "Noob Tube"
+weapon_name = "Grenade Launcher"
+description = "\"I'm goin' ta blast ya into thin gruel. KA-BOOM!
+Damage: 10 , 70 Explosion
+Fire Rate: 1 RPS
+Ammo: 1
+Reload: 2
+Critical Chance: 25%
+Critical Damage: 2.5x"
 icon = ExtResource("1_askb5")
 bullet_type = 1
 accuracy = 0.914
 fire_rate = 60.0
 magazine_size = 1
-crit_chance = 0.238
+crit_chance = 0.25
+crit_multiplier = 2.5
 bullet_damage = 10
 burst_count = 15
 burst_delay = 0.001

@@ -6,6 +6,13 @@
 [resource]
 script = ExtResource("2_givjj")
 weapon_name = "pointer"
+description = "The laser pointer is a bit of a misnomer. It is simply a laser. The pointer is you.
+Damage: 2
+Fire Rate: 9999 RPS
+Ammo: 99999
+Reload: 2
+Critical Chance: 100%
+Critical Damage: 1x"
 icon = ExtResource("1_gv1gt")
 bullet_type = 1
 fire_mode = 2
