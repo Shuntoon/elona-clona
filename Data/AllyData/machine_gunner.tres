@@ -6,4 +6,7 @@
 script = ExtResource("1_xqfgw")
 ally_type = 3
 ally_name = "Gunna"
+bullet_damage = 20
+accuracy = 0.594
+max_spread = 50.0
 metadata/_custom_type_script = "uid://bhvur583pgsyf"

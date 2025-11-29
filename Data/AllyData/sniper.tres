@@ -6,4 +6,10 @@
 script = ExtResource("1_j781e")
 ally_type = 4
 ally_name = "Jackal"
+detection_range = 1000.0
+fire_rate = 60.0
+bullet_damage = 100
+accuracy = 1.0
+explosion_damage = 0
+explosion_radius = 0.0
 metadata/_custom_type_script = "uid://bhvur583pgsyf"

@@ -77,7 +77,7 @@ script = ExtResource("5_augment")
 
 [node name="WaveManager" type="Node" parent="."]
 script = ExtResource("8_lc2xo")
-waves = Array[ExtResource("9_80cx4")]([ExtResource("12_bnpwn"), ExtResource("10_e8heu"), ExtResource("10_rvswv"), ExtResource("11_hb5m1"), ExtResource("10_e36ub"), ExtResource("10_hb5m1"), ExtResource("18_bnpwn"), ExtResource("12_i2p71"), ExtResource("12_5b14r")])
+waves = Array[ExtResource("9_80cx4")]([ExtResource("10_e8heu"), ExtResource("10_rvswv"), ExtResource("11_hb5m1"), ExtResource("10_e36ub"), ExtResource("10_hb5m1"), ExtResource("18_bnpwn"), ExtResource("12_i2p71"), ExtResource("12_5b14r"), ExtResource("12_bnpwn")])
 enemy_base_scene = ExtResource("10_7sc4i")
 metadata/_custom_type_script = "uid://b0hnw34sgf8um"
 

@@ -6,4 +6,8 @@
 script = ExtResource("1_oyqwt")
 ally_type = 2
 ally_name = "Supporto"
+detection_range = 0.0
+fire_rate = 0.0
+explosion_radius = 120.315
+heal_amount = 2
 metadata/_custom_type_script = "uid://bhvur583pgsyf"
