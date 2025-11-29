@@ -28,7 +28,8 @@ var laser_of_death_stacks: int = 0
 var laser_of_death_instance: LaserOfDeath = null
 var gold_gain_multiplier: float = 1.0
 var slow_on_hit_enabled: bool = false
-var slow_on_hit_multiplier: float = 0.5  # 50% speed by default
+# Per-stack slow amount (e.g., 0.1 = 10% slow per stack). Used by Hitbox when applying stacks to enemies.
+var slow_on_hit_per_stack: float = 0.1
 var slow_on_hit_duration: float = 3.0
 var ammo_refund_chance: float = 0.0
 var cooldown_reduction_on_kill_chance: float = 0.0
@@ -300,8 +301,9 @@ func _apply_gold_gain_multiplier(value: float) -> void:
 
 func _apply_slow_on_hit(value: float) -> void:
 	slow_on_hit_enabled = true
-	slow_on_hit_multiplier = value
-	print("Slow on hit enabled! Speed multiplier: ", slow_on_hit_multiplier)
+	# Store the per-stack slow amount (value expected like 0.1 for 10% per stack)
+	slow_on_hit_per_stack = value
+	print("Slow on hit enabled! Per-stack slow: ", slow_on_hit_per_stack * 100, "% per stack, duration: ", slow_on_hit_duration)
 
 func _apply_burst_count(value: float) -> void:
 	if mouse_shooter and mouse_shooter.weapon_data:

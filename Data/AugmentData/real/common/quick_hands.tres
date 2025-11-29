@@ -1,13 +1,17 @@
-[gd_resource type="Resource" script_class="AugmentData" load_steps=3 format=3 uid="uid://djby6rnhk0mcl"]
+[gd_resource type="Resource" script_class="AugmentData" load_steps=4 format=3 uid="uid://djby6rnhk0mcl"]
 
-[ext_resource type="Texture2D" uid="uid://q8auichptb82" path="res://Art/Icons/easy_atlas_texture.tres" id="1_47d48"]
+[ext_resource type="Texture2D" uid="uid://bklje6ftk6f45" path="res://Art/Icons/easy_sheet.tres" id="1_k4u3q"]
 [ext_resource type="Script" uid="uid://dfu50k1tlerfj" path="res://Data/AugmentData/augment_data.gd" id="2_3gg4t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4l1d0"]
+atlas = ExtResource("1_k4u3q")
+region = Rect2(352, 4096, 32, 32)
 
 [resource]
 script = ExtResource("2_3gg4t")
 name = "Quick Hands"
 description = "up reload speed"
-icon = ExtResource("1_47d48")
+icon = SubResource("AtlasTexture_4l1d0")
 price = 75
 augment_type = 6
 value = -0.1

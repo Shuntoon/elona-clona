@@ -30,6 +30,9 @@ func _enter_tree() -> void:
 @export var explosion_damage: int = 10
 @export var explosion_radius: float = 100.0
 @export var explosion_visual_scale: float = 1.0
+@export var bullet_sprite: Texture2D
+@export var rocket_sprite: Texture2D
+@export var bullet_sprite_scale: Vector2 = Vector2(1, 1)
 @export_range(0.0, 1.0) var crit_chance: float = 0.1
 @export var crit_multiplier: float = 2.0
 
@@ -194,6 +197,9 @@ func _equip_weapon(slot: int) -> void:
 	explosion_damage = weapon_to_equip.explosion_damage
 	explosion_radius = weapon_to_equip.explosion_radius
 	explosion_visual_scale = weapon_to_equip.explosion_visual_scale
+	bullet_sprite = weapon_to_equip.bullet_sprite
+	rocket_sprite = weapon_to_equip.rocket_sprite
+	bullet_sprite_scale = weapon_to_equip.bullet_sprite_scale
 	crit_chance = weapon_to_equip.crit_chance
 	crit_multiplier = weapon_to_equip.crit_multiplier
 	bleed_chance = weapon_to_equip.bleed_chance
@@ -347,6 +353,12 @@ func _fire_bullet() -> void:
 		bullet_base_inst.explosion_scene = EXPLOSION
 		bullet_base_inst.hit_enemy_vfx = HIT_ENEMY_VFX
 		bullet_base_inst.hit_ground_vfx = HIT_GROUND_VFX
+		if bullet_sprite:
+			bullet_base_inst.bullet_texture = bullet_sprite
+		if rocket_sprite:
+			bullet_base_inst.rocket_texture = rocket_sprite
+		# Apply bullet visual scale from equipped weapon_data
+		bullet_base_inst.bullet_visual_scale = bullet_sprite_scale
 		
 		# Set bullet damage and crit via hitbox
 		var hitbox = bullet_base_inst.get_node_or_null("Hitbox")

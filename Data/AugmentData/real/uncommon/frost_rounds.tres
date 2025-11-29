@@ -10,8 +10,8 @@ region = Rect2(0, 2016, 32, 32)
 [resource]
 script = ExtResource("2_qhffa")
 name = "Frost Rounds"
-description = "Slows enemies by 10% for 3 seconds on hit"
+description = "Slows enemies 3 seconds on hit. Stacks"
 icon = SubResource("AtlasTexture_qhffa")
 rarity = 1
 augment_type = 19
-value = 0.1
+value = 0.05

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://buj37tqnk8i22"]
+[gd_scene load_steps=26 format=3 uid="uid://buj37tqnk8i22"]
 
 [ext_resource type="Script" uid="uid://d0o2h0vu1j1k4" path="res://UI/UpgradeScreen/armory_page/armory_page.gd" id="1_xy3um"]
 [ext_resource type="PackedScene" uid="uid://b23ol6kgi5880" path="res://UI/UpgradeScreen/armory_page/armory_weapon_slot.tscn" id="2_aduju"]
@@ -24,6 +24,9 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_umnqg"]
 font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_77iqj"]
+font_size = 18
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i5wgx"]
 texture = ExtResource("2_mdc5b")
@@ -58,14 +61,30 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -87.0
-offset_top = 58.0
+offset_top = 20.0
 offset_right = 87.0
-offset_bottom = 125.0
+offset_bottom = 87.0
 grow_horizontal = 2
 text = "Armory"
 label_settings = SubResource("LabelSettings_umnqg")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ArmoryLabel2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -133.0
+offset_top = 83.0
+offset_right = 133.0
+offset_bottom = 155.0
+grow_horizontal = 2
+text = "Make sure to drag in your newly purchased weapons in order the equip them!"
+label_settings = SubResource("LabelSettings_77iqj")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="Weapon1Panel" type="Panel" parent="."]
 unique_name_in_owner = true

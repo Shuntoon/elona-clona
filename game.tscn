@@ -84,6 +84,7 @@ script = ExtResource("5_augment")
 script = ExtResource("8_lc2xo")
 waves = Array[ExtResource("9_80cx4")]([ExtResource("10_e8heu"), ExtResource("10_rvswv"), ExtResource("11_hb5m1"), ExtResource("10_e36ub"), ExtResource("10_hb5m1"), ExtResource("18_bnpwn"), ExtResource("12_i2p71"), ExtResource("12_5b14r"), ExtResource("12_bnpwn")])
 enemy_base_scene = ExtResource("10_7sc4i")
+scaling_health_base = 10
 metadata/_custom_type_script = "uid://b0hnw34sgf8um"
 
 [node name="MouseShooter" parent="." instance=ExtResource("1_feb5d")]
@@ -230,7 +231,7 @@ position = Vector2(1108.1875, 352)
 
 [node name="Ally2Spawn" type="Marker2D" parent="Entities/Allies"]
 unique_name_in_owner = true
-position = Vector2(1108.1875, 410)
+position = Vector2(1108, 405)
 
 [node name="Ally3Spawn" type="Marker2D" parent="Entities/Allies"]
 unique_name_in_owner = true
@@ -244,24 +245,24 @@ position = Vector2(1108.1875, 640)
 
 [node name="BulletSpawnPoint" type="Marker2D" parent="Entities/Neutral"]
 unique_name_in_owner = true
-position = Vector2(1035, 444)
+position = Vector2(1044, 464)
 
 [node name="FroggertSpawns" type="Node2D" parent="Entities/Neutral" groups=["froggert_spawns"]]
 
 [node name="Ally1Spawn" type="Marker2D" parent="Entities/Neutral/FroggertSpawns"]
-position = Vector2(924, 399)
+position = Vector2(924, 355)
 
 [node name="Ally2Spawn" type="Marker2D" parent="Entities/Neutral/FroggertSpawns"]
-position = Vector2(924, 535)
+position = Vector2(924, 497)
 
 [node name="Ally3Spawn" type="Marker2D" parent="Entities/Neutral/FroggertSpawns"]
-position = Vector2(924, 596)
+position = Vector2(924, 559)
 
 [node name="Ally4Spawn" type="Marker2D" parent="Entities/Neutral/FroggertSpawns"]
-position = Vector2(924, 687)
+position = Vector2(924, 624)
 
 [node name="Ally5Spawn" type="Marker2D" parent="Entities/Neutral/FroggertSpawns"]
-position = Vector2(924, 464)
+position = Vector2(924, 432)
 
 [node name="Spawner" type="Node2D" parent="." groups=["spawner"]]
 unique_name_in_owner = true

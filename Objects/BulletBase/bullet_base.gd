@@ -9,6 +9,8 @@ class_name Bullet
 @export var explosion_damage : int = 10
 @export var explosion_radius : float = 100.0
 @export var explosion_visual_scale : float = 1.0
+@export var bullet_visual_scale: Vector2 = Vector2(1, 1)
+@export var rocket_visual_scale: Vector2 = Vector2(1, 1)
 
 var target : Vector2
 var direction : Vector2
@@ -36,6 +38,12 @@ func _ready() -> void:
 			sprite.texture = rocket_texture
 		elif bullet_texture:
 			sprite.texture = bullet_texture
+
+		# Apply visual scale provided by the instanced bullet (from WeaponData)
+		if explosive:
+			sprite.scale = rocket_visual_scale
+		else:
+			sprite.scale = bullet_visual_scale
 	
 	# Pass piercing value and VFX to the hitbox child
 	var hitbox = get_node_or_null("Hitbox")

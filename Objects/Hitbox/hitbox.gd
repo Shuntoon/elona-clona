@@ -86,12 +86,12 @@ func _on_area_entered(area: Area2D) -> void:
 			enemy.bleed_effect.apply_bleed_stack()
 			print("Bleed applied! Chance: ", bleed_chance)
 	
-	# Check for slow on hit from augments
+	# Check for slow on hit from augments (now stacking)
 	if augment_manager:
-		#print("Augment manager found. slow_on_hit_enabled: ", augment_manager.slow_on_hit_enabled)
 		if augment_manager.slow_on_hit_enabled:
-			print("Applying slow to enemy with multiplier: ", augment_manager.slow_on_hit_multiplier, " for duration: ", augment_manager.slow_on_hit_duration)
-			enemy.apply_slow(augment_manager.slow_on_hit_multiplier, augment_manager.slow_on_hit_duration)
+			print("Applying slow stack to enemy: per-stack=", augment_manager.slow_on_hit_per_stack, " duration=", augment_manager.slow_on_hit_duration)
+			# Pass the per-stack slow amount so Enemy can calculate new speed based on stacks
+			enemy.apply_slow(augment_manager.slow_on_hit_per_stack, augment_manager.slow_on_hit_duration)
 	else:
 		print("No augment manager found!")
 	

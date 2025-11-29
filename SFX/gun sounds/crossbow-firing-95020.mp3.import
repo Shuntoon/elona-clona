@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://hhwxjq8cx8v5"
+path="res://.godot/imported/crossbow-firing-95020.mp3-da6d8abbbb0b2601e5ed4b6e6be06a97.mp3str"
+
+[deps]
+
+source_file="res://SFX/gun sounds/crossbow-firing-95020.mp3"
+dest_files=["res://.godot/imported/crossbow-firing-95020.mp3-da6d8abbbb0b2601e5ed4b6e6be06a97.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
