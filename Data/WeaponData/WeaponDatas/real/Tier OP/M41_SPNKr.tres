@@ -1,16 +1,16 @@
 [gd_resource type="Resource" script_class="WeaponData" load_steps=4 format=3 uid="uid://c0f8ib63w403v"]
 
-[ext_resource type="Texture2D" uid="uid://d3rcf2brjy7c0" path="res://Art/Filler/Guns/1.png" id="1_g3tvf"]
+[ext_resource type="Texture2D" uid="uid://c5egilrsi4bxh" path="res://Art/guns/halo.png" id="1_8l6ey"]
 [ext_resource type="Script" uid="uid://rimwdfuvv8ao" path="res://Data/WeaponData/weapon_data.gd" id="2_e2sit"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pxwm6"]
-atlas = ExtResource("1_g3tvf")
-region = Rect2(0, 118, 12, 10.083237)
+[sub_resource type="AtlasTexture" id="AtlasTexture_fr3dq"]
+atlas = ExtResource("1_8l6ey")
+region = Rect2(108.6951, 116.89944, 370.25632, 120.46616)
 
 [resource]
 script = ExtResource("2_e2sit")
 weapon_name = "M41 SPNKr"
-icon = SubResource("AtlasTexture_pxwm6")
+icon = SubResource("AtlasTexture_fr3dq")
 bullet_type = 1
 accuracy = 0.914
 fire_rate = 240.0
