@@ -1,4 +1,4 @@
-extends Sprite2D
+extends CanvasLayer
 class_name Crosshair
 
 ## Base scale of the crosshair
@@ -10,6 +10,8 @@ class_name Crosshair
 ## Duration of contract animation
 @export var contract_duration: float = 0.15
 
+@onready var sprite: Sprite2D = $Sprite
+
 var tween: Tween
 
 func _ready() -> void:
@@ -17,17 +19,14 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	
 	# Set initial scale
-	scale = base_scale
+	sprite.scale = base_scale
 	
 	# Center the texture
-	centered = true
-	
-	# Make sure crosshair is always on top
-	z_index = 100
+	sprite.centered = true
 
 func _process(_delta: float) -> void:
 	# Follow the mouse position
-	global_position = get_global_mouse_position()
+	sprite.global_position = get_viewport().get_mouse_position()
 
 func _exit_tree() -> void:
 	# Show the cursor again when crosshair is removed
@@ -41,15 +40,15 @@ func on_shoot() -> void:
 	
 	# Create new tween for expand then contract
 	tween = create_tween()
-	tween.tween_property(self, "scale", expanded_scale, expand_duration).set_ease(Tween.EASE_OUT)
-	tween.tween_property(self, "scale", base_scale, contract_duration).set_ease(Tween.EASE_OUT)
+	tween.tween_property(sprite, "scale", expanded_scale, expand_duration).set_ease(Tween.EASE_OUT)
+	tween.tween_property(sprite, "scale", base_scale, contract_duration).set_ease(Tween.EASE_OUT)
 
 ## Reset to default cursor (for menus)
 func hide_crosshair() -> void:
-	hide()
+	visible = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 ## Show crosshair (for gameplay)
 func show_crosshair() -> void:
-	show()
+	visible = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)

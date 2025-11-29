@@ -7,8 +7,10 @@
 atlas = ExtResource("2_texture")
 region = Rect2(41, 13, 13, 13)
 
-[node name="Crosshair" type="Sprite2D"]
-z_index = 100
+[node name="Crosshair" type="CanvasLayer"]
+layer = 100
+script = ExtResource("1_crosshair")
+
+[node name="Sprite" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_y73od")
-script = ExtResource("1_crosshair")

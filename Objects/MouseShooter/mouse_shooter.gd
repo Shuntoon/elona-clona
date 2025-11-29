@@ -222,7 +222,11 @@ func _on_start_new_day() -> void:
 	# The augment manager will handle updating stats and filling ammo
 	weapon_1_ammo = -1
 	weapon_2_ammo = -1
-	print("MouseShooter: Reset ammo slots for new day")
+	
+	# Always start the new round with weapon 1 equipped
+	current_weapon_slot = 1
+	_equip_weapon(1)
+	print("MouseShooter: Reset ammo slots and equipped weapon 1 for new day")
 
 func _set_shooter_properties() -> void:
 	pass
