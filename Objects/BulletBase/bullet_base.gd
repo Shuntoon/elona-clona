@@ -8,6 +8,7 @@ class_name Bullet
 @export var explosive : bool = false
 @export var explosion_damage : int = 10
 @export var explosion_radius : float = 100.0
+@export var explosion_visual_scale : float = 1.0
 
 var target : Vector2
 var direction : Vector2
@@ -85,4 +86,5 @@ func _spawn_explosion() -> void:
 		explosion_inst.global_position = global_position
 		explosion_inst.damage = explosion_damage
 		explosion_inst.explosion_radius = explosion_radius
+		explosion_inst.visual_scale = explosion_visual_scale
 		vfx_parent.add_child(explosion_inst)

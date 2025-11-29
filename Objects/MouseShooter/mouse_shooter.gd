@@ -29,6 +29,7 @@ func _enter_tree() -> void:
 @export var bullet_damage: int = 1
 @export var explosion_damage: int = 10
 @export var explosion_radius: float = 100.0
+@export var explosion_visual_scale: float = 1.0
 @export_range(0.0, 1.0) var crit_chance: float = 0.1
 @export var crit_multiplier: float = 2.0
 
@@ -192,6 +193,7 @@ func _equip_weapon(slot: int) -> void:
 	bullet_damage = weapon_to_equip.bullet_damage
 	explosion_damage = weapon_to_equip.explosion_damage
 	explosion_radius = weapon_to_equip.explosion_radius
+	explosion_visual_scale = weapon_to_equip.explosion_visual_scale
 	crit_chance = weapon_to_equip.crit_chance
 	crit_multiplier = weapon_to_equip.crit_multiplier
 	bleed_chance = weapon_to_equip.bleed_chance
@@ -252,6 +254,10 @@ func _start_reload() -> void:
 	is_reloading = true
 	is_shooting = false
 	reload_progress = 0.0
+	
+	# Play reload sound effect
+	if weapon_data and weapon_data.reload_sound_effect:
+		_play_sound(weapon_data.reload_sound_effect)
 	
 	var elapsed = 0.0
 	while elapsed < reload_time and is_reloading:  # Check is_reloading in loop condition
@@ -337,6 +343,7 @@ func _fire_bullet() -> void:
 		bullet_base_inst.explosive = explosive_rockets
 		bullet_base_inst.explosion_damage = explosion_damage
 		bullet_base_inst.explosion_radius = explosion_radius
+		bullet_base_inst.explosion_visual_scale = explosion_visual_scale
 		bullet_base_inst.explosion_scene = EXPLOSION
 		bullet_base_inst.hit_enemy_vfx = HIT_ENEMY_VFX
 		bullet_base_inst.hit_ground_vfx = HIT_GROUND_VFX

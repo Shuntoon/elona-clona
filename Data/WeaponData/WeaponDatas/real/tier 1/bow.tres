@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="WeaponData" load_steps=3 format=3 uid="uid://cwmun6nu3owv1"]
+[gd_resource type="Resource" script_class="WeaponData" load_steps=4 format=3 uid="uid://cwmun6nu3owv1"]
 
 [ext_resource type="Texture2D" uid="uid://68gg868sq4ts" path="res://Art/guns/10.png" id="1_21ndw"]
+[ext_resource type="AudioStream" uid="uid://dxn53jesg5ejo" path="res://SFX/gun sounds/1911-reload-6248.mp3" id="2_2kdeu"]
 [ext_resource type="Script" uid="uid://rimwdfuvv8ao" path="res://Data/WeaponData/weapon_data.gd" id="2_m860w"]
 
 [resource]
@@ -9,6 +10,7 @@ weapon_name = "bow"
 description = "A William Tell tool of choice.
 "
 icon = ExtResource("1_21ndw")
+reload_sound_effect = ExtResource("2_2kdeu")
 bullet_type = 1
 accuracy = 0.749
 fire_rate = 120.0

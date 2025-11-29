@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="WeaponData" load_steps=4 format=3 uid="uid://cl5tfw0kdxrpj"]
+[gd_resource type="Resource" script_class="WeaponData" load_steps=5 format=3 uid="uid://cl5tfw0kdxrpj"]
 
 [ext_resource type="Texture2D" uid="uid://cx5su6rbht5s2" path="res://Art/guns/glock.png" id="1_dme8r"]
+[ext_resource type="AudioStream" uid="uid://dxn53jesg5ejo" path="res://SFX/gun sounds/1911-reload-6248.mp3" id="2_g7x0e"]
 [ext_resource type="Script" uid="uid://rimwdfuvv8ao" path="res://Data/WeaponData/weapon_data.gd" id="2_vdodv"]
 [ext_resource type="AudioStream" uid="uid://b174jet24oa0k" path="res://SFX/gun sounds/22LR Single MP3.mp3" id="3_0f3o4"]
 
@@ -10,6 +11,7 @@ weapon_name = "Pistol"
 description = "Hickory, Dickory, Dock, it's time for the Glock"
 icon = ExtResource("1_dme8r")
 sound_effect = ExtResource("3_0f3o4")
+reload_sound_effect = ExtResource("2_g7x0e")
 accuracy = 0.65
 fire_rate = 120.0
 magazine_size = 17

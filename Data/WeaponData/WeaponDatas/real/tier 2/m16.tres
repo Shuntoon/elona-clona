@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="WeaponData" load_steps=4 format=3 uid="uid://cxmbt671jx0e6"]
+[gd_resource type="Resource" script_class="WeaponData" load_steps=5 format=3 uid="uid://cxmbt671jx0e6"]
 
 [ext_resource type="Texture2D" uid="uid://bkyejjdjs35ob" path="res://Art/guns/35.png" id="1_v8mk0"]
+[ext_resource type="AudioStream" uid="uid://dxn53jesg5ejo" path="res://SFX/gun sounds/1911-reload-6248.mp3" id="2_olcps"]
 [ext_resource type="Script" uid="uid://rimwdfuvv8ao" path="res://Data/WeaponData/weapon_data.gd" id="2_xn1vv"]
 [ext_resource type="AudioStream" uid="uid://1os3uo5m8aed" path="res://SFX/gun sounds/556 Single MP3.mp3" id="3_8q88c"]
 
@@ -10,6 +11,7 @@ weapon_name = "M16"
 description = "This is my rifle. There are many like it, but this one is mine."
 icon = ExtResource("1_v8mk0")
 sound_effect = ExtResource("3_8q88c")
+reload_sound_effect = ExtResource("2_olcps")
 fire_mode = 1
 accuracy = 0.589
 max_spread = 45.0

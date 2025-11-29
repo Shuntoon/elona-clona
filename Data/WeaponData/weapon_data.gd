@@ -7,6 +7,7 @@ class_name WeaponData
 @export var icon : Texture2D
 @export var price : int = 100
 @export var sound_effect : AudioStream
+@export var reload_sound_effect : AudioStream
 
 @export_category("Shooting Properties")
 @export var bullet_type : MouseShooter.BULLET_TYPE
@@ -33,3 +34,4 @@ class_name WeaponData
 @export var explosive_rockets: bool = false
 @export var explosion_damage: int = 10
 @export var explosion_radius: float = 100.0
+@export var explosion_visual_scale: float = 1.0

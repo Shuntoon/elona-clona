@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="WeaponData" load_steps=4 format=3 uid="uid://cjrne1ssl4irc"]
+[gd_resource type="Resource" script_class="WeaponData" load_steps=5 format=3 uid="uid://cjrne1ssl4irc"]
 
 [ext_resource type="Texture2D" uid="uid://b4768vc6x77ba" path="res://Art/guns/mp5.png" id="1_i1c6p"]
 [ext_resource type="Script" uid="uid://rimwdfuvv8ao" path="res://Data/WeaponData/weapon_data.gd" id="2_o2bqx"]
+[ext_resource type="AudioStream" uid="uid://dxn53jesg5ejo" path="res://SFX/gun sounds/1911-reload-6248.mp3" id="2_uq3dd"]
 [ext_resource type="AudioStream" uid="uid://b174jet24oa0k" path="res://SFX/gun sounds/22LR Single MP3.mp3" id="3_lpwq7"]
 
 [resource]
@@ -10,6 +11,7 @@ weapon_name = "SMG"
 description = "Now I have a machinegun. HO-HO-HO"
 icon = ExtResource("1_i1c6p")
 sound_effect = ExtResource("3_lpwq7")
+reload_sound_effect = ExtResource("2_uq3dd")
 fire_mode = 2
 accuracy = 0.517
 max_spread = 70.0

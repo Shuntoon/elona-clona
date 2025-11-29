@@ -26,11 +26,11 @@
 [ext_resource type="Resource" uid="uid://cvlxkbw8betbi" path="res://Data/WaveData/real/Wave_6.tres" id="12_i2p71"]
 [ext_resource type="PackedScene" uid="uid://dttnwpg88y083" path="res://Objects/Player/player.tscn" id="16_rvswv"]
 [ext_resource type="Resource" uid="uid://c326rujinburw" path="res://Data/WaveData/real/Wave_5.tres" id="18_bnpwn"]
-[ext_resource type="Texture2D" uid="uid://cy8pou57fxnrh" path="res://Art/BG/RealBG.png" id="18_hb5m1"]
 [ext_resource type="Texture2D" uid="uid://dnsrbb1pdfvib" path="res://Art/Castle/Castle.png" id="21_f1jbl"]
 [ext_resource type="PackedScene" uid="uid://bufmu7frdb3wc" path="res://UI/Menus/pause_menu.tscn" id="22_pause"]
 [ext_resource type="Texture2D" uid="uid://bqu44ygj7r6ta" path="res://Art/Sandbag/Sandbag.png" id="22_vaj68"]
 [ext_resource type="PackedScene" path="res://UI/WaveAnnouncement/wave_announcement.tscn" id="23_wave"]
+[ext_resource type="Texture2D" uid="uid://8sxese1fi5h" path="res://Art/BG/RealBG2.png" id="27_xfvwf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_80nbo"]
 size = Vector2(2.5714264, 13.12378)
@@ -103,7 +103,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("18_hb5m1")
+texture = ExtResource("27_xfvwf")
 expand_mode = 1
 
 [node name="Environment" type="Node2D" parent="."]
@@ -113,12 +113,12 @@ position = Vector2(1014, 676)
 
 [node name="Castle2" type="Sprite2D" parent="Environment/Art"]
 position = Vector2(300, -340.33194)
-scale = Vector2(0.88717616, 0.88717616)
+scale = Vector2(2.2187493, 2.2187493)
 texture = ExtResource("21_f1jbl")
 
 [node name="Castle" type="Sprite2D" parent="Environment/Art"]
 position = Vector2(238, -205)
-scale = Vector2(0.6601558, 0.6601558)
+scale = Vector2(2.0937502, 2.0937502)
 texture = ExtResource("21_f1jbl")
 
 [node name="Sandbag" type="Sprite2D" parent="Environment/Art"]
