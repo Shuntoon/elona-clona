@@ -1,9 +1,18 @@
-[gd_scene load_steps=9 format=3 uid="uid://b23ol6kgi5880"]
+[gd_scene load_steps=13 format=3 uid="uid://b23ol6kgi5880"]
 
 [ext_resource type="Texture2D" uid="uid://d3rcf2brjy7c0" path="res://Art/Filler/Guns/1.png" id="1_6jg88"]
 [ext_resource type="Script" uid="uid://bpvuk7tgadej" path="res://UI/UpgradeScreen/armory_page/armory_weapon_slot.gd" id="1_38ril"]
+[ext_resource type="Texture2D" uid="uid://bdylnvm06f5fm" path="res://Art/UI/RealUI/Panel.png" id="1_b1663"]
 [ext_resource type="Resource" uid="uid://bbpxothv2p26g" path="res://Data/WeaponData/WeaponDatas/Test/test_pistol.tres" id="2_hufj0"]
 [ext_resource type="Texture2D" uid="uid://dpfnqwg6ety1h" path="res://Art/Filler/Lock/Small Square Padlock - GOLD - 0000.png" id="4_y5e3k"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x3n5k"]
+texture = ExtResource("1_b1663")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+modulate_color = Color(0.31670618, 0.2763956, 0.15210462, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_hufj0"]
 font_size = 24
@@ -12,6 +21,17 @@ font_size = 24
 atlas = ExtResource("1_6jg88")
 region = Rect2(96, 118, 16, 10)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_l5e0l"]
+load_path = "res://.godot/imported/Panel.png-81819c05e369beac78c4c4cb2656af28.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x1mux"]
+texture = SubResource("CompressedTexture2D_l5e0l")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+modulate_color = Color(0.31670618, 0.2763956, 0.15210462, 1)
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y5e3k"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_p53s0"]
@@ -19,8 +39,11 @@ font_size = 24
 
 [node name="ArmoryWeaponSlot" type="Panel"]
 custom_minimum_size = Vector2(321, 77)
+offset_right = 1186.0
+offset_bottom = 77.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_x3n5k")
 script = ExtResource("1_38ril")
 weapon_data = ExtResource("2_hufj0")
 
@@ -70,42 +93,45 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_x1mux")
 
-[node name="LockedWeaponHBoxContainer" type="HBoxContainer" parent="LockedWeaponPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="LockedWeaponPanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="LockedWeaponHBoxContainer" type="HBoxContainer" parent="LockedWeaponPanel/MarginContainer"]
+layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="NamePanel" type="Panel" parent="LockedWeaponPanel/LockedWeaponHBoxContainer"]
+[node name="NamePanel" type="Panel" parent="LockedWeaponPanel/MarginContainer/LockedWeaponHBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_y5e3k")
 
-[node name="NameLabel" type="Label" parent="LockedWeaponPanel/LockedWeaponHBoxContainer/NamePanel"]
+[node name="NameLabel" type="Label" parent="LockedWeaponPanel/MarginContainer/LockedWeaponHBoxContainer/NamePanel"]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 4
 anchor_top = 0.5
-anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -95.0
 offset_top = -17.0
-offset_right = 12.0
+offset_right = 107.0
 offset_bottom = 17.0
-grow_horizontal = 2
 grow_vertical = 2
 text = "Revolver"
 label_settings = SubResource("LabelSettings_p53s0")
-horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PriceLabel" type="Label" parent="LockedWeaponPanel/LockedWeaponHBoxContainer/NamePanel"]
+[node name="PriceLabel" type="Label" parent="LockedWeaponPanel/MarginContainer/LockedWeaponHBoxContainer/NamePanel"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -113,9 +139,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 65.0
+offset_left = 420.5
 offset_top = -16.5
-offset_right = 106.0
+offset_right = 461.5
 offset_bottom = 17.5
 grow_horizontal = 2
 grow_vertical = 2
@@ -124,14 +150,14 @@ label_settings = SubResource("LabelSettings_p53s0")
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="BuyButton" type="Button" parent="LockedWeaponPanel/LockedWeaponHBoxContainer"]
+[node name="BuyButton" type="Button" parent="LockedWeaponPanel/MarginContainer/LockedWeaponHBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(64, 64)
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
-size_flags_horizontal = 6
+size_flags_horizontal = 10
 size_flags_vertical = 4
 
-[node name="BuyLabel" type="Label" parent="LockedWeaponPanel/LockedWeaponHBoxContainer/BuyButton"]
+[node name="BuyLabel" type="Label" parent="LockedWeaponPanel/MarginContainer/LockedWeaponHBoxContainer/BuyButton"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -150,7 +176,7 @@ text = "Buy"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LockTextureRect" type="TextureRect" parent="LockedWeaponPanel/LockedWeaponHBoxContainer/BuyButton"]
+[node name="LockTextureRect" type="TextureRect" parent="LockedWeaponPanel/MarginContainer/LockedWeaponHBoxContainer/BuyButton"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -158,14 +184,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -28.5
-offset_top = -28.5
-offset_right = 28.5
-offset_bottom = 28.5
+offset_left = -12.0
+offset_top = -15.5
+offset_right = 12.0
+offset_bottom = 8.5
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_y5e3k")
 expand_mode = 1
 stretch_mode = 5
 
-[connection signal="pressed" from="LockedWeaponPanel/LockedWeaponHBoxContainer/BuyButton" to="." method="_on_buy_button_pressed"]
+[connection signal="pressed" from="LockedWeaponPanel/MarginContainer/LockedWeaponHBoxContainer/BuyButton" to="." method="_on_buy_button_pressed"]

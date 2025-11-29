@@ -14,11 +14,14 @@ signal equipped_weapons_updated
 @onready var weapons_row_1: VBoxContainer = %WeaponsRow1
 @onready var weapons_row_2: VBoxContainer = %WeaponsRow2
 @onready var weapons_row_3: VBoxContainer = %WeaponsRow3
+@onready var weapons_row_4: VBoxContainer = %WeaponsRow4
 
 var weapon_1_data: WeaponData
 var weapon_2_data: WeaponData
 
 func _ready() -> void:
+	add_to_group("armory_page")
+	
 	for armory_weapon_slot : ArmoryWeaponSlot in weapons_row_1.get_children():
 		armory_weapon_slot.weapon_locked = false
 		

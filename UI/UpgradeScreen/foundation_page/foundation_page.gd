@@ -53,8 +53,8 @@ func update_base_health_button_data() -> void:
 
 func update_armory_selection_button_data() -> void:
 	var price = get_escalating_price(UPGRADE_ARMORY_BASE_PRICE, PlayerData.armory_level - 1)
-	upgrade_armory_selection_button.text = "Upgrade Armory Selection (%s/3)\n[%d Gold]" % [PlayerData.armory_level, price]
-	if PlayerData.armory_level >= 3:
+	upgrade_armory_selection_button.text = "Upgrade Armory Selection (%s/4)\n[%d Gold]" % [PlayerData.armory_level, price]
+	if PlayerData.armory_level >= 4:
 		upgrade_armory_selection_button.text = "Upgrade Armory Selection (MAX)"
 		upgrade_armory_selection_button.disabled = true
 	else:
@@ -107,7 +107,7 @@ func _on_upgrade_base_health_button_pressed() -> void:
 
 func _on_upgrade_armory_selection_button_pressed() -> void:
 	var price = get_escalating_price(UPGRADE_ARMORY_BASE_PRICE, PlayerData.armory_level - 1)
-	if PlayerData.gold >= price and PlayerData.armory_level < 3:
+	if PlayerData.gold >= price and PlayerData.armory_level < 4:
 		PlayerData.gold -= price
 		PlayerData.armory_level += 1
 		var armory_page : ArmoryPage = get_tree().get_first_node_in_group("armory_page")
@@ -118,6 +118,9 @@ func _on_upgrade_armory_selection_button_pressed() -> void:
 					weapon_slot.weapon_locked = false
 			3:
 				for weapon_slot : ArmoryWeaponSlot in armory_page.weapons_row_3.get_children():
+					weapon_slot.weapon_locked = false
+			4:
+				for weapon_slot : ArmoryWeaponSlot in armory_page.weapons_row_4.get_children():
 					weapon_slot.weapon_locked = false
 
 

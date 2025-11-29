@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://buj37tqnk8i22"]
+[gd_scene load_steps=25 format=3 uid="uid://buj37tqnk8i22"]
 
 [ext_resource type="Script" uid="uid://d0o2h0vu1j1k4" path="res://UI/UpgradeScreen/armory_page/armory_page.gd" id="1_xy3um"]
 [ext_resource type="PackedScene" uid="uid://b23ol6kgi5880" path="res://UI/UpgradeScreen/armory_page/armory_weapon_slot.tscn" id="2_aduju"]
@@ -17,6 +17,10 @@
 [ext_resource type="Resource" uid="uid://bmw3cst1caj24" path="res://Data/WeaponData/WeaponDatas/real/Tier 3/RPG.tres" id="14_aa3gy"]
 [ext_resource type="Resource" uid="uid://cpjvgx5fcck6g" path="res://Data/WeaponData/WeaponDatas/real/Tier 3/Saw_Launcher.tres" id="15_jgjiw"]
 [ext_resource type="Resource" uid="uid://uk35gpob4qh1" path="res://Data/WeaponData/WeaponDatas/real/Tier 3/Sniper_Rifle.tres" id="16_qp41p"]
+[ext_resource type="Resource" uid="uid://cfx5p1tfn5q5e" path="res://Data/WeaponData/WeaponDatas/real/Tier OP/Anti-Material_Rifle.tres" id="18_77iqj"]
+[ext_resource type="Resource" uid="uid://dub6ux6iwtmmj" path="res://Data/WeaponData/WeaponDatas/real/Tier OP/Laser_Pointer.tres" id="19_tst6o"]
+[ext_resource type="Resource" uid="uid://c0f8ib63w403v" path="res://Data/WeaponData/WeaponDatas/real/Tier OP/M41_SPNKr.tres" id="20_e4i4i"]
+[ext_resource type="Resource" uid="uid://bnwovoclogqnn" path="res://Data/WeaponData/WeaponDatas/real/Tier OP/Minigun.tres" id="21_c7853"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_umnqg"]
 font_size = 48
@@ -243,69 +247,99 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Weapon 1"
 
-[node name="WeaponsHbox" type="HBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 47.5
-offset_top = 204.0
-offset_right = 1017.5
-offset_bottom = 523.0
+[node name="WeaponsHbox" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 88.75006
+offset_top = 192.0
+offset_right = -88.75006
+offset_bottom = -47.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="WeaponsRow1" type="VBoxContainer" parent="WeaponsHbox"]
+[node name="VBoxContainer" type="VBoxContainer" parent="WeaponsHbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="WeaponsRow1" type="VBoxContainer" parent="WeaponsHbox/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="ArmoryWeaponSlot" parent="WeaponsHbox/WeaponsRow1" instance=ExtResource("2_aduju")]
+[node name="ArmoryWeaponSlot" parent="WeaponsHbox/VBoxContainer/WeaponsRow1" instance=ExtResource("2_aduju")]
 layout_mode = 2
 weapon_data = ExtResource("5_xepml")
 
-[node name="ArmoryWeaponSlot2" parent="WeaponsHbox/WeaponsRow1" instance=ExtResource("2_aduju")]
+[node name="ArmoryWeaponSlot2" parent="WeaponsHbox/VBoxContainer/WeaponsRow1" instance=ExtResource("2_aduju")]
 layout_mode = 2
 weapon_data = ExtResource("6_mdc5b")
 
-[node name="ArmoryWeaponSlot3" parent="WeaponsHbox/WeaponsRow1" instance=ExtResource("2_aduju")]
+[node name="ArmoryWeaponSlot3" parent="WeaponsHbox/VBoxContainer/WeaponsRow1" instance=ExtResource("2_aduju")]
 layout_mode = 2
 weapon_data = ExtResource("7_i5wgx")
 
-[node name="ArmoryWeaponSlot4" parent="WeaponsHbox/WeaponsRow1" instance=ExtResource("2_aduju")]
+[node name="ArmoryWeaponSlot4" parent="WeaponsHbox/VBoxContainer/WeaponsRow1" instance=ExtResource("2_aduju")]
 layout_mode = 2
 weapon_data = ExtResource("8_ux8k0")
 
-[node name="WeaponsRow2" type="VBoxContainer" parent="WeaponsHbox"]
+[node name="WeaponsRow2" type="VBoxContainer" parent="WeaponsHbox/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="ArmoryWeaponSlot" parent="WeaponsHbox/WeaponsRow2" instance=ExtResource("2_aduju")]
+[node name="ArmoryWeaponSlot" parent="WeaponsHbox/VBoxContainer/WeaponsRow2" instance=ExtResource("2_aduju")]
 layout_mode = 2
 weapon_data = ExtResource("9_0dyyn")
 
-[node name="ArmoryWeaponSlot2" parent="WeaponsHbox/WeaponsRow2" instance=ExtResource("2_aduju")]
+[node name="ArmoryWeaponSlot2" parent="WeaponsHbox/VBoxContainer/WeaponsRow2" instance=ExtResource("2_aduju")]
 layout_mode = 2
 weapon_data = ExtResource("10_77iqj")
 
-[node name="ArmoryWeaponSlot3" parent="WeaponsHbox/WeaponsRow2" instance=ExtResource("2_aduju")]
+[node name="ArmoryWeaponSlot3" parent="WeaponsHbox/VBoxContainer/WeaponsRow2" instance=ExtResource("2_aduju")]
 layout_mode = 2
 weapon_data = ExtResource("11_tst6o")
 
-[node name="ArmoryWeaponSlot4" parent="WeaponsHbox/WeaponsRow2" instance=ExtResource("2_aduju")]
+[node name="ArmoryWeaponSlot4" parent="WeaponsHbox/VBoxContainer/WeaponsRow2" instance=ExtResource("2_aduju")]
 layout_mode = 2
 weapon_data = ExtResource("12_e4i4i")
 
-[node name="WeaponsRow3" type="VBoxContainer" parent="WeaponsHbox"]
+[node name="WeaponsRow3" type="VBoxContainer" parent="WeaponsHbox/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="ArmoryWeaponSlot" parent="WeaponsHbox/WeaponsRow3" instance=ExtResource("2_aduju")]
+[node name="ArmoryWeaponSlot" parent="WeaponsHbox/VBoxContainer/WeaponsRow3" instance=ExtResource("2_aduju")]
 layout_mode = 2
 weapon_data = ExtResource("13_c7853")
 
-[node name="ArmoryWeaponSlot2" parent="WeaponsHbox/WeaponsRow3" instance=ExtResource("2_aduju")]
+[node name="ArmoryWeaponSlot2" parent="WeaponsHbox/VBoxContainer/WeaponsRow3" instance=ExtResource("2_aduju")]
 layout_mode = 2
 weapon_data = ExtResource("14_aa3gy")
 
-[node name="ArmoryWeaponSlot3" parent="WeaponsHbox/WeaponsRow3" instance=ExtResource("2_aduju")]
+[node name="ArmoryWeaponSlot3" parent="WeaponsHbox/VBoxContainer/WeaponsRow3" instance=ExtResource("2_aduju")]
 layout_mode = 2
 weapon_data = ExtResource("15_jgjiw")
 
-[node name="ArmoryWeaponSlot4" parent="WeaponsHbox/WeaponsRow3" instance=ExtResource("2_aduju")]
+[node name="ArmoryWeaponSlot4" parent="WeaponsHbox/VBoxContainer/WeaponsRow3" instance=ExtResource("2_aduju")]
 layout_mode = 2
 weapon_data = ExtResource("16_qp41p")
+
+[node name="WeaponsRow4" type="VBoxContainer" parent="WeaponsHbox/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ArmoryWeaponSlot" parent="WeaponsHbox/VBoxContainer/WeaponsRow4" instance=ExtResource("2_aduju")]
+layout_mode = 2
+weapon_data = ExtResource("18_77iqj")
+
+[node name="ArmoryWeaponSlot2" parent="WeaponsHbox/VBoxContainer/WeaponsRow4" instance=ExtResource("2_aduju")]
+layout_mode = 2
+weapon_data = ExtResource("19_tst6o")
+
+[node name="ArmoryWeaponSlot3" parent="WeaponsHbox/VBoxContainer/WeaponsRow4" instance=ExtResource("2_aduju")]
+layout_mode = 2
+weapon_data = ExtResource("20_e4i4i")
+
+[node name="ArmoryWeaponSlot4" parent="WeaponsHbox/VBoxContainer/WeaponsRow4" instance=ExtResource("2_aduju")]
+layout_mode = 2
+weapon_data = ExtResource("21_c7853")
