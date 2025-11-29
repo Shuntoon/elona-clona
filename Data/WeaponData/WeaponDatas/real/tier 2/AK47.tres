@@ -1,13 +1,15 @@
-[gd_resource type="Resource" script_class="WeaponData" load_steps=3 format=3 uid="uid://blabt6x5ve6tu"]
+[gd_resource type="Resource" script_class="WeaponData" load_steps=4 format=3 uid="uid://blabt6x5ve6tu"]
 
 [ext_resource type="Texture2D" uid="uid://c2tlglf72ye1p" path="res://Art/guns/36.png" id="1_635gh"]
 [ext_resource type="Script" uid="uid://rimwdfuvv8ao" path="res://Data/WeaponData/weapon_data.gd" id="2_sssep"]
+[ext_resource type="AudioStream" uid="uid://1os3uo5m8aed" path="res://SFX/gun sounds/556 Single MP3.mp3" id="3_evcq5"]
 
 [resource]
 script = ExtResource("2_sssep")
 weapon_name = "AK47"
 description = "After the Cold War, the AK-47 became Russia's biggest export. After that came vodka, caviar, and suicidal novelists."
 icon = ExtResource("1_635gh")
+sound_effect = ExtResource("3_evcq5")
 fire_mode = 2
 accuracy = 0.554
 max_spread = 65.0

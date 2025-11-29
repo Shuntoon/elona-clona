@@ -2,12 +2,17 @@ extends Panel
 class_name AlliesPage
 
 @onready var allies_hbox_container: HBoxContainer = %AlliesHBoxContainer
+@onready var button_sound: AudioStreamPlayer = $ButtonSound
 
 const ALLY_FILLED_PANEL_SCENE = preload("uid://w7gefcihbnk1")
 const ALLY_UNFILLLED_PLANEL_SCNE = preload("uid://ufhh6su3k4gn")
 
 func _ready() -> void:
 	add_to_group("allies_page")
+
+func play_button_sound() -> void:
+	if button_sound:
+		button_sound.play()
 
 func _on_visibility_changed() -> void:
 	if allies_hbox_container != null:

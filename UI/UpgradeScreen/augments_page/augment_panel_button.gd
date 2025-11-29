@@ -9,6 +9,7 @@ class_name AugmentPanelButton
 @onready var purchased_panel: Panel = $PurchasedPanel
 @onready var price_label: Label = %Label
 @onready var buy_button: Button = $BuyButton
+@onready var button_sound: AudioStreamPlayer = $ButtonSound
 
 var base_scale := Vector2.ONE
 var hover_tween: Tween
@@ -77,15 +78,15 @@ func _set_rarity_color() -> void:
 	
 	match augment_data.rarity:
 		AugmentData.Rarity.COMMON:
-			color = Color(0.7, 0.7, 0.7)  # Grey
+			color = Color(0.622, 0.622, 0.622, 1.0)  # Grey
 		AugmentData.Rarity.UNCOMMON:
-			color = Color(0.3, 1.0, 0.3)  # Green
+			color = Color(0.112, 1.0, 0.112, 1.0)  # Green
 		AugmentData.Rarity.RARE:
-			color = Color(0.7, 0.3, 1.0)  # Purple
+			color = Color(0.605, 0.079, 1.0, 1.0)  # Purple
 		AugmentData.Rarity.ABILITY:
 			color = Color(0.5, 0.9, 1.0)  # Light Blue
 		AugmentData.Rarity.LEGENDARY:
-			color = Color(1.0, 0.5, 0.2)  # Orange-Red
+			color = Color(1.0, 0.408, 0.053, 1.0)  # Orange-Red
 		_:
 			color = Color.WHITE  # Default
 	
@@ -106,6 +107,8 @@ func _set_rarity_color() -> void:
 
 
 func _on_buy_button_pressed() -> void:
+	button_sound.play()
+	
 	# Double-check player has enough gold
 	if PlayerData.gold < augment_data.price:
 		print("Not enough gold to buy augment!")

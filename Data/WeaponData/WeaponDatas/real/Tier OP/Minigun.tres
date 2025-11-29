@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="WeaponData" load_steps=4 format=3 uid="uid://bnwovoclogqnn"]
+[gd_resource type="Resource" script_class="WeaponData" load_steps=5 format=3 uid="uid://bnwovoclogqnn"]
 
 [ext_resource type="Texture2D" uid="uid://ce5b74pdefwiw" path="res://Art/guns/n2qwijwi55e61.png" id="1_spc88"]
 [ext_resource type="Script" uid="uid://rimwdfuvv8ao" path="res://Data/WeaponData/weapon_data.gd" id="2_t7l0f"]
+[ext_resource type="AudioStream" uid="uid://1os3uo5m8aed" path="res://SFX/gun sounds/556 Single MP3.mp3" id="3_ccc7y"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ccc7y"]
 atlas = ExtResource("1_spc88")
@@ -12,6 +13,7 @@ script = ExtResource("2_t7l0f")
 weapon_name = "Minigun"
 description = "Some people think they can outsmart me. I have yet to meet one that can outsmart bullet."
 icon = SubResource("AtlasTexture_ccc7y")
+sound_effect = ExtResource("3_ccc7y")
 fire_mode = 2
 accuracy = 0.501
 max_spread = 100.0

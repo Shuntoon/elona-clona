@@ -25,6 +25,11 @@ var current_health : int :
 @export var bg_end_color: Color = Color(0.6, 0.5, 0.7, 1.0)  # Lavender/dusk color
 @export var day_time_length : float = 10
 
+# Ambiance audio
+@export var bird_ambiance: AudioStream
+@export var shop_music: AudioStream
+@export var new_wave_sound: AudioStream
+
 @onready var spawner: Spawner = %Spawner
 @onready var spawn_timer: Timer = $SpawnTimer
 @onready var day_timer: Timer = $DayTimer
@@ -44,8 +49,51 @@ var current_health : int :
 # Wave system reference
 var wave_manager
 
+# Audio players
+var ambiance_player: AudioStreamPlayer = null
+var shop_music_player: AudioStreamPlayer = null
+var new_wave_sound_player: AudioStreamPlayer = null
+
+# Audio fade settings
+const AUDIO_FADE_DURATION: float = 1.0
+const AUDIO_TARGET_VOLUME: float = -5.0
+const AUDIO_SILENT_VOLUME: float = -40.0
+
 func _ready() -> void:
 	current_health = max_health
+	
+	# Create ambiance audio player
+	ambiance_player = AudioStreamPlayer.new()
+	ambiance_player.bus = "Music"
+	add_child(ambiance_player)
+	if bird_ambiance:
+		ambiance_player.stream = bird_ambiance
+		ambiance_player.volume_db = -5.0  # Slightly quieter
+		# Loop the ambiance when it finishes
+		ambiance_player.finished.connect(_on_ambiance_finished)
+		print("Bird ambiance loaded: ", bird_ambiance)
+
+	# Create new wave sound player
+	new_wave_sound_player = AudioStreamPlayer.new()
+	new_wave_sound_player.bus = "SFX"
+	add_child(new_wave_sound_player)
+	if new_wave_sound:
+		new_wave_sound_player.stream = new_wave_sound
+		new_wave_sound_player.volume_db = -3.0
+		print("New wave sound loaded: ", new_wave_sound)
+	
+	# Create shop music player
+	shop_music_player = AudioStreamPlayer.new()
+	shop_music_player.bus = "Music"
+	add_child(shop_music_player)
+	if shop_music:
+		shop_music_player.stream = shop_music
+		shop_music_player.volume_db = -5.0
+		# Loop the shop music when it finishes
+		shop_music_player.finished.connect(_on_shop_music_finished)
+		print("Shop music loaded: ", shop_music)
+	else:
+		print("Warning: No shop music audio set!")
 	
 	# Get wave manager reference
 	wave_manager = get_tree().get_first_node_in_group("wave_manager")
@@ -138,6 +186,9 @@ func _on_all_enemies_killed() -> void:
 	# Hide crosshair for shop
 	if crosshair:
 		crosshair.hide_crosshair()
+	# Fade out bird ambiance and fade in shop music
+	_fade_out_audio(ambiance_player)
+	_fade_in_audio(shop_music_player)
 	
 func _init_allies() -> void:
 	_clear_allies()
@@ -196,6 +247,11 @@ func _on_start_new_day() -> void:
 	if background:
 		background.modulate = bg_start_color
 	
+	# Fade out shop music and fade in bird ambiance
+	_fade_out_audio(shop_music_player)
+	_fade_in_audio(ambiance_player)
+	_fade_in_audio(new_wave_sound_player)
+	
 	# Show crosshair for gameplay
 	if not crosshair and CROSSHAIR_SCENE:
 		crosshair = CROSSHAIR_SCENE.instantiate()
@@ -239,3 +295,37 @@ func get_wave_info() -> Dictionary:
 		"current_difficulty": "easy",
 		"is_spawning": false
 	}
+
+func _on_ambiance_finished() -> void:
+	# Loop the ambiance if we're still in gameplay (not in shop)
+	if ambiance_player and not get_tree().paused:
+		ambiance_player.play()
+
+func _on_shop_music_finished() -> void:
+	# Loop the shop music if we're still in the shop (game is paused)
+	if shop_music_player and get_tree().paused:
+		shop_music_player.play()
+
+func _fade_in_audio(player: AudioStreamPlayer) -> void:
+	if not player or not player.stream:
+		return
+	
+	# Start at silent volume and play
+	player.volume_db = AUDIO_SILENT_VOLUME
+	if not player.playing:
+		player.play()
+	
+	# Create tween to fade in (process_always so it works while paused)
+	var tween = create_tween()
+	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+	tween.tween_property(player, "volume_db", AUDIO_TARGET_VOLUME, AUDIO_FADE_DURATION)
+
+func _fade_out_audio(player: AudioStreamPlayer) -> void:
+	if not player or not player.playing:
+		return
+	
+	# Create tween to fade out (process_always so it works while paused)
+	var tween = create_tween()
+	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+	tween.tween_property(player, "volume_db", AUDIO_SILENT_VOLUME, AUDIO_FADE_DURATION)
+	tween.tween_callback(player.stop)

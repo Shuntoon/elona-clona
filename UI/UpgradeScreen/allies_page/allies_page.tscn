@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bfguydj53ut7e"]
+[gd_scene load_steps=5 format=3 uid="uid://bfguydj53ut7e"]
 
 [ext_resource type="Script" uid="uid://ckuufc7yvhw35" path="res://UI/UpgradeScreen/allies_page/allies_page.gd" id="1_poid3"]
 [ext_resource type="PackedScene" uid="uid://w7gefcihbnk1" path="res://UI/UpgradeScreen/allies_page/ally_filled_panel.tscn" id="2_adb3k"]
+[ext_resource type="AudioStream" uid="uid://cw3snnmx6tkgm" path="res://SFX/UI/confirm_style_2_003.ogg" id="3_button_sound"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_17jub"]
 font_size = 48
@@ -52,5 +53,9 @@ layout_mode = 2
 
 [node name="AllyFilledPanel4" parent="MarginContainer/AlliesHBoxContainer" instance=ExtResource("2_adb3k")]
 layout_mode = 2
+
+[node name="ButtonSound" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("3_button_sound")
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

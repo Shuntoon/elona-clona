@@ -3,12 +3,13 @@ class_name FoundationPage
 
 var game_manager : GameManager
 
-@onready var regain_health_button: Button = $MarginContainer/GridContainer/RegainHealthButton
-@onready var upgrade_base_health_button: Button = $MarginContainer/GridContainer/UpgradeBaseHealthButton
+@onready var regain_health_button: Button = %RegainHealthButton
+@onready var upgrade_base_health_button: Button = %UpgradeBaseHealthButton
 @onready var upgrade_armory_selection_button: Button = %UpgradeArmorySelectionButton
 @onready var upgrade_ally_slots_button: Button = %UpgradeAllySlotsButton
 @onready var upgrade_ability_slots_button: Button = %UpgradeAbilitySlotsButton
-@onready var upgrade_augment_rerolls_button: Button = $MarginContainer/GridContainer/UpgradeAugmentRerollsButton
+@onready var upgrade_augment_rerolls_button: Button = $%UpgradeAugmentRerollsButton
+@onready var button_sound: AudioStreamPlayer = $ButtonSound
 
 # Base prices for each upgrade (adjustable in editor)
 @export var regain_health_base_price: int = 25
@@ -89,14 +90,16 @@ func get_current_reroll_cost() -> int:
 	return int(base_reroll_cost * (1.0 - discount))
 
 func _on_regain_health_button_pressed() -> void:
+	button_sound.play()
 	var price = get_escalating_price(regain_health_base_price, regain_health_purchases)
 	if PlayerData.gold >= price:
 		PlayerData.gold -= price
 		game_manager.current_health += 50
-		regain_health_purchases += 1
+		#regain_health_purchases += 1
 
 
 func _on_upgrade_base_health_button_pressed() -> void:
+	button_sound.play()
 	var price = get_escalating_price(upgrade_base_health_base_price, upgrade_base_health_purchases)
 	if PlayerData.gold >= price:
 		PlayerData.gold -= price
@@ -106,6 +109,7 @@ func _on_upgrade_base_health_button_pressed() -> void:
 
 
 func _on_upgrade_armory_selection_button_pressed() -> void:
+	button_sound.play()
 	var price = get_escalating_price(upgrade_armory_base_price, PlayerData.armory_level - 1)
 	if PlayerData.gold >= price and PlayerData.armory_level < 4:
 		PlayerData.gold -= price
@@ -125,6 +129,7 @@ func _on_upgrade_armory_selection_button_pressed() -> void:
 
 
 func _on_upgrade_ally_slots_button_pressed() -> void:
+	button_sound.play()
 	var price = get_escalating_price(upgrade_ally_slots_base_price, PlayerData.allies_level - 1)
 	if PlayerData.gold >= price and PlayerData.allies_level < 4:
 		PlayerData.gold -= price
@@ -132,6 +137,7 @@ func _on_upgrade_ally_slots_button_pressed() -> void:
 
 
 func _on_upgrade_ability_slots_button_pressed() -> void:
+	button_sound.play()
 	var price = get_escalating_price(upgrade_ability_slots_base_price, PlayerData.ability_slots_level - 1)
 	if PlayerData.gold >= price and PlayerData.ability_slots_level < 3:
 		PlayerData.gold -= price
@@ -139,6 +145,7 @@ func _on_upgrade_ability_slots_button_pressed() -> void:
 
 
 func _on_upgrade_augment_rerolls_button_pressed() -> void:
+	button_sound.play()
 	var price = get_escalating_price(upgrade_augment_rerolls_base_price, PlayerData.reroll_discount_level)
 	if PlayerData.gold >= price:
 		PlayerData.gold -= price

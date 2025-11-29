@@ -24,26 +24,36 @@ func _ready() -> void:
 		print("Error: AlliesPage not found in the scene tree.")
 
 func _on_rifleman_button_pressed() -> void:
+	if allies_page:
+		allies_page.play_button_sound()
 	var rifleman_data_inst = RIFLEMAN.duplicate()
 	PlayerData.add_ally_data(rifleman_data_inst)
 	_refresh_allies_display()
 
 func _on_support_button_pressed() -> void:
+	if allies_page:
+		allies_page.play_button_sound()
 	var support_data_inst = SUPPORT.duplicate()
 	PlayerData.add_ally_data(support_data_inst)
 	_refresh_allies_display()
 
 func _on_sniper_button_pressed() -> void:
+	if allies_page:
+		allies_page.play_button_sound()
 	var sniper_data_inst = SNIPER.duplicate()
 	PlayerData.add_ally_data(sniper_data_inst)
 	_refresh_allies_display()
 
 func _on_machine_gunner_button_pressed() -> void:
+	if allies_page:
+		allies_page.play_button_sound()
 	var machine_gunner_data_inst = MACHINE_GUNNER.duplicate()
 	PlayerData.add_ally_data(machine_gunner_data_inst)
 	_refresh_allies_display()
 
 func _on_machine_gunner_button_2_pressed() -> void:
+	if allies_page:
+		allies_page.play_button_sound()
 	var rocketeer_data_inst = ROCKETEER.duplicate()
 	PlayerData.add_ally_data(rocketeer_data_inst)
 	_refresh_allies_display()

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://1os3uo5m8aed"
+path="res://.godot/imported/556 Single MP3.mp3-5f041472e12a13b8884a99a556a7487d.mp3str"
+
+[deps]
+
+source_file="res://SFX/gun sounds/556 Single MP3.mp3"
+dest_files=["res://.godot/imported/556 Single MP3.mp3-5f041472e12a13b8884a99a556a7487d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

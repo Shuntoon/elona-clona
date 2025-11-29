@@ -271,6 +271,10 @@ func _fire_bullet() -> void:
 	if current_ammo <= 0:
 		return
 	
+	# Play weapon sound effect (create new player each time to avoid cutting off)
+	if weapon_data and weapon_data.sound_effect:
+		_play_sound(weapon_data.sound_effect)
+	
 	# Trigger crosshair shoot animation
 	if game_manager and game_manager.crosshair:
 		game_manager.crosshair.on_shoot()
@@ -370,3 +374,13 @@ func _calculate_accuracy_offset() -> Vector2:
 		cos(random_angle) * random_distance,
 		sin(random_angle) * random_distance
 	)
+
+func _play_sound(sound: AudioStream) -> void:
+	var audio_player = AudioStreamPlayer.new()
+	audio_player.stream = sound
+	audio_player.bus = "SFX"
+	add_child(audio_player)
+	audio_player.pitch_scale = randf_range(0.9, 1.2)  # Slight random pitch variation
+	audio_player.play()
+	# Auto-remove when finished
+	audio_player.finished.connect(audio_player.queue_free)

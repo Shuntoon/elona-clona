@@ -1,13 +1,15 @@
-[gd_resource type="Resource" script_class="WeaponData" load_steps=3 format=3 uid="uid://dub6ux6iwtmmj"]
+[gd_resource type="Resource" script_class="WeaponData" load_steps=4 format=3 uid="uid://dub6ux6iwtmmj"]
 
 [ext_resource type="Texture2D" uid="uid://0mdq6w0oytmc" path="res://Art/guns/m9bu73evl9391.png" id="1_gv1gt"]
 [ext_resource type="Script" uid="uid://rimwdfuvv8ao" path="res://Data/WeaponData/weapon_data.gd" id="2_givjj"]
+[ext_resource type="AudioStream" uid="uid://b174jet24oa0k" path="res://SFX/gun sounds/22LR Single MP3.mp3" id="3_givjj"]
 
 [resource]
 script = ExtResource("2_givjj")
 weapon_name = "pointer"
 description = "The laser pointer is a bit of a misnomer. It is simply a laser. The pointer is you."
 icon = ExtResource("1_gv1gt")
+sound_effect = ExtResource("3_givjj")
 bullet_type = 1
 fire_mode = 2
 max_spread = 1.0

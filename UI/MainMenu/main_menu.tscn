@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://b021iasahg234"]
+[gd_scene load_steps=17 format=3 uid="uid://b021iasahg234"]
 
 [ext_resource type="Script" uid="uid://bk5upyxc362t4" path="res://UI/MainMenu/main_menu.gd" id="1_u0e1r"]
+[ext_resource type="AudioStream" uid="uid://vwarkgdfgwtn" path="res://Music/ambience-birds-wind-422207.mp3" id="3_ejg71"]
 [ext_resource type="Script" uid="uid://cvikpqyxjqs5g" path="res://Scripts/GameManager/game_manager.gd" id="3_mg3m2"]
 [ext_resource type="Script" uid="uid://b0hnw34sgf8um" path="res://Scripts/WaveManager/wave_manager.gd" id="8_8uw0o"]
 [ext_resource type="Texture2D" uid="uid://cy8pou57fxnrh" path="res://Art/BG/RealBG.png" id="8_ejg71"]
@@ -31,6 +32,7 @@ script = ExtResource("1_u0e1r")
 [node name="GameManager" type="Node" parent="." groups=["game_manager"]]
 script = ExtResource("3_mg3m2")
 day_time_length = 99999999.0
+bird_ambiance = ExtResource("3_ejg71")
 
 [node name="SpawnTimer" type="Timer" parent="GameManager"]
 

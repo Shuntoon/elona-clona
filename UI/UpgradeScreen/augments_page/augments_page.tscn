@@ -120,4 +120,6 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Reroll"
 
+[node name="RerollSound" type="AudioStreamPlayer" parent="."]
+
 [connection signal="pressed" from="MarginContainer/HBoxContainer/RerollButton" to="." method="_on_reroll_button_pressed"]

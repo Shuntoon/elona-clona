@@ -6,6 +6,7 @@ class_name WeaponData
 @export_multiline var description : String = "A description of the weapon."
 @export var icon : Texture2D
 @export var price : int = 100
+@export var sound_effect : AudioStream
 
 @export_category("Shooting Properties")
 @export var bullet_type : MouseShooter.BULLET_TYPE

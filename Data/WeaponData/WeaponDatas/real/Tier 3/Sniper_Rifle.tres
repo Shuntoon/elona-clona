@@ -1,13 +1,15 @@
-[gd_resource type="Resource" script_class="WeaponData" load_steps=3 format=3 uid="uid://uk35gpob4qh1"]
+[gd_resource type="Resource" script_class="WeaponData" load_steps=4 format=3 uid="uid://uk35gpob4qh1"]
 
 [ext_resource type="Texture2D" uid="uid://bifuookwuc207" path="res://Art/guns/49.png" id="1_5mvx8"]
 [ext_resource type="Script" uid="uid://rimwdfuvv8ao" path="res://Data/WeaponData/weapon_data.gd" id="2_4l0jn"]
+[ext_resource type="AudioStream" uid="uid://1os3uo5m8aed" path="res://SFX/gun sounds/556 Single MP3.mp3" id="3_0lo85"]
 
 [resource]
 script = ExtResource("2_4l0jn")
 weapon_name = "Sniper"
 description = "If you was to put me and this here sniper rifle anywhere up to and including one mile of Adolf Hitler with a clear line of sight, sir... pack your bags, fellas, war's over."
 icon = ExtResource("1_5mvx8")
+sound_effect = ExtResource("3_0lo85")
 accuracy = 0.65
 max_spread = 30.0
 fire_rate = 60.0

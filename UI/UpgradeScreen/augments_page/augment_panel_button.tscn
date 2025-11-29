@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://6w660hirryy6"]
+[gd_scene load_steps=8 format=3 uid="uid://6w660hirryy6"]
 
 [ext_resource type="Script" uid="uid://coo3ymyhrbx62" path="res://UI/UpgradeScreen/augments_page/augment_panel_button.gd" id="1_d42pu"]
 [ext_resource type="Texture2D" uid="uid://dqmnca3rlhh4c" path="res://Art/Filler/AugmentIcons/Asset 50@2x.png" id="1_g2q03"]
+[ext_resource type="AudioStream" uid="uid://cw3snnmx6tkgm" path="res://SFX/UI/confirm_style_2_003.ogg" id="3_3tdn8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_cq7v1"]
 font_size = 32
@@ -121,5 +122,10 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Purchased!"
 label_settings = SubResource("LabelSettings_3tdn8")
+
+[node name="ButtonSound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_3tdn8")
+bus = &"SFX"
 
 [connection signal="pressed" from="BuyButton" to="." method="_on_buy_button_pressed"]

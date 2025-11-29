@@ -9,6 +9,7 @@ class_name ArmoryWeaponSlot
 @onready var lock_texture_rect: TextureRect = %LockTextureRect
 @onready var name_label: Label = %NameLabel
 @onready var price_label: Label = %PriceLabel
+@onready var button_sound: AudioStreamPlayer = $ButtonSound
 
 @export var weapon_data: WeaponData
 @export var weapon_locked = true
@@ -112,6 +113,8 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 	return data
 
 func _on_buy_button_pressed() -> void:
+	button_sound.play()
+
 	if weapon_data and PlayerData.gold >= weapon_data.price:
 		PlayerData.gold -= weapon_data.price
 		weapon_bought = true

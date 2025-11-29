@@ -236,6 +236,9 @@ func _fire_at_target() -> void:
 		is_playing_shoot_animation = true
 		animated_sprite.play("shoot")
 	
+	# Play shoot sound effect
+	_play_shoot_sound()
+	
 	var target_position = current_target.global_position
 	
 	match ally_type:
@@ -296,6 +299,16 @@ func _calculate_accuracy_offset() -> Vector2:
 
 func get_target() -> Enemy:
 	return current_target
+
+func _play_shoot_sound() -> void:
+	if ally_data and ally_data.sound_effect:
+		var audio_player = AudioStreamPlayer.new()
+		audio_player.stream = ally_data.sound_effect
+		audio_player.volume_db = -5.0
+		add_child(audio_player)
+		audio_player.play()
+		# Remove the audio player when done
+		audio_player.finished.connect(audio_player.queue_free)
 
 func _on_animation_finished() -> void:
 	if animated_sprite.animation == "shoot":
