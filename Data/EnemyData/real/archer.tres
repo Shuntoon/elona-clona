@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://dyeyvg042fxge"]
+
+[ext_resource type="SpriteFrames" uid="uid://b2lp2u6ysgy77" path="res://Art/Enemy Animations/archer/archer_sprite_frames.tres" id="1_q2mbc"]
+[ext_resource type="Script" uid="uid://d4hepntti60rn" path="res://Data/EnemyData/enemy_data.gd" id="2_fqj06"]
+
+[resource]
+script = ExtResource("2_fqj06")
+enemy_name = "archer"
+speed = 1.0
+max_health = 75
+range = 300.0
+animated_sprite_frames = ExtResource("1_q2mbc")
+animated_sprite_2d_scale = Vector2(3, 3)
+attack_speed = 0.5
+gold_reward = 15
+gold_reward_variance = 5
+body_hitbox_size = Vector2(50, 89)
+body_pos = Vector2(9, 20)
+head_hitbox_size = Vector2(25, 24)
+head_pos = Vector2(1, -37)
+metadata/_custom_type_script = "uid://d4hepntti60rn"

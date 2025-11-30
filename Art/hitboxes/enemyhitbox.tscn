@@ -1,25 +1,24 @@
 [gd_scene load_steps=6 format=3 uid="uid://bkb3jp1pjkudm"]
 
 [ext_resource type="Script" uid="uid://d14fdqbjlksab" path="res://Objects/Enemy/enemy_base.gd" id="1_gn1d5"]
-[ext_resource type="SpriteFrames" uid="uid://d1lwbyhy7l38r" path="res://Art/Enemy Animations/Zombie/zombie_sprite_frames.tres" id="2_gn1d5"]
+[ext_resource type="SpriteFrames" uid="uid://b2lp2u6ysgy77" path="res://Art/Enemy Animations/archer/archer_sprite_frames.tres" id="2_gn1d5"]
 [ext_resource type="Script" uid="uid://rixcbilycpqv" path="res://Objects/Hurtbox/hurtbox.gd" id="3_n5xuw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ua6e8"]
-size = Vector2(47, 44)
+size = Vector2(50, 89)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qqtw7"]
-size = Vector2(16, 16.75)
+size = Vector2(25, 23.375)
 
 [node name="Enemy" type="Node2D"]
 script = ExtResource("1_gn1d5")
 metadata/_custom_type_script = "uid://d14fdqbjlksab"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(2.25, 2.25)
+scale = Vector2(3, 3)
 sprite_frames = ExtResource("2_gn1d5")
-animation = &"death"
-frame = 10
-frame_progress = 1.0
+animation = &"movement"
+frame_progress = 0.78999925
 
 [node name="Hurtbox" type="Area2D" parent="."]
 position = Vector2(0.13343811, -0.08570862)
@@ -27,7 +26,7 @@ script = ExtResource("3_n5xuw")
 metadata/_custom_type_script = "uid://rixcbilycpqv"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2(8.366562, 7.0857086)
+position = Vector2(8.866562, 19.585709)
 shape = SubResource("RectangleShape2D_ua6e8")
 
 [node name="Hurtbox2" type="Area2D" parent="."]
@@ -36,6 +35,6 @@ script = ExtResource("3_n5xuw")
 metadata/_custom_type_script = "uid://rixcbilycpqv"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox2"]
-position = Vector2(5.453537, -20.559982)
+position = Vector2(-15.046463, -15.872482)
 shape = SubResource("RectangleShape2D_qqtw7")
 debug_color = Color(0.6735401, 0.5078047, 0, 0.41960785)
