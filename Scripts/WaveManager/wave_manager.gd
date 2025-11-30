@@ -160,7 +160,7 @@ func _spawn_enemy_with_data(enemy_data: EnemyData):
 	# Inject enemy data properties
 	enemy_inst.enemy_name = enemy_data.enemy_name
 	enemy_inst.speed = enemy_data.speed
-	enemy_inst.max_health = enemy_data.max_health + randi_range(-scaling_health_base * (current_wave_index + 1) ,scaling_health_base * (current_wave_index + 1))
+	enemy_inst.max_health = enemy_data.max_health
 	enemy_inst.range = enemy_data.range
 	enemy_inst.damage = enemy_data.damage
 	enemy_inst.attack_speed = enemy_data.attack_speed
