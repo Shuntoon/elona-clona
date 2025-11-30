@@ -13,6 +13,7 @@ script = ExtResource("2_t7l0f")
 weapon_name = "Minigun"
 description = "Some people think they can outsmart me. I have yet to meet one that can outsmart bullet."
 icon = SubResource("AtlasTexture_ccc7y")
+price = 750
 sound_effect = ExtResource("3_ccc7y")
 fire_mode = 2
 accuracy = 0.501

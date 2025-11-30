@@ -10,6 +10,7 @@ script = ExtResource("2_givjj")
 weapon_name = "pointer"
 description = "The laser pointer is a bit of a misnomer. It is simply a laser. The pointer is you."
 icon = ExtResource("1_gv1gt")
+price = 750
 sound_effect = ExtResource("3_givjj")
 bullet_type = 1
 fire_mode = 2

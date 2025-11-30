@@ -9,6 +9,7 @@ script = ExtResource("2_40y4a")
 weapon_name = "Saw Blade Launcher"
 description = "Live Or Die. Make Your Choice."
 icon = ExtResource("1_rjdqk")
+price = 300
 sound_effect = ExtResource("3_rjdqk")
 bullet_type = 1
 accuracy = 0.724

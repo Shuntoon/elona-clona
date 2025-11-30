@@ -13,6 +13,7 @@ script = ExtResource("2_e2sit")
 weapon_name = "M41 SPNKr"
 description = "They're gonna feel this."
 icon = SubResource("AtlasTexture_fr3dq")
+price = 750
 reload_sound_effect = ExtResource("2_fr3dq")
 bullet_type = 1
 accuracy = 0.914

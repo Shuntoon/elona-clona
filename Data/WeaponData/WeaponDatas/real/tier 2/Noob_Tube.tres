@@ -15,6 +15,7 @@ script = ExtResource("2_xijtu")
 weapon_name = "Grenade Launcher"
 description = "\"I'm goin' ta blast ya into thin gruel. KA-BOOM!"
 icon = ExtResource("1_askb5")
+price = 150
 sound_effect = ExtResource("5_0um2l")
 reload_sound_effect = ExtResource("2_x2ef1")
 bullet_type = 1

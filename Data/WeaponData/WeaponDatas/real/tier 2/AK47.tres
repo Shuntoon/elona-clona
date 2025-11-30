@@ -10,6 +10,7 @@ script = ExtResource("2_sssep")
 weapon_name = "AK47"
 description = "After the Cold War, the AK-47 became Russia's biggest export. After that came vodka, caviar, and suicidal novelists."
 icon = ExtResource("1_635gh")
+price = 150
 sound_effect = ExtResource("3_evcq5")
 reload_sound_effect = ExtResource("2_isb64")
 fire_mode = 2

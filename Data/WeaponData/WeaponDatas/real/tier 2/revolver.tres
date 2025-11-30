@@ -10,6 +10,7 @@ script = ExtResource("2_rx10j")
 weapon_name = "Revolver"
 description = "Out here, due process is a bullet."
 icon = ExtResource("1_ux0y4")
+price = 150
 sound_effect = ExtResource("3_j6mpk")
 reload_sound_effect = ExtResource("2_2iyrs")
 accuracy = 0.8

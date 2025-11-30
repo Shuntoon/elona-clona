@@ -10,6 +10,7 @@ script = ExtResource("2_7stqr")
 weapon_name = "shotgun"
 description = "This...is my BOOMSTICK!"
 icon = ExtResource("1_jjtmc")
+price = 25
 sound_effect = ExtResource("3_d1a8m")
 reload_sound_effect = ExtResource("2_66wep")
 fire_mode = 1

@@ -10,6 +10,7 @@ script = ExtResource("2_eikcc")
 weapon_name = "LMG"
 description = "Loaded with religous intent."
 icon = ExtResource("1_q2qcm")
+price = 300
 sound_effect = ExtResource("3_xow0e")
 reload_sound_effect = ExtResource("2_wyehn")
 bullet_type = 1

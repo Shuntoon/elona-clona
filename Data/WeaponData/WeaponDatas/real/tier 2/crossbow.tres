@@ -10,6 +10,7 @@ weapon_name = "crossbow"
 description = "Hit him with your crossbow Steve!
 Piercing"
 icon = ExtResource("1_3i7uy")
+price = 150
 sound_effect = ExtResource("3_ud68d")
 bullet_type = 1
 accuracy = 0.9

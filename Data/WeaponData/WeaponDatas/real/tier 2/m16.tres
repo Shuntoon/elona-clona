@@ -10,6 +10,7 @@ script = ExtResource("2_xn1vv")
 weapon_name = "M16"
 description = "This is my rifle. There are many like it, but this one is mine."
 icon = ExtResource("1_v8mk0")
+price = 150
 sound_effect = ExtResource("3_8q88c")
 reload_sound_effect = ExtResource("2_olcps")
 fire_mode = 1

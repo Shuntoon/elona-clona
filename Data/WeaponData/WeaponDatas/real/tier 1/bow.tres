@@ -16,6 +16,7 @@ weapon_name = "bow"
 description = "A William Tell tool of choice.
 "
 icon = ExtResource("1_21ndw")
+price = 25
 sound_effect = ExtResource("4_k5yyw")
 reload_sound_effect = ExtResource("2_2kdeu")
 bullet_type = 1

@@ -10,6 +10,7 @@ script = ExtResource("2_vdodv")
 weapon_name = "Pistol"
 description = "Hickory, Dickory, Dock, it's time for the Glock"
 icon = ExtResource("1_dme8r")
+price = 0
 sound_effect = ExtResource("3_0f3o4")
 reload_sound_effect = ExtResource("2_g7x0e")
 accuracy = 0.65

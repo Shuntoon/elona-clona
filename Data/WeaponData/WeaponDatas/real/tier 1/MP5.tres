@@ -10,6 +10,7 @@ script = ExtResource("2_o2bqx")
 weapon_name = "SMG"
 description = "Now I have a machinegun. HO-HO-HO"
 icon = ExtResource("1_i1c6p")
+price = 25
 sound_effect = ExtResource("3_lpwq7")
 reload_sound_effect = ExtResource("2_uq3dd")
 fire_mode = 2

@@ -14,6 +14,7 @@ script = ExtResource("2_aufd2")
 weapon_name = "Anti-Material Rifle"
 description = "We Can't Expect God To Do All The Work."
 icon = SubResource("AtlasTexture_at6eb")
+price = 750
 sound_effect = ExtResource("3_at6eb")
 reload_sound_effect = ExtResource("2_w15vp")
 bullet_type = 1
