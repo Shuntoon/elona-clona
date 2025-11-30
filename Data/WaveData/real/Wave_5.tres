@@ -17,6 +17,7 @@ hard_enemies = Array[ExtResource("1_ol7b0")]([ExtResource("4_3323f"), ExtResourc
 easy_weights = Array[float]([2.0, 3.0, 1.0])
 medium_weights = Array[float]([1.0, 1.0, 1.0, 1.0])
 hard_weights = Array[float]([1.5, 2.0, 2.0, 1.0, 1.0])
+base_spawn_interval = 1.9
 easy_spawn_multiplier = 1.25
 medium_spawn_multiplier = 0.9
 hard_spawn_multiplier = 0.8
