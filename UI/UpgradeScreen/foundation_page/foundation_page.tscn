@@ -13,6 +13,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_eyfy0")
+upgrade_ally_slots_base_price = 300
 base_reroll_cost = 250
 price_multiplier = 2.0
 regain_health_price_multiplier = 1.0
