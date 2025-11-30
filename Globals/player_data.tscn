@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://barbo7txnpgeo" path="res://Globals/PlayerData.gd" id="1_44c78"]
 [ext_resource type="Resource" uid="uid://bmw3cst1caj24" path="res://Data/WeaponData/WeaponDatas/real/Tier 3/blunderbuss.tres" id="2_m27fu"]
-[ext_resource type="Resource" uid="uid://dub6ux6iwtmmj" path="res://Data/WeaponData/WeaponDatas/real/Tier OP/Laser_Pointer.tres" id="3_m27fu"]
+[ext_resource type="Resource" uid="uid://cjrne1ssl4irc" path="res://Data/WeaponData/WeaponDatas/real/tier 1/MP5.tres" id="3_m27fu"]
 
 [node name="PlayerData" type="Node"]
 process_mode = 3

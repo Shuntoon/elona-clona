@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://dfu50k1tlerfj" path="res://Data/AugmentData/augment_data.gd" id="2_tsv3p"]
 [ext_resource type="Resource" uid="uid://7ro5vw42gv65" path="res://Data/AugmentData/real/common/energy_drink.tres" id="3_fkv8u"]
 [ext_resource type="Resource" uid="uid://c2pxit8eu3xee" path="res://Data/AugmentData/real/uncommon/extended_clip.tres" id="4_hsc5t"]
-[ext_resource type="Resource" uid="uid://dhpoadkaik5jr" path="res://Data/AugmentData/real/common/hollow_point_rounds.tres" id="5_hpobp"]
+[ext_resource type="Resource" uid="uid://dhpoadkaik5jr" path="res://Data/AugmentData/real/uncommon/hollow_point_rounds.tres" id="5_hpobp"]
 [ext_resource type="Resource" uid="uid://b3oy0gb8wwg51" path="res://Data/AugmentData/real/common/laser_pointer.tres" id="6_mson7"]
 [ext_resource type="Resource" uid="uid://dxefmjwmf12kf" path="res://Data/AugmentData/real/common/scope.tres" id="7_37cud"]
 [ext_resource type="Resource" uid="uid://djby6rnhk0mcl" path="res://Data/AugmentData/real/common/quick_hands.tres" id="8_6mapy"]
