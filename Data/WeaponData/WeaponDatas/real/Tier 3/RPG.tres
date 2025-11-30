@@ -19,5 +19,6 @@ burst_count = 15
 burst_delay = 0.001
 explosive_rockets = true
 explosion_damage = 150
-explosion_radius = 175.0
+explosion_radius = 150.0
+explosion_scale = 8.0
 metadata/_custom_type_script = "uid://rimwdfuvv8ao"

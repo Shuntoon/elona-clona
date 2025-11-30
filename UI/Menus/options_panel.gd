@@ -7,6 +7,7 @@ signal back_pressed
 @onready var music_volume_slider: HSlider = %MusicVolumeSlider
 @onready var sfx_volume_slider: HSlider = %SFXVolumeSlider
 @onready var fullscreen_checkbox: CheckBox = %FullscreenCheckbox
+@onready var menu_sound: AudioStreamPlayer = %MenuSound
 
 func _ready() -> void:
 	# Sync UI with current settings
@@ -43,11 +44,13 @@ func _on_sfx_volume_changed(value: float) -> void:
 		AudioServer.set_bus_volume_db(bus_idx, db)
 
 func _on_fullscreen_toggled(toggled_on: bool) -> void:
+	menu_sound.play()
 	if toggled_on:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 
 func _on_back_button_pressed() -> void:
+	menu_sound.play()
 	back_pressed.emit()
 	hide_panel()

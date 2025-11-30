@@ -1,9 +1,10 @@
-[gd_scene load_steps=33 format=3 uid="uid://dw1vcw2gmi1l2"]
+[gd_scene load_steps=34 format=3 uid="uid://dw1vcw2gmi1l2"]
 
 [ext_resource type="Texture2D" uid="uid://m6poado1x4u0" path="res://Art/Froggert/ToxicFrogBlueBlue_Idle.png" id="1_0s01y"]
 [ext_resource type="Script" uid="uid://b6q432d2lklgh" path="res://Objects/Froggert/froggert.gd" id="1_yx6ny"]
 [ext_resource type="Texture2D" uid="uid://dup8irlrpafpy" path="res://Art/Froggert/ToxicFrogBlueBlue_Attack.png" id="2_mllm5"]
 [ext_resource type="PackedScene" uid="uid://bljxubxu5eg3j" path="res://Objects/BulletBase/bullet_base.tscn" id="2_x4p4f"]
+[ext_resource type="Texture2D" uid="uid://633sf1cm1x7u" path="res://Art/Bullet/bubble.png" id="3_1c7hn"]
 [ext_resource type="PackedScene" uid="uid://cp6c33t2cjpx5" path="res://Objects/Explosion/explosion.tscn" id="3_onvho"]
 [ext_resource type="Texture2D" uid="uid://ec1dk4ms1jg" path="res://Art/Froggert/ToxicFrogBlueBlue_Explosion.png" id="3_uc1rx"]
 
@@ -195,6 +196,8 @@ points = PackedVector2Array(0, 0, -1000, -70, -1000, 70)
 [node name="Froggert" type="Node2D"]
 script = ExtResource("1_yx6ny")
 projectile_scene = ExtResource("2_x4p4f")
+projectile_bullet_sprite = ExtResource("3_1c7hn")
+projectile_bullet_sprite_scale = Vector2(0.5, 0.5)
 explosion_scene = ExtResource("3_onvho")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

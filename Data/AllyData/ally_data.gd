@@ -32,6 +32,9 @@ enum TargetingMode {
 @export_range(0.0, 1.0) var accuracy: float = 0.8
 @export var max_spread: float = 30.0
 
+# Sound effect
+@export var sound_effect: AudioStream
+
 # Rocket-specific properties
 @export var explosion_damage: int = 15
 @export var explosion_radius: float = 120.0

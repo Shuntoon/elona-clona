@@ -1,6 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://cp6c33t2cjpx5"]
+[gd_scene load_steps=15 format=3 uid="uid://cp6c33t2cjpx5"]
 
-[ext_resource type="Script" path="res://Objects/Explosion/explosion.gd" id="1_veskp"]
+[ext_resource type="Script" uid="uid://bv8pgdxd3rby4" path="res://Objects/Explosion/explosion.gd" id="1_veskp"]
 [ext_resource type="Texture2D" uid="uid://pkonw8kg38p8" path="res://Art/VFX/fx1_explosion_small_orange/frame0000.png" id="2_0xyoj"]
 [ext_resource type="Texture2D" uid="uid://dq3olb3vftbv5" path="res://Art/VFX/fx1_explosion_small_orange/frame0001.png" id="3_cu3xx"]
 [ext_resource type="Texture2D" uid="uid://c3adibit7n2h6" path="res://Art/VFX/fx1_explosion_small_orange/frame0002.png" id="4_gv5qa"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dx6edw5f68k1" path="res://Art/VFX/fx1_explosion_small_orange/frame0008.png" id="10_0wytd"]
 [ext_resource type="Texture2D" uid="uid://ddw04u2ij5fin" path="res://Art/VFX/fx1_explosion_small_orange/frame0009.png" id="11_lp65p"]
 [ext_resource type="Texture2D" uid="uid://cspx873dns0rv" path="res://Art/VFX/fx1_explosion_small_orange/frame0010.png" id="12_t5bgk"]
+[ext_resource type="AudioStream" uid="uid://ujv5rl5rilqo" path="res://SFX/ExplosionSound/medium-explosion-40472.mp3" id="13_0xyoj"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xh8nv"]
 animations = [{
@@ -56,11 +57,15 @@ animations = [{
 
 [node name="Explosion" type="Node2D"]
 script = ExtResource("1_veskp")
-damage = 10
-explosion_radius = 100.0
 visual_scale = 5.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_xh8nv")
 autoplay = "default"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_0xyoj")
+pitch_scale = 1.7
+autoplay = true
+bus = &"SFX"

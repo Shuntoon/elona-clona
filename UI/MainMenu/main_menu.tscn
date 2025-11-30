@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://b021iasahg234"]
+[gd_scene load_steps=20 format=3 uid="uid://b021iasahg234"]
 
 [ext_resource type="Script" uid="uid://bk5upyxc362t4" path="res://UI/MainMenu/main_menu.gd" id="1_u0e1r"]
+[ext_resource type="AudioStream" uid="uid://vwarkgdfgwtn" path="res://Music/ambience-birds-wind-422207.mp3" id="3_ejg71"]
 [ext_resource type="Script" uid="uid://cvikpqyxjqs5g" path="res://Scripts/GameManager/game_manager.gd" id="3_mg3m2"]
 [ext_resource type="Script" uid="uid://b0hnw34sgf8um" path="res://Scripts/WaveManager/wave_manager.gd" id="8_8uw0o"]
 [ext_resource type="Texture2D" uid="uid://cy8pou57fxnrh" path="res://Art/BG/RealBG.png" id="8_ejg71"]
@@ -8,7 +9,10 @@
 [ext_resource type="Resource" uid="uid://dllb7i7ax465" path="res://Data/WaveData/Test/quick_individual_unit_data.tres" id="10_ka3nr"]
 [ext_resource type="Resource" uid="uid://che2jquh8hejp" path="res://Data/WaveData/test_data_2.tres" id="11_48knj"]
 [ext_resource type="Shader" uid="uid://dpwvb4uoa52xy" path="res://UI/MainMenu/blur_backbuffer.gdshader" id="11_ejg71"]
+[ext_resource type="AudioStream" uid="uid://cw3snnmx6tkgm" path="res://SFX/UI/confirm_style_2_003.ogg" id="12_euymq"]
 [ext_resource type="PackedScene" uid="uid://djs38cy8bwdv7" path="res://Objects/Enemy/enemy_base.tscn" id="12_m2y5l"]
+[ext_resource type="AudioStream" uid="uid://crjtqxhwu0o1h" path="res://SFX/UI/back_style_2_004.ogg" id="13_2d5va"]
+[ext_resource type="AudioStream" uid="uid://bru8fxgr61x27" path="res://Music/pixel-fantasia-355123.mp3" id="14_2d5va"]
 [ext_resource type="Script" uid="uid://c60bxtqxj72gr" path="res://Objects/Spawner/spawner.gd" id="17_qby1g"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_80nbo"]
@@ -31,6 +35,7 @@ script = ExtResource("1_u0e1r")
 [node name="GameManager" type="Node" parent="." groups=["game_manager"]]
 script = ExtResource("3_mg3m2")
 day_time_length = 99999999.0
+bird_ambiance = ExtResource("3_ejg71")
 
 [node name="SpawnTimer" type="Timer" parent="GameManager"]
 
@@ -311,6 +316,22 @@ layout_mode = 2
 size_flags_vertical = 3
 text = "Quit
 "
+
+[node name="MenuSound1" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("12_euymq")
+bus = &"SFX"
+
+[node name="MenuSound2" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("13_2d5va")
+bus = &"SFX"
+
+[node name="BGMusic" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("14_2d5va")
+autoplay = true
+bus = &"Music"
 
 [connection signal="all_enemies_killed" from="GameManager" to="GameManager" method="_on_all_enemies_killed"]
 [connection signal="day_timer_finished" from="GameManager" to="GameManager" method="_on_day_timer_finished"]

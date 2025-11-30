@@ -29,6 +29,10 @@ func _enter_tree() -> void:
 @export var bullet_damage: int = 1
 @export var explosion_damage: int = 10
 @export var explosion_radius: float = 100.0
+@export var explosion_visual_scale: float = 1.0
+@export var bullet_sprite: Texture2D
+@export var rocket_sprite: Texture2D
+@export var bullet_sprite_scale: Vector2 = Vector2(1, 1)
 @export_range(0.0, 1.0) var crit_chance: float = 0.1
 @export var crit_multiplier: float = 2.0
 
@@ -192,6 +196,10 @@ func _equip_weapon(slot: int) -> void:
 	bullet_damage = weapon_to_equip.bullet_damage
 	explosion_damage = weapon_to_equip.explosion_damage
 	explosion_radius = weapon_to_equip.explosion_radius
+	explosion_visual_scale = weapon_to_equip.explosion_visual_scale
+	bullet_sprite = weapon_to_equip.bullet_sprite
+	rocket_sprite = weapon_to_equip.rocket_sprite
+	bullet_sprite_scale = weapon_to_equip.bullet_sprite_scale
 	crit_chance = weapon_to_equip.crit_chance
 	crit_multiplier = weapon_to_equip.crit_multiplier
 	bleed_chance = weapon_to_equip.bleed_chance
@@ -253,6 +261,10 @@ func _start_reload() -> void:
 	is_shooting = false
 	reload_progress = 0.0
 	
+	# Play reload sound effect
+	if weapon_data and weapon_data.reload_sound_effect:
+		_play_sound(weapon_data.reload_sound_effect)
+	
 	var elapsed = 0.0
 	while elapsed < reload_time and is_reloading:  # Check is_reloading in loop condition
 		await get_tree().process_frame
@@ -270,6 +282,10 @@ func _start_reload() -> void:
 func _fire_bullet() -> void:
 	if current_ammo <= 0:
 		return
+	
+	# Play weapon sound effect (create new player each time to avoid cutting off)
+	if weapon_data and weapon_data.sound_effect:
+		_play_sound(weapon_data.sound_effect)
 	
 	# Trigger crosshair shoot animation
 	if game_manager and game_manager.crosshair:
@@ -333,9 +349,16 @@ func _fire_bullet() -> void:
 		bullet_base_inst.explosive = explosive_rockets
 		bullet_base_inst.explosion_damage = explosion_damage
 		bullet_base_inst.explosion_radius = explosion_radius
+		bullet_base_inst.explosion_visual_scale = explosion_visual_scale
 		bullet_base_inst.explosion_scene = EXPLOSION
 		bullet_base_inst.hit_enemy_vfx = HIT_ENEMY_VFX
 		bullet_base_inst.hit_ground_vfx = HIT_GROUND_VFX
+		if bullet_sprite:
+			bullet_base_inst.bullet_texture = bullet_sprite
+		if rocket_sprite:
+			bullet_base_inst.rocket_texture = rocket_sprite
+		# Apply bullet visual scale from equipped weapon_data
+		bullet_base_inst.bullet_visual_scale = bullet_sprite_scale
 		
 		# Set bullet damage and crit via hitbox
 		var hitbox = bullet_base_inst.get_node_or_null("Hitbox")
@@ -370,3 +393,13 @@ func _calculate_accuracy_offset() -> Vector2:
 		cos(random_angle) * random_distance,
 		sin(random_angle) * random_distance
 	)
+
+func _play_sound(sound: AudioStream) -> void:
+	var audio_player = AudioStreamPlayer.new()
+	audio_player.stream = sound
+	audio_player.bus = "SFX"
+	add_child(audio_player)
+	audio_player.pitch_scale = randf_range(0.9, 1.2)  # Slight random pitch variation
+	audio_player.play()
+	# Auto-remove when finished
+	audio_player.finished.connect(audio_player.queue_free)

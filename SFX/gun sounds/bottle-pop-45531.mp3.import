@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ctr1qioyeckdf"
+path="res://.godot/imported/bottle-pop-45531.mp3-9f78a298ec73373d1f6c8e1df1812ea6.mp3str"
+
+[deps]
+
+source_file="res://SFX/gun sounds/bottle-pop-45531.mp3"
+dest_files=["res://.godot/imported/bottle-pop-45531.mp3-9f78a298ec73373d1f6c8e1df1812ea6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

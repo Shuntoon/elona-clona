@@ -45,10 +45,13 @@ var current_health : int :
 		if current_health <= 0:
 			died.emit()
 
-# Slow effect variables
+## Slow effect variables
 var is_slowed: bool = false
 var base_speed: float = 0.0
 var slow_timer: Timer
+var slow_stacks: int = 0
+var slow_per_stack_value: float = 0.1
+const MAX_SLOW_STACKS: int = 10 # 10 stacks = 100% slow cap (can adjust)
 			
 
 func _ready() -> void:
@@ -176,20 +179,32 @@ func _spawn_bleed_damage_number(bleed_damage: int) -> void:
 	
 	vfx_parent.add_child(damage_number_inst)
 
-func apply_slow(slow_multiplier: float, duration: float) -> void:
-	print("apply_slow called! is_slowed: ", is_slowed, ", base_speed: ", base_speed, ", multiplier: ", slow_multiplier)
+func apply_slow(per_stack: float, duration: float) -> void:
+	# per_stack: fraction per stack (e.g., 0.1 for 10% per stack)
+	if per_stack > 0.0:
+		slow_per_stack_value = per_stack
+
 	if not is_slowed:
 		is_slowed = true
-		speed = base_speed * slow_multiplier
+		slow_stacks = 1
+		_recalculate_slow_speed()
 		slow_timer.start(duration)
-		print("Enemy slowed! New speed: ", speed, " (was ", base_speed, ")")
+		print("Enemy slowed! New speed: ", speed, " (was ", base_speed, "), stacks: ", slow_stacks, " per_stack: ", slow_per_stack_value)
 	else:
-		# Refresh slow duration
+		# Add a stack, up to max
+		slow_stacks = min(slow_stacks + 1, MAX_SLOW_STACKS)
+		_recalculate_slow_speed()
 		slow_timer.start(duration)
-		print("Slow duration refreshed")
+		print("Slow stack added! Stacks: ", slow_stacks, ", speed: ", speed, " per_stack: ", slow_per_stack_value)
+
+# Helper to recalculate speed based on stacks
+func _recalculate_slow_speed() -> void:
+	var slow_factor = max(0.01, 1.0 - slow_per_stack_value * slow_stacks)
+	speed = base_speed * slow_factor
 
 func _on_slow_timer_timeout() -> void:
 	is_slowed = false
+	slow_stacks = 0
 	speed = base_speed
 	print("Enemy slow expired. Speed restored to: ", speed)
 

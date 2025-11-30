@@ -43,26 +43,31 @@ layout_mode = 2
 theme_override_constants/separation = 8
 
 [node name="RiflemanButton" type="Button" parent="MarginContainer/ButtonVBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 text = "Rifleman ($200)"
 
 [node name="SupportButton" type="Button" parent="MarginContainer/ButtonVBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 text = "Support ($300)"
 
 [node name="MachineGunnerButton" type="Button" parent="MarginContainer/ButtonVBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 text = "Machine Gunner ($400)"
 
 [node name="SniperButton" type="Button" parent="MarginContainer/ButtonVBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 text = "Sniper($500)"
 
 [node name="MachineGunnerButton2" type="Button" parent="MarginContainer/ButtonVBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 text = "Rocketeer($750)"

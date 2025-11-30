@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d225nmsfm10mv"]
+[gd_scene load_steps=14 format=3 uid="uid://d225nmsfm10mv"]
 
 [ext_resource type="Script" uid="uid://8m8ugxxbryqp" path="res://UI/UpgradeScreen/upgrade_screen.gd" id="1_kyj5a"]
 [ext_resource type="Texture2D" uid="uid://bdylnvm06f5fm" path="res://Art/UI/RealUI/Panel.png" id="2_5xjgn"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://buj37tqnk8i22" path="res://UI/UpgradeScreen/armory_page/armory_page.tscn" id="4_mbga8"]
 [ext_resource type="PackedScene" uid="uid://bfguydj53ut7e" path="res://UI/UpgradeScreen/allies_page/allies_page.tscn" id="5_5xjgn"]
 [ext_resource type="Texture2D" uid="uid://bki3p3jojmdp4" path="res://Art/UI/RealUI/Button.png" id="7_lvoou"]
+[ext_resource type="AudioStream" uid="uid://crjtqxhwu0o1h" path="res://SFX/UI/back_style_2_004.ogg" id="8_rrvu0"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lvoou"]
 texture = ExtResource("2_5xjgn")
@@ -15,6 +16,12 @@ texture_margin_top = 8.0
 texture_margin_right = 8.0
 texture_margin_bottom = 8.0
 modulate_color = Color(0.29634023, 0.2820734, 0.1793523, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5xjgn"]
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_0q4ua"]
+font_size = 24
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rrvu0"]
 texture = ExtResource("7_lvoou")
@@ -25,13 +32,7 @@ texture_margin_bottom = 12.0
 modulate_color = Color(0.5999126, 0.6202909, 0.6289846, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_mbga8"]
-font_size = 48
-
-[sub_resource type="LabelSettings" id="LabelSettings_0q4ua"]
-font_size = 24
-
-[sub_resource type="LabelSettings" id="LabelSettings_5xjgn"]
-font_size = 24
+font_size = 56
 
 [node name="UpgradeScreen" type="Control"]
 process_mode = 3
@@ -55,6 +56,40 @@ offset_bottom = -14.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_lvoou")
+
+[node name="BaseHealthLabel" type="Label" parent="BG"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 45.0
+offset_top = 42.0
+offset_right = 226.0
+offset_bottom = 61.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Base Health 100 / 100"
+label_settings = SubResource("LabelSettings_5xjgn")
+vertical_alignment = 1
+
+[node name="GoldLabel" type="Label" parent="BG"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -143.0
+offset_top = 41.0
+offset_right = -22.0
+offset_bottom = 63.0
+grow_horizontal = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+text = "Gold: 42069"
+label_settings = SubResource("LabelSettings_0q4ua")
+vertical_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="BG"]
 layout_mode = 1
@@ -149,14 +184,10 @@ text = "Advance to next wave"
 
 [node name="EndOfTheDayLabel" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -89.0
-offset_top = 36.0
-offset_right = 214.0
-offset_bottom = 81.0
-grow_horizontal = 2
+offset_left = 63.0
+offset_top = 42.0
+offset_right = 417.0
+offset_bottom = 94.0
 size_flags_horizontal = 4
 size_flags_vertical = 0
 text = "End of the Day"
@@ -164,39 +195,10 @@ label_settings = SubResource("LabelSettings_mbga8")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="GoldLabel" type="Label" parent="."]
+[node name="SwitchPageSound" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -583.0
-offset_top = 36.0
-offset_right = -447.0
-offset_bottom = 81.0
-grow_horizontal = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-text = "Gold: 42069"
-label_settings = SubResource("LabelSettings_0q4ua")
-vertical_alignment = 1
-
-[node name="BaseHealthLabel" type="Label" parent="."]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -433.0
-offset_top = 36.0
-offset_right = -206.0
-offset_bottom = 81.0
-grow_horizontal = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-text = "Base Health 100 / 100"
-label_settings = SubResource("LabelSettings_5xjgn")
-vertical_alignment = 1
+stream = ExtResource("8_rrvu0")
+bus = &"SFX"
 
 [connection signal="pressed" from="BG/MarginContainer/HBoxContainer/PageButtonsVBoxContainer/FoundationButton" to="." method="_on_foundation_button_pressed"]
 [connection signal="pressed" from="BG/MarginContainer/HBoxContainer/PageButtonsVBoxContainer/AugmentsButton" to="." method="_on_augments_button_pressed"]

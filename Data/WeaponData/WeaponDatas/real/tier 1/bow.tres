@@ -1,7 +1,14 @@
-[gd_resource type="Resource" script_class="WeaponData" load_steps=3 format=3 uid="uid://cwmun6nu3owv1"]
+[gd_resource type="Resource" script_class="WeaponData" load_steps=7 format=3 uid="uid://cwmun6nu3owv1"]
 
 [ext_resource type="Texture2D" uid="uid://68gg868sq4ts" path="res://Art/guns/10.png" id="1_21ndw"]
+[ext_resource type="Texture2D" uid="uid://l2n3qn723ab" path="res://Art/Bullet/Bow and Arrows.png" id="1_r523r"]
+[ext_resource type="AudioStream" uid="uid://dxn53jesg5ejo" path="res://SFX/gun sounds/1911-reload-6248.mp3" id="2_2kdeu"]
 [ext_resource type="Script" uid="uid://rimwdfuvv8ao" path="res://Data/WeaponData/weapon_data.gd" id="2_m860w"]
+[ext_resource type="AudioStream" uid="uid://hhwxjq8cx8v5" path="res://SFX/gun sounds/crossbow-firing-95020.mp3" id="4_k5yyw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r523r"]
+atlas = ExtResource("1_r523r")
+region = Rect2(32, 16, 16, 16)
 
 [resource]
 script = ExtResource("2_m860w")
@@ -9,6 +16,8 @@ weapon_name = "bow"
 description = "A William Tell tool of choice.
 "
 icon = ExtResource("1_21ndw")
+sound_effect = ExtResource("4_k5yyw")
+reload_sound_effect = ExtResource("2_2kdeu")
 bullet_type = 1
 accuracy = 0.749
 fire_rate = 120.0
@@ -19,5 +28,7 @@ bullet_damage = 35
 burst_count = 15
 burst_delay = 0.001
 bullet_speed = 700.0
+bullet_sprite = SubResource("AtlasTexture_r523r")
+bullet_sprite_scale = Vector2(3, 3)
 explosion_damage = 30
 metadata/_custom_type_script = "uid://rimwdfuvv8ao"

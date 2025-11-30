@@ -9,5 +9,4 @@ process_mode = 3
 script = ExtResource("1_44c78")
 weapon_1_data = ExtResource("2_3gcu3")
 weapon_2_data = ExtResource("3_m27fu")
-gold = 10000
 ability_slots_level = 0

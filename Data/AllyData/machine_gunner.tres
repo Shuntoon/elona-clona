@@ -1,14 +1,17 @@
-[gd_resource type="Resource" script_class="AllyData" load_steps=3 format=3 uid="uid://8jm6oxcstidi"]
+[gd_resource type="Resource" script_class="AllyData" load_steps=4 format=3 uid="uid://8jm6oxcstidi"]
 
 [ext_resource type="Script" uid="uid://bhvur583pgsyf" path="res://Data/AllyData/ally_data.gd" id="1_xqfgw"]
 [ext_resource type="SpriteFrames" uid="uid://cdtcqyhlcv5dc" path="res://Objects/Ally/MachineGunnerSprites.tres" id="2_di0kg"]
+[ext_resource type="AudioStream" uid="uid://b174jet24oa0k" path="res://SFX/gun sounds/22LR Single MP3.mp3" id="2_mq4ck"]
 
 [resource]
 script = ExtResource("1_xqfgw")
 ally_type = 3
-ally_name = "Gunna"
+ally_name = "Machine Gunner"
 sprite_frames = ExtResource("2_di0kg")
+detection_range = 700.0
 bullet_damage = 20
 accuracy = 0.594
 max_spread = 50.0
+sound_effect = ExtResource("2_mq4ck")
 metadata/_custom_type_script = "uid://bhvur583pgsyf"

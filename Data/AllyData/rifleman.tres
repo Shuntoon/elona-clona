@@ -1,15 +1,17 @@
-[gd_resource type="Resource" script_class="AllyData" load_steps=3 format=3 uid="uid://boxv5rlsd54ii"]
+[gd_resource type="Resource" script_class="AllyData" load_steps=4 format=3 uid="uid://boxv5rlsd54ii"]
 
 [ext_resource type="Script" uid="uid://bhvur583pgsyf" path="res://Data/AllyData/ally_data.gd" id="1_he4qt"]
 [ext_resource type="SpriteFrames" uid="uid://cu88ug8v8wh6b" path="res://Objects/Ally/GunnerSpriteFrames.tres" id="2_48xt0"]
+[ext_resource type="AudioStream" uid="uid://b174jet24oa0k" path="res://SFX/gun sounds/22LR Single MP3.mp3" id="2_gvkps"]
 
 [resource]
 script = ExtResource("1_he4qt")
 ally_name = "Gunner"
 sprite_frames = ExtResource("2_48xt0")
-detection_range = 750.0
-fire_rate = 120.0
+detection_range = 550.0
+fire_rate = 80.0
 bullet_damage = 40
 accuracy = 0.633
 max_spread = 40.0
+sound_effect = ExtResource("2_gvkps")
 metadata/_custom_type_script = "uid://bhvur583pgsyf"

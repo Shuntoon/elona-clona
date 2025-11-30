@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://c4ruds6frs58h"]
+[gd_scene load_steps=33 format=3 uid="uid://c4ruds6frs58h"]
 
 [ext_resource type="Script" uid="uid://cvikpqyxjqs5g" path="res://Scripts/GameManager/game_manager.gd" id="1_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://ci4hdj038kg5i" path="res://Objects/MouseShooter/mouse_shooter.tscn" id="1_feb5d"]
@@ -8,9 +8,12 @@
 [ext_resource type="Script" uid="uid://c60bxtqxj72gr" path="res://Objects/Spawner/spawner.gd" id="5_7jktm"]
 [ext_resource type="Script" uid="uid://cew50k8ripj4e" path="res://Scripts/AugmentManager/augment_manager.gd" id="5_augment"]
 [ext_resource type="Script" uid="uid://c60utqbyl6xt7" path="res://Scripts/Abilities/fire_rate_boost_ability.gd" id="5_hve3p"]
+[ext_resource type="AudioStream" uid="uid://vwarkgdfgwtn" path="res://Music/ambience-birds-wind-422207.mp3" id="6_bnpwn"]
 [ext_resource type="Script" uid="uid://bf28q005qtvbc" path="res://Scripts/Abilities/power_shot_ability.gd" id="6_hve3p"]
+[ext_resource type="AudioStream" uid="uid://clce61iy2or0n" path="res://Music/Zane Little - Post-Adventure Tea Party.mp3" id="7_36jdj"]
 [ext_resource type="Script" uid="uid://b0hnw34sgf8um" path="res://Scripts/WaveManager/wave_manager.gd" id="8_lc2xo"]
 [ext_resource type="PackedScene" uid="uid://bljxubxu5eg3j" path="res://Objects/BulletBase/bullet_base.tscn" id="8_mfdv2"]
+[ext_resource type="AudioStream" uid="uid://c71t5mr0lfwny" path="res://SFX/NewWave/game-bonus-144751.mp3" id="8_xfvwf"]
 [ext_resource type="Script" uid="uid://dssq5y3twr3y4" path="res://Scripts/WaveManager/wave_data.gd" id="9_80cx4"]
 [ext_resource type="PackedScene" uid="uid://djs38cy8bwdv7" path="res://Objects/Enemy/enemy_base.tscn" id="10_7sc4i"]
 [ext_resource type="Resource" uid="uid://bx8vj6p2k23n4" path="res://Data/WaveData/real/Wave_0.tres" id="10_e8heu"]
@@ -23,11 +26,11 @@
 [ext_resource type="Resource" uid="uid://cvlxkbw8betbi" path="res://Data/WaveData/real/Wave_6.tres" id="12_i2p71"]
 [ext_resource type="PackedScene" uid="uid://dttnwpg88y083" path="res://Objects/Player/player.tscn" id="16_rvswv"]
 [ext_resource type="Resource" uid="uid://c326rujinburw" path="res://Data/WaveData/real/Wave_5.tres" id="18_bnpwn"]
-[ext_resource type="Texture2D" uid="uid://cy8pou57fxnrh" path="res://Art/BG/RealBG.png" id="18_hb5m1"]
 [ext_resource type="Texture2D" uid="uid://dnsrbb1pdfvib" path="res://Art/Castle/Castle.png" id="21_f1jbl"]
 [ext_resource type="PackedScene" uid="uid://bufmu7frdb3wc" path="res://UI/Menus/pause_menu.tscn" id="22_pause"]
 [ext_resource type="Texture2D" uid="uid://bqu44ygj7r6ta" path="res://Art/Sandbag/Sandbag.png" id="22_vaj68"]
 [ext_resource type="PackedScene" path="res://UI/WaveAnnouncement/wave_announcement.tscn" id="23_wave"]
+[ext_resource type="Texture2D" uid="uid://8sxese1fi5h" path="res://Art/BG/RealBG2.png" id="27_xfvwf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_80nbo"]
 size = Vector2(2.5714264, 13.12378)
@@ -52,6 +55,9 @@ script = ExtResource("1_fc0e3")
 bg_start_color = Color(0.9073196, 0.849941, 0.82958084, 1)
 bg_end_color = Color(0.26091576, 0.24179953, 0.28276289, 1)
 day_time_length = 60.0
+bird_ambiance = ExtResource("6_bnpwn")
+shop_music = ExtResource("7_36jdj")
+new_wave_sound = ExtResource("8_xfvwf")
 
 [node name="SpawnTimer" type="Timer" parent="GameManager"]
 
@@ -78,6 +84,7 @@ script = ExtResource("5_augment")
 script = ExtResource("8_lc2xo")
 waves = Array[ExtResource("9_80cx4")]([ExtResource("10_e8heu"), ExtResource("10_rvswv"), ExtResource("11_hb5m1"), ExtResource("10_e36ub"), ExtResource("10_hb5m1"), ExtResource("18_bnpwn"), ExtResource("12_i2p71"), ExtResource("12_5b14r"), ExtResource("12_bnpwn")])
 enemy_base_scene = ExtResource("10_7sc4i")
+scaling_health_base = 10
 metadata/_custom_type_script = "uid://b0hnw34sgf8um"
 
 [node name="MouseShooter" parent="." instance=ExtResource("1_feb5d")]
@@ -97,7 +104,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("18_hb5m1")
+texture = ExtResource("27_xfvwf")
 expand_mode = 1
 
 [node name="Environment" type="Node2D" parent="."]
@@ -107,12 +114,12 @@ position = Vector2(1014, 676)
 
 [node name="Castle2" type="Sprite2D" parent="Environment/Art"]
 position = Vector2(300, -340.33194)
-scale = Vector2(0.88717616, 0.88717616)
+scale = Vector2(2.2187493, 2.2187493)
 texture = ExtResource("21_f1jbl")
 
 [node name="Castle" type="Sprite2D" parent="Environment/Art"]
 position = Vector2(238, -205)
-scale = Vector2(0.6601558, 0.6601558)
+scale = Vector2(2.0937502, 2.0937502)
 texture = ExtResource("21_f1jbl")
 
 [node name="Sandbag" type="Sprite2D" parent="Environment/Art"]
@@ -224,7 +231,7 @@ position = Vector2(1108.1875, 352)
 
 [node name="Ally2Spawn" type="Marker2D" parent="Entities/Allies"]
 unique_name_in_owner = true
-position = Vector2(1108.1875, 410)
+position = Vector2(1108, 405)
 
 [node name="Ally3Spawn" type="Marker2D" parent="Entities/Allies"]
 unique_name_in_owner = true
@@ -238,24 +245,24 @@ position = Vector2(1108.1875, 640)
 
 [node name="BulletSpawnPoint" type="Marker2D" parent="Entities/Neutral"]
 unique_name_in_owner = true
-position = Vector2(1035, 444)
+position = Vector2(1044, 464)
 
 [node name="FroggertSpawns" type="Node2D" parent="Entities/Neutral" groups=["froggert_spawns"]]
 
 [node name="Ally1Spawn" type="Marker2D" parent="Entities/Neutral/FroggertSpawns"]
-position = Vector2(924, 399)
+position = Vector2(924, 355)
 
 [node name="Ally2Spawn" type="Marker2D" parent="Entities/Neutral/FroggertSpawns"]
-position = Vector2(924, 535)
+position = Vector2(924, 497)
 
 [node name="Ally3Spawn" type="Marker2D" parent="Entities/Neutral/FroggertSpawns"]
-position = Vector2(924, 596)
+position = Vector2(924, 559)
 
 [node name="Ally4Spawn" type="Marker2D" parent="Entities/Neutral/FroggertSpawns"]
-position = Vector2(924, 687)
+position = Vector2(924, 624)
 
 [node name="Ally5Spawn" type="Marker2D" parent="Entities/Neutral/FroggertSpawns"]
-position = Vector2(924, 464)
+position = Vector2(924, 432)
 
 [node name="Spawner" type="Node2D" parent="." groups=["spawner"]]
 unique_name_in_owner = true

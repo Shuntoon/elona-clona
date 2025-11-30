@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://b23ol6kgi5880"]
+[gd_scene load_steps=14 format=3 uid="uid://b23ol6kgi5880"]
 
 [ext_resource type="Texture2D" uid="uid://d3rcf2brjy7c0" path="res://Art/Filler/Guns/1.png" id="1_6jg88"]
 [ext_resource type="Script" uid="uid://bpvuk7tgadej" path="res://UI/UpgradeScreen/armory_page/armory_weapon_slot.gd" id="1_38ril"]
 [ext_resource type="Texture2D" uid="uid://bdylnvm06f5fm" path="res://Art/UI/RealUI/Panel.png" id="1_b1663"]
 [ext_resource type="Resource" uid="uid://bbpxothv2p26g" path="res://Data/WeaponData/WeaponDatas/Test/test_pistol.tres" id="2_hufj0"]
 [ext_resource type="Texture2D" uid="uid://dpfnqwg6ety1h" path="res://Art/Filler/Lock/Small Square Padlock - GOLD - 0000.png" id="4_y5e3k"]
+[ext_resource type="AudioStream" uid="uid://cw3snnmx6tkgm" path="res://SFX/UI/confirm_style_2_003.ogg" id="6_x3n5k"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x3n5k"]
 texture = ExtResource("1_b1663")
@@ -131,33 +132,27 @@ text = "Revolver"
 label_settings = SubResource("LabelSettings_p53s0")
 vertical_alignment = 1
 
-[node name="PriceLabel" type="Label" parent="LockedWeaponPanel/MarginContainer/LockedWeaponHBoxContainer/NamePanel"]
+[node name="HBoxContainer" type="HBoxContainer" parent="LockedWeaponPanel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/separation = 32
+
+[node name="PriceLabel" type="Label" parent="LockedWeaponPanel/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 420.5
-offset_top = -16.5
-offset_right = 461.5
-offset_bottom = 17.5
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 text = "$69"
 label_settings = SubResource("LabelSettings_p53s0")
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="BuyButton" type="Button" parent="LockedWeaponPanel/MarginContainer/LockedWeaponHBoxContainer"]
+[node name="BuyButton" type="Button" parent="LockedWeaponPanel/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(48, 48)
+custom_minimum_size = Vector2(96, 48)
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 4
 
-[node name="BuyLabel" type="Label" parent="LockedWeaponPanel/MarginContainer/LockedWeaponHBoxContainer/BuyButton"]
+[node name="BuyLabel" type="Label" parent="LockedWeaponPanel/MarginContainer/HBoxContainer/BuyButton"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -176,7 +171,7 @@ text = "Buy"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LockTextureRect" type="TextureRect" parent="LockedWeaponPanel/MarginContainer/LockedWeaponHBoxContainer/BuyButton"]
+[node name="LockTextureRect" type="TextureRect" parent="LockedWeaponPanel/MarginContainer/HBoxContainer/BuyButton"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -194,4 +189,9 @@ texture = ExtResource("4_y5e3k")
 expand_mode = 1
 stretch_mode = 5
 
-[connection signal="pressed" from="LockedWeaponPanel/MarginContainer/LockedWeaponHBoxContainer/BuyButton" to="." method="_on_buy_button_pressed"]
+[node name="ButtonSound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("6_x3n5k")
+bus = &"SFX"
+
+[connection signal="pressed" from="LockedWeaponPanel/MarginContainer/HBoxContainer/BuyButton" to="." method="_on_buy_button_pressed"]

@@ -6,6 +6,8 @@ class_name WeaponData
 @export_multiline var description : String = "A description of the weapon."
 @export var icon : Texture2D
 @export var price : int = 100
+@export var sound_effect : AudioStream
+@export var reload_sound_effect : AudioStream
 
 @export_category("Shooting Properties")
 @export var bullet_type : MouseShooter.BULLET_TYPE
@@ -27,8 +29,12 @@ class_name WeaponData
 
 @export_category("Projectile Properties")
 @export var bullet_speed: float = 500.0
+@export var bullet_sprite: Texture2D
+@export var rocket_sprite: Texture2D
+@export var bullet_sprite_scale: Vector2 = Vector2(1, 1)
 
 @export_category("Rocket Properties")
 @export var explosive_rockets: bool = false
 @export var explosion_damage: int = 10
 @export var explosion_radius: float = 100.0
+@export var explosion_visual_scale: float = 1.0

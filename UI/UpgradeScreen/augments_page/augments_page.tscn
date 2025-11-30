@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dvsbfx38vbaju"]
+[gd_scene load_steps=30 format=3 uid="uid://dvsbfx38vbaju"]
 
 [ext_resource type="Script" uid="uid://d31madduro008" path="res://UI/UpgradeScreen/augments_page/augments_page.gd" id="1_b6eae"]
 [ext_resource type="PackedScene" uid="uid://6w660hirryy6" path="res://UI/UpgradeScreen/augments_page/augment_panel_button.tscn" id="2_c4yg0"]
@@ -27,6 +27,7 @@
 [ext_resource type="Resource" uid="uid://buap6m5n3q8r4" path="res://Data/AugmentData/real/rare/coup_de_grace.tres" id="24_execute"]
 [ext_resource type="Resource" uid="uid://dj1v1ld5k5ewy" path="res://Data/AugmentData/real/rare/froggert.tres" id="25_1ywgw"]
 [ext_resource type="Resource" uid="uid://ckaqa86ei4mn" path="res://Data/AugmentData/real/rare/midas_touch.tres" id="26_ld1q1"]
+[ext_resource type="AudioStream" uid="uid://hbmwj064fu1h" path="res://SFX/UI/confirm_style_2_006.ogg" id="28_uj7ik"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_skbsq"]
 font_size = 48
@@ -103,7 +104,7 @@ custom_minimum_size = Vector2(0, 124)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-theme_override_constants/separation = 32
+theme_override_constants/separation = 16
 
 [node name="AugmentsLabel" type="Label" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -114,10 +115,16 @@ vertical_alignment = 1
 
 [node name="RerollButton" type="Button" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(120, 48)
+custom_minimum_size = Vector2(148, 48)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Reroll"
+
+[node name="RerollSound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("28_uj7ik")
+pitch_scale = 0.5
+bus = &"SFX"
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/RerollButton" to="." method="_on_reroll_button_pressed"]

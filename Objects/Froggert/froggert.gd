@@ -5,6 +5,8 @@ class_name Froggert
 @export var projectile_damage: int = 25
 @export var projectile_speed: float = 300.0
 @export var projectile_scene: PackedScene
+@export var projectile_bullet_sprite: Texture2D
+@export var projectile_bullet_sprite_scale: Vector2 = Vector2(1, 1)
 
 ## Explosion settings
 @export var explosion_damage: int = 50
@@ -21,7 +23,7 @@ func _ready() -> void:
 	
 	# Create shoot timer
 	shoot_timer = Timer.new()
-	shoot_timer.wait_time = 1.3
+	shoot_timer.wait_time = 1.5
 	shoot_timer.one_shot = false
 	shoot_timer.timeout.connect(_on_shoot_timer_timeout)
 	add_child(shoot_timer)
@@ -89,7 +91,14 @@ func _shoot_projectile() -> void:
 	# Set projectile properties
 	projectile.speed = projectile_speed
 
-	projectile.scale = Vector2(5, 5)
+	# Apply optional visual overrides from Froggert
+	if projectile_bullet_sprite:
+		projectile.bullet_texture = projectile_bullet_sprite
+	# Set visual scale on the Bullet (this is applied to the BulletSprite in BulletBase)
+	projectile.bullet_visual_scale = projectile_bullet_sprite_scale
+
+	# Keep a base scale for the Node2D itself if desired
+	projectile.scale = Vector2(6, 6)
 	
 	# Set damage on the hitbox
 	var hitbox = projectile.get_node_or_null("Hitbox")
