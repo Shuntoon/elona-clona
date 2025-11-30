@@ -15,7 +15,7 @@
 [ext_resource type="Resource" uid="uid://1gbswqjskx8o" path="res://Data/WeaponData/WeaponDatas/real/tier 2/Noob_Tube.tres" id="11_tst6o"]
 [ext_resource type="Resource" uid="uid://crysos7qvdum7" path="res://Data/WeaponData/WeaponDatas/real/tier 2/revolver.tres" id="12_e4i4i"]
 [ext_resource type="Resource" uid="uid://ctlemusvkrmxm" path="res://Data/WeaponData/WeaponDatas/real/Tier 3/LMG.tres" id="13_c7853"]
-[ext_resource type="Resource" uid="uid://bmw3cst1caj24" path="res://Data/WeaponData/WeaponDatas/real/Tier 3/RPG.tres" id="14_aa3gy"]
+[ext_resource type="Resource" uid="uid://bmw3cst1caj24" path="res://Data/WeaponData/WeaponDatas/real/Tier 3/blunderbuss.tres" id="14_aa3gy"]
 [ext_resource type="Resource" uid="uid://cpjvgx5fcck6g" path="res://Data/WeaponData/WeaponDatas/real/Tier 3/Saw_Launcher.tres" id="15_jgjiw"]
 [ext_resource type="Resource" uid="uid://uk35gpob4qh1" path="res://Data/WeaponData/WeaponDatas/real/Tier 3/Sniper_Rifle.tres" id="16_qp41p"]
 [ext_resource type="Resource" uid="uid://cfx5p1tfn5q5e" path="res://Data/WeaponData/WeaponDatas/real/Tier OP/Anti-Material_Rifle.tres" id="18_77iqj"]
