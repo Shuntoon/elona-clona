@@ -10,7 +10,7 @@ region = Rect2(64, 256, 32, 32)
 [resource]
 script = ExtResource("2_script")
 name = "Lucky Coin"
-description = "+10% gold gain"
+description = "+10% Gold gain"
 icon = SubResource("AtlasTexture_gs8ly")
 price = 75
 augment_type = 18

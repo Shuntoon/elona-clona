@@ -1,19 +1,19 @@
 [gd_resource type="Resource" script_class="AugmentData" load_steps=4 format=3 uid="uid://dvhxc7l74fvnf"]
 
-[ext_resource type="Texture2D" uid="uid://bklje6ftk6f45" path="res://Art/Icons/easy_sheet.tres" id="1_krkoe"]
-[ext_resource type="Script" uid="uid://dfu50k1tlerfj" path="res://Data/AugmentData/augment_data.gd" id="2_drum"]
+[ext_resource type="Texture2D" uid="uid://bklje6ftk6f45" path="res://Art/Icons/easy_sheet.tres" id="1_tmsag"]
+[ext_resource type="Script" uid="uid://dfu50k1tlerfj" path="res://Data/AugmentData/augment_data.gd" id="2_uw8gj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_06epe"]
-atlas = ExtResource("1_krkoe")
+atlas = ExtResource("1_tmsag")
 region = Rect2(288, 4224, 32, 32)
 
 [resource]
-script = ExtResource("2_drum")
+script = ExtResource("2_uw8gj")
 name = "Drum Magazine"
-description = "+35% magazine size, +20% reload time"
+description = "+35% Magazine size, +20% Slower reload time"
 icon = SubResource("AtlasTexture_06epe")
 rarity = 2
-price = 150
+price = 250
 augment_type = 7
 value = 0.35
 has_secondary_effect = true

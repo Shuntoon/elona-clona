@@ -11,7 +11,7 @@
 [ext_resource type="Resource" uid="uid://djby6rnhk0mcl" path="res://Data/AugmentData/real/common/quick_hands.tres" id="8_6mapy"]
 [ext_resource type="Resource" uid="uid://c7j4n6qartv5y" path="res://Data/AugmentData/real/uncommon/hair_trigger.tres" id="9_hpobp"]
 [ext_resource type="Resource" uid="uid://cqr8m3n5vwx2p" path="res://Data/AugmentData/real/uncommon/heavy_rounds.tres" id="10_mson7"]
-[ext_resource type="Resource" uid="uid://dvhxc7l74fvnf" path="res://Data/AugmentData/real/uncommon/drum_magazine.tres" id="11_mson7"]
+[ext_resource type="Resource" uid="uid://dvhxc7l74fvnf" path="res://Data/AugmentData/real/rare/drum_magazine.tres" id="11_mson7"]
 [ext_resource type="Resource" uid="uid://d3ay1p05j2h8" path="res://Data/AugmentData/real/uncommon/serrated_rounds.tres" id="12_37cud"]
 [ext_resource type="Resource" uid="uid://cam7f3vc1ally" path="res://Data/AugmentData/real/uncommon/combat_drills.tres" id="13_6mapy"]
 [ext_resource type="Resource" uid="uid://c8eyam3oavolx" path="res://Data/AugmentData/real/common/volatile_blood.tres" id="14_i2sr4"]

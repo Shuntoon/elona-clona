@@ -9,8 +9,8 @@ region = Rect2(256, 864, 32, 32)
 
 [resource]
 script = ExtResource("2_8lkvm")
-name = "+5% Accuracy"
-description = "Up accuracy"
+name = "Vision"
+description = "+5% Accuracy"
 icon = SubResource("AtlasTexture_jn6gh")
 price = 75
 augment_type = 8

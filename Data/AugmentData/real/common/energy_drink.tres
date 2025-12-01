@@ -10,7 +10,7 @@ region = Rect2(384, 1024, 32, 32)
 [resource]
 script = ExtResource("2_ah5mj")
 name = "Energy Drink"
-description = "+10% Attack Speed"
+description = "+10% Attack speed"
 icon = SubResource("AtlasTexture_yv3fl")
 price = 75
 augment_type = 2

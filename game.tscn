@@ -17,7 +17,7 @@
 [ext_resource type="Script" uid="uid://dssq5y3twr3y4" path="res://Scripts/WaveManager/wave_data.gd" id="9_80cx4"]
 [ext_resource type="PackedScene" uid="uid://djs38cy8bwdv7" path="res://Objects/Enemy/enemy_base.tscn" id="10_7sc4i"]
 [ext_resource type="Resource" uid="uid://bx8vj6p2k23n4" path="res://Data/WaveData/real/Wave_0.tres" id="10_e8heu"]
-[ext_resource type="Resource" uid="uid://cigk0660woyvt" path="res://Data/WeaponData/wave_3.tres" id="10_e36ub"]
+[ext_resource type="Resource" uid="uid://cigk0660woyvt" path="res://Data/WaveData/real/wave_3.tres" id="10_e36ub"]
 [ext_resource type="Resource" uid="uid://ddxmacr6e0riv" path="res://Data/WaveData/real/wave_4.tres" id="10_hb5m1"]
 [ext_resource type="Resource" uid="uid://b5mfeioe3gmjm" path="res://Data/WaveData/real/wave_1.tres" id="10_rvswv"]
 [ext_resource type="Resource" uid="uid://cs2np5m8y180w" path="res://Data/WaveData/real/wave_2.tres" id="11_hb5m1"]
@@ -33,7 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://8sxese1fi5h" path="res://Art/BG/RealBG2.png" id="27_xfvwf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xfvwf"]
-size = Vector2(2.5714264, 12.296205)
+size = Vector2(2.5714264, 13.862117)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_80nbo"]
 size = Vector2(2.5714264, 13.12378)
@@ -196,8 +196,8 @@ scale = Vector2(14.00005, 28.99991)
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/WallArea2D"]
-position = Vector2(-0.7857132, -2.7829628)
-scale = Vector2(0.9999994, 0.9999994)
+position = Vector2(-0.7857132, -3.1034527)
+scale = Vector2(0.9999992, 0.9999993)
 shape = SubResource("RectangleShape2D_xfvwf")
 
 [node name="AirImpactArea2D" type="Area2D" parent="Environment" groups=["air_impact"]]
@@ -224,7 +224,7 @@ scale = Vector2(3.312498, 3.3124986)
 
 [node name="Ally1Spawn" type="Marker2D" parent="Entities/Allies"]
 unique_name_in_owner = true
-position = Vector2(1108.1875, 352)
+position = Vector2(1111, 646)
 
 [node name="Ally2Spawn" type="Marker2D" parent="Entities/Allies"]
 unique_name_in_owner = true
@@ -236,7 +236,7 @@ position = Vector2(1108.1875, 572)
 
 [node name="Ally4Spawn" type="Marker2D" parent="Entities/Allies"]
 unique_name_in_owner = true
-position = Vector2(1108.1875, 640)
+position = Vector2(1106, 342)
 
 [node name="Neutral" type="Node2D" parent="Entities" groups=["neutral_entities"]]
 

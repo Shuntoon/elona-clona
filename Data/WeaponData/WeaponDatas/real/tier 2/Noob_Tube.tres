@@ -29,5 +29,6 @@ burst_count = 15
 burst_delay = 0.001
 rocket_sprite = SubResource("AtlasTexture_0um2l")
 explosive_rockets = true
-explosion_damage = 30
+explosion_damage = 45
+explosion_radius = 150.0
 metadata/_custom_type_script = "uid://rimwdfuvv8ao"

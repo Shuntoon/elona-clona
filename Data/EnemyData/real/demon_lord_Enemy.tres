@@ -5,12 +5,12 @@
 
 [resource]
 script = ExtResource("1_k2kaj")
-enemy_name = "mace skeleton"
+enemy_name = "demon lord"
 speed = 0.9
 max_health = 750
 animated_sprite_frames = ExtResource("1_gsh37")
 animated_sprite_2d_scale = Vector2(1.75, 1.75)
-gold_reward = 100
+gold_reward = 75
 gold_reward_variance = 25
 body_hitbox_size = Vector2(92, 120)
 body_pos = Vector2(-4, 80)

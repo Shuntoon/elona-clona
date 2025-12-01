@@ -10,9 +10,12 @@ region = Rect2(0, 2432, 32, 32)
 [resource]
 script = ExtResource("2_script")
 name = "Adrenaline Rush"
-description = "50% chance on kill to reduce all ability cooldowns by 2 seconds"
+description = "+50% Attack speed, +25% faster reload speed"
 icon = SubResource("AtlasTexture_lkdgv")
 rarity = 4
-price = 350
-augment_type = 22
-value = 2.0
+price = 400
+augment_type = 2
+value = 0.5
+has_secondary_effect = true
+secondary_augment_type = 6
+secondary_value = -0.25
