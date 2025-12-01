@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="WaveData" load_steps=8 format=3 uid="uid://cigk0660woyvt"]
+[gd_resource type="Resource" script_class="WaveData" load_steps=9 format=3 uid="uid://cigk0660woyvt"]
 
 [ext_resource type="Script" uid="uid://d4hepntti60rn" path="res://Data/EnemyData/enemy_data.gd" id="1_asr3c"]
 [ext_resource type="Resource" uid="uid://dqv8yxqm84a7v" path="res://Data/EnemyData/real/skeleton_Enemy.tres" id="2_ug7op"]
@@ -6,17 +6,19 @@
 [ext_resource type="Resource" uid="uid://dneqa136jkq47" path="res://Data/EnemyData/real/goblin_Enemy.tres" id="3_p5nxm"]
 [ext_resource type="Resource" uid="uid://dyeyvg042fxge" path="res://Data/EnemyData/real/archer.tres" id="5_asr3c"]
 [ext_resource type="Resource" uid="uid://dhrc8qcymdph8" path="res://Data/EnemyData/real/zombie_Enemy.tres" id="5_tk0aa"]
+[ext_resource type="Resource" uid="uid://bev1s8tu8o4a1" path="res://Data/EnemyData/real/ghost_knight_Enemy.tres" id="6_ug7op"]
 [ext_resource type="Script" uid="uid://dssq5y3twr3y4" path="res://Scripts/WaveManager/wave_data.gd" id="7_u8rnr"]
 
 [resource]
 script = ExtResource("7_u8rnr")
 easy_enemies = Array[ExtResource("1_asr3c")]([ExtResource("2_ug7op"), ExtResource("3_8hu60"), ExtResource("3_p5nxm"), ExtResource("5_asr3c")])
 medium_enemies = Array[ExtResource("1_asr3c")]([ExtResource("3_8hu60"), ExtResource("3_p5nxm"), ExtResource("5_tk0aa"), ExtResource("5_asr3c")])
-hard_enemies = Array[ExtResource("1_asr3c")]([ExtResource("3_8hu60"), ExtResource("3_p5nxm"), ExtResource("2_ug7op"), ExtResource("5_tk0aa"), ExtResource("5_asr3c")])
+hard_enemies = Array[ExtResource("1_asr3c")]([ExtResource("3_8hu60"), ExtResource("3_p5nxm"), ExtResource("6_ug7op"), ExtResource("5_tk0aa"), ExtResource("5_asr3c")])
 easy_weights = Array[float]([1.0, 2.0, 3.0, 1.0])
 medium_weights = Array[float]([2.0, 1.0, 1.5, 1.0])
 hard_weights = Array[float]([2.0, 2.0, 1.25, 1.5, 1.0])
-base_spawn_interval = 1.15
+base_spawn_interval = 1.25
+easy_spawn_multiplier = 1.25
 medium_spawn_multiplier = 1.1
 hard_spawn_multiplier = 1.0
 metadata/_custom_type_script = "uid://dssq5y3twr3y4"

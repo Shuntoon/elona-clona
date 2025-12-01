@@ -27,5 +27,5 @@ quaternary_augment_type = 6
 quaternary_value = -0.2
 has_quinary_effect = true
 quinary_augment_type = 7
-quinary_value = 10.0
+quinary_value = 0.2
 metadata/_custom_type_script = "uid://dfu50k1tlerfj"

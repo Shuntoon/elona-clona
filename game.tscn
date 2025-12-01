@@ -17,7 +17,7 @@
 [ext_resource type="Script" uid="uid://dssq5y3twr3y4" path="res://Scripts/WaveManager/wave_data.gd" id="9_80cx4"]
 [ext_resource type="PackedScene" uid="uid://djs38cy8bwdv7" path="res://Objects/Enemy/enemy_base.tscn" id="10_7sc4i"]
 [ext_resource type="Resource" uid="uid://bx8vj6p2k23n4" path="res://Data/WaveData/real/Wave_0.tres" id="10_e8heu"]
-[ext_resource type="Resource" uid="uid://cigk0660woyvt" path="res://Data/WaveData/real/wave_3.tres" id="10_e36ub"]
+[ext_resource type="Resource" uid="uid://cigk0660woyvt" path="res://Data/WeaponData/wave_3.tres" id="10_e36ub"]
 [ext_resource type="Resource" uid="uid://ddxmacr6e0riv" path="res://Data/WaveData/real/wave_4.tres" id="10_hb5m1"]
 [ext_resource type="Resource" uid="uid://b5mfeioe3gmjm" path="res://Data/WaveData/real/wave_1.tres" id="10_rvswv"]
 [ext_resource type="Resource" uid="uid://cs2np5m8y180w" path="res://Data/WaveData/real/wave_2.tres" id="11_hb5m1"]
@@ -209,8 +209,8 @@ scale = Vector2(14.00005, 28.99991)
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/AirImpactArea2D"]
-position = Vector2(-0.7857111, -2.2603426)
-scale = Vector2(0.99999964, 0.9999997)
+position = Vector2(-1.3571484, 0.17241502)
+scale = Vector2(0.9999996, 0.9999996)
 shape = SubResource("RectangleShape2D_80nbo")
 
 [node name="Entities" type="Node2D" parent="."]

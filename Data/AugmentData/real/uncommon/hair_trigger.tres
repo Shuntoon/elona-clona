@@ -10,12 +10,12 @@ region = Rect2(128, 1888, 32, 32)
 [resource]
 script = ExtResource("2_hair")
 name = "Hair Trigger"
-description = "+30% fire rate, -15% accuracy"
+description = "+50% fire rate, -15% accuracy"
 icon = SubResource("AtlasTexture_77ppe")
 rarity = 1
 price = 150
 augment_type = 2
-value = 0.3
+value = 0.5
 has_secondary_effect = true
 secondary_augment_type = 8
 secondary_value = -0.15
