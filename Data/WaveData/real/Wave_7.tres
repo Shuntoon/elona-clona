@@ -1,21 +1,22 @@
-[gd_resource type="Resource" script_class="WaveData" load_steps=8 format=3 uid="uid://cgchv38hvlttb"]
+[gd_resource type="Resource" script_class="WaveData" load_steps=9 format=3 uid="uid://cgchv38hvlttb"]
 
 [ext_resource type="Script" uid="uid://d4hepntti60rn" path="res://Data/EnemyData/enemy_data.gd" id="1_85eei"]
 [ext_resource type="Script" uid="uid://dssq5y3twr3y4" path="res://Scripts/WaveManager/wave_data.gd" id="2_1btrf"]
 [ext_resource type="Resource" uid="uid://dncxgg12ffcsy" path="res://Data/EnemyData/real/flaming_skull_ground_Enemy.tres" id="2_l2xmd"]
 [ext_resource type="Resource" uid="uid://bev1s8tu8o4a1" path="res://Data/EnemyData/real/ghost_knight_Enemy.tres" id="3_nq1up"]
 [ext_resource type="Resource" uid="uid://dyeyvg042fxge" path="res://Data/EnemyData/real/archer.tres" id="4_nq1up"]
-[ext_resource type="Resource" uid="uid://dhrc8qcymdph8" path="res://Data/EnemyData/real/zombie_Enemy.tres" id="4_ra46y"]
+[ext_resource type="Resource" uid="uid://1o130blftit8" path="res://Data/EnemyData/real/Mace_skeleton_Enemy.tres" id="5_ra46y"]
 [ext_resource type="Resource" uid="uid://bdxkq2be4kt0h" path="res://Data/EnemyData/real/demon_lord_Enemy.tres" id="5_w1tq8"]
+[ext_resource type="Resource" uid="uid://tg2rwim4e31y" path="res://Data/EnemyData/real/flaming_skull_Enemy.tres" id="6_w1tq8"]
 
 [resource]
 script = ExtResource("2_1btrf")
-easy_enemies = Array[ExtResource("1_85eei")]([ExtResource("2_l2xmd"), ExtResource("3_nq1up"), ExtResource("4_nq1up")])
-medium_enemies = Array[ExtResource("1_85eei")]([ExtResource("5_w1tq8"), ExtResource("3_nq1up"), ExtResource("4_ra46y"), ExtResource("2_l2xmd"), ExtResource("4_nq1up")])
-hard_enemies = Array[ExtResource("1_85eei")]([ExtResource("4_ra46y"), ExtResource("3_nq1up"), ExtResource("5_w1tq8"), ExtResource("2_l2xmd"), ExtResource("4_nq1up")])
-easy_weights = Array[float]([1.0, 1.0, 1.0, 1.0])
-medium_weights = Array[float]([0.6, 1.0, 1.0, 1.0])
-hard_weights = Array[float]([1.0, 0.75, 0.6, 1.0])
+easy_enemies = Array[ExtResource("1_85eei")]([ExtResource("2_l2xmd"), ExtResource("3_nq1up"), ExtResource("4_nq1up"), ExtResource("5_ra46y"), ExtResource("6_w1tq8")])
+medium_enemies = Array[ExtResource("1_85eei")]([ExtResource("5_w1tq8"), ExtResource("3_nq1up"), ExtResource("5_ra46y"), ExtResource("2_l2xmd"), ExtResource("4_nq1up"), ExtResource("6_w1tq8")])
+hard_enemies = Array[ExtResource("1_85eei")]([ExtResource("5_ra46y"), ExtResource("3_nq1up"), ExtResource("5_w1tq8"), ExtResource("2_l2xmd"), ExtResource("4_nq1up"), ExtResource("6_w1tq8")])
+easy_weights = Array[float]([1.0, 1.0, 1.0, 1.0, 0.75])
+medium_weights = Array[float]([0.6, 1.0, 1.0, 1.0, 1.0, 0.75])
+hard_weights = Array[float]([1.0, 0.75, 0.6, 1.0, 1.0, 0.75])
 base_spawn_interval = 1.2
 easy_spawn_multiplier = 1.0
 medium_spawn_multiplier = 0.9
