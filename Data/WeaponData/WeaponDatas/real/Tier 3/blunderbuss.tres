@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="WeaponData" load_steps=4 format=3 uid="uid://bmw3cst1caj24"]
+[gd_resource type="Resource" script_class="WeaponData" load_steps=5 format=3 uid="uid://bmw3cst1caj24"]
 
 [ext_resource type="Texture2D" uid="uid://dveda4bad7lc4" path="res://Art/guns/Blunderbuss side.png" id="1_ww8h2"]
 [ext_resource type="Script" uid="uid://rimwdfuvv8ao" path="res://Data/WeaponData/weapon_data.gd" id="2_3467t"]
-[ext_resource type="AudioStream" uid="uid://desx7jgehahll" path="res://SFX/gun sounds/doom-shotgun-2017-80549.mp3" id="3_3467t"]
+[ext_resource type="AudioStream" uid="uid://dxn53jesg5ejo" path="res://SFX/gun sounds/1911-reload-6248.mp3" id="2_uwygg"]
+[ext_resource type="AudioStream" uid="uid://1os3uo5m8aed" path="res://SFX/gun sounds/556 Single MP3.mp3" id="3_3467t"]
 
 [resource]
 script = ExtResource("2_3467t")
@@ -11,6 +12,7 @@ description = "I risked my life for this?"
 icon = ExtResource("1_ww8h2")
 price = 300
 sound_effect = ExtResource("3_3467t")
+reload_sound_effect = ExtResource("2_uwygg")
 bullet_type = 1
 fire_mode = 1
 accuracy = 0.254

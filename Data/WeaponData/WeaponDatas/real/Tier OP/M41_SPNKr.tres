@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="WeaponData" load_steps=5 format=3 uid="uid://c0f8ib63w403v"]
+[gd_resource type="Resource" script_class="WeaponData" load_steps=6 format=3 uid="uid://c0f8ib63w403v"]
 
 [ext_resource type="Texture2D" uid="uid://c5egilrsi4bxh" path="res://Art/guns/halo.png" id="1_8l6ey"]
 [ext_resource type="Script" uid="uid://rimwdfuvv8ao" path="res://Data/WeaponData/weapon_data.gd" id="2_e2sit"]
 [ext_resource type="AudioStream" uid="uid://dxn53jesg5ejo" path="res://SFX/gun sounds/1911-reload-6248.mp3" id="2_fr3dq"]
+[ext_resource type="AudioStream" uid="uid://desx7jgehahll" path="res://SFX/gun sounds/doom-shotgun-2017-80549.mp3" id="4_4kfq7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fr3dq"]
 atlas = ExtResource("1_8l6ey")
@@ -14,6 +15,7 @@ weapon_name = "M41 SPNKr"
 description = "They're gonna feel this."
 icon = SubResource("AtlasTexture_fr3dq")
 price = 750
+sound_effect = ExtResource("4_4kfq7")
 reload_sound_effect = ExtResource("2_fr3dq")
 bullet_type = 1
 accuracy = 0.914

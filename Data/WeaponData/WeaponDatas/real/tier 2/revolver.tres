@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://2pqouls5ky4e" path="res://Art/guns/21.png" id="1_ux0y4"]
 [ext_resource type="AudioStream" uid="uid://dxn53jesg5ejo" path="res://SFX/gun sounds/1911-reload-6248.mp3" id="2_2iyrs"]
 [ext_resource type="Script" uid="uid://rimwdfuvv8ao" path="res://Data/WeaponData/weapon_data.gd" id="2_rx10j"]
-[ext_resource type="AudioStream" uid="uid://1os3uo5m8aed" path="res://SFX/gun sounds/556 Single MP3.mp3" id="3_j6mpk"]
+[ext_resource type="AudioStream" uid="uid://desx7jgehahll" path="res://SFX/gun sounds/doom-shotgun-2017-80549.mp3" id="4_2iyrs"]
 
 [resource]
 script = ExtResource("2_rx10j")
@@ -11,14 +11,15 @@ weapon_name = "Revolver"
 description = "Out here, due process is a bullet."
 icon = ExtResource("1_ux0y4")
 price = 150
-sound_effect = ExtResource("3_j6mpk")
+sound_effect = ExtResource("4_2iyrs")
 reload_sound_effect = ExtResource("2_2iyrs")
 accuracy = 0.8
-fire_rate = 120.0
+fire_rate = 320.0
 magazine_size = 6
+reload_time = 3.0
 crit_chance = 1.0
 crit_multiplier = 2.5
-bullet_damage = 50
+bullet_damage = 40
 burst_count = 15
 burst_delay = 0.001
 metadata/_custom_type_script = "uid://rimwdfuvv8ao"

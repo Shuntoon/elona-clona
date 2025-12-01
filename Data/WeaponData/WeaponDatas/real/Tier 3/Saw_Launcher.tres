@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dkfrmgce4gyf2" path="res://Art/guns/2575262.jpeg" id="1_rjdqk"]
 [ext_resource type="Script" uid="uid://rimwdfuvv8ao" path="res://Data/WeaponData/weapon_data.gd" id="2_40y4a"]
-[ext_resource type="AudioStream" uid="uid://1os3uo5m8aed" path="res://SFX/gun sounds/556 Single MP3.mp3" id="3_rjdqk"]
+[ext_resource type="AudioStream" uid="uid://desx7jgehahll" path="res://SFX/gun sounds/doom-shotgun-2017-80549.mp3" id="3_rjdqk"]
 
 [resource]
 script = ExtResource("2_40y4a")
