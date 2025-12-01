@@ -13,9 +13,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -300.0
-offset_top = -200.0
+offset_top = -225.0
 offset_right = 300.0
-offset_bottom = 200.0
+offset_bottom = 225.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_script")
@@ -51,7 +51,7 @@ Shuntoon
 Xaoz
 
 Art & Assets
-Special thanks to all the kind folks from itch!
+Special thanks to all the kind folks from itch, Pixabay, and FreeMusicArchive!
 Shuntoon
 
 Music & Sound

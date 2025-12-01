@@ -126,42 +126,42 @@ func _process(_delta: float) -> void:
 		else:
 			background.modulate = bg_start_color
 
-# Debug: Finish day input to clear enemies
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("finish_day"):
-		print("=== FINISH DAY DEBUG ===")
-		print("Finishing day manually...")
-		
-		# Stop spawning and enable sudden death
-		spawn_timer.stop()
-		sudden_death = true
-		print("Spawn timer stopped, sudden_death = true")
-		
-		# Clear all enemies
-		var enemy_count = enemies.get_child_count()
-		print("Clearing ", enemy_count, " enemies")
-		for enemy in enemies.get_children():
-			enemy.queue_free()
-		
-		# Wait a frame for enemies to be cleared
-		await get_tree().process_frame
-		
-		print("Enemies cleared, showing upgrade screen")
-		print("Upgrade screen exists: ", upgrade_screen != null)
-		
-		# Show upgrade screen directly
-		if upgrade_screen:
-			# Reset position in case it's off-screen
-			upgrade_screen.position = Vector2.ZERO
-			upgrade_screen.show()
-			upgrade_screen._bounce_in()
-			print("Upgrade screen shown!")
-		else:
-			print("ERROR: Upgrade screen is null!")
-		
-		# Also emit signals for other systems
-		day_timer_finished.emit()
-		all_enemies_killed.emit()
+# Debug: Finish day input to clear enemies (DISABLED)
+#func _unhandled_input(event: InputEvent) -> void:
+	#if event.is_action_pressed("finish_day"):
+		#print("=== FINISH DAY DEBUG ===")
+		#print("Finishing day manually...")
+		#
+		## Stop spawning and enable sudden death
+		#spawn_timer.stop()
+		#sudden_death = true
+		#print("Spawn timer stopped, sudden_death = true")
+		#
+		## Clear all enemies
+		#var enemy_count = enemies.get_child_count()
+		#print("Clearing ", enemy_count, " enemies")
+		#for enemy in enemies.get_children():
+			#enemy.queue_free()
+		#
+		## Wait a frame for enemies to be cleared
+		#await get_tree().process_frame
+		#
+		#print("Enemies cleared, showing upgrade screen")
+		#print("Upgrade screen exists: ", upgrade_screen != null)
+		#
+		## Show upgrade screen directly
+		#if upgrade_screen:
+			## Reset position in case it's off-screen
+			#upgrade_screen.position = Vector2.ZERO
+			#upgrade_screen.show()
+			#upgrade_screen._bounce_in()
+			#print("Upgrade screen shown!")
+		#else:
+			#print("ERROR: Upgrade screen is null!")
+		#
+		## Also emit signals for other systems
+		#day_timer_finished.emit()
+		#all_enemies_killed.emit()
 
 func _on_spawn_timer_timeout() -> void:
 	# Old spawning system - now handled by WaveManager

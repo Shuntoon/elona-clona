@@ -23,6 +23,7 @@ func can_purchase_ability() -> bool:
 	return ability_augments.size() < 3
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("give_me_money"):
-			gold += 1000
-			print("Cheat activated: Added 1000 gold. New total: ", gold)
+	pass
+	# if event.is_action_pressed("give_me_money"):
+	# 		gold += 1000
+	# 		print("Cheat activated: Added 1000 gold. New total: ", gold)

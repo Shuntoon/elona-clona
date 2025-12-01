@@ -56,7 +56,7 @@ visible = false
 [node name="GameManager" type="Node" parent="." groups=["game_manager"]]
 script = ExtResource("1_fc0e3")
 bg_start_color = Color(0.9073196, 0.849941, 0.82958084, 1)
-bg_end_color = Color(0.26091576, 0.24179953, 0.28276289, 1)
+bg_end_color = Color(0.1554767, 0.116443135, 0.19451028, 1)
 day_time_length = 60.0
 bird_ambiance = ExtResource("6_bnpwn")
 shop_music = ExtResource("7_36jdj")
@@ -127,67 +127,67 @@ texture = ExtResource("21_f1jbl")
 
 [node name="Sandbag" type="Sprite2D" parent="Environment/Art"]
 position = Vector2(5, 3.999999)
-scale = Vector2(0.358, 0.358)
+scale = Vector2(0.738, 0.738)
 texture = ExtResource("22_vaj68")
 
 [node name="Sandbag2" type="Sprite2D" parent="Environment/Art"]
 position = Vector2(4, -26)
 rotation = -0.22331324
-scale = Vector2(0.358, 0.358)
+scale = Vector2(0.738, 0.738)
 texture = ExtResource("22_vaj68")
 
 [node name="Sandbag3" type="Sprite2D" parent="Environment/Art"]
 position = Vector2(0.99999905, -61.000008)
 rotation = 0.025571465
-scale = Vector2(0.358, 0.358)
+scale = Vector2(0.738, 0.738)
 texture = ExtResource("22_vaj68")
 
 [node name="Sandbag4" type="Sprite2D" parent="Environment/Art"]
 position = Vector2(-1.0000005, -91)
 rotation = -0.2453804
-scale = Vector2(0.358, 0.358)
+scale = Vector2(0.738, 0.738)
 texture = ExtResource("22_vaj68")
 
 [node name="Sandbag5" type="Sprite2D" parent="Environment/Art"]
 position = Vector2(-4.000001, -123)
 rotation = 0.07008958
-scale = Vector2(0.358, 0.358)
+scale = Vector2(0.738, 0.738)
 texture = ExtResource("22_vaj68")
 
 [node name="Sandbag6" type="Sprite2D" parent="Environment/Art"]
 position = Vector2(1.791565, -150.53967)
 rotation = 0.16627002
-scale = Vector2(0.358, 0.358)
+scale = Vector2(0.738, 0.738)
 texture = ExtResource("22_vaj68")
 
 [node name="Sandbag7" type="Sprite2D" parent="Environment/Art"]
 position = Vector2(0.79156446, -180.53969)
 rotation = -0.057043225
-scale = Vector2(0.358, 0.358)
+scale = Vector2(0.738, 0.738)
 texture = ExtResource("22_vaj68")
 
 [node name="Sandbag8" type="Sprite2D" parent="Environment/Art"]
 position = Vector2(2.9999988, -216)
 rotation = 0.19184148
-scale = Vector2(0.358, 0.358)
+scale = Vector2(0.738, 0.738)
 texture = ExtResource("22_vaj68")
 
 [node name="Sandbag9" type="Sprite2D" parent="Environment/Art"]
 position = Vector2(2.9999995, -252)
 rotation = -0.079110384
-scale = Vector2(0.358, 0.358)
+scale = Vector2(0.738, 0.738)
 texture = ExtResource("22_vaj68")
 
 [node name="Sandbag10" type="Sprite2D" parent="Environment/Art"]
 position = Vector2(3.999998, -280.99997)
 rotation = 0.2363596
-scale = Vector2(0.358, 0.358)
+scale = Vector2(0.738, 0.738)
 texture = ExtResource("22_vaj68")
 
 [node name="Sandbag11" type="Sprite2D" parent="Environment/Art"]
 position = Vector2(4.999998, -312.99997)
 rotation = -0.028782487
-scale = Vector2(0.358, 0.358)
+scale = Vector2(0.738, 0.738)
 texture = ExtResource("22_vaj68")
 
 [node name="WallArea2D" type="Area2D" parent="Environment" groups=["wall"]]

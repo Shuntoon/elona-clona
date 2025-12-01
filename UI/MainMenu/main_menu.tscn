@@ -6,28 +6,28 @@
 [ext_resource type="Script" uid="uid://b0hnw34sgf8um" path="res://Scripts/WaveManager/wave_manager.gd" id="8_8uw0o"]
 [ext_resource type="Texture2D" uid="uid://cy8pou57fxnrh" path="res://Art/BG/RealBG.png" id="8_ejg71"]
 [ext_resource type="Script" uid="uid://dssq5y3twr3y4" path="res://Scripts/WaveManager/wave_data.gd" id="9_ql5ya"]
+[ext_resource type="Texture2D" uid="uid://bqu44ygj7r6ta" path="res://Art/Sandbag/Sandbag.png" id="10_8h8a5"]
 [ext_resource type="Resource" uid="uid://dllb7i7ax465" path="res://Data/WaveData/Test/quick_individual_unit_data.tres" id="10_ka3nr"]
 [ext_resource type="Resource" uid="uid://che2jquh8hejp" path="res://Data/WaveData/test_data_2.tres" id="11_48knj"]
 [ext_resource type="Shader" uid="uid://dpwvb4uoa52xy" path="res://UI/MainMenu/blur_backbuffer.gdshader" id="11_ejg71"]
+[ext_resource type="Texture2D" uid="uid://dnsrbb1pdfvib" path="res://Art/Castle/Castle.png" id="11_xron6"]
 [ext_resource type="AudioStream" uid="uid://cw3snnmx6tkgm" path="res://SFX/UI/confirm_style_2_003.ogg" id="12_euymq"]
 [ext_resource type="PackedScene" uid="uid://djs38cy8bwdv7" path="res://Objects/Enemy/enemy_base.tscn" id="12_m2y5l"]
 [ext_resource type="AudioStream" uid="uid://crjtqxhwu0o1h" path="res://SFX/UI/back_style_2_004.ogg" id="13_2d5va"]
 [ext_resource type="AudioStream" uid="uid://bru8fxgr61x27" path="res://Music/pixel-fantasia-355123.mp3" id="14_2d5va"]
 [ext_resource type="Script" uid="uid://c60bxtqxj72gr" path="res://Objects/Spawner/spawner.gd" id="17_qby1g"]
 
-[sub_resource type="QuadMesh" id="QuadMesh_80nbo"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_mfdv2"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_80nbo"]
-size = Vector2(2.5714264, 11.25094)
+size = Vector2(2.5714264, 12.744469)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lnp6m"]
 shader = ExtResource("11_ejg71")
 shader_parameter/blur_amount = 35.0000016625
 
 [sub_resource type="LabelSettings" id="LabelSettings_u0e1r"]
-font_size = 72
+font_size = 87
+outline_size = 4
+outline_color = Color(0.036100525, 0.22845358, 0.11180953, 1)
 
 [node name="MainMenu" type="Node"]
 script = ExtResource("1_u0e1r")
@@ -63,119 +63,80 @@ expand_mode = 1
 [node name="Art" type="Node2D" parent="Environment"]
 position = Vector2(1007, 676)
 
-[node name="MeshInstance2D2" type="MeshInstance2D" parent="Environment/Art"]
-modulate = Color(0.37101543, 0.37101543, 0.37101543, 1)
-position = Vector2(-17.927565, -15.597492)
-scale = Vector2(14.00005, 28.99991)
-mesh = SubResource("QuadMesh_80nbo")
+[node name="Sandbag" type="Sprite2D" parent="Environment/Art"]
+position = Vector2(5, 3.999999)
+scale = Vector2(0.738, 0.738)
+texture = ExtResource("10_8h8a5")
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/Art"]
-modulate = Color(0.6697165, 0.6697165, 0.6697165, 1)
-position = Vector2(-12.0000305, -15.5)
-scale = Vector2(17.99994, 29.000065)
-mesh = SubResource("QuadMesh_80nbo")
+[node name="Sandbag2" type="Sprite2D" parent="Environment/Art"]
+position = Vector2(4, -26)
+rotation = -0.22331324
+scale = Vector2(0.738, 0.738)
+texture = ExtResource("10_8h8a5")
 
-[node name="MeshInstance2D3" type="MeshInstance2D" parent="Environment/Art"]
-modulate = Color(0.37101543, 0.37101543, 0.37101543, 1)
-position = Vector2(-17.927504, -60.59743)
-scale = Vector2(14.00005, 28.99991)
-mesh = SubResource("QuadMesh_80nbo")
+[node name="Sandbag3" type="Sprite2D" parent="Environment/Art"]
+position = Vector2(0.99999905, -61.000008)
+rotation = 0.025571465
+scale = Vector2(0.738, 0.738)
+texture = ExtResource("10_8h8a5")
 
-[node name="MeshInstance2D4" type="MeshInstance2D" parent="Environment/Art"]
-modulate = Color(0.6697165, 0.6697165, 0.6697165, 1)
-position = Vector2(-11.9999695, -60.49994)
-scale = Vector2(17.99994, 29.000065)
-mesh = SubResource("QuadMesh_80nbo")
+[node name="Sandbag4" type="Sprite2D" parent="Environment/Art"]
+position = Vector2(-1.0000005, -91)
+rotation = -0.2453804
+scale = Vector2(0.738, 0.738)
+texture = ExtResource("10_8h8a5")
 
-[node name="MeshInstance2D5" type="MeshInstance2D" parent="Environment/Art"]
-modulate = Color(0.37101543, 0.37101543, 0.37101543, 1)
-position = Vector2(-17.927504, -104.597496)
-scale = Vector2(14.00005, 28.99991)
-mesh = SubResource("QuadMesh_80nbo")
+[node name="Sandbag5" type="Sprite2D" parent="Environment/Art"]
+position = Vector2(-4.000001, -123)
+rotation = 0.07008958
+scale = Vector2(0.738, 0.738)
+texture = ExtResource("10_8h8a5")
 
-[node name="MeshInstance2D6" type="MeshInstance2D" parent="Environment/Art"]
-modulate = Color(0.6697165, 0.6697165, 0.6697165, 1)
-position = Vector2(-11.9999695, -104.49994)
-scale = Vector2(17.99994, 29.000065)
-mesh = SubResource("QuadMesh_80nbo")
+[node name="Sandbag6" type="Sprite2D" parent="Environment/Art"]
+position = Vector2(1.791565, -150.53967)
+rotation = 0.16627002
+scale = Vector2(0.738, 0.738)
+texture = ExtResource("10_8h8a5")
 
-[node name="MeshInstance2D7" type="MeshInstance2D" parent="Environment/Art"]
-modulate = Color(0.37101543, 0.37101543, 0.37101543, 1)
-position = Vector2(-17.927504, -148.59752)
-scale = Vector2(14.00005, 28.99991)
-mesh = SubResource("QuadMesh_80nbo")
+[node name="Sandbag7" type="Sprite2D" parent="Environment/Art"]
+position = Vector2(0.79156446, -180.53969)
+rotation = -0.057043225
+scale = Vector2(0.738, 0.738)
+texture = ExtResource("10_8h8a5")
 
-[node name="MeshInstance2D8" type="MeshInstance2D" parent="Environment/Art"]
-modulate = Color(0.6697165, 0.6697165, 0.6697165, 1)
-position = Vector2(-11.9999695, -148.49997)
-scale = Vector2(17.99994, 29.000065)
-mesh = SubResource("QuadMesh_80nbo")
+[node name="Sandbag8" type="Sprite2D" parent="Environment/Art"]
+position = Vector2(2.9999988, -216)
+rotation = 0.19184148
+scale = Vector2(0.738, 0.738)
+texture = ExtResource("10_8h8a5")
 
-[node name="MeshInstance2D9" type="MeshInstance2D" parent="Environment/Art"]
-modulate = Color(0.37101543, 0.37101543, 0.37101543, 1)
-position = Vector2(-17.927504, -191.59752)
-scale = Vector2(14.00005, 28.99991)
-mesh = SubResource("QuadMesh_80nbo")
+[node name="Sandbag9" type="Sprite2D" parent="Environment/Art"]
+position = Vector2(2.9999995, -252)
+rotation = -0.079110384
+scale = Vector2(0.738, 0.738)
+texture = ExtResource("10_8h8a5")
 
-[node name="MeshInstance2D10" type="MeshInstance2D" parent="Environment/Art"]
-modulate = Color(0.6697165, 0.6697165, 0.6697165, 1)
-position = Vector2(-11.9999695, -191.49997)
-scale = Vector2(17.99994, 29.000065)
-mesh = SubResource("QuadMesh_80nbo")
+[node name="Sandbag10" type="Sprite2D" parent="Environment/Art"]
+position = Vector2(3.999998, -280.99997)
+rotation = 0.2363596
+scale = Vector2(0.738, 0.738)
+texture = ExtResource("10_8h8a5")
 
-[node name="MeshInstance2D11" type="MeshInstance2D" parent="Environment/Art"]
-modulate = Color(0.37101543, 0.37101543, 0.37101543, 1)
-position = Vector2(-17.857605, -236.53699)
-scale = Vector2(14.00005, 28.99991)
-mesh = SubResource("QuadMesh_80nbo")
+[node name="Sandbag11" type="Sprite2D" parent="Environment/Art"]
+position = Vector2(4.999998, -312.99997)
+rotation = -0.028782487
+scale = Vector2(0.738, 0.738)
+texture = ExtResource("10_8h8a5")
 
-[node name="MeshInstance2D12" type="MeshInstance2D" parent="Environment/Art"]
-modulate = Color(0.6697165, 0.6697165, 0.6697165, 1)
-position = Vector2(-11.930071, -236.43945)
-scale = Vector2(17.99994, 29.000065)
-mesh = SubResource("QuadMesh_80nbo")
+[node name="Castle2" type="Sprite2D" parent="Environment/Art"]
+position = Vector2(300, -305.56256)
+scale = Vector2(2.2187493, 2.2187493)
+texture = ExtResource("11_xron6")
 
-[node name="MeshInstance2D13" type="MeshInstance2D" parent="Environment/Art"]
-modulate = Color(0.37101543, 0.37101543, 0.37101543, 1)
-position = Vector2(-17.923939, -274.11346)
-scale = Vector2(14.00005, 28.99991)
-mesh = SubResource("QuadMesh_80nbo")
-
-[node name="MeshInstance2D16" type="MeshInstance2D" parent="Environment/Art"]
-modulate = Color(0.5, 0.3942768, 0.16121706, 1)
-position = Vector2(258.99994, -292.74985)
-scale = Vector2(196.00008, 332.49997)
-mesh = SubResource("QuadMesh_80nbo")
-
-[node name="MeshInstance2D14" type="MeshInstance2D" parent="Environment/Art"]
-modulate = Color(0.6697165, 0.6697165, 0.6697165, 1)
-position = Vector2(-11.996403, -274.01596)
-scale = Vector2(17.99994, 29.000065)
-mesh = SubResource("QuadMesh_80nbo")
-
-[node name="MeshInstance2D15" type="MeshInstance2D" parent="Environment/Art"]
-modulate = Color(0.43890208, 0.31733617, 0.10687964, 1)
-position = Vector2(259, -458.74997)
-scale = Vector2(195.99997, 52.50007)
-mesh = SubResource("SphereMesh_mfdv2")
-
-[node name="MeshInstance2D17" type="MeshInstance2D" parent="Environment/Art"]
-modulate = Color(0.5, 0.3942768, 0.16121706, 1)
-position = Vector2(211.61116, -181.74994)
-scale = Vector2(162.00003, 220.5003)
-mesh = SubResource("QuadMesh_80nbo")
-
-[node name="MeshInstance2D18" type="MeshInstance2D" parent="Environment/Art"]
-modulate = Color(0.43890208, 0.31733617, 0.10687964, 1)
-position = Vector2(212.16669, -291.74997)
-scale = Vector2(161.07137, 52.50007)
-mesh = SubResource("SphereMesh_mfdv2")
-
-[node name="MeshInstance2D19" type="MeshInstance2D" parent="Environment/Art"]
-modulate = Color(0.5, 0.3942768, 0.16121706, 1)
-position = Vector2(212.61124, -71)
-scale = Vector2(165.40965, 52.50007)
-mesh = SubResource("SphereMesh_mfdv2")
+[node name="Castle" type="Sprite2D" parent="Environment/Art"]
+position = Vector2(238, -170.2306)
+scale = Vector2(2.0937502, 2.0937502)
+texture = ExtResource("11_xron6")
 
 [node name="WallArea2D" type="Area2D" parent="Environment" groups=["wall"]]
 position = Vector2(987.00006, 606)
@@ -183,8 +144,8 @@ scale = Vector2(14.00005, 28.99991)
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/WallArea2D"]
-position = Vector2(0.60705394, -2.2603426)
-scale = Vector2(0.99999964, 0.9999997)
+position = Vector2(0.6070633, -3.007103)
+scale = Vector2(0.9999996, 0.9999996)
 shape = SubResource("RectangleShape2D_80nbo")
 
 [node name="Entities" type="Node2D" parent="."]
@@ -265,11 +226,18 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TitleLabel" type="Label" parent="CanvasLayer/MainMenuControl"]
-layout_mode = 0
-offset_left = 214.0
-offset_top = 168.0
-offset_right = 1097.0
-offset_bottom = 286.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -516.5
+offset_top = -227.0
+offset_right = 516.5
+offset_bottom = -109.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 text = "WAVE DEFENDER: APOCALYPSE"
 label_settings = SubResource("LabelSettings_u0e1r")
