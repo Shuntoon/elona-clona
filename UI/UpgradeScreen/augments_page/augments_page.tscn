@@ -18,7 +18,7 @@
 [ext_resource type="Resource" uid="uid://dki75h8iwy3t7" path="res://Data/AugmentData/real/legendary/demolition_expert.tres" id="15_7wcsf"]
 [ext_resource type="Resource" uid="uid://c8p4qw7n5jlam" path="res://Data/AugmentData/real/legendary/laser_of_death.tres" id="16_oj2gc"]
 [ext_resource type="Resource" uid="uid://b7ram4n2k8w5t" path="res://Data/AugmentData/real/common/lucky_coin.tres" id="17_rqn6v"]
-[ext_resource type="Resource" uid="uid://c3w8n7m5k2p4q" path="res://Data/AugmentData/real/uncommon/frost_rounds.tres" id="18_lehqo"]
+[ext_resource type="Resource" uid="uid://c3w8n7m5k2p4q" path="res://Data/AugmentData/real/rare/frost_rounds.tres" id="18_lehqo"]
 [ext_resource type="Resource" uid="uid://dvjk8n3nap2r5" path="res://Data/AugmentData/real/uncommon/extended_burst.tres" id="19_burst"]
 [ext_resource type="Resource" uid="uid://bm5lan7p3q8r2" path="res://Data/AugmentData/real/rare/surplus_ammunition.tres" id="20_ammo"]
 [ext_resource type="Resource" uid="uid://cp7m2n8q5sat3" path="res://Data/AugmentData/real/legendary/adrenaline_rush.tres" id="21_adrenaline"]

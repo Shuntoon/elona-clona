@@ -14,4 +14,5 @@ bullet_damage = 20
 accuracy = 0.75
 max_spread = 40.0
 sound_effect = ExtResource("2_gvkps")
+heal_amount = 0
 metadata/_custom_type_script = "uid://bhvur583pgsyf"

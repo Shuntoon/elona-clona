@@ -11,4 +11,5 @@ sprite_frames = ExtResource("2_4bvge")
 detection_range = 0.0
 fire_rate = 0.0
 heal_amount = 2
+heal_interval = 5.0
 metadata/_custom_type_script = "uid://bhvur583pgsyf"

@@ -1,17 +1,18 @@
 [gd_resource type="Resource" script_class="AugmentData" load_steps=4 format=3 uid="uid://c3w8n7m5k2p4q"]
 
-[ext_resource type="Texture2D" uid="uid://bklje6ftk6f45" path="res://Art/Icons/easy_sheet.tres" id="1_w22hg"]
-[ext_resource type="Script" uid="uid://dfu50k1tlerfj" path="res://Data/AugmentData/augment_data.gd" id="2_qhffa"]
+[ext_resource type="Texture2D" uid="uid://bklje6ftk6f45" path="res://Art/Icons/easy_sheet.tres" id="1_u8fg1"]
+[ext_resource type="Script" uid="uid://dfu50k1tlerfj" path="res://Data/AugmentData/augment_data.gd" id="2_ld2iy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qhffa"]
-atlas = ExtResource("1_w22hg")
+atlas = ExtResource("1_u8fg1")
 region = Rect2(0, 2016, 32, 32)
 
 [resource]
-script = ExtResource("2_qhffa")
+script = ExtResource("2_ld2iy")
 name = "Frost Rounds"
 description = "Slows enemies by 10% for 3 seconds on hit"
 icon = SubResource("AtlasTexture_qhffa")
-rarity = 1
+rarity = 2
+price = 200
 augment_type = 19
-value = 0.9
+value = 0.1

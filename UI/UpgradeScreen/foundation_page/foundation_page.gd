@@ -19,7 +19,7 @@ var game_manager : GameManager
 @export var upgrade_ability_slots_base_price: int = 200
 @export var upgrade_augment_rerolls_base_price: int = 75
 @export var reroll_discount_per_level: float = 0.15  # 15% discount per upgrade
-@export var base_reroll_cost: int = 150
+@export var base_reroll_cost: int = 250
 
 # Price multiplier per level
 @export var price_multiplier: float = 1.5

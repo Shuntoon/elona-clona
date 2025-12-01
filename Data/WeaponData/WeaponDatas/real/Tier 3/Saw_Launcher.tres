@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="WeaponData" load_steps=4 format=3 uid="uid://cpjvgx5fcck6g"]
 
-[ext_resource type="Texture2D" uid="uid://dkfrmgce4gyf2" path="res://Art/guns/2575262.jpeg" id="1_rjdqk"]
+[ext_resource type="Texture2D" uid="uid://5uucgm7fcjdb" path="res://Art/guns/45.png" id="1_rjdqk"]
 [ext_resource type="Script" uid="uid://rimwdfuvv8ao" path="res://Data/WeaponData/weapon_data.gd" id="2_40y4a"]
 [ext_resource type="AudioStream" uid="uid://desx7jgehahll" path="res://SFX/gun sounds/doom-shotgun-2017-80549.mp3" id="3_rjdqk"]
 
