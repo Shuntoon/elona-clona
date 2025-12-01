@@ -1,12 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://b7y52k5ebquh3"]
+[gd_scene load_steps=3 format=3 uid="uid://b7y52k5ebquh3"]
 
 [ext_resource type="Script" uid="uid://barbo7txnpgeo" path="res://Globals/PlayerData.gd" id="1_44c78"]
-[ext_resource type="Resource" uid="uid://crysos7qvdum7" path="res://Data/WeaponData/WeaponDatas/real/tier 2/revolver.tres" id="2_m27fu"]
-[ext_resource type="Resource" uid="uid://c0f8ib63w403v" path="res://Data/WeaponData/WeaponDatas/real/Tier OP/M41_SPNKr.tres" id="3_aknlj"]
+[ext_resource type="Resource" uid="uid://cl5tfw0kdxrpj" path="res://Data/WeaponData/WeaponDatas/real/tier 1/Pistol.tres" id="2_lmoeo"]
 
 [node name="PlayerData" type="Node"]
 process_mode = 3
 script = ExtResource("1_44c78")
-weapon_1_data = ExtResource("2_m27fu")
-weapon_2_data = ExtResource("3_aknlj")
+weapon_1_data = ExtResource("2_lmoeo")
+weapon_2_data = ExtResource("2_lmoeo")
 ability_slots_level = 0
