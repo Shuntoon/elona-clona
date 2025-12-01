@@ -41,6 +41,8 @@ var froggert_count: int = 0
 var spawned_froggerts: Array[Froggert] = []
 var coin_drop_chance: float = 0.0
 var coin_drop_stacks: int = 0
+var explosive_rockets_enabled: bool = false
+var projectile_piercing_enabled: bool = false
 
 ## Apply all augments from PlayerData
 ## Call this at the start of a new day to recalculate all bonuses
@@ -69,6 +71,8 @@ func apply_all_augments() -> void:
 	froggert_count = 0
 	coin_drop_chance = 0.0
 	coin_drop_stacks = 0
+	explosive_rockets_enabled = false
+	projectile_piercing_enabled = false
 	
 	# Clean up existing froggerts
 	_cleanup_froggerts()
@@ -233,14 +237,18 @@ func _apply_accuracy(value: float) -> void:
 		mouse_shooter.accuracy = mouse_shooter.weapon_data.accuracy
 
 func _apply_projectile_piercing(enabled: bool) -> void:
+	projectile_piercing_enabled = enabled
 	if mouse_shooter and mouse_shooter.weapon_data:
 		mouse_shooter.weapon_data.projectile_piercing = enabled
 		mouse_shooter.projectile_piercing = enabled
+	print("Projectile piercing enabled: ", projectile_piercing_enabled)
 
 func _apply_explosive_rockets(enabled: bool) -> void:
+	explosive_rockets_enabled = enabled
 	if mouse_shooter and mouse_shooter.weapon_data:
 		mouse_shooter.weapon_data.explosive_rockets = enabled
 		mouse_shooter.explosive_rockets = enabled
+	print("Explosive rockets enabled: ", explosive_rockets_enabled)
 
 func _apply_bleed_chance(value: float) -> void:
 	if mouse_shooter and mouse_shooter.weapon_data:
@@ -250,15 +258,18 @@ func _apply_bleed_chance(value: float) -> void:
 func _apply_enemy_death_explosion_chance(value: float) -> void:
 	# Accumulate chance across stacks; clamp at 100%
 	enemy_death_explosion_chance = clamp(enemy_death_explosion_chance + value, 0.0, 1.0)
+	print("Enemy death explosion chance: ", enemy_death_explosion_chance * 100, "%")
 
 func get_enemy_death_explosion_chance() -> float:
 	return enemy_death_explosion_chance
 
 func _apply_explosion_damage_multiplier(value: float) -> void:
 	explosion_damage_multiplier += value
+	print("Explosion damage multiplier: ", explosion_damage_multiplier)
 
 func _apply_explosion_radius_multiplier(value: float) -> void:
 	explosion_radius_multiplier += value
+	print("Explosion radius multiplier: ", explosion_radius_multiplier)
 
 func _apply_laser_of_death(value: float) -> void:
 	laser_of_death_stacks += int(value)
@@ -516,7 +527,16 @@ func _update_weapon_stats(fill_ammo: bool = false) -> void:
 	mouse_shooter.weapon_data.explosion_radius = base_explosion_radius * explosion_radius_multiplier
 	mouse_shooter.explosion_radius = mouse_shooter.weapon_data.explosion_radius
 	
+	# Apply boolean augments (explosive rockets and piercing)
+	if explosive_rockets_enabled:
+		mouse_shooter.weapon_data.explosive_rockets = true
+		mouse_shooter.explosive_rockets = true
+	if projectile_piercing_enabled:
+		mouse_shooter.weapon_data.projectile_piercing = true
+		mouse_shooter.projectile_piercing = true
+	
 	print("Updated weapon stats - Reload time: ", mouse_shooter.reload_time, " (base: ", base_reload_time, ", multiplier: ", base_reload_speed_multiplier, ")")
+	print("Explosive rockets: ", mouse_shooter.explosive_rockets, ", Projectile piercing: ", mouse_shooter.projectile_piercing)
 
 ## Apply ability augments by adding them to the AbilityManager
 func _apply_ability_augments() -> void:
