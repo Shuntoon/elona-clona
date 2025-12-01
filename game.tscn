@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://c4ruds6frs58h"]
+[gd_scene load_steps=34 format=3 uid="uid://c4ruds6frs58h"]
 
 [ext_resource type="Script" uid="uid://cvikpqyxjqs5g" path="res://Scripts/GameManager/game_manager.gd" id="1_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://ci4hdj038kg5i" path="res://Objects/MouseShooter/mouse_shooter.tscn" id="1_feb5d"]
@@ -31,6 +31,9 @@
 [ext_resource type="Texture2D" uid="uid://bqu44ygj7r6ta" path="res://Art/Sandbag/Sandbag.png" id="22_vaj68"]
 [ext_resource type="PackedScene" path="res://UI/WaveAnnouncement/wave_announcement.tscn" id="23_wave"]
 [ext_resource type="Texture2D" uid="uid://8sxese1fi5h" path="res://Art/BG/RealBG2.png" id="27_xfvwf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xfvwf"]
+size = Vector2(2.5714264, 12.296205)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_80nbo"]
 size = Vector2(2.5714264, 13.12378)
@@ -187,21 +190,15 @@ rotation = -0.028782487
 scale = Vector2(0.358, 0.358)
 texture = ExtResource("22_vaj68")
 
-[node name="Sandbag12" type="Sprite2D" parent="Environment/Art"]
-position = Vector2(6.999998, -335)
-rotation = 0.07394907
-scale = Vector2(0.358, 0.358)
-texture = ExtResource("22_vaj68")
-
 [node name="WallArea2D" type="Area2D" parent="Environment" groups=["wall"]]
 position = Vector2(1030, 606)
 scale = Vector2(14.00005, 28.99991)
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/WallArea2D"]
-position = Vector2(-0.7857132, -3.1967583)
-scale = Vector2(0.9999996, 0.9999996)
-shape = SubResource("RectangleShape2D_80nbo")
+position = Vector2(-0.7857132, -2.7829628)
+scale = Vector2(0.9999994, 0.9999994)
+shape = SubResource("RectangleShape2D_xfvwf")
 
 [node name="AirImpactArea2D" type="Area2D" parent="Environment" groups=["air_impact"]]
 position = Vector2(1376.0001, 176.99998)
@@ -273,31 +270,31 @@ script = ExtResource("5_7jktm")
 unique_name_in_owner = true
 
 [node name="Pos1" type="Marker2D" parent="Spawner/Ground"]
-position = Vector2(0, 583)
+position = Vector2(0, 564)
 
 [node name="Pos2" type="Marker2D" parent="Spawner/Ground"]
-position = Vector2(0, 533)
+position = Vector2(0, 514)
 
 [node name="Pos3" type="Marker2D" parent="Spawner/Ground"]
-position = Vector2(0, 483)
+position = Vector2(0, 464)
 
 [node name="Pos4" type="Marker2D" parent="Spawner/Ground"]
-position = Vector2(0, 433)
+position = Vector2(0, 414)
 
 [node name="Pos5" type="Marker2D" parent="Spawner/Ground"]
-position = Vector2(0, 383)
+position = Vector2(0, 364)
 
 [node name="Air" type="Node2D" parent="Spawner"]
 unique_name_in_owner = true
 
 [node name="Pos1" type="Marker2D" parent="Spawner/Air"]
-position = Vector2(2, 284)
-
-[node name="Pos2" type="Marker2D" parent="Spawner/Air"]
 position = Vector2(2, 228)
 
+[node name="Pos2" type="Marker2D" parent="Spawner/Air"]
+position = Vector2(2, 172)
+
 [node name="Pos3" type="Marker2D" parent="Spawner/Air"]
-position = Vector2(2, 166)
+position = Vector2(2, 110)
 
 [connection signal="all_enemies_killed" from="GameManager" to="GameManager" method="_on_all_enemies_killed"]
 [connection signal="day_timer_finished" from="GameManager" to="GameManager" method="_on_day_timer_finished"]

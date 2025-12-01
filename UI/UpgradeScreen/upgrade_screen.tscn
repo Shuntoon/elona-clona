@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://d225nmsfm10mv"]
+[gd_scene load_steps=18 format=3 uid="uid://d225nmsfm10mv"]
 
 [ext_resource type="Script" uid="uid://8m8ugxxbryqp" path="res://UI/UpgradeScreen/upgrade_screen.gd" id="1_kyj5a"]
 [ext_resource type="Texture2D" uid="uid://bdylnvm06f5fm" path="res://Art/UI/RealUI/Panel.png" id="2_5xjgn"]
@@ -30,6 +30,28 @@ texture_margin_top = 8.0
 texture_margin_right = 12.0
 texture_margin_bottom = 12.0
 modulate_color = Color(0.5999126, 0.6202909, 0.6289846, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rrvu0"]
+load_path = "res://.godot/imported/Button.png-6171292bb59ad52ee2b95ed2357b420c.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_030fr"]
+texture = SubResource("CompressedTexture2D_rrvu0")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+modulate_color = Color(0.4660567, 0.4660567, 0.4660567, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8dooh"]
+load_path = "res://.godot/imported/Button.png-6171292bb59ad52ee2b95ed2357b420c.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c1sd7"]
+texture = SubResource("CompressedTexture2D_8dooh")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+modulate_color = Color(0.757665, 0.79182553, 0.8054897, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_mbga8"]
 font_size = 56
@@ -180,6 +202,8 @@ size_flags_horizontal = 8
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxTexture_rrvu0")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_030fr")
+theme_override_styles/hover = SubResource("StyleBoxTexture_c1sd7")
 text = "Advance to next wave"
 
 [node name="EndOfTheDayLabel" type="Label" parent="."]

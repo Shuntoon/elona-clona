@@ -8,15 +8,21 @@ signal start_new_day
 const ENEMY_BASE = preload("uid://djs38cy8bwdv7")
 const ALLY_BASE = preload("uid://shs4qcsi72hc")
 const CROSSHAIR_SCENE = preload("res://UI/Crosshair/crosshair.tscn")
+const VICTORY_SCREEN_SCENE = preload("res://UI/VictoryScreen/victory_screen.tscn")
+const GAME_OVER_SCREEN_SCENE = preload("res://UI/GameOverScreen/game_over_screen.tscn")
 
 var sudden_death : bool = false
 var crosshair: Crosshair = null
+var victory_screen: VictoryScreen = null
+var game_over_screen: GameOverScreen = null
 var max_health : int = 50
 var current_health : int : 
 	set(value):
 		current_health = value
 		if current_health <= 0:
-			get_tree().quit()
+			current_health = 0  # Clamp to 0
+			call_deferred("_show_game_over_screen")
+			return
 
 		if current_health > max_health:
 			current_health = max_health
@@ -282,7 +288,55 @@ func _on_wave_complete(_wave_number: int):
 
 func _on_all_waves_complete():
 	print("All 10 waves completed! Victory!")
-	# Handle game completion - could show victory screen, credits, etc.
+	# Show victory screen
+	_show_victory_screen()
+
+func _show_victory_screen() -> void:
+	if victory_screen:
+		return  # Already showing
+	
+	# Stop ambiance and shop music
+	if ambiance_player and ambiance_player.playing:
+		ambiance_player.stop()
+	if shop_music_player and shop_music_player.playing:
+		shop_music_player.stop()
+	
+	# Hide crosshair
+	if crosshair:
+		crosshair.hide()
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	
+	# Create and show victory screen
+	victory_screen = VICTORY_SCREEN_SCENE.instantiate()
+	add_child(victory_screen)
+	victory_screen.show_screen()
+
+func _show_game_over_screen() -> void:
+	if game_over_screen:
+		return  # Already showing
+	
+	# Stop ambiance and shop music
+	if ambiance_player and ambiance_player.playing:
+		ambiance_player.stop()
+	if shop_music_player and shop_music_player.playing:
+		shop_music_player.stop()
+	
+	# Hide crosshair
+	if crosshair:
+		crosshair.hide()
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	
+	# Get current wave number
+	var current_wave = 1
+	if wave_manager:
+		var wave_info = wave_manager.get_wave_info()
+		current_wave = wave_info.get("current_wave", 1)
+	
+	# Create and show game over screen - add to root so it's above everything
+	game_over_screen = GAME_OVER_SCREEN_SCENE.instantiate()
+	get_tree().root.add_child(game_over_screen)
+	game_over_screen.set_wave_reached(current_wave)
+	game_over_screen.show_screen()
 
 ## Get current wave info for UI updates
 func get_wave_info() -> Dictionary:

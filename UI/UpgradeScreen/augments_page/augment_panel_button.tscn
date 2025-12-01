@@ -13,7 +13,6 @@ font_size = 24
 
 [sub_resource type="LabelSettings" id="LabelSettings_d42pu"]
 font = ExtResource("3_cq7v1")
-font_size = 18
 
 [sub_resource type="LabelSettings" id="LabelSettings_3tdn8"]
 font_size = 48

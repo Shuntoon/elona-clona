@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://dg3ocar7j6ya5"]
+[gd_scene load_steps=5 format=3 uid="uid://dg3ocar7j6ya5"]
 
 [ext_resource type="Script" uid="uid://bf47d5imep7au" path="res://UI/Menus/how_to_play_panel.gd" id="1_script"]
 [ext_resource type="AudioStream" uid="uid://crjtqxhwu0o1h" path="res://SFX/UI/back_style_2_004.ogg" id="2_b6544"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5o20k"]
 font_size = 42
+
+[sub_resource type="LabelSettings" id="LabelSettings_b6544"]
+font_size = 18
 
 [node name="HowToPlayPanel" type="Panel"]
 anchors_preset = 8
@@ -57,6 +60,7 @@ Controls:
 • 1/2 - Switch Weapons
 • R - Reload
 • Escape - Pause"
+label_settings = SubResource("LabelSettings_b6544")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
