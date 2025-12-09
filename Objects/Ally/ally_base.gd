@@ -39,8 +39,8 @@ enum TargetingMode {
 @export var max_spread: float = 30.0
 
 # Rocket-specific properties
-@export var explosion_damage: int = 15
-@export var explosion_radius: float = 120.0
+@export var explosion_damage: int = 18
+@export var explosion_radius: float = 132.0
 
 # Support-specific properties
 @export var heal_amount: int = 1
@@ -261,11 +261,11 @@ func _fire_bullet(target_pos: Vector2, is_rocket: bool) -> void:
 		bullet_inst.explosion_damage = explosion_damage
 		bullet_inst.explosion_radius = explosion_radius
 		bullet_inst.explosion_scene = EXPLOSION
-		bullet_inst.speed = 150  # Slower rockets
+		bullet_inst.speed = 220  # Slower rockets
 	else:
 		# Rifle configuration
 		bullet_inst.explosive = false
-		bullet_inst.speed = 800  # Fast rifle bullets
+		bullet_inst.speed = 1000  # Fast rifle bullets
 	
 	bullet_inst.hit_enemy_vfx = HIT_ENEMY_VFX
 	bullet_inst.hit_ground_vfx = HIT_GROUND_VFX
@@ -304,6 +304,7 @@ func _play_shoot_sound() -> void:
 	if ally_data and ally_data.sound_effect:
 		var audio_player = AudioStreamPlayer.new()
 		audio_player.stream = ally_data.sound_effect
+		audio_player.bus = "SFX"
 		audio_player.volume_db = -5.0
 		add_child(audio_player)
 		audio_player.play()

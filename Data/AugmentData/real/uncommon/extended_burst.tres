@@ -13,6 +13,6 @@ name = "Extended Burst"
 description = "Adds 2 bullets to each burst"
 icon = SubResource("AtlasTexture_6r3e8")
 rarity = 1
-price = 150
+price = 80
 augment_type = 20
 value = 2.0

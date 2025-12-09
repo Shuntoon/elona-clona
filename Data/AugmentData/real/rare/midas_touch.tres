@@ -13,6 +13,6 @@ name = "Midas Touch"
 description = "15% chance to drop coins when enemies die. More stacks = higher chance and coin value."
 icon = SubResource("AtlasTexture_lp745")
 rarity = 2
-price = 200
+price = 110
 augment_type = 26
 value = 0.15

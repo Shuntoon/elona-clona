@@ -140,13 +140,13 @@ func _on_died() -> void:
 		if augment_manager.has_method("get_enemy_death_explosion_chance"):
 			var chance: float = augment_manager.get_enemy_death_explosion_chance()
 			if chance > 0.0 and randf() < chance:
-				print("Enemy death explosion triggered! Damage: ", int(10 * augment_manager.explosion_damage_multiplier), ", Radius: ", 100.0 * augment_manager.explosion_radius_multiplier)
+				print("Enemy death explosion triggered! Damage: ", int(12 * augment_manager.explosion_damage_multiplier), ", Radius: ", 110.0 * augment_manager.explosion_radius_multiplier)
 				# Spawn explosion at enemy position
 				var explosion = EXPLOSION_SCENE.instantiate()
 				explosion.global_position = global_position
 				# Apply explosion damage and radius from augment manager multipliers
-				var base_damage: int = 10
-				var base_radius: float = 100.0
+				var base_damage: int = 12
+				var base_radius: float = 110.0
 				if "damage" in explosion:
 					explosion.damage = int(base_damage * augment_manager.explosion_damage_multiplier)
 				if "explosion_radius" in explosion:

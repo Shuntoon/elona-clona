@@ -9,7 +9,7 @@ class_name Froggert
 @export var projectile_bullet_sprite_scale: Vector2 = Vector2(1, 1)
 
 ## Explosion settings
-@export var explosion_damage: int = 50
+@export var explosion_damage: int = 55
 @export var explosion_scene: PackedScene
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D

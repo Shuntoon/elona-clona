@@ -13,6 +13,6 @@ name = "Frost Rounds"
 description = "Slows enemies by 10% for 3 seconds on hit"
 icon = SubResource("AtlasTexture_qhffa")
 rarity = 2
-price = 250
+price = 110
 augment_type = 19
 value = 0.1

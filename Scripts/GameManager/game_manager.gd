@@ -31,8 +31,12 @@ var current_health : int :
 @export var bg_end_color: Color = Color(0.6, 0.5, 0.7, 1.0)  # Lavender/dusk color
 @export var day_time_length : float = 10
 
+# Debug settings
+@export var debug_finish_day_enabled : bool = false
+
 # Ambiance audio
 @export var bird_ambiance: AudioStream
+@export var gameplay_music: AudioStream
 @export var shop_music: AudioStream
 @export var new_wave_sound: AudioStream
 
@@ -57,6 +61,7 @@ var wave_manager
 
 # Audio players
 var ambiance_player: AudioStreamPlayer = null
+var gameplay_music_player: AudioStreamPlayer = null
 var shop_music_player: AudioStreamPlayer = null
 var new_wave_sound_player: AudioStreamPlayer = null
 
@@ -78,6 +83,17 @@ func _ready() -> void:
 		# Loop the ambiance when it finishes
 		ambiance_player.finished.connect(_on_ambiance_finished)
 		print("Bird ambiance loaded: ", bird_ambiance)
+
+	# Create gameplay music player
+	gameplay_music_player = AudioStreamPlayer.new()
+	gameplay_music_player.bus = "Music"
+	add_child(gameplay_music_player)
+	if gameplay_music:
+		gameplay_music_player.stream = gameplay_music
+		gameplay_music_player.volume_db = -5.0
+		# Loop the gameplay music when it finishes
+		gameplay_music_player.finished.connect(_on_gameplay_music_finished)
+		print("Gameplay music loaded: ", gameplay_music)
 
 	# Create new wave sound player
 	new_wave_sound_player = AudioStreamPlayer.new()
@@ -126,42 +142,44 @@ func _process(_delta: float) -> void:
 		else:
 			background.modulate = bg_start_color
 
+func _unhandled_input(event: InputEvent) -> void:
+	if debug_finish_day_enabled and event.is_action_pressed("finish_day"):
+		print("=== FINISH DAY DEBUG ===")
+		print("Finishing day manually...")
+		
+		# Stop spawning and enable sudden death
+		spawn_timer.stop()
+		sudden_death = true
+		print("Spawn timer stopped, sudden_death = true")
+		
+		# Clear all enemies
+		var enemy_count = enemies.get_child_count()
+		print("Clearing ", enemy_count, " enemies")
+		for enemy in enemies.get_children():
+			enemy.queue_free()
+		
+		# Wait a frame for enemies to be cleared
+		await get_tree().process_frame
+		
+		print("Enemies cleared, showing upgrade screen")
+		print("Upgrade screen exists: ", upgrade_screen != null)
+		
+		# Show upgrade screen directly
+		if upgrade_screen:
+			# Reset position in case it's off-screen
+			upgrade_screen.position = Vector2.ZERO
+			upgrade_screen.show()
+			upgrade_screen._bounce_in()
+			print("Upgrade screen shown!")
+		else:
+			print("ERROR: Upgrade screen is null!")
+		
+		# Also emit signals for other systems
+		day_timer_finished.emit()
+		all_enemies_killed.emit()
+
 # Debug: Finish day input to clear enemies (DISABLED)
 #func _unhandled_input(event: InputEvent) -> void:
-	#if event.is_action_pressed("finish_day"):
-		#print("=== FINISH DAY DEBUG ===")
-		#print("Finishing day manually...")
-		#
-		## Stop spawning and enable sudden death
-		#spawn_timer.stop()
-		#sudden_death = true
-		#print("Spawn timer stopped, sudden_death = true")
-		#
-		## Clear all enemies
-		#var enemy_count = enemies.get_child_count()
-		#print("Clearing ", enemy_count, " enemies")
-		#for enemy in enemies.get_children():
-			#enemy.queue_free()
-		#
-		## Wait a frame for enemies to be cleared
-		#await get_tree().process_frame
-		#
-		#print("Enemies cleared, showing upgrade screen")
-		#print("Upgrade screen exists: ", upgrade_screen != null)
-		#
-		## Show upgrade screen directly
-		#if upgrade_screen:
-			## Reset position in case it's off-screen
-			#upgrade_screen.position = Vector2.ZERO
-			#upgrade_screen.show()
-			#upgrade_screen._bounce_in()
-			#print("Upgrade screen shown!")
-		#else:
-			#print("ERROR: Upgrade screen is null!")
-		#
-		## Also emit signals for other systems
-		#day_timer_finished.emit()
-		#all_enemies_killed.emit()
 
 func _on_spawn_timer_timeout() -> void:
 	# Old spawning system - now handled by WaveManager
@@ -183,16 +201,26 @@ func _on_enemies_child_exiting_tree(_node: Node) -> void:
 	pass # Replace with function body.
 
 func _on_all_enemies_killed() -> void:
+	# Check if all waves are complete - if so, show victory screen instead of shop
+	var wave_info = get_wave_info()
+	if wave_info.get("current_wave", 1) >= wave_info.get("total_waves", 10):
+		print("All waves completed! Showing victory screen instead of shop.")
+		_show_victory_screen()
+		return
+	
 	# Reset position in case it's off-screen
 	upgrade_screen.position = Vector2.ZERO
 	upgrade_screen.show()
 	upgrade_screen._bounce_in()
 	# Pause the game while in shop
 	get_tree().paused = true
-	# Hide crosshair for shop
+	# Hide crosshair and show mouse cursor for shop
 	if crosshair:
 		crosshair.hide_crosshair()
-	# Fade out bird ambiance and fade in shop music
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	# Stop gameplay music immediately and fade out ambiance, then fade in shop music
+	if gameplay_music_player and gameplay_music_player.playing:
+		gameplay_music_player.stop()
 	_fade_out_audio(ambiance_player)
 	_fade_in_audio(shop_music_player)
 	
@@ -253,10 +281,12 @@ func _on_start_new_day() -> void:
 	if background:
 		background.modulate = bg_start_color
 	
-	# Fade out shop music and fade in bird ambiance
+	# Fade out shop music and fade in bird ambiance and gameplay music
 	_fade_out_audio(shop_music_player)
 	_fade_in_audio(ambiance_player)
 	_fade_in_audio(new_wave_sound_player)
+	await get_tree().create_timer(2.0).timeout
+	_fade_in_audio(gameplay_music_player)
 	
 	# Show crosshair for gameplay
 	if not crosshair and CROSSHAIR_SCENE:
@@ -288,6 +318,9 @@ func _on_wave_complete(_wave_number: int):
 
 func _on_all_waves_complete():
 	print("All 10 waves completed! Victory!")
+	# Stop the day timer to prevent normal day ending logic
+	if day_timer:
+		day_timer.stop()
 	# Show victory screen
 	_show_victory_screen()
 
@@ -298,6 +331,8 @@ func _show_victory_screen() -> void:
 	# Stop ambiance and shop music
 	if ambiance_player and ambiance_player.playing:
 		ambiance_player.stop()
+	if gameplay_music_player and gameplay_music_player.playing:
+		gameplay_music_player.stop()
 	if shop_music_player and shop_music_player.playing:
 		shop_music_player.stop()
 	
@@ -306,9 +341,9 @@ func _show_victory_screen() -> void:
 		crosshair.hide()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
-	# Create and show victory screen
+	# Create and show victory screen - add to root so it's above everything
 	victory_screen = VICTORY_SCREEN_SCENE.instantiate()
-	add_child(victory_screen)
+	get_tree().root.add_child(victory_screen)
 	victory_screen.show_screen()
 
 func _show_game_over_screen() -> void:
@@ -318,6 +353,8 @@ func _show_game_over_screen() -> void:
 	# Stop ambiance and shop music
 	if ambiance_player and ambiance_player.playing:
 		ambiance_player.stop()
+	if gameplay_music_player and gameplay_music_player.playing:
+		gameplay_music_player.stop()
 	if shop_music_player and shop_music_player.playing:
 		shop_music_player.stop()
 	
@@ -354,6 +391,11 @@ func _on_ambiance_finished() -> void:
 	# Loop the ambiance if we're still in gameplay (not in shop)
 	if ambiance_player and not get_tree().paused:
 		ambiance_player.play()
+
+func _on_gameplay_music_finished() -> void:
+	# Loop the gameplay music if we're still in gameplay (not in shop)
+	if gameplay_music_player and not get_tree().paused:
+		gameplay_music_player.play()
 
 func _on_shop_music_finished() -> void:
 	# Loop the shop music if we're still in the shop (game is paused)

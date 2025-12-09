@@ -61,5 +61,9 @@ func _on_main_menu_button_pressed() -> void:
 
 func _on_play_again_button_pressed() -> void:
 	play_again_pressed.emit()
+	
+	# Reset player data before restarting
+	PlayerData.reset_player_data()
+	
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://game.tscn")

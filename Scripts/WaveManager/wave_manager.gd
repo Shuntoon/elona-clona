@@ -119,6 +119,11 @@ func _on_day_finished():
 	wave_complete.emit(current_wave_index + 1)
 	# Increment AFTER emitting the complete signal, BEFORE next day starts
 	current_wave_index += 1
+	
+	# Check if this was the last wave
+	if current_wave_index >= waves.size():
+		print("Last wave completed! Emitting all_waves_complete immediately.")
+		all_waves_complete.emit()
 
 func _spawn_next_enemy():
 	if not is_spawning or not current_wave_data:

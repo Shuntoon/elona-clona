@@ -13,6 +13,6 @@ name = "Laser of Death"
 description = "Enables a powerful laser that follows your mouse and damages enemies. Stacks increase damage and tracking speed."
 icon = SubResource("AtlasTexture_012is")
 rarity = 4
-price = 400
+price = 180
 augment_type = 17
 value = 1.0

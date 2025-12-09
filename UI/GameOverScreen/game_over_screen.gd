@@ -63,4 +63,8 @@ func _on_main_menu_button_pressed() -> void:
 
 func _on_try_again_button_pressed() -> void:
 	try_again_pressed.emit()
+	
+	# Reset player data before restarting
+	PlayerData.reset_player_data()
+	
 	get_tree().change_scene_to_file("res://game.tscn")

@@ -36,8 +36,8 @@ enum TargetingMode {
 @export var sound_effect: AudioStream
 
 # Rocket-specific properties
-@export var explosion_damage: int = 15
-@export var explosion_radius: float = 120.0
+@export var explosion_damage: int = 18
+@export var explosion_radius: float = 132.0
 
 # Support-specific properties
 @export var heal_amount: int = 1

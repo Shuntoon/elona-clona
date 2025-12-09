@@ -12,6 +12,6 @@ script = ExtResource("2_script")
 name = "Lucky Coin"
 description = "+10% Gold gain"
 icon = SubResource("AtlasTexture_gs8ly")
-price = 75
+price = 60
 augment_type = 18
 value = 0.1

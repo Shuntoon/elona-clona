@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://c4ruds6frs58h"]
+[gd_scene load_steps=35 format=3 uid="uid://c4ruds6frs58h"]
 
 [ext_resource type="Script" uid="uid://cvikpqyxjqs5g" path="res://Scripts/GameManager/game_manager.gd" id="1_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://ci4hdj038kg5i" path="res://Objects/MouseShooter/mouse_shooter.tscn" id="1_feb5d"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://vwarkgdfgwtn" path="res://Music/ambience-birds-wind-422207.mp3" id="6_bnpwn"]
 [ext_resource type="Script" uid="uid://bf28q005qtvbc" path="res://Scripts/Abilities/power_shot_ability.gd" id="6_hve3p"]
 [ext_resource type="AudioStream" uid="uid://clce61iy2or0n" path="res://Music/Zane Little - Post-Adventure Tea Party.mp3" id="7_36jdj"]
+[ext_resource type="AudioStream" uid="uid://50npabtajaby" path="res://Music/356-8-bit-chiptune-game-music-357518.mp3" id="7_dhpj7"]
 [ext_resource type="Script" uid="uid://b0hnw34sgf8um" path="res://Scripts/WaveManager/wave_manager.gd" id="8_lc2xo"]
 [ext_resource type="PackedScene" uid="uid://bljxubxu5eg3j" path="res://Objects/BulletBase/bullet_base.tscn" id="8_mfdv2"]
 [ext_resource type="AudioStream" uid="uid://c71t5mr0lfwny" path="res://SFX/NewWave/game-bonus-144751.mp3" id="8_xfvwf"]
@@ -56,9 +57,11 @@ visible = false
 [node name="GameManager" type="Node" parent="." groups=["game_manager"]]
 script = ExtResource("1_fc0e3")
 bg_start_color = Color(0.9073196, 0.849941, 0.82958084, 1)
-bg_end_color = Color(0.1554767, 0.116443135, 0.19451028, 1)
+bg_end_color = Color(0.22136249, 0.17353944, 0.26918554, 1)
 day_time_length = 60.0
+debug_finish_day_enabled = true
 bird_ambiance = ExtResource("6_bnpwn")
+gameplay_music = ExtResource("7_dhpj7")
 shop_music = ExtResource("7_36jdj")
 new_wave_sound = ExtResource("8_xfvwf")
 

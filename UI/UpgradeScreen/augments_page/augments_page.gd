@@ -31,7 +31,7 @@ func _ready():
 	add_to_group("augments_page")
 	# Configure grid columns (optional tweak)
 	if owned_grid:
-		owned_grid.columns = 16
+		owned_grid.columns = 12  # Reduced from 16/18 to prevent overflow
 	populate_augment_hbox()
 	_populate_owned_augments_grid()
 	#update_reroll_button()

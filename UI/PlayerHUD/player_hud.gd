@@ -53,6 +53,9 @@ func _ready() -> void:
 	
 func _process(_delta: float) -> void:
 	if game_manager != null:
+		# Ensure max_value is set correctly (important for web builds)
+		if hp_progress_bar.max_value != game_manager.max_health:
+			hp_progress_bar.max_value = game_manager.max_health
 		hp_progress_bar.value = game_manager.current_health
 		time_left_meter.material.set_shader_parameter("value", game_manager.day_timer.time_left / (game_manager.day_time_length))
 	

@@ -6,8 +6,8 @@ class_name Bullet
 @export var rocket_texture : Texture2D
 @export var piercing : bool = false
 @export var explosive : bool = false
-@export var explosion_damage : int = 10
-@export var explosion_radius : float = 100.0
+@export var explosion_damage : int = 12
+@export var explosion_radius : float = 110.0
 @export var explosion_visual_scale : float = 1.0
 @export var bullet_visual_scale: Vector2 = Vector2(1, 1)
 @export var rocket_visual_scale: Vector2 = Vector2(1, 1)

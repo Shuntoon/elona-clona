@@ -13,6 +13,6 @@ name = "Froggert"
 description = "Spawns a Froggert on the battlefield. Shoots toxic projectiles and explodes on contact."
 icon = SubResource("AtlasTexture_gupob")
 rarity = 2
-price = 200
+price = 110
 augment_type = 25
 value = 1.0

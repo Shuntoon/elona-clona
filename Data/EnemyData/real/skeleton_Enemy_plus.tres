@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://c1l0seehblfps"]
+
+[ext_resource type="SpriteFrames" uid="uid://hrlilf2257ik" path="res://Art/Enemy Animations/Skelton/skeleton_sprite_frames.tres" id="1_l8ivt"]
+[ext_resource type="Script" uid="uid://d4hepntti60rn" path="res://Data/EnemyData/enemy_data.gd" id="2_xgp3d"]
+
+[resource]
+script = ExtResource("2_xgp3d")
+enemy_name = "Skelton"
+speed = 1.2
+max_health = 100
+animated_sprite_frames = ExtResource("1_l8ivt")
+animated_sprite_2d_scale = Vector2(2, 2)
+gold_reward = 25
+gold_reward_variance = 5
+body_hitbox_size = Vector2(58, 84)
+body_pos = Vector2(4, 10)
+head_hitbox_size = Vector2(18, 21)
+head_pos = Vector2(19, -42)
+metadata/_custom_type_script = "uid://d4hepntti60rn"

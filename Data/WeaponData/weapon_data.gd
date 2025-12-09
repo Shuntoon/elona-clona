@@ -35,6 +35,6 @@ class_name WeaponData
 
 @export_category("Rocket Properties")
 @export var explosive_rockets: bool = false
-@export var explosion_damage: int = 10
-@export var explosion_radius: float = 100.0
+@export var explosion_damage: int = 12
+@export var explosion_radius: float = 110.0
 @export var explosion_visual_scale: float = 1.0

@@ -13,6 +13,7 @@ name = "Combat Drills"
 description = "Allies: +15% damage and +15% fire rate"
 icon = SubResource("AtlasTexture_jxe1i")
 rarity = 1
+price = 80
 augment_type = 15
 value = 0.15
 has_secondary_effect = true

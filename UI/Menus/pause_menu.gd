@@ -83,6 +83,10 @@ func _hide_options() -> void:
 func _on_restart_button_pressed() -> void:
 	menu_sound.play()
 	restarted.emit()
+	
+	# Reset player data before restarting
+	PlayerData.reset_player_data()
+	
 	get_tree().paused = false
 	get_tree().reload_current_scene()
 

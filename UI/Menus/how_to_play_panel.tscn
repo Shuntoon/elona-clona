@@ -49,17 +49,17 @@ horizontal_alignment = 1
 [node name="ContentLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "• Use your mouse to aim and shoot enemies
-• Survive waves of enemies attacking your base
-• Earn gold by defeating enemies
-• Purchase augments in the shop between waves
-• Protect your base health!
+text = "- Use your mouse to aim and shoot enemies
+- Survive waves of enemies attacking your base
+- Earn gold by defeating enemies
+- Purchase augments in the shop between waves
+- Protect your base health!
 
 Controls:
-• Left Click - Shoot
-• 1/2 - Switch Weapons
-• R - Reload
-• Escape - Pause"
+- Left Click - Shoot
+- 1/2 - Switch Weapons
+- R - Reload
+- Escape - Pause"
 label_settings = SubResource("LabelSettings_b6544")
 horizontal_alignment = 1
 vertical_alignment = 1

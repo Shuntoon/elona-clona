@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://d3cyvlxq7cwy2"]
 
-[ext_resource type="Script" path="res://UI/UpgradeScreen/augments_page/owned_augment_cell.gd" id="1_qwp8f"]
+[ext_resource type="Script" uid="uid://d0wy0d8ypd4or" path="res://UI/UpgradeScreen/augments_page/owned_augment_cell.gd" id="1_qwp8f"]
 
 [node name="OwnedAugmentCell" type="VBoxContainer"]
 custom_minimum_size = Vector2(40, 50)
@@ -10,8 +10,9 @@ script = ExtResource("1_qwp8f")
 [node name="TextureRect" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-stretch_mode = 4
-expand_mode = 1
+size_flags_horizontal = 4
+size_flags_vertical = 4
+stretch_mode = 5
 
 [node name="StackLabel" type="Label" parent="."]
 layout_mode = 2
